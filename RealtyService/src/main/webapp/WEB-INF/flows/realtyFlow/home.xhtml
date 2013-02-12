@@ -10,7 +10,8 @@
 
 	<ui:define name="content">
 		<h:form>
-			<p:growl id="growl" sticky="true" showDetail="true" />
+			<p:growl id="growl" sticky="true" showDetail="true" />			
+			
 			<p:wizard widgetVar="wiz"
 				flowListener="#{realtyWizard.onFlowProcess}">
 				<p:tab id="startTab" title="Start">
@@ -18,7 +19,8 @@
 				</p:tab>
 				<p:tab id="registration" title="Registration">
 					<p:panel header="Registration Part">
-						<h:messages errorClass="error" />
+						<!-- <h:messages errorClass="error" /> -->
+						<p:messages id="messages" showDetail="false" autoUpdate="true" />
 
 						<h:panelGrid columns="2" columnClasses="label, value"
 							styleClass="grid">
@@ -26,9 +28,13 @@
 							<p:inputText required="true" label="Login"
 								value="#{realtyWizard.user.login}" />
 
-							<h:outputText value="Password: *" />
-							<p:inputText required="true" label="Password"
-								value="#{realtyWizard.user.password}" />
+							<h:outputLabel for="pwd1" value="Password: *" />
+							<p:password id="pwd1" value="#{realtyWizard.user.password}"
+								match="pwd2" label="Password" required="true" />
+
+							<h:outputLabel for="pwd2" value="Repeat Password: *" />
+							<p:password id="pwd2" value="#{realtyWizard.user.password}"
+								label="Repeated Password" required="true" />
 
 							<h:outputText value="Email: *" />
 							<p:inputText value="#{realtyWizard.user.email}" />
@@ -50,7 +56,7 @@
 						<h:messages errorClass="error" />
 						<p:commandButton value="Add send address"></p:commandButton>
 						<h:panelGrid columns="2" columnClasses="label, value"
-							styleClass="grid">							
+							styleClass="grid">
 							<h:outputText value="Email: *" />
 							<p:inputText value="#{realtyWizard.user.email}" />
 						</h:panelGrid>
@@ -67,14 +73,14 @@
 							<h:outputText value="Email: " />
 							<h:outputText styleClass="outputLabel"
 								value="#{realtyWizard.user.email}" />
+
+							<h:outputText
+								value="First 5 news are for free, than you have to pay"></h:outputText>
+							<h:outputText />
+
+							<p:commandButton value="Submit" update="growl"
+								actionListener="#{realtyWizard.save}" />
 						</h:panelGrid>
-
-						<h:outputText
-							value="First 5 news are for free, than you have to pay"></h:outputText>
-
-						<p:commandButton value="Submit" update="growl"
-							actionListener="#{realtyWizard.save}" />
-
 					</p:panel>
 				</p:tab>
 			</p:wizard>
