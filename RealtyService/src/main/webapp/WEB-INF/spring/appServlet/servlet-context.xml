@@ -12,7 +12,7 @@
 		infrastructure -->
 	<import resource="webflow.xml" />
 	<import resource="controllers.xml" />
-	<context:component-scan base-package="com.dmytro.realty" />
+	<!-- <context:component-scan base-package="com.dmytro.realty.web.controller" /> -->
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />

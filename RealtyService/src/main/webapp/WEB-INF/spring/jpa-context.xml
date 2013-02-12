@@ -14,9 +14,9 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" lazy-init="default">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5432/voting" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/realty" />
 		<property name="username" value="postgres" />
-		<property name="password" value="postgres" />
+		<property name="password" value="poseidon" />
 	</bean>
 	
 	<bean id="emf"

@@ -1,0 +1,83 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/standard.xhtml">
+
+	<ui:define name="title">Realty Home</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<p:growl id="growl" sticky="true" showDetail="true" />
+			<p:wizard widgetVar="wiz"
+				flowListener="#{realtyWizard.onFlowProcess}">
+				<p:tab id="startTab" title="Start">
+					<h:outputText value="Start working with realty helper" />
+				</p:tab>
+				<p:tab id="registration" title="Registration">
+					<p:panel header="Registration Part">
+						<h:messages errorClass="error" />
+
+						<h:panelGrid columns="2" columnClasses="label, value"
+							styleClass="grid">
+							<h:outputText value="Login: *" />
+							<p:inputText required="true" label="Login"
+								value="#{realtyWizard.user.login}" />
+
+							<h:outputText value="Password: *" />
+							<p:inputText required="true" label="Password"
+								value="#{realtyWizard.user.password}" />
+
+							<h:outputText value="Email: *" />
+							<p:inputText value="#{realtyWizard.user.email}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+				<p:tab id="criteria" title="Search Criteria">
+					<p:panel header="Realty Search Criteria">
+						<h:messages errorClass="error" />
+
+						<h:panelGrid columns="2" columnClasses="label, value"
+							styleClass="grid">
+							<p:commandButton value="Add criteria"></p:commandButton>
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+				<p:tab id="sendTab" title="Send Parameters">
+					<p:panel header="Send Paramenters">
+						<h:messages errorClass="error" />
+						<p:commandButton value="Add send address"></p:commandButton>
+						<h:panelGrid columns="2" columnClasses="label, value"
+							styleClass="grid">							
+							<h:outputText value="Email: *" />
+							<p:inputText value="#{realtyWizard.user.email}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+				<p:tab id="confirm" title="Confirmation">
+					<p:panel header="Confirmation">
+
+						<h:panelGrid id="confirmation" columns="2">
+							<h:outputText value="Login: " />
+							<h:outputText styleClass="outputLabel"
+								value="#{realtyWizard.user.login}" />
+
+							<h:outputText value="Email: " />
+							<h:outputText styleClass="outputLabel"
+								value="#{realtyWizard.user.email}" />
+						</h:panelGrid>
+
+						<h:outputText
+							value="First 5 news are for free, than you have to pay"></h:outputText>
+
+						<p:commandButton value="Submit" update="growl"
+							actionListener="#{realtyWizard.save}" />
+
+					</p:panel>
+				</p:tab>
+			</p:wizard>
+		</h:form>
+	</ui:define>
+</ui:composition>

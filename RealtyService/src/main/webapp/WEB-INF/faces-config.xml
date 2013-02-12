@@ -5,7 +5,7 @@
 	version="2.1">
 
 	<application>
-		<message-bundle>JsfMessageResources</message-bundle>
+		<!-- <message-bundle>JsfMessageResources</message-bundle> -->
 	</application>
 
 </faces-config>
