@@ -4,14 +4,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	template="/WEB-INF/layouts/standard.xhtml">
+	template="/WEB-INF/layouts/realty-layout.xhtml">
 
 	<ui:define name="title">Realty Home</ui:define>
 
 	<ui:define name="content">
 		<h:form>
 			<p:growl id="growl" sticky="true" showDetail="true" />			
-			
+			<p:panel header="Start working with the realy helper" > 
 			<p:wizard widgetVar="wiz"
 				flowListener="#{realtyWizard.onFlowProcess}">
 				<p:tab id="startTab" title="Start">
@@ -48,6 +48,7 @@
 						<h:panelGrid columns="2" columnClasses="label, value"
 							styleClass="grid">
 							<p:commandButton value="Add criteria"></p:commandButton>
+							
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
@@ -84,6 +85,7 @@
 					</p:panel>
 				</p:tab>
 			</p:wizard>
+			</p:panel>
 		</h:form>
 	</ui:define>
 </ui:composition>

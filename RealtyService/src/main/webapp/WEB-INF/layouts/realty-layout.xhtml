@@ -8,7 +8,7 @@
 <f:view contentType="text/html">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>JSF 2, Spring Web Flow, and PrimeFaces Showcase</title>
+		<title>Realty Helper</title>
 		<link rel="stylesheet"
 			href="${request.contextPath}/app/resources/styles/blueprint/screen.css"
 			type="text/css" media="screen, projection" />
@@ -21,18 +21,36 @@
 		<ui:insert name="headIncludes" />
 	</h:head>
 	<h:body>
-		<div class="container">
-			<div>
-				<h1>JSF 2, PrimeFaces, and Spring Web Flow</h1>
-				<h3 class="alt">
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" id="headerPane" size="50">
+				<!-- <h3 class="alt">
 					<ui:insert name="title" />
-				</h3>
-				<hr />
-			</div>
-			<div>
+				</h3> -->
+				<h:form>
+					<p:menubar>
+						<p:menuitem value="Project" url="#" />
+						<p:menuitem value="Other" url="#" />
+					</p:menubar>
+				</h:form>				
+				<!-- <ui:insert name="header" /> -->
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center" id="contentPane">
 				<ui:insert name="content" />
-			</div>
-		</div>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="west" size="250">
+				<ui:insert name="leftSide" />
+			</p:layoutUnit>
+
+			<p:layoutUnit position="east" size="250">
+				<ui:insert name="rightSide" />
+			</p:layoutUnit>
+
+			<p:layoutUnit position="south" size="50">
+				<ui:insert name="footer" />
+			</p:layoutUnit>
+		</p:layout>
 	</h:body>
 </f:view>
 </html>
