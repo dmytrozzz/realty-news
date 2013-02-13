@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
 	template="/WEB-INF/layouts/realty-layout.xhtml">
 
 	<ui:define name="title">Realty Home</ui:define>
@@ -51,10 +52,30 @@
 									<ui:param name="user" value="#{realtyWizard.user}" />
 								</ui:include>
 								<h:outputText value="Grouping: " />
-								<p:selectOneMenu value="#{formBean.car}">
+								<p:selectOneMenu value="#{realtyWizard.realtyType}">
 									<f:selectItem itemLabel="Choose Criteria" itemValue="" />
-									<f:selectItems value="#{formBean.cars}" />
+									<f:selectItems value="#{realtyWizard.realtyTypeList}" />
+
+									<p:ajax update="switch" process="@this" />
 								</p:selectOneMenu>
+								<p:separator />
+
+								<pe:switch id="switch" value="#{realtyWizard.realtyType}">
+									<pe:defaultCase>  
+        								Case: Default  
+    								</pe:defaultCase>
+
+									<pe:case value="Room">  
+        									Case: <p:commandButton id="case1button"
+											value="This is room" />
+									</pe:case>
+
+									<pe:case value="Appartment">
+										<p:selectOneMenu>
+											<f:selectItem itemLabel="Choose Appartment Type" itemValue="" />											
+										</p:selectOneMenu>
+									</pe:case>
+								</pe:switch>
 							</h:panelGrid>
 						</p:panel>
 					</p:tab>
