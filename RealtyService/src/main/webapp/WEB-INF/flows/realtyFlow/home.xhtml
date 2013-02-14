@@ -43,41 +43,9 @@
 						</p:panel>
 					</p:tab>
 					<p:tab id="criteria" title="Search Criteria">
-						<p:panel header="Realty Search Criteria">
-							<h:messages errorClass="error" />
-							<p:commandButton value="Add criteria" action="addCriteria"></p:commandButton>
-							<h:panelGrid id="criteriaGrid" columns="2"
-								columnClasses="label, value" styleClass="grid">
-								<ui:include src="realtyUnit.xhtml">
-									<ui:param name="user" value="#{realtyWizard.user}" />
-								</ui:include>
-								<h:outputText value="Grouping: " />
-								<p:selectOneMenu value="#{realtyWizard.realtyType}">
-									<f:selectItem itemLabel="Choose Criteria" itemValue="" />
-									<f:selectItems value="#{realtyWizard.realtyTypeList}" />
-
-									<p:ajax update="switch" process="@this" />
-								</p:selectOneMenu>
-								<p:separator />
-
-								<pe:switch id="switch" value="#{realtyWizard.realtyType}">
-									<pe:defaultCase>  
-        								Case: Default  
-    								</pe:defaultCase>
-
-									<pe:case value="Room">  
-        									Case: <p:commandButton id="case1button"
-											value="This is room" />
-									</pe:case>
-
-									<pe:case value="Appartment">
-										<p:selectOneMenu>
-											<f:selectItem itemLabel="Choose Appartment Type" itemValue="" />											
-										</p:selectOneMenu>
-									</pe:case>
-								</pe:switch>
-							</h:panelGrid>
-						</p:panel>
+						<ui:include src="realtyUnit.xhtml">
+							<ui:param name="realtyWizard" value="#{realtyWizard}" />
+						</ui:include>
 					</p:tab>
 					<p:tab id="sendTab" title="Send Parameters">
 						<p:panel header="Send Paramenters">

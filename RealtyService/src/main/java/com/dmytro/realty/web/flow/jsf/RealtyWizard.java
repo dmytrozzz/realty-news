@@ -9,29 +9,21 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import org.hibernate.Criteria;
 import org.primefaces.event.FlowEvent;
 
 import com.dmytro.realty.domain.User;
 
 public class RealtyWizard implements Serializable {
 	private User user = new User();
-	private List<String> realtyTypeList = Arrays.asList("Room", "Appartment");
-	private String realtyType;
+	private List<Criteria> criteriaList = new ArrayList<>();	
 
-	public List<String> getRealtyTypeList() {
-		return realtyTypeList;
+	public List<Criteria> getCriteriaList() {
+		return criteriaList;
 	}
 
-	public void setRealtyTypeList(List<String> realtyTypeList) {
-		this.realtyTypeList = realtyTypeList;
-	}
-
-	public String getRealtyType() {
-		return realtyType;
-	}
-
-	public void setRealtyType(String realtyType) {
-		this.realtyType = realtyType;
+	public void setCriteriaList(List<Criteria> criteriaList) {
+		this.criteriaList = criteriaList;
 	}
 
 	public User getUser() {
