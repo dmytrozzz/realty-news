@@ -6,29 +6,52 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
-	<h3>Overlay</h3>  
-    <p:commandButton id="dynaButton" value="Show" type="button"/>  
-    <p:slideMenu overlay="true" trigger="dynaButton" my="left top" at="left bottom" style="width:180px">  
-        <p:submenu label="Ajax Menuitems">  
-            <p:menuitem value="Save" update="messages" icon="ui-icon-disk"/>  
-            <p:menuitem value="Update" update="messages" icon="ui-icon-arrowrefresh-1-w"/>  
-        </p:submenu>  
-        <p:submenu label="Non-Ajax Menuitem">  
-            <p:menuitem value="Delete"  ajax="false" icon="ui-icon-close"/>  
-        </p:submenu>  
-        <p:submenu label="Navigations" icon="ui-icon-extlink">  
-            <p:submenu label="Prime Links">  
-                <p:menuitem value="Prime" url="http://www.prime.com.tr" />  
-                <p:menuitem value="PrimeFaces" url="http://www.primefaces.org" />  
-            </p:submenu>  
-            <p:menuitem value="Mobile" outcome="/mobile/index" />  
-        </p:submenu>  
-    </p:slideMenu>  
+	<p:commandButton id="add" value="Add criteria" type="button" />
+
+<!-- Realty types menu -->
+	<p:slideMenu overlay="true" trigger="dynaButton" my="left top"
+		at="left bottom" style="width:180px">
+		<p:submenu label="Ajax Menuitems">
+			<p:menuitem value="Save" update="messages" icon="ui-icon-disk" />
+			<p:menuitem value="Update" update="messages"
+				icon="ui-icon-arrowrefresh-1-w" />
+		</p:submenu>
+		<p:submenu label="Non-Ajax Menuitem">
+			<p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
+		</p:submenu>
+		<p:submenu label="Navigations" icon="ui-icon-extlink">
+			<p:submenu label="Prime Links">
+				<p:menuitem value="Prime" url="http://www.prime.com.tr" />
+				<p:menuitem value="PrimeFaces" url="http://www.primefaces.org" />
+			</p:submenu>
+			<p:menuitem value="Mobile" outcome="/mobile/index" />
+		</p:submenu>
+	</p:slideMenu>
+
+	<p:dataTable id="criteriaTable" value="realtyWizard.criteriaList"
+		var="criteria">
+
+		<p:column style="width:4%">
+			<p:commandButton id="selectButton" title="View">
+				<f:setPropertyActionListener value="#{criteria}"
+					target="#{tableBean.selectedCriteria}" />
+			</p:commandButton>
+		</p:column>
+
+		<p:column style="width:4%">
+			<p:commandButton id="dynaButton" value="Show" type="button" />
+		</p:column>
+
+		<p:column headerText="Type" style="width:24%">
+			<h:outputText value="#{criteria.realtyType}" />
+		</p:column>
+	</p:dataTable>
+
 	<p:panel header="Realty Search Criteria">
 		<h:messages errorClass="error" />
 		<p:commandButton value="Add criteria" action="addCriteria"></p:commandButton>
 		<h:panelGrid id="criteriaGrid" columns="2"
-			columnClasses="label, value" styleClass="grid">			
+			columnClasses="label, value" styleClass="grid">
 			<h:outputText value="Grouping: " />
 			<p:selectOneMenu value="#{realtyWizard.realtyType}">
 				<f:selectItem itemLabel="Choose Criteria" itemValue="" />
@@ -40,12 +63,11 @@
 
 			<pe:switch id="switch" value="#{realtyWizard.realtyType}">
 				<pe:defaultCase>  
-        								Case: Default  
-    								</pe:defaultCase>
+        			Case: Default
+    			</pe:defaultCase>
 
-				<pe:case value="Room">  
-        									Case: <p:commandButton id="case1button"
-						value="This is room" />
+				<pe:case value="Room">
+					<p:commandButton id="case1button" value="This is room" />
 				</pe:case>
 
 				<pe:case value="Appartment">

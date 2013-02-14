@@ -114,6 +114,13 @@
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>primefaces-extensions</artifactId>
 			<version>0.6.3</version>
+			<exclusions>
+			<!-- Exclude in flavour of original primefaces -->
+				<exclusion>
+					<artifactId>primefaces</artifactId>
+					<groupId>org.primefaces</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- Servlet -->
 		<dependency>
