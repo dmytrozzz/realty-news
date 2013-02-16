@@ -10,7 +10,7 @@
 	<ui:define name="title">Realty Home</ui:define>
 
 	<ui:define name="content">
-		<h:form>
+		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
 			<p:panel header="Start working with the realy helper">
 				<p:wizard widgetVar="wiz"
@@ -38,15 +38,17 @@
 									label="Repeated Password" required="true" />
 
 								<h:outputText value="Email: *" />
-								<p:inputText value="#{realtyWizard.user.email}" />
+								<p:inputText value="#{realtyWizard.user.email}" required="true" />
 							</h:panelGrid>
 						</p:panel>
 					</p:tab>
+
 					<p:tab id="criteria" title="Search Criteria">
-						<ui:include src="realtyUnit.xhtml">
+						<ui:include src="components/criteriaList.xhtml">
 							<ui:param name="realtyWizard" value="#{realtyWizard}" />
 						</ui:include>
 					</p:tab>
+
 					<p:tab id="sendTab" title="Send Parameters">
 						<p:panel header="Send Paramenters">
 							<h:messages errorClass="error" />
