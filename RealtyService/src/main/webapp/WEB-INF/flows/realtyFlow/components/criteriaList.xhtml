@@ -30,16 +30,15 @@
 
 			<p:column headerText="Model" style="width:24%">
 				<p:commandButton id="parametersButton" value="Обрати параметри пошуку" type="button" />
-
-				<p:overlayPanel id="parametersPanel" for="parametersButton" hideEffect="fade" dynamic="true">
+				<p:overlayPanel id="parametersPanel" for="parametersButton" hideEffect="fade" dynamic="false">
 					<h:panelGrid columns="1" style="margin-bottom:10px">
 						<h:outputText id="displayRange" value="Between #{criteria.criteriaParameters.fromPrice} and #{criteria.criteriaParameters.toPrice}" />
-						<p:slider step="100" maxValue="10000" for="from,to" display="displayRange" style="width:200px" range="true" displayTemplate="Between {min} and {max}" />
+						<p:slider step="100" maxValue="10000" for="from,to" display="displayRange" style="width:200px" range="true"
+							displayTemplate="Between {min} and {max}" />
 					</h:panelGrid>
 					<h:inputHidden id="from" value="#{criteria.criteriaParameters.fromPrice}" />
 					<h:inputHidden id="to" value="#{criteria.criteriaParameters.toPrice}" />
 				</p:overlayPanel>
-
 			</p:column>
 		</p:dataTable>
 	</p:panel>

@@ -1,6 +1,8 @@
 package com.dmytro.realty.domain.search;
 
-public class CriteriaParameters {
+import java.io.Serializable;
+
+public class CriteriaParameters implements Serializable {
 	private int fromPrice = 1000;
 	private int toPrice = 5000;
 

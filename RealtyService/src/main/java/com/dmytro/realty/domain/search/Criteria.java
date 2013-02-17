@@ -2,13 +2,13 @@ package com.dmytro.realty.domain.search;
 
 import java.io.Serializable;
 
-public class Criteria implements Serializable {	
-	
+public class Criteria implements Serializable {
+
 	private RealtyUnit realtyUnit;
 	private OperationType operationType;
 	private Term term;
-	
-	private CriteriaParameters criteriaParameters;
+
+	private CriteriaParameters criteriaParameters = new CriteriaParameters();
 
 	public RealtyUnit getRealtyUnit() {
 		return realtyUnit;
@@ -16,12 +16,12 @@ public class Criteria implements Serializable {
 
 	public void setRealtyUnit(RealtyUnit realtyUnit) {
 		this.realtyUnit = realtyUnit;
-	}		
+	}
 
 	public OperationType getOperationType() {
 		return operationType;
-	}	
-	
+	}
+
 	public void setOperationType(OperationType operationType) {
 		this.operationType = operationType;
 	}
