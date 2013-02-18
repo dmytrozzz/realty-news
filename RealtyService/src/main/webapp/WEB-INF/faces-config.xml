@@ -5,7 +5,12 @@
 	version="2.1">
 
 	<application>
-		<!-- <message-bundle>JsfMessageResources</message-bundle> -->
+		<!-- <message-bundle>JsfMessageResources</message-bundle> -->		
 	</application>
+
+	<converter>
+		<converter-for-class>java.lang.Enum</converter-for-class>
+		<converter-class>javax.faces.convert.EnumConverter</converter-class>
+	</converter>
 
 </faces-config>

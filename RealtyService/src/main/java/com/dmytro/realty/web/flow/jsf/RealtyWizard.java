@@ -9,14 +9,23 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
-import org.hibernate.Criteria;
 import org.primefaces.event.FlowEvent;
 
 import com.dmytro.realty.domain.User;
+import com.dmytro.realty.domain.search.Criteria;
+import com.dmytro.realty.domain.search.OperationType;
+import com.dmytro.realty.domain.search.RealtyUnit;
 
 public class RealtyWizard implements Serializable {
-	private User user = new User();
-	private List<Criteria> criteriaList = new ArrayList<>();	
+	private User user;
+	private List<Criteria> criteriaList;
+	private Criteria selectedCriteria;
+
+	public RealtyWizard() {
+		user = new User();
+		criteriaList = new ArrayList<>();
+		criteriaList.add(new Criteria());
+	}
 
 	public List<Criteria> getCriteriaList() {
 		return criteriaList;
@@ -24,6 +33,14 @@ public class RealtyWizard implements Serializable {
 
 	public void setCriteriaList(List<Criteria> criteriaList) {
 		this.criteriaList = criteriaList;
+	}
+
+	public Criteria getSelectedCriteria() {
+		return selectedCriteria;
+	}
+
+	public void setSelectedCriteria(Criteria selectedCriteria) {
+		this.selectedCriteria = selectedCriteria;
 	}
 
 	public User getUser() {
@@ -34,9 +51,24 @@ public class RealtyWizard implements Serializable {
 		this.user = user;
 	}
 
+	public void addCriteria() {
+		criteriaList.add(new Criteria());
+	}
+
+	public RealtyUnit[] getRealtyUnits() {
+		return RealtyUnit.values();
+	}
+
+	public OperationType[] getOperationTypes(RealtyUnit realtyUnit) {
+		if (realtyUnit == RealtyUnit.ROOM)
+			return new OperationType[] { OperationType.RENT,
+					OperationType.FARM_OUT, OperationType.LOOKING_PARTNER };
+		else
+			return OperationType.values();
+	}
+
 	public void save(ActionEvent actionEvent) {
 		// Persist user
-
 		FacesMessage msg = new FacesMessage("Successful", "Welcome :"
 				+ user.getLogin());
 		FacesContext.getCurrentInstance().addMessage(null, msg);

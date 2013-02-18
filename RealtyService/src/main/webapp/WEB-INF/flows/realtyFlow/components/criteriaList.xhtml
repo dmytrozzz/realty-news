@@ -1,0 +1,45 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
+
+	<p:panel header="Realty Search Criteria">
+		<h:messages errorClass="error" />
+		<p:commandButton value="Add criteria" actionListener="#{realtyWizard.addCriteria}" update="criteriaTable" />
+
+		<p:dataTable id="criteriaTable" value="#{realtyWizard.criteriaList}" var="criteria">
+			<!-- Обрати тип нерухомості -->
+			<p:column headerText="Realty Type">
+				<p:selectOneMenu value="#{criteria.realtyUnit}" required="true" requiredMessage="Ви не обрали тип нерухомості">
+					<f:selectItem itemLabel="Оберіть тип нерухомості" itemValue="#{null}" />
+					<f:selectItems var="realtyType" itemLabel="#{realtyType.name()}---" value="#{realtyWizard.realtyUnits}" />
+					<p:ajax update="selectOperation" process="@this" />
+				</p:selectOneMenu>
+			</p:column>
+
+			<!-- Обрати тип операції -->
+			<p:column headerText="Operation Type">
+				<p:outputPanel id="selectOperation" autoUpdate="true">
+					<p:selectOneMenu value="#{criteria.operationType}" rendered="#{criteria.realtyUnit != null}" required="true"
+						requiredMessage="Ви не обрали тип операції">
+						<f:selectItem itemLabel="Оберіть тип операції" itemValue="#{null}" />
+						<f:selectItems var="opType" itemLabel="#{opType.name()}---" value="#{realtyWizard.getOperationTypes(criteria.realtyUnit)}" />
+						<!-- <p:ajax update="text" process="@this" /> -->
+					</p:selectOneMenu>
+				</p:outputPanel>
+			</p:column>
+
+			<p:column headerText="Model" style="width:24%">
+				<p:commandButton id="parametersButton" value="Обрати параметри пошуку" type="button" />
+				<p:overlayPanel id="parametersPanel" for="parametersButton" hideEffect="fade" dynamic="false">
+					<h:panelGrid columns="1" style="margin-bottom:10px">
+						<h:outputText id="displayRange" value="Between #{criteria.criteriaParameters.fromPrice} and #{criteria.criteriaParameters.toPrice}" />
+						<p:slider step="100" maxValue="10000" for="from,to" display="displayRange" style="width:200px" range="true"
+							displayTemplate="Between {min} and {max}" />
+					</h:panelGrid>
+					<h:inputHidden id="from" value="#{criteria.criteriaParameters.fromPrice}" />
+					<h:inputHidden id="to" value="#{criteria.criteriaParameters.toPrice}" />
+				</p:overlayPanel>
+			</p:column>
+		</p:dataTable>
+	</p:panel>
+</ui:composition>

@@ -27,6 +27,10 @@
 	</filter-mapping>
 
 	<!-- JSF 2 IMPLEMENTATION -->
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>afterdark</param-value>
+	</context-param>
 	<!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
 	<context-param>
 		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>

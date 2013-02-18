@@ -16,6 +16,9 @@
 		<link rel="stylesheet"
 			href="${request.contextPath}/app/resources/styles/blueprint/print.css"
 			type="text/css" media="print" />
+			<link rel="stylesheet"
+			href="${request.contextPath}/app/resources/styles/realty-style.css"
+			type="text/css" media="print" />
 		<!--[if lt IE 8]>
 		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
 	<![endif]-->
@@ -40,11 +43,11 @@
 				<ui:insert name="content" />
 			</p:layoutUnit>
 
-			<p:layoutUnit position="west" size="250">
+			<p:layoutUnit position="west" size="200">
 				<ui:insert name="leftSide" />
 			</p:layoutUnit>
 
-			<p:layoutUnit position="east" size="250">
+			<p:layoutUnit position="east" size="200">
 				<ui:insert name="rightSide" />
 			</p:layoutUnit>
 
