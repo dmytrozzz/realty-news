@@ -1,5 +1,5 @@
 package com.dmytro.realty.domain.search;
 
-public enum RealtyUnit {
+public enum ProductType {
 	APPARTMENT, ROOM, HOUSE, SOIL
 }

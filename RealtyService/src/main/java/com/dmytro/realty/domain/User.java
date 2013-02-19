@@ -1,33 +1,53 @@
 package com.dmytro.realty.domain;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "realty_user")
 public class User implements Serializable {
-	private String login;
-	private String password;
-	private String email;
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id")
+    private long id;
 
-	public String getLogin() {
-		return login;
-	}
+    @Column(name = "login")
+    private String login;
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
+    @Column(name = "password")
+    private String password;
 
-	public String getPassword() {
-		return password;
-	}
+    @Column(name = "email")
+    private String email;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getLogin() {
+	return login;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setLogin(String login) {
+	this.login = login;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getPassword() {
+	return password;
+    }
+
+    public void setPassword(String password) {
+	this.password = password;
+    }
+
+    public String getEmail() {
+	return email;
+    }
+
+    public void setEmail(String email) {
+	this.email = email;
+    }
 }

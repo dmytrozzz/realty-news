@@ -14,7 +14,7 @@ import org.primefaces.event.FlowEvent;
 import com.dmytro.realty.domain.User;
 import com.dmytro.realty.domain.search.Criteria;
 import com.dmytro.realty.domain.search.OperationType;
-import com.dmytro.realty.domain.search.RealtyUnit;
+import com.dmytro.realty.domain.search.ProductType;
 
 public class RealtyWizard implements Serializable {
 	private User user;
@@ -55,12 +55,12 @@ public class RealtyWizard implements Serializable {
 		criteriaList.add(new Criteria());
 	}
 
-	public RealtyUnit[] getRealtyUnits() {
-		return RealtyUnit.values();
+	public ProductType[] getRealtyUnits() {
+		return ProductType.values();
 	}
 
-	public OperationType[] getOperationTypes(RealtyUnit realtyUnit) {
-		if (realtyUnit == RealtyUnit.ROOM)
+	public OperationType[] getOperationTypes(ProductType realtyUnit) {
+		if (realtyUnit == ProductType.ROOM)
 			return new OperationType[] { OperationType.RENT,
 					OperationType.FARM_OUT, OperationType.LOOKING_PARTNER };
 		else
@@ -68,7 +68,7 @@ public class RealtyWizard implements Serializable {
 	}
 
 	public void save(ActionEvent actionEvent) {
-		// Persist user
+		// Persist user - this is in realty-flow
 		FacesMessage msg = new FacesMessage("Successful", "Welcome :"
 				+ user.getLogin());
 		FacesContext.getCurrentInstance().addMessage(null, msg);

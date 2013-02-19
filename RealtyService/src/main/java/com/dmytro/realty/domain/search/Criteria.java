@@ -4,41 +4,32 @@ import java.io.Serializable;
 
 public class Criteria implements Serializable {
 
-	private RealtyUnit realtyUnit;
-	private OperationType operationType;
-	private Term term;
+    private ProductType productType;
+    private OperationType operationType;
 
-	private CriteriaParameters criteriaParameters = new CriteriaParameters();
+    private CriteriaParameters criteriaParameters = new CriteriaParameters();
 
-	public RealtyUnit getRealtyUnit() {
-		return realtyUnit;
-	}
+    public ProductType getRealtyUnit() {
+	return productType;
+    }
 
-	public void setRealtyUnit(RealtyUnit realtyUnit) {
-		this.realtyUnit = realtyUnit;
-	}
+    public void setRealtyUnit(ProductType realtyUnit) {
+	this.productType = realtyUnit;
+    }
 
-	public OperationType getOperationType() {
-		return operationType;
-	}
+    public OperationType getOperationType() {
+	return operationType;
+    }
 
-	public void setOperationType(OperationType operationType) {
-		this.operationType = operationType;
-	}
+    public void setOperationType(OperationType operationType) {
+	this.operationType = operationType;
+    }
 
-	public Term getTerm() {
-		return term;
-	}
+    public CriteriaParameters getCriteriaParameters() {
+	return criteriaParameters;
+    }
 
-	public void setTerm(Term term) {
-		this.term = term;
-	}
-
-	public CriteriaParameters getCriteriaParameters() {
-		return criteriaParameters;
-	}
-
-	public void setCriteriaParameters(CriteriaParameters criteriaParameters) {
-		this.criteriaParameters = criteriaParameters;
-	}
+    public void setCriteriaParameters(CriteriaParameters criteriaParameters) {
+	this.criteriaParameters = criteriaParameters;
+    }
 }

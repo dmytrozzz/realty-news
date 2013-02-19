@@ -3,12 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
-	start-state="realty-home">	
+	start-state="realty-home">
 
 	<view-state id="realty-home" view="homePage.xhtml">
 		<on-entry>
 			<evaluate expression="realtyController.getWizard()" result="viewScope.realtyWizard"></evaluate>
 		</on-entry>
+		
+		<transition on="saveUser">
+			<evaluate expression="realtyController.addUser(viewScope.realtyWizard.user)"></evaluate>
+		</transition>
 	</view-state>
 
 	<end-state id="end" view="" />
