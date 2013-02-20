@@ -2,12 +2,15 @@ package com.dmytro.realty.domain.search;
 
 import java.io.Serializable;
 
-public class Criteria implements Serializable {
+import com.dmytro.realty.domain.search.enums.OperationType;
+import com.dmytro.realty.domain.search.enums.ProductType;
+
+public class Category implements Serializable {
 
     private ProductType productType;
     private OperationType operationType;
 
-    private CriteriaParameters criteriaParameters = new CriteriaParameters();
+    private Parameters criteriaParameters = new Parameters();
 
     public ProductType getRealtyUnit() {
 	return productType;
@@ -25,11 +28,11 @@ public class Criteria implements Serializable {
 	this.operationType = operationType;
     }
 
-    public CriteriaParameters getCriteriaParameters() {
+    public Parameters getCriteriaParameters() {
 	return criteriaParameters;
     }
 
-    public void setCriteriaParameters(CriteriaParameters criteriaParameters) {
+    public void setCriteriaParameters(Parameters criteriaParameters) {
 	this.criteriaParameters = criteriaParameters;
     }
 }

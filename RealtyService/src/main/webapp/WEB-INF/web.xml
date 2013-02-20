@@ -39,24 +39,23 @@
 	<!-- Enables special Facelets debug output during development -->
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
-		<param-value>Development </param-value>
+		<param-value>Development</param-value>
 	</context-param>
 	<!-- Causes Facelets to refresh templates during development -->
 	<context-param>
 		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
 		<param-value>1</param-value>
 	</context-param>
-	<!-- Just here so the JSF implementation can initialize -->
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.faces</url-pattern>
-	</servlet-mapping>
-	<!-- Just here so the JSF implementation can initialize, *not* used at runtime -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<!-- Just here so the JSF implementation can initialize, *not* used at runtime -->
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.faces</url-pattern>
+	</servlet-mapping>	
 	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
 		<param-value>client</param-value>

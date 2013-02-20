@@ -11,7 +11,10 @@
 		</on-entry>
 		
 		<transition on="saveUser">
-			<evaluate expression="realtyController.addUser(viewScope.realtyWizard.user)"></evaluate>
+			<evaluate expression="realtyController.addUser(viewScope.realtyWizard.user)"></evaluate>			
+		</transition>
+		<transition on="addNewsFeed">
+			<evaluate expression="realtyController.addNewsFeed(viewScope.realtyWizard)"></evaluate>
 		</transition>
 	</view-state>
 
@@ -21,4 +24,5 @@
 		<transition on="exit" to="end" />
 	</global-transitions>
 
+	
 </flow>
