@@ -19,12 +19,10 @@
 			<!-- Обрати тип операції -->
 			<p:column headerText="Operation Type">
 				<p:outputPanel id="selectOperation" autoUpdate="true">
-					<p:selectOneMenu value="#{criteria.operationType}" rendered="#{criteria.realtyUnit != null}" required="true"
-						requiredMessage="Ви не обрали тип операції">
-						<f:selectItem itemLabel="Оберіть тип операції" itemValue="#{null}" />
-						<f:selectItems var="opType" itemLabel="#{opType.name()}---" value="#{realtyWizard.getOperationTypes(criteria.realtyUnit)}" />
-						<!-- <p:ajax update="text" process="@this" /> -->
-					</p:selectOneMenu>
+					<p:selectCheckboxMenu value="#{realtyWizard.criteria.selectedOperations}" required="true" requiredMessage="Ви не обрали тип операції"
+						rendered="#{criteria.realtyUnit != null}" label="Choose operation" panelStyle="width:220px">
+						<f:selectItems itemLabel="#{opType.name()}---" value="#{realtyWizard.getOperationTypes(criteria.realtyUnit)}" />
+					</p:selectCheckboxMenu>
 				</p:outputPanel>
 			</p:column>
 

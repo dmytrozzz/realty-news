@@ -1,12 +1,14 @@
 package com.dmytro.realty.domain.search;
 
-import com.dmytro.realty.domain.User;
+
+import java.util.Collection;
+
+import com.dmytro.realty.domain.search.enums.OperationType;
 
 public class SearchCriteria {
     private Category category;
-    private Parameters parameters;
-
-    private User user;
+    private Collection<OperationType> operations;
+    private Parameters parameters;    
 
     public Category getCategory() {
 	return category;
@@ -24,11 +26,11 @@ public class SearchCriteria {
 	this.parameters = parameters;
     }
 
-    public User getUser() {
-	return user;
+    public Collection<OperationType> getOperations() {
+        return operations;
     }
 
-    public void setUser(User user) {
-	this.user = user;
+    public void setOperations(Collection<OperationType> operations) {
+        this.operations = operations;
     }
 }

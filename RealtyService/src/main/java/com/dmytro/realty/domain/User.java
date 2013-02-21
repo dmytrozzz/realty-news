@@ -1,8 +1,11 @@
 package com.dmytro.realty.domain;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,7 +16,8 @@ import org.hibernate.annotations.GenerationTime;
 @Table(name = "realty_user")
 public class User implements Serializable {
     @Id
-    @Generated(value=GenerationTime.INSERT)
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Generated(value = GenerationTime.INSERT)
     @Column(name = "id")
     private long id;
 
