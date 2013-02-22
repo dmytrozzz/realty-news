@@ -1,21 +1,23 @@
 package com.dmytro.realty.domain.search;
 
-
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import com.dmytro.realty.domain.search.enums.OperationType;
+import com.dmytro.realty.domain.search.enums.ProductType;
 
-public class SearchCriteria {
-    private Category category;
-    private Collection<OperationType> operations;
-    private Parameters parameters;    
+public class SearchCriteria implements Serializable {
+    private ProductType productType;
+    private Collection<OperationType> operations = new ArrayList<>();
+    private Parameters parameters = new Parameters();   
 
-    public Category getCategory() {
-	return category;
+    public ProductType getProductType() {
+        return productType;
     }
 
-    public void setCategory(Category category) {
-	this.category = category;
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 
     public Parameters getParameters() {

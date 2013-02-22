@@ -21,5 +21,4 @@ public class Parameters implements Serializable {
     public void setToPrice(int toPrice) {
 	this.toPrice = toPrice;
     }
-
 }

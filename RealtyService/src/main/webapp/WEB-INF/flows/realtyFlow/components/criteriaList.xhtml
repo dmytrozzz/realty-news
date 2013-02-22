@@ -4,14 +4,14 @@
 
 	<p:panel header="Realty Search Criteria">
 		<h:messages errorClass="error" />
-		<p:commandButton value="Add criteria" actionListener="#{realtyWizard.addCriteria}" update="criteriaTable" />
+		<p:commandButton value="Add criteria" actionListener="#{preferencesBean.addCriteria}" update="criteriaTable" />
 
-		<p:dataTable id="criteriaTable" value="#{realtyWizard.criteriaList}" var="criteria">
+		<p:dataTable id="criteriaTable" value="#{preferencesBean.criteriaList}" var="criteria">
 			<!-- Обрати тип нерухомості -->
 			<p:column headerText="Realty Type">
-				<p:selectOneMenu value="#{criteria.realtyUnit}" required="true" requiredMessage="Ви не обрали тип нерухомості">
+				<p:selectOneMenu value="#{criteria.productType}" required="true" requiredMessage="Ви не обрали тип нерухомості">
 					<f:selectItem itemLabel="Оберіть тип нерухомості" itemValue="#{null}" />
-					<f:selectItems var="realtyType" itemLabel="#{realtyType.name()}---" value="#{realtyWizard.realtyUnits}" />
+					<f:selectItems var="realtyType" itemLabel="#{realtyType.name()}" value="#{preferencesBean.realtyUnits}" />
 					<p:ajax update="selectOperation" process="@this" />
 				</p:selectOneMenu>
 			</p:column>
@@ -19,9 +19,9 @@
 			<!-- Обрати тип операції -->
 			<p:column headerText="Operation Type">
 				<p:outputPanel id="selectOperation" autoUpdate="true">
-					<p:selectCheckboxMenu value="#{realtyWizard.criteria.selectedOperations}" required="true" requiredMessage="Ви не обрали тип операції"
-						rendered="#{criteria.realtyUnit != null}" label="Choose operation" panelStyle="width:220px">
-						<f:selectItems itemLabel="#{opType.name()}---" value="#{realtyWizard.getOperationTypes(criteria.realtyUnit)}" />
+					<p:selectCheckboxMenu value="#{criteria.operations}" required="true" requiredMessage="Ви не обрали тип операції" label="Choose operation"
+						rendered="#{criteria.productType != null}" panelStyle="width:220px">
+						<f:selectItems itemLabel="#{opType.name()}" value="#{preferencesBean.getOperationTypes(criteria.productType)}" />
 					</p:selectCheckboxMenu>
 				</p:outputPanel>
 			</p:column>
@@ -30,12 +30,12 @@
 				<p:commandButton id="parametersButton" value="Обрати параметри пошуку" type="button" />
 				<p:overlayPanel id="parametersPanel" for="parametersButton" hideEffect="fade" dynamic="false">
 					<h:panelGrid columns="1" style="margin-bottom:10px">
-						<h:outputText id="displayRange" value="Between #{criteria.criteriaParameters.fromPrice} and #{criteria.criteriaParameters.toPrice}" />
+						<h:outputText id="displayRange" value="Between #{criteria.parameters.fromPrice} and #{criteria.parameters.toPrice}" />
 						<p:slider step="100" maxValue="10000" for="from,to" display="displayRange" style="width:200px" range="true"
 							displayTemplate="Between {min} and {max}" />
 					</h:panelGrid>
-					<h:inputHidden id="from" value="#{criteria.criteriaParameters.fromPrice}" />
-					<h:inputHidden id="to" value="#{criteria.criteriaParameters.toPrice}" />
+					<h:inputHidden id="from" value="#{criteria.parameters.fromPrice}" />
+					<h:inputHidden id="to" value="#{criteria.parameters.toPrice}" />
 				</p:overlayPanel>
 			</p:column>
 		</p:dataTable>

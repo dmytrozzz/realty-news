@@ -13,12 +13,12 @@ import com.dmytro.realty.service.INewsFeedService;
 @Repository
 @Transactional
 public class NewsFeedService implements INewsFeedService {
-    @Autowired
-    private NewsFeedRepository newsFRepository;
+   /* @Autowired
+    private NewsFeedRepository newsFRepository;*/
 
     @Override
     public void addNewsFeed(NewsFeed newsFeed) {
-	newsFRepository.save(newsFeed);
+	//newsFRepository.save(newsFeed);
     }
 
 }

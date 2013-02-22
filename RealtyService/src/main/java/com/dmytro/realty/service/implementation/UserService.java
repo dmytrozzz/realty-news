@@ -14,11 +14,11 @@ import com.dmytro.realty.service.IUserService;
 @Service("userService")
 public class UserService implements IUserService {
 
-    @Autowired
-    private UserRepository userRepository;
+   /* @Autowired
+    private UserRepository userRepository;*/
 
     @Override
     public void addUser(User user) {
-	userRepository.save(user);
+	//userRepository.save(user);
     }
 }

@@ -14,31 +14,14 @@
 						<h:outputText value="Start working with realty helper" />
 					</p:tab>
 					<p:tab id="registration" title="Registration">
-						<p:panel header="Registration Part">
-							<!-- <h:messages errorClass="error" /> -->
-							<p:messages id="messages" showDetail="false" autoUpdate="true" />
-
-							<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
-								<h:outputText value="Login: *" />
-								<p:inputText required="true" label="Login" value="#{realtyWizard.user.login}" />
-
-								<h:outputLabel for="pwd1" value="Password: *" />
-								<p:password id="pwd1" value="#{realtyWizard.user.password}" match="pwd2" label="Password" required="true" />
-
-								<h:outputLabel for="pwd2" value="Repeat Password: *" />
-								<p:password id="pwd2" value="#{realtyWizard.user.password}" label="Repeated Password" required="true" />
-
-								<h:outputText value="Email: *" />
-								<p:inputText value="#{realtyWizard.user.email}" required="true">
-									<f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" />
-								</p:inputText>
-							</h:panelGrid>
-						</p:panel>
+						<ui:include src="components/registerPanel.xhtml">
+							<ui:param name="preferencesBean" value="#{realtyWizard.preferencesBean}" />
+						</ui:include>
 					</p:tab>
 
 					<p:tab id="criteria" title="Search Criteria">
 						<ui:include src="components/criteriaList.xhtml">
-							<ui:param name="realtyWizard" value="#{realtyWizard}" />
+							<ui:param name="preferencesBean" value="#{realtyWizard.preferencesBean}" />
 						</ui:include>
 					</p:tab>
 
@@ -49,7 +32,7 @@
 							<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
 								<h:outputText value="Email: *" />
 								<p:inplace id="ajaxInplace" editor="true">
-									<p:inputText value="#{realtyWizard.user.email}" required="true" label="text" />
+									<p:inputText value="#{realtyWizard.preferencesBean.user.email}" required="true" label="text" />
 								</p:inplace>
 							</h:panelGrid>
 						</p:panel>
@@ -59,10 +42,10 @@
 
 							<h:panelGrid id="confirmation" columns="2">
 								<h:outputText value="Login: " />
-								<h:outputText styleClass="outputLabel" value="#{realtyWizard.user.login}" />
+								<h:outputText styleClass="outputLabel" value="#{realtyWizard.preferencesBean.user.login}" />
 
 								<h:outputText value="Email: " />
-								<h:outputText styleClass="outputLabel" value="#{realtyWizard.user.email}" />
+								<h:outputText styleClass="outputLabel" value="#{realtyWizard.preferencesBean.user.email}" />
 
 								<h:outputText value="First 5 news are for free, than you have to pay"></h:outputText>
 								<h:outputText />
