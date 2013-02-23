@@ -5,14 +5,14 @@ import java.io.Serializable;
 import org.primefaces.event.FlowEvent;
 
 public class RealtyWizard implements Serializable {
-    private UserPreferencesBean preferencesBean = new UserPreferencesBean();    
+    private UserPreferencesBean preferences = new UserPreferencesBean();       
 
-    public UserPreferencesBean getPreferencesBean() {
-	return preferencesBean;
+    public UserPreferencesBean getPreferences() {
+        return preferences;
     }
 
-    public void setPreferencesBean(UserPreferencesBean preferencesBean) {
-	this.preferencesBean = preferencesBean;
+    public void setPreferences(UserPreferencesBean preferences) {
+        this.preferences = preferences;
     }
 
     public String onFlowProcess(FlowEvent event) {

@@ -35,4 +35,9 @@ public class SearchCriteria implements Serializable {
     public void setOperations(Collection<OperationType> operations) {
         this.operations = operations;
     }
+
+    @Override
+    public String toString() {
+	return "SearchCriteria [productType=" + productType + ", operations=" + operations + ", parameters=" + parameters + "]";
+    }
 }

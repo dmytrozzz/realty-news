@@ -15,8 +15,7 @@ import com.dmytro.realty.domain.search.enums.ProductType;
 
 public class UserPreferencesBean implements Serializable {
     private User user;
-    private Collection<SearchCriteria> criteriaList;
-    private SearchCriteria selectedCriteria;   
+    private Collection<SearchCriteria> criteriaList;  
     
     public UserPreferencesBean() {
 	user = new User();
@@ -38,15 +37,7 @@ public class UserPreferencesBean implements Serializable {
 
     public void setCriteriaList(Collection<SearchCriteria> criteriaList) {
         this.criteriaList = criteriaList;
-    }
-
-    public SearchCriteria getSelectedCriteria() {
-        return selectedCriteria;
-    }
-
-    public void setSelectedCriteria(SearchCriteria selectedCriteria) {
-        this.selectedCriteria = selectedCriteria;
-    }        
+    }   
 
     public void addCriteria() {
 	criteriaList.add(new SearchCriteria());
@@ -54,10 +45,15 @@ public class UserPreferencesBean implements Serializable {
 
     public void save(ActionEvent actionEvent) {
 	// Persist user - this is in realty-flow
-	FacesMessage msg = new FacesMessage("Successful", "Welcome :" + user.getLogin());
+	FacesMessage msg = new FacesMessage("Successful", "Welcome :" + toString());
 	FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-    
+            
+    @Override
+    public String toString() {
+	return "UserPreferencesBean [user=" + user + ", criteriaList=" + criteriaList + "]";
+    }
+
     public ProductType[] getRealtyUnits() {
 	return ProductType.values();
     }

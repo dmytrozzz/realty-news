@@ -9,19 +9,19 @@
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
 			<p:panel header="Start working with the realy helper">
-				<p:wizard widgetVar="wiz" flowListener="#{realtyWizard.onFlowProcess}">
+				<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}">
 					<p:tab id="startTab" title="Start">
 						<h:outputText value="Start working with realty helper" />
 					</p:tab>
 					<p:tab id="registration" title="Registration">
 						<ui:include src="components/registerPanel.xhtml">
-							<ui:param name="preferencesBean" value="#{realtyWizard.preferencesBean}" />
+							<ui:param name="preferencesBean" value="#{currentState.preferences}" />
 						</ui:include>
 					</p:tab>
 
 					<p:tab id="criteria" title="Search Criteria">
 						<ui:include src="components/criteriaList.xhtml">
-							<ui:param name="preferencesBean" value="#{realtyWizard.preferencesBean}" />
+							<ui:param name="preferencesBean" value="#{currentState.preferences}" />
 						</ui:include>
 					</p:tab>
 
@@ -32,7 +32,7 @@
 							<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
 								<h:outputText value="Email: *" />
 								<p:inplace id="ajaxInplace" editor="true">
-									<p:inputText value="#{realtyWizard.preferencesBean.user.email}" required="true" label="text" />
+									<p:inputText value="#{currentState.preferences.user.email}" required="true" label="text" />
 								</p:inplace>
 							</h:panelGrid>
 						</p:panel>
@@ -42,15 +42,16 @@
 
 							<h:panelGrid id="confirmation" columns="2">
 								<h:outputText value="Login: " />
-								<h:outputText styleClass="outputLabel" value="#{realtyWizard.preferencesBean.user.login}" />
+								<h:outputText styleClass="outputLabel" value="#{currentState.preferences.user.login}" />
 
 								<h:outputText value="Email: " />
-								<h:outputText styleClass="outputLabel" value="#{realtyWizard.preferencesBean.user.email}" />
+								<h:outputText styleClass="outputLabel" value="#{currentState.preferences.user.email}" />
 
 								<h:outputText value="First 5 news are for free, than you have to pay"></h:outputText>
 								<h:outputText />
 
-								<p:commandButton value="Submit" update="growl" action="saveUser" actionListener="#{realtyWizard.save}" />
+								<p:commandButton value="Submit" update="growl" action="saveUser" onsuccess="goHome()" actionListener="#{currentState.preferences.save}" />
+								<p:remoteCommand name="goHome" action="goHome"></p:remoteCommand>
 							</h:panelGrid>
 						</p:panel>
 					</p:tab>

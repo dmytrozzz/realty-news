@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import com.dmytro.realty.domain.User;
 import com.dmytro.realty.service.INewsFeedService;
 import com.dmytro.realty.service.IUserService;
+import com.dmytro.realty.web.flow.jsf.PersonalCabinetBean;
 import com.dmytro.realty.web.flow.jsf.RealtyWizard;
 import com.dmytro.realty.web.flow.jsf.UserPreferencesBean;
 
@@ -21,12 +22,16 @@ public class RealtyController {
     public RealtyWizard getWizard() {
 	return new RealtyWizard();
     }
+    
+    public PersonalCabinetBean getCabinet() {
+	return new PersonalCabinetBean();
+    }
 
-    public void addUser(User user) {
+    public void saveUser(User user) {
 	//userService.addUser(user);
     }
 
-    public void addNewsFeed(UserPreferencesBean preferencesBean) {
+    public void saveNewsFeed(UserPreferencesBean preferencesBean) {
 	//TODO 1. Find news feed with given parameters.
 	//2. if exists - add new user.
 	//3. Otherwise - create and save;
