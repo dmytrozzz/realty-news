@@ -108,25 +108,25 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>3.4.2</version>
+			<version>3.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
 			<artifactId>all-themes</artifactId>
 			<version>1.0.9</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>primefaces-extensions</artifactId>
 			<version>0.6.3</version>
 			<exclusions>
-			<!-- Exclude in flavour of original primefaces -->
+			Exclude in flavour of original primefaces
 				<exclusion>
 					<artifactId>primefaces</artifactId>
 					<groupId>org.primefaces</groupId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

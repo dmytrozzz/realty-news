@@ -1,6 +1,8 @@
 package com.dmytro.realty.web.flow.jsf;
 
-public class PersonalCabinetBean {
+import java.io.Serializable;
+
+public class PersonalCabinetBean implements Serializable{
     private UserPreferencesBean preferences = new UserPreferencesBean();
 
     public UserPreferencesBean getPreferences() {

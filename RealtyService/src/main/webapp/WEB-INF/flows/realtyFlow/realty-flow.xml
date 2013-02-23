@@ -26,6 +26,7 @@
 			<evaluate expression="realtyController.saveNewsFeed(viewScope.currentState.preferences)" />
 		</transition>
 
+		<transition on="goCabinet" to="personal-cabinet" />
 		<transition on="goHome" to="realty-home" />
 		<transition on="exit" to="end" />
 	</global-transitions>

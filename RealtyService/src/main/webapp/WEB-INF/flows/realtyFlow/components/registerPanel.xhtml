@@ -7,19 +7,21 @@
 		<p:messages id="messages" showDetail="false" autoUpdate="true" />
 
 		<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
-			<h:outputText value="Login: *" />
-			<p:inputText required="true" label="Login" value="#{preferencesBean.user.login}" />
+		
+			<h:outputLabel for="login" value="Login: *" />
+			<p:password id="login" value="#{preferences.user.login}" required="true" />
 
 			<h:outputLabel for="pwd1" value="Password: *" />
-			<p:password id="pwd1" value="#{preferencesBean.user.password}" match="pwd2" label="Password" required="true" />
+			<p:password id="pwd1" value="#{preferences.user.password}" match="pwd2" label="Password" required="true" />
 
 			<h:outputLabel for="pwd2" value="Repeat Password: *" />
-			<p:password id="pwd2" value="#{preferencesBean.user.password}" label="Repeated Password" required="true" />
+			<p:password id="pwd2" value="#{preferences.user.password}" label="Repeated Password" required="true" />
 
 			<h:outputText value="Email: *" />
-			<p:inputText value="#{preferencesBean.user.email}" required="true">
-				<f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" />
+			<p:inputText value="#{preferences.user.email}" required="true">
+				<!-- <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" /> -->
 			</p:inputText>
+			
 		</h:panelGrid>
 	</p:panel>
 </ui:composition>

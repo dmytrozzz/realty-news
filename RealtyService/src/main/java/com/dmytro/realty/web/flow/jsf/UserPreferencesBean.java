@@ -45,14 +45,9 @@ public class UserPreferencesBean implements Serializable {
 
     public void save(ActionEvent actionEvent) {
 	// Persist user - this is in realty-flow
-	FacesMessage msg = new FacesMessage("Successful", "Welcome :" + toString());
+	FacesMessage msg = new FacesMessage("Successful", "Welcome :" + user.getLogin());
 	FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-            
-    @Override
-    public String toString() {
-	return "UserPreferencesBean [user=" + user + ", criteriaList=" + criteriaList + "]";
-    }
+    }              
 
     public ProductType[] getRealtyUnits() {
 	return ProductType.values();

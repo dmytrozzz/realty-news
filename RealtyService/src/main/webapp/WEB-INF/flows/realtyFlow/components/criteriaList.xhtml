@@ -4,14 +4,14 @@
 
 	<p:panel header="Realty Search Criteria">
 		<h:messages errorClass="error" />
-		<p:commandButton value="Add criteria" actionListener="#{preferencesBean.addCriteria}" update="criteriaTable" />
+		<p:commandButton value="Add criteria" actionListener="#{preferences.addCriteria}" update="criteriaTable" />
 
-		<p:dataTable id="criteriaTable" value="#{preferencesBean.criteriaList}" var="criteria">
+		<p:dataTable id="criteriaTable" value="#{preferences.criteriaList}" var="criteria">
 			<!-- Обрати тип нерухомості -->
 			<p:column headerText="Realty Type">
 				<p:selectOneMenu value="#{criteria.productType}" required="true" requiredMessage="Ви не обрали тип нерухомості">
 					<f:selectItem itemLabel="Оберіть тип нерухомості" itemValue="#{null}" />
-					<f:selectItems var="realtyType" itemLabel="#{realtyType.name()}" value="#{preferencesBean.realtyUnits}" />
+					<f:selectItems var="realtyType" itemLabel="#{realtyType.name()}" value="#{preferences.realtyUnits}" />
 					<p:ajax update="selectOperation" process="@this" />
 				</p:selectOneMenu>
 			</p:column>
@@ -21,7 +21,7 @@
 				<p:outputPanel id="selectOperation" autoUpdate="true">
 					<p:selectCheckboxMenu value="#{criteria.operations}" required="true" requiredMessage="Ви не обрали тип операції" label="Choose operation"
 						rendered="#{criteria.productType != null}" panelStyle="width:220px">
-						<f:selectItems itemLabel="#{opType.name()}" value="#{preferencesBean.getOperationTypes(criteria.productType)}" />
+						<f:selectItems itemLabel="#{opType.name()}" value="#{preferences.getOperationTypes(criteria.productType)}" />
 					</p:selectCheckboxMenu>
 				</p:outputPanel>
 			</p:column>

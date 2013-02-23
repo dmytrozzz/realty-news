@@ -15,13 +15,13 @@
 					</p:tab>
 					<p:tab id="registration" title="Registration">
 						<ui:include src="components/registerPanel.xhtml">
-							<ui:param name="preferencesBean" value="#{currentState.preferences}" />
+							<ui:param name="preferences" value="#{currentState.preferences}" />
 						</ui:include>
 					</p:tab>
 
 					<p:tab id="criteria" title="Search Criteria">
 						<ui:include src="components/criteriaList.xhtml">
-							<ui:param name="preferencesBean" value="#{currentState.preferences}" />
+							<ui:param name="preferences" value="#{currentState.preferences}" />
 						</ui:include>
 					</p:tab>
 
