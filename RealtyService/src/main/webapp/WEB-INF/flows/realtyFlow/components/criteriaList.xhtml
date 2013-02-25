@@ -1,6 +1,7 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
 
 	<p:panel header="Realty Search Criteria">
 		<h:messages errorClass="error" />
@@ -19,17 +20,18 @@
 			<!-- Обрати тип операції -->
 			<p:column headerText="Operation Type">
 				<p:outputPanel id="selectOperation" autoUpdate="true">
-					<p:selectCheckboxMenu value="#{criteria.operations}" required="true" requiredMessage="Ви не обрали тип операції" label="Choose operation"
-						rendered="#{criteria.productType != null}" panelStyle="width:220px">
+					<p:selectCheckboxMenu value="#{criteria.operations}" required="true" requiredMessage="Ви не обрали тип операції"
+						label="Choose operation" rendered="#{criteria.productType != null}" panelStyle="width:220px">
 						<f:selectItems itemLabel="#{opType.name()}" value="#{preferences.getOperationTypes(criteria.productType)}" />
 					</p:selectCheckboxMenu>
 				</p:outputPanel>
 			</p:column>
 
-			<p:column headerText="Model" style="width:24%">
+			<p:column id="parCol" headerText="Model" style="width:24%">
 				<p:commandButton id="parametersButton" value="Обрати параметри пошуку" type="button" />
-				<p:overlayPanel id="parametersPanel" for="parametersButton" hideEffect="fade" dynamic="false">
-					<h:panelGrid columns="2" style="margin-bottom:10px">
+				<p:overlayPanel id="parametersPanel" for="parametersButton" hideEffect="fade"
+					hideEvent="mousedown" dynamic="false">
+					<h:panelGrid columns="2">
 						<p:inputText id="from" value="#{criteria.parameters.fromPrice}" />
 						<p:inputText id="to" value="#{criteria.parameters.toPrice}" />
 					</h:panelGrid>

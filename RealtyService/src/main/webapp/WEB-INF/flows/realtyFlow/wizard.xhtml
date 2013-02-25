@@ -24,19 +24,7 @@
 							<ui:param name="preferences" value="#{currentState.preferences}" />
 						</ui:include>
 					</p:tab>
-
-					<p:tab id="sendTab" title="Send Parameters">
-						<p:panel header="Send Paramenters">
-							<h:messages errorClass="error" />
-							<p:commandButton value="Add send address"></p:commandButton>
-							<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
-								<h:outputText value="Email: *" />
-								<p:inplace id="ajaxInplace" editor="true">
-									<p:inputText value="#{currentState.preferences.user.email}" required="true" label="text" />
-								</p:inplace>
-							</h:panelGrid>
-						</p:panel>
-					</p:tab>
+					
 					<p:tab id="confirm" title="Confirmation">
 						<p:panel header="Confirmation">
 
@@ -50,8 +38,8 @@
 								<h:outputText value="First 5 news are for free, than you have to pay"></h:outputText>
 								<h:outputText />
 
-								<p:commandButton value="Submit" update="growl" action="saveUser" onsuccess="goHome()" actionListener="#{currentState.preferences.save}" />
-								<p:remoteCommand name="goHome" action="goHome"></p:remoteCommand>
+								<p:commandButton value="Submit" update="growl" action="saveUser" onsuccess="goCabinet()" actionListener="#{currentState.preferences.save}" />
+								<p:remoteCommand name="goCabinet" action="goCabinet"></p:remoteCommand>
 							</h:panelGrid>
 						</p:panel>
 					</p:tab>

@@ -19,12 +19,12 @@ public class RealtyController {
     @Autowired
     private INewsFeedService newsFeedService;
 
-    public RealtyWizard getWizard() {
-	return new RealtyWizard();
+    public RealtyWizard getWizard(UserPreferencesBean preferences) {
+	return new RealtyWizard(preferences);
     }
     
-    public PersonalCabinetBean getCabinet() {
-	return new PersonalCabinetBean();
+    public PersonalCabinetBean getCabinet(UserPreferencesBean preferences) {
+	return new PersonalCabinetBean(preferences);
     }
 
     public void saveUser(User user) {
