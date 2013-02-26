@@ -11,15 +11,14 @@
 	<!-- Executes flows: the central entry point into the Spring Web Flow system -->
 	<flow-executor id="flowExecutor">
 		<flow-execution-listeners>
+			<listener ref="securityListener" />
 			<listener ref="facesContextListener" />
-			<!-- <listener ref="securityListener" /> -->
 		</flow-execution-listeners>
 	</flow-executor>
 
 	<!-- The registry of executable flow definitions -->
 	<flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flows">
-		<flow-location-pattern value="/**/*-flow.xml" />
-		<flow-location id="parent-flow" path="parent-flow.xml" />
+		<flow-location-pattern value="/**/*-flow.xml" />		
 	</flow-registry>
 
 	<!-- Configures the Spring Web Flow JSF integration -->
@@ -29,5 +28,5 @@
 	<beans:bean id="facesContextListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
 
 	<!-- A listener to apply Spring Security authorities -->
-	<!-- <beans:bean id="securityListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" /> -->
+	<beans:bean id="securityListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
 </beans:beans>

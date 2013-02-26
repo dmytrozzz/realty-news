@@ -25,11 +25,13 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<servlet-name>appServlet</servlet-name>
 	</filter-mapping>
+	
+	
 
 	<!-- JSF 2 IMPLEMENTATION -->
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
-		<param-value>cupertino</param-value>
+		<param-value>afternoon</param-value>
 	</context-param>
 	<!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
 	<context-param>
@@ -80,7 +82,7 @@
 	<filter>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
 		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
-	</filter>
+	</filter>	
 
 	<filter-mapping>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>

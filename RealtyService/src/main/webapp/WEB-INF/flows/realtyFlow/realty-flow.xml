@@ -4,10 +4,13 @@
 	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	start-state="wizard-page">
 
+
+
 	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 	<var name="preferences" class="com.dmytro.realty.web.flow.jsf.UserPreferencesBean" />
 
 	<view-state id="wizard-page" view="wizard.xhtml">
+		<!-- <secured attributes="ROLE_ANONYMOUS" /> -->
 		<on-entry>
 			<evaluate expression="realtyController.getWizard(preferences)" result="viewScope.currentState"></evaluate>
 		</on-entry>
