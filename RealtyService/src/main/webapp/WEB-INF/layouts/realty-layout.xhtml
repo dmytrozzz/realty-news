@@ -15,16 +15,25 @@
 			media="print" />
 		<!--[if lt IE 8]>
 		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
-	<![endif]-->	
+	<![endif]-->
+		<ui:insert name="metadata">
+			<f:metadata>
+				<f:event listener="#{jsfUtil.initalizeContext}" type="preRenderView" />
+			</f:metadata>
+		</ui:insert>
 	</h:head>
 	<h:body>
 		<p:layout fullPage="true">
-			<p:layoutUnit position="north" id="headerPane" size="50">
+			<p:layoutUnit position="north" id="headerPane" size="75">
 				<h:form>
 					<ui:insert name="menu">
-						<p:menubar>
+						<p:menubar style="height:50px">
 							<p:menuitem value="Personal Cabinet" action="goCabinet" />
 							<p:menuitem value="Write to Developers" url="#" />
+							<f:facet name="options">
+								<p:outputLabel value="Welcome, #{currentUser.name}" style="margin-right:10px" />
+								<p:commandButton value="Logout" onclick="location.href='logout'" icon="ui-icon-extlink" />
+							</f:facet>
 						</p:menubar>
 					</ui:insert>
 				</h:form>
