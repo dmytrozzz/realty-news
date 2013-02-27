@@ -11,6 +11,4 @@
 	
 	<!-- Look for services -->
 	 <context:component-scan base-package="com.dmytro.realty.service.implementation" />	 
-	 
-	 <bean id="userLoginBean" class="com.dmytro.realty.web.flow.jsf.UserLoginBean" scope="session"/> 
 </beans>

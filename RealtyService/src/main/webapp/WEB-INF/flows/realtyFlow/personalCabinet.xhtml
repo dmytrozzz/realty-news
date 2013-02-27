@@ -1,13 +1,15 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions" template="/WEB-INF/layouts/realty-layout.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/WEB-INF/layouts/realty-layout.xhtml">
 
 	<ui:define name="title">Realty Home</ui:define>
+	<ui:param name="centerTitle" value="Personal Cabinet" />
+
 	<ui:define name="content">
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
-			<p:panel header="PersonalCabinet">
+			<p:panel>
 				<p:tabView id="tabView" effect="drop">
 
 					<p:tab id="tab1" title="Control Panel">

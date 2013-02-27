@@ -1,18 +1,28 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
-	template="/WEB-INF/layouts/realty-layout.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions" template="/WEB-INF/layouts/realty-layout.xhtml">
 
 	<ui:define name="title">Realty Home</ui:define>
+	<ui:define name="header"></ui:define>
+
+	<ui:param name="leftTitle" value="Login" />
+	<ui:param name="centerTitle" value="Start working with the realy helper" />
+
+	<ui:define name="leftSide">
+		<ui:include src="components/loginPane.xhtml" />
+	</ui:define>
 
 	<ui:define name="content">
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
-			<p:panel header="Start working with the realy helper">
+			<p:panel>
 				<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}">
+
 					<p:tab id="startTab" title="Start">
 						<h:outputText value="Start working with realty helper" />
 					</p:tab>
+
 					<p:tab id="registration" title="Registration">
 						<ui:include src="components/registerPanel.xhtml">
 							<ui:param name="preferences" value="#{currentState.preferences}" />
@@ -24,7 +34,7 @@
 							<ui:param name="preferences" value="#{currentState.preferences}" />
 						</ui:include>
 					</p:tab>
-					
+
 					<p:tab id="confirm" title="Confirmation">
 						<p:panel header="Confirmation">
 
@@ -35,11 +45,12 @@
 								<h:outputText value="Email: " />
 								<h:outputText styleClass="outputLabel" value="#{currentState.preferences.user.email}" />
 
-								<h:outputText value="First 5 news are for free, than you have to pay"></h:outputText>
+								<h:outputText value="First 5 news are for free, than you have to pay" />
 								<h:outputText />
 
-								<p:commandButton value="Submit" update="growl" action="saveUser" onsuccess="goCabinet()" actionListener="#{currentState.preferences.save}" />
-								<p:remoteCommand name="goCabinet" action="goCabinet"></p:remoteCommand>
+								<p:commandButton value="Submit" update="growl" action="saveUser" onsuccess="goCabinet()"
+									actionListener="#{currentState.preferences.save}" />
+								<p:remoteCommand name="goCabinet" action="goCabinet" />
 							</h:panelGrid>
 						</p:panel>
 					</p:tab>

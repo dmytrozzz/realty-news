@@ -15,30 +15,30 @@ public class RealtyController {
 
     @Autowired
     private IUserService userService;
-    
+
     @Autowired
     private INewsFeedService newsFeedService;
 
     public RealtyWizard getWizard(UserPreferencesBean preferences) {
 	return new RealtyWizard(preferences);
     }
-    
+
     public PersonalCabinetBean getCabinet(UserPreferencesBean preferences) {
 	return new PersonalCabinetBean(preferences);
     }
 
     public void saveUser(User user) {
-	//userService.addUser(user);
+	// userService.addUser(user);
     }
 
     public void saveNewsFeed(UserPreferencesBean preferencesBean) {
-	//TODO 1. Find news feed with given parameters.
-	//2. if exists - add new user.
-	//3. Otherwise - create and save;
-	//4. Maybe this all is possible with help of spring-data
-	
-	//NewsFeed newsFeed = new NewsFeed();
-	//newsFeed.setUser(preferencesBean.getUser());
-	//newsFeedService.addNewsFeed(newsFeed);
+	// TODO 1. Find news feed with given parameters.
+	// 2. if exists - add new user.
+	// 3. Otherwise - create and save;
+	// 4. Maybe this all is possible with help of spring-data
+
+	// NewsFeed newsFeed = new NewsFeed();
+	// newsFeed.setUser(preferencesBean.getUser());
+	// newsFeedService.addNewsFeed(newsFeed);
     }
 }
