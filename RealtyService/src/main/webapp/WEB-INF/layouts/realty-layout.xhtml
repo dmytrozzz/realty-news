@@ -24,9 +24,9 @@
 	</h:head>
 	<h:body>
 		<p:layout fullPage="true">
-			<p:layoutUnit position="north" id="headerPane" size="75">
-				<h:form>
-					<ui:insert name="menu">
+			<ui:insert name="header">
+				<p:layoutUnit position="north" id="headerPane" size="75">
+					<h:form>
 						<p:menubar style="height:50px">
 							<p:menuitem value="Personal Cabinet" action="goCabinet" />
 							<p:menuitem value="Write to Developers" url="#" />
@@ -35,15 +35,15 @@
 								<p:commandButton value="Logout" onclick="location.href='logout'" icon="ui-icon-extlink" />
 							</f:facet>
 						</p:menubar>
-					</ui:insert>
-				</h:form>
-			</p:layoutUnit>
+					</h:form>
+				</p:layoutUnit>
+			</ui:insert>
 
 			<p:layoutUnit position="center" id="contentPane">
 				<ui:insert name="content" />
 			</p:layoutUnit>
 
-			<p:layoutUnit position="west" size="200">
+			<p:layoutUnit position="west" size="200" header="#{leftTitle}">
 				<ui:insert name="leftSide" />
 			</p:layoutUnit>
 

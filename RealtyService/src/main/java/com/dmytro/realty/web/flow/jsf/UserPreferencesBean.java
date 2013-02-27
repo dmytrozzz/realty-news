@@ -1,12 +1,18 @@
 package com.dmytro.realty.web.flow.jsf;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.LinkedList;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import com.dmytro.realty.domain.User;
 import com.dmytro.realty.domain.search.SearchCriteria;
@@ -15,8 +21,8 @@ import com.dmytro.realty.domain.search.enums.ProductType;
 
 public class UserPreferencesBean implements Serializable {
     private User user;
-    private Collection<SearchCriteria> criteriaList;  
-    
+    private Collection<SearchCriteria> criteriaList;
+
     public UserPreferencesBean() {
 	user = new User();
 	criteriaList = new LinkedList<>();
@@ -29,15 +35,15 @@ public class UserPreferencesBean implements Serializable {
 
     public void setUser(User user) {
 	this.user = user;
-    }    
+    }
 
     public Collection<SearchCriteria> getCriteriaList() {
-        return criteriaList;
+	return criteriaList;
     }
 
     public void setCriteriaList(Collection<SearchCriteria> criteriaList) {
-        this.criteriaList = criteriaList;
-    }   
+	this.criteriaList = criteriaList;
+    }
 
     public void addCriteria() {
 	criteriaList.add(new SearchCriteria());
@@ -47,7 +53,7 @@ public class UserPreferencesBean implements Serializable {
 	// Persist user - this is in realty-flow
 	FacesMessage msg = new FacesMessage("Successful", "Welcome :" + user.getLogin());
 	FacesContext.getCurrentInstance().addMessage(null, msg);
-    }              
+    }
 
     public ProductType[] getRealtyUnits() {
 	return ProductType.values();
@@ -58,5 +64,17 @@ public class UserPreferencesBean implements Serializable {
 	    return new OperationType[] { OperationType.RENT, OperationType.FARM_OUT, OperationType.LOOKING_PARTNER };
 	else
 	    return OperationType.values();
+    }
+
+    public String login() throws ServletException, IOException {
+	ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+	HttpServletRequest request = ((HttpServletRequest) context.getRequest());
+
+	ServletResponse resposnse = ((ServletResponse) context.getResponse());
+	RequestDispatcher dispatcher = request.getRequestDispatcher("/j_spring_security_check");
+	dispatcher.forward(request, resposnse);
+	FacesContext.getCurrentInstance().responseComplete();
+
+	return null;
     }
 }

@@ -9,17 +9,16 @@
 	</h:head>
 	<h:body>
 		<p:layout fullPage="true">
-			<p:layoutUnit position="north" id="headerPane" size="50">
-				<ui:insert name="header" />
-			</p:layoutUnit>
+
+			<ui:insert name="header">
+				<p:layoutUnit position="north" id="headerPane" size="50">
+					<ui:insert name="headerContent" />
+				</p:layoutUnit>
+			</ui:insert>
 
 			<p:layoutUnit position="center" id="contentPane">
 				<ui:insert name="content" />
-			</p:layoutUnit>
-
-			<p:layoutUnit position="west" size="50">
-				<ui:insert name="leftSide" />
-			</p:layoutUnit>
+			</p:layoutUnit>			
 
 			<p:layoutUnit position="east" size="50">
 				<ui:insert name="rightSide" />

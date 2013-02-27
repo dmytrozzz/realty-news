@@ -3,7 +3,13 @@
 	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/layouts/standard.xhtml">
 
+	<ui:define name="header"></ui:define>
+
 	<ui:define name="title">Дякуємо, що виявили інтерес до нашого сервісу!)</ui:define>
+
+	<ui:define name="leftSide">
+		<ui:include src="/WEB-INF/flows/realtyFlow/components/loginPane.xhtml" />
+	</ui:define>
 
 	<ui:define name="content">
 		Хорошого дня!			

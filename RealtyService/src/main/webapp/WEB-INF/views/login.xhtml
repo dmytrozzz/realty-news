@@ -4,50 +4,6 @@
 	template="/WEB-INF/layouts/standard.xhtml">
 
 	<ui:define name="title">Login</ui:define>
-
-	<ui:define name="content">
-		<div class="span-10">
-			<c:if test="${not empty param.login_error}">
-				<div class="error">
-					Your login attempt was not successful, try again.<br /> Reason:
-					#{sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
-				</div>
-			</c:if>
-			<!-- <h:form id="loginForm" prependId="false">
-				<p:growl id="growl" showDetail="true" sticky="false" />
-				<h:panelGrid columns="3" cellpadding="2">
-					<h:panelGrid columns="2" cellpadding="5">
-						<h:outputText value="Username" />
-						<p:inputText id="j_username" required="true" value="#{userLoginBean.username}" />
-					</h:panelGrid>
-					<h:panelGrid columns="2" cellpadding="5">
-						<h:outputText value="Password" />
-						<p:password id="j_password" required="true" value="#{userLoginBean.password}" />
-					</h:panelGrid>
-					<p:commandButton id="saveButton" action="#{userLoginBean.login}" value="Login" update="@form" />
-				</h:panelGrid>
-			</h:form> -->
-			<p:panel header="Login Information">
-				 <form name="f" action="${request.contextPath}/app/j_spring_security_check" method="post">
-					<p>
-						User: <br />
-						<c:if test="${not empty param.login_error}">
-							<c:set var="username" value="${sessionScope.SPRING_SECURITY_LAST_USERNAME}" />
-						</c:if>
-						<input type="text" name="j_username" value="#{username}" />
-					</p>
-					<p>
-						Password: <br /> <input type="password" name="j_password" />
-					</p>
-					<p>
-						<input type="checkbox" name="_spring_security_remember_me" /> Don't ask for my password for two weeks
-					</p>
-					<p>
-						<input name="submit" type="submit" value="Login" />
-					</p>
-				</form> 
-				
-			</p:panel>
-		</div>
-	</ui:define>
+	<ui:define name="header"></ui:define>
+	
 </ui:composition>
