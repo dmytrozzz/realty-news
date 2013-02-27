@@ -4,10 +4,12 @@
 	xmlns:pe="http://primefaces.org/ui/extensions" template="/WEB-INF/layouts/realty-layout.xhtml">
 
 	<ui:define name="title">Realty Home</ui:define>
+	<ui:param name="centerTitle" value="Personal Cabinet" />
+	
 	<ui:define name="content">
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
-			<p:panel header="PersonalCabinet">
+			<p:panel>
 				<p:tabView id="tabView">
 
 					<p:tab id="tab1" title="Control Panel">

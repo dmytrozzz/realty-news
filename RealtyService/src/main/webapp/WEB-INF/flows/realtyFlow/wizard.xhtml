@@ -5,17 +5,18 @@
 
 	<ui:define name="title">Realty Home</ui:define>
 	<ui:define name="header"></ui:define>
-	
-	<ui:param name="leftTitle" value="Login"/>
+
+	<ui:param name="leftTitle" value="Login" />
+	<ui:param name="centerTitle" value="Start working with the realy helper" />
 
 	<ui:define name="leftSide">
-		<ui:include src="components/loginPane.xhtml"/>		
+		<ui:include src="components/loginPane.xhtml" />
 	</ui:define>
 
 	<ui:define name="content">
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
-			<p:panel header="Start working with the realy helper">
+			<p:panel>
 				<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}">
 
 					<p:tab id="startTab" title="Start">
