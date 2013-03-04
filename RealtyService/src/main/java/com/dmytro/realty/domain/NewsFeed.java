@@ -2,17 +2,31 @@ package com.dmytro.realty.domain;
 
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 
 import com.dmytro.realty.domain.search.SearchCriteria;
 
 @Entity
 @Table(name = "news_feed")
 public class NewsFeed {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    @Generated(value = GenerationTime.INSERT)
+    @Column(name = "id")
     private long id;
 
-    private Collection<User> userCollection;
+    @Transient
+    private Collection<RealtyUser> userCollection;
+    @Transient
     private Collection<SearchCriteria> criteriaCollection;
 
     public long getId() {
@@ -23,11 +37,11 @@ public class NewsFeed {
 	this.id = id;
     }
 
-    public Collection<User> getUserCollection() {
+    public Collection<RealtyUser> getUserCollection() {
 	return userCollection;
     }
 
-    public void setUserCollection(Collection<User> userCollection) {
+    public void setUserCollection(Collection<RealtyUser> userCollection) {
 	this.userCollection = userCollection;
     }
 

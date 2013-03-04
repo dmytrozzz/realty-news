@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Generated;
@@ -14,10 +15,10 @@ import org.hibernate.annotations.GenerationTime;
 
 @Entity
 @Table(name = "realty_user")
-public class User implements Serializable {
+public class RealtyUser implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    @Generated(value = GenerationTime.INSERT)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+    @SequenceGenerator(name = "user_seq", sequenceName = "user_id_seq", allocationSize = 1)
     @Column(name = "id")
     private long id;
 

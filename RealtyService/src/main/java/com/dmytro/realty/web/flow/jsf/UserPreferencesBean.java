@@ -14,26 +14,26 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import com.dmytro.realty.domain.User;
+import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.SearchCriteria;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
 
 public class UserPreferencesBean implements Serializable {
-    private User user;
+    private RealtyUser user;
     private Collection<SearchCriteria> criteriaList;
 
     public UserPreferencesBean() {
-	user = new User();
+	user = new RealtyUser();
 	criteriaList = new LinkedList<>();
 	addCriteria();
     }
 
-    public User getUser() {
+    public RealtyUser getUser() {
 	return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(RealtyUser user) {
 	this.user = user;
     }
 

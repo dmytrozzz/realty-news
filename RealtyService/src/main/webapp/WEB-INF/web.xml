@@ -23,7 +23,8 @@
 
 	 <filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
-		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+		<!-- <servlet-name>/</servlet-name> -->
 	</filter-mapping>
 	
 	

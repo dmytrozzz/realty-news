@@ -6,11 +6,11 @@
 
 	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 	<var name="preferences" class="com.dmytro.realty.web.flow.jsf.UserPreferencesBean" />
-	
-	<input name="state" required="false" type="int"/>	
-	
+
+	<input name="state" required="false" type="int" />
+
 	<!-- TODO more accurate decision, based on spring security -->
-	<decision-state id="start-state">	
+	<decision-state id="start-state">
 		<if then="personal-cabinet" else="wizard-page" test="state == 1" />
 	</decision-state>
 
@@ -27,7 +27,7 @@
 		</on-entry>
 	</view-state>
 
-	<end-state id="end" view="" ></end-state>
+	<end-state id="end" view=""></end-state>
 
 	<global-transitions>
 		<transition on="saveUser">

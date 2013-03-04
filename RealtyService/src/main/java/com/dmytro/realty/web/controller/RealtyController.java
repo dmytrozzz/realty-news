@@ -3,7 +3,7 @@ package com.dmytro.realty.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.dmytro.realty.domain.User;
+import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.service.INewsFeedService;
 import com.dmytro.realty.service.IUserService;
 import com.dmytro.realty.web.flow.jsf.PersonalCabinetBean;
@@ -27,8 +27,8 @@ public class RealtyController {
 	return new PersonalCabinetBean(preferences);
     }
 
-    public void saveUser(User user) {
-	// userService.addUser(user);
+    public void saveUser(RealtyUser user) {
+	userService.addUser(user);
     }
 
     public void saveNewsFeed(UserPreferencesBean preferencesBean) {

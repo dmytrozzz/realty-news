@@ -2,8 +2,8 @@ package com.dmytro.realty.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.dmytro.realty.domain.User;
+import com.dmytro.realty.domain.RealtyUser;
 
-public interface UserRepository extends CrudRepository<User, Long> {
-
+public interface UserRepository extends CrudRepository<RealtyUser, Long> {
+    RealtyUser findByLogin(String login);
 }
