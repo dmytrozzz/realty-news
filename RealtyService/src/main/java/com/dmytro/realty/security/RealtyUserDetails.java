@@ -1,10 +1,12 @@
-package com.dmytro.realty.domain;
+package com.dmytro.realty.security;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.dmytro.realty.domain.RealtyUser;
 
 public class RealtyUserDetails extends RealtyUser implements UserDetails {
 

@@ -11,6 +11,7 @@
 
 	<!-- TODO more accurate decision, based on spring security -->
 	<decision-state id="start-state">
+	<on-entry><evaluate expression="realtyController.getNewsFeed()"></evaluate></on-entry>
 		<if then="personal-cabinet" else="wizard-page" test="state == 1" />
 	</decision-state>
 

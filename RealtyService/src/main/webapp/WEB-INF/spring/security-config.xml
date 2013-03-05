@@ -18,7 +18,7 @@
 
 	<authentication-manager>
 		<authentication-provider user-service-ref="userService">
-			<password-encoder hash="md5"></password-encoder>
+			<password-encoder hash="sha-256" />
 		</authentication-provider>
 
 		<!-- <authentication-provider> <user-service> <user name="dima" password="dima" authorities="ROLE_USER, ROLE_ADMIN" /> </user-service> </authentication-provider> -->

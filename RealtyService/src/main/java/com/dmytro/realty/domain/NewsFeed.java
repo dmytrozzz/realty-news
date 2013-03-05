@@ -4,11 +4,15 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
@@ -24,10 +28,13 @@ public class NewsFeed {
     @Column(name = "id")
     private long id;
 
-    @Transient
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "news_feeds_user_relation", joinColumns = @JoinColumn(name = "news_feed_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Collection<RealtyUser> userCollection;
-    @Transient
-    private Collection<SearchCriteria> criteriaCollection;
+
+    @OneToOne
+    @JoinColumn(name = "criteria_id")
+    private SearchCriteria criteria;
 
     public long getId() {
 	return id;
@@ -45,11 +52,11 @@ public class NewsFeed {
 	this.userCollection = userCollection;
     }
 
-    public Collection<SearchCriteria> getCriteriaCollection() {
-	return criteriaCollection;
+    public SearchCriteria getCriteria() {
+	return criteria;
     }
 
-    public void setCriteriaCollection(Collection<SearchCriteria> criteriaCollection) {
-	this.criteriaCollection = criteriaCollection;
+    public void setCriteria(SearchCriteria criteria) {
+	this.criteria = criteria;
     }
 }

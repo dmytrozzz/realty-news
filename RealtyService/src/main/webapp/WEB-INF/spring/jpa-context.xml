@@ -37,7 +37,7 @@
 		</property>
 	</bean>
 
-	<jpa:repositories base-package="com.dmytro.realty.repository"
+	<jpa:repositories base-package="com.dmytro.realty.data.repository"
 		entity-manager-factory-ref="emf" transaction-manager-ref="transactionManager" />
 
 </beans>

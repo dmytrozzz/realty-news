@@ -1,14 +1,18 @@
 package com.dmytro.realty.domain;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
@@ -29,7 +33,11 @@ public class RealtyUser implements Serializable {
     private String password;
 
     @Column(name = "email")
-    private String email;
+    private String email;      
+    
+   // @OneToMany(mappedBy = "realty_user", cascade = CascadeType.ALL)
+    @Transient
+    private Set<NewsFeed> newsFeeds;
 
     public String getLogin() {
 	return login;

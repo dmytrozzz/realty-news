@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dmytro.realty.data.repository.UserRepository;
 import com.dmytro.realty.domain.RealtyUser;
-import com.dmytro.realty.domain.RealtyUserDetails;
-import com.dmytro.realty.repository.UserRepository;
+import com.dmytro.realty.security.RealtyUserDetails;
 import com.dmytro.realty.service.IUserService;
 
 @Repository
@@ -29,11 +29,11 @@ public class UserSecurityService implements IUserService, UserDetailsService {
 	    throw new UsernameNotFoundException("Invalid username/password");
 	}
 	return new RealtyUserDetails(user);
-    }        
+    }
 
     @Override
     public void addUser(RealtyUser user) {
-	user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+	user.setPassword(DigestUtils.sha256Hex(user.getPassword()));
 	userRepository.save(user);
     }
 

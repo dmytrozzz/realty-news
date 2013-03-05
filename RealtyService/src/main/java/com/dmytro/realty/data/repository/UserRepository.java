@@ -1,4 +1,4 @@
-package com.dmytro.realty.repository;
+package com.dmytro.realty.data.repository;
 
 import org.springframework.data.repository.CrudRepository;
 

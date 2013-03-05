@@ -3,7 +3,7 @@ package com.dmytro.realty.web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.dmytro.realty.domain.RealtyUser;
+import com.dmytro.realty.domain.NewsFeed;
 import com.dmytro.realty.service.INewsFeedService;
 import com.dmytro.realty.service.IUserService;
 import com.dmytro.realty.web.flow.jsf.PersonalCabinetBean;
@@ -27,18 +27,19 @@ public class RealtyController {
 	return new PersonalCabinetBean(preferences);
     }
 
-    public void saveUser(RealtyUser user) {
-	userService.addUser(user);
+    public void saveNewsFeed(UserPreferencesBean preferencesBean) {
+	userService.addUser(preferencesBean.getUser());
+
+	// List<NewsFeed> newsFeeds = new LinkedList<>();
+	// for(SearchCriteria criteria : preferencesBean.getCriteriaList()){
+	// newsFeeds.add(new NewsFeed(preferencesBean.getUser(), criteria));
+	// }
+	// newsFeedService.addNewsFeeds(newsFeeds);
     }
 
-    public void saveNewsFeed(UserPreferencesBean preferencesBean) {
-	// TODO 1. Find news feed with given parameters.
-	// 2. if exists - add new user.
-	// 3. Otherwise - create and save;
-	// 4. Maybe this all is possible with help of spring-data
-
-	// NewsFeed newsFeed = new NewsFeed();
-	// newsFeed.setUser(preferencesBean.getUser());
-	// newsFeedService.addNewsFeed(newsFeed);
+    public void getNewsFeed() {
+	NewsFeed newsFeed = newsFeedService.getNewsFeed(5l);
+	System.out.print(newsFeed.getUserCollection());
+	System.out.println(newsFeed.getCriteria());
     }
 }
