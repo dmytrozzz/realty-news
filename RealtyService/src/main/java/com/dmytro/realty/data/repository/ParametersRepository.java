@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.dmytro.realty.domain.search.RealtyParameters;
+import com.dmytro.realty.domain.RealtyParameters;
 
 public interface ParametersRepository extends CrudRepository<RealtyParameters, Long> {
 

@@ -1,4 +1,4 @@
-package com.dmytro.realty.domain.search;
+package com.dmytro.realty.domain;
 
 import java.io.Serializable;
 

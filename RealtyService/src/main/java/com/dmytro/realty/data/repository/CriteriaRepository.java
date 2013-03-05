@@ -4,12 +4,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.dmytro.realty.domain.search.RealtyCriteria;
-import com.dmytro.realty.domain.search.RealtyParameters;
-import com.dmytro.realty.domain.search.enums.ProductType;
+import com.dmytro.realty.domain.RealtyCriteria;
 
 public interface CriteriaRepository extends CrudRepository<RealtyCriteria, Long> {
 
-    @Query("select c from RealtyCriteria c where c.productType = :prodType and c.parameters = :params")
-    RealtyCriteria findBy(@Param("prodType") ProductType productType, @Param("params") RealtyParameters parameters);
+    @Query(value = "SELECT * FROM realty_search_criteria WHERE product_type = :prodType and parameters_id = :params", nativeQuery = true)
+    RealtyCriteria nativeFindBy(@Param("prodType") String productType, @Param("params") long parameters);
 }

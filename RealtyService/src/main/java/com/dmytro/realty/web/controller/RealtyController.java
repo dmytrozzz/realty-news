@@ -23,10 +23,9 @@ public class RealtyController {
 	return new PersonalCabinetBean(preferences);
     }
 
-    public void saveState(UserPreferencesBean preferencesBean) {
+    public void saveUser(UserPreferencesBean preferencesBean) {
 	RealtyUser user = preferencesBean.getUser();
 	user.setCriteriaCollection(preferencesBean.getCriteriaList());
-	// userService.addUser(preferencesBean.getUser());
-	userService.saveAll(user);
+	userService.saveUser(user);
     }
 }

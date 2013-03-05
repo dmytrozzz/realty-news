@@ -16,7 +16,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.dmytro.realty.domain.search.RealtyCriteria;
 
 @Entity
 @Table(name = "realty_user")

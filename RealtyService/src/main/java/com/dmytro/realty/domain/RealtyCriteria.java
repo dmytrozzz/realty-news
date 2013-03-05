@@ -1,4 +1,4 @@
-package com.dmytro.realty.domain.search;
+package com.dmytro.realty.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +24,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
 
@@ -45,15 +44,15 @@ public class RealtyCriteria implements Serializable {
     private ProductType productType;
 
     // @OneToMany
-    //@ElementCollection(targetClass = OperationType.class)
-    //@Enumerated(EnumType.STRING)
-    //@CollectionTable(name = "realty_operations", joinColumns = @JoinColumn(name = "criteria_id"))
-    //@Column(name = "operation_type")
-    @Transient
+    @ElementCollection(targetClass = String.class)
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(name = "realty_operations", joinColumns = @JoinColumn(name = "criteria_id"))
+    @Column(name = "operation_type")
+    //@Transient
     private Collection<OperationType> operations = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "parameters_id")    
+    @JoinColumn(name = "parameters_id")  
     private RealtyParameters parameters = new RealtyParameters();
 
     public ProductType getProductType() {
