@@ -15,13 +15,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import com.dmytro.realty.domain.RealtyUser;
-import com.dmytro.realty.domain.search.SearchCriteria;
+import com.dmytro.realty.domain.search.RealtyCriteria;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
 
 public class UserPreferencesBean implements Serializable {
     private RealtyUser user;
-    private Collection<SearchCriteria> criteriaList;
+    private Collection<RealtyCriteria> criteriaList;
 
     public UserPreferencesBean() {
 	user = new RealtyUser();
@@ -37,16 +37,16 @@ public class UserPreferencesBean implements Serializable {
 	this.user = user;
     }
 
-    public Collection<SearchCriteria> getCriteriaList() {
+    public Collection<RealtyCriteria> getCriteriaList() {
 	return criteriaList;
     }
 
-    public void setCriteriaList(Collection<SearchCriteria> criteriaList) {
+    public void setCriteriaList(Collection<RealtyCriteria> criteriaList) {
 	this.criteriaList = criteriaList;
     }
 
     public void addCriteria() {
-	criteriaList.add(new SearchCriteria());
+	criteriaList.add(new RealtyCriteria());
     }
 
     public void save(ActionEvent actionEvent) {

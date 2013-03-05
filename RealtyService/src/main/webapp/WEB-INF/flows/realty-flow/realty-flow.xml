@@ -10,8 +10,7 @@
 	<input name="state" required="false" type="int" />
 
 	<!-- TODO more accurate decision, based on spring security -->
-	<decision-state id="start-state">
-	<on-entry><evaluate expression="realtyController.getNewsFeed()"></evaluate></on-entry>
+	<decision-state id="start-state">	
 		<if then="personal-cabinet" else="wizard-page" test="state == 1" />
 	</decision-state>
 
@@ -31,12 +30,9 @@
 	<end-state id="end" view=""></end-state>
 
 	<global-transitions>
-		<transition on="saveUser">
-			<evaluate expression="realtyController.saveUser(viewScope.currentState.preferences.user)" />
-		</transition>
-		<transition on="saveNewsFeed">
-			<evaluate expression="realtyController.saveNewsFeed(viewScope.currentState.preferences)" />
-		</transition>
+		<transition on="saveState">
+			<evaluate expression="realtyController.saveState(viewScope.currentState.preferences)" />
+		</transition>		
 
 		<transition on="goCabinet" to="personal-cabinet" />
 

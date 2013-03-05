@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -15,40 +16,45 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
 
 @Entity
-@Table(name = "search_criteria")
-public class SearchCriteria implements Serializable {
+@Table(name = "realty_search_criteria")
+public class RealtyCriteria implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "criteria_seq")
     @SequenceGenerator(name = "criteria_seq", sequenceName = "search_criteria_id_seq", allocationSize = 1)
     @Column(name = "id")
     private long id;
 
-    //private Collection<RealtyUser> userSet;
+    @ManyToMany(mappedBy = "criteriaCollection")
+    private Collection<RealtyUser> userSet;
 
     @Column(name = "product_type")
     @Enumerated(EnumType.STRING)
     private ProductType productType;
 
     // @OneToMany
-    @ElementCollection(targetClass = OperationType.class)
-    @Enumerated(EnumType.STRING)
-    @CollectionTable(name = "search_operations", joinColumns = @JoinColumn(name = "cetagory_id"))
-    // @Column(name = "operation_type")
+    //@ElementCollection(targetClass = OperationType.class)
+    //@Enumerated(EnumType.STRING)
+    //@CollectionTable(name = "realty_operations", joinColumns = @JoinColumn(name = "criteria_id"))
+    //@Column(name = "operation_type")
+    @Transient
     private Collection<OperationType> operations = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "parameters_id")
-    private Parameters parameters = new Parameters();
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "parameters_id")    
+    private RealtyParameters parameters = new RealtyParameters();
 
     public ProductType getProductType() {
 	return productType;
@@ -58,11 +64,11 @@ public class SearchCriteria implements Serializable {
 	this.productType = productType;
     }
 
-    public Parameters getParameters() {
+    public RealtyParameters getParameters() {
 	return parameters;
     }
 
-    public void setParameters(Parameters parameters) {
+    public void setParameters(RealtyParameters parameters) {
 	this.parameters = parameters;
     }
 
@@ -75,18 +81,18 @@ public class SearchCriteria implements Serializable {
     }
 
     public long getId() {
-        return id;
+	return id;
     }
 
     public void setId(long id) {
-        this.id = id;
+	this.id = id;
     }
 
-//    public Collection<RealtyUser> getUserSet() {
-//        return userSet;
-//    }
-//
-//    public void setUserSet(Collection<RealtyUser> userSet) {
-//        this.userSet = userSet;
-//    }       
+    public Collection<RealtyUser> getUserSet() {
+	return userSet;
+    }
+
+    public void setUserSet(Collection<RealtyUser> userSet) {
+	this.userSet = userSet;
+    }
 }

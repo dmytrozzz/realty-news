@@ -11,8 +11,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "search_parameters")
-public class Parameters implements Serializable {
+@Table(name = "realty_parameters")
+public class RealtyParameters implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "param_seq")
     @SequenceGenerator(name = "param_seq", sequenceName = "search_parameters_id_seq", allocationSize = 1)
@@ -24,13 +24,13 @@ public class Parameters implements Serializable {
 
     @Column(name = "price_to")
     private int toPrice = 5000;
-    
+
     public long getId() {
-        return id;
+	return id;
     }
 
     public void setId(long id) {
-        this.id = id;
+	this.id = id;
     }
 
     public int getFromPrice() {
