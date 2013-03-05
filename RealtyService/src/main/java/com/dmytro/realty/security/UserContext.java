@@ -6,4 +6,6 @@ public interface UserContext {
     RealtyUser getCurrentUser();
 
     void setCurrentUser(RealtyUser user);
+
+    boolean isAuthenticated();
 }

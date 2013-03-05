@@ -5,13 +5,13 @@
 	start-state="start-state">
 
 	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
-	<var name="preferences" class="com.dmytro.realty.web.flow.jsf.UserPreferencesBean" />
 
-	<input name="state" required="false" type="int" />
+	<on-start>
+		<evaluate expression="realtyController.getPreferences()" result="flowScope.preferences"></evaluate>
+	</on-start>
 
-	<!-- TODO more accurate decision, based on spring security -->
-	<decision-state id="start-state">	
-		<if then="personal-cabinet" else="wizard-page" test="state == 1" />
+	<decision-state id="start-state">
+		<if then="personal-cabinet" else="wizard-page" test="realtyController.isAuthorized()" />
 	</decision-state>
 
 	<view-state id="wizard-page" view="wizard.xhtml">
@@ -32,7 +32,7 @@
 	<global-transitions>
 		<transition on="saveUser">
 			<evaluate expression="realtyController.saveUser(viewScope.currentState.preferences)" />
-		</transition>		
+		</transition>
 
 		<transition on="goCabinet" to="personal-cabinet" />
 

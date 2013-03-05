@@ -11,7 +11,7 @@
 		<intercept-url pattern="/app/javax.faces.resource/**" access="permitAll" />
 		<intercept-url pattern="/app/home" access="permitAll" />
 		<intercept-url pattern="/**" access="isAuthenticated()" />
-		<form-login login-page="/app/realty-flow?state=0" login-processing-url="/check_login" default-target-url="/app/realty-flow?state=1"
+		<form-login login-page="/app/realty-flow" login-processing-url="/check_login" default-target-url="/app/realty-flow"
 			authentication-failure-url="/app/realty-flow?login_error=1" />
 		<logout logout-url="/app/logout" logout-success-url="/app/home" delete-cookies="JSESSIONID" />
 	</http>

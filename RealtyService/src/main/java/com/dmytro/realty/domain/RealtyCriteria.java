@@ -37,22 +37,20 @@ public class RealtyCriteria implements Serializable {
     private long id;
 
     @ManyToMany(mappedBy = "criteriaCollection")
-    private Collection<RealtyUser> userSet;
+    private Collection<RealtyUser> userCollection;
 
     @Column(name = "product_type")
     @Enumerated(EnumType.STRING)
     private ProductType productType;
 
-    // @OneToMany
     @ElementCollection(targetClass = String.class)
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "realty_operations", joinColumns = @JoinColumn(name = "criteria_id"))
     @Column(name = "operation_type")
-    //@Transient
     private Collection<OperationType> operations = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "parameters_id")  
+    @JoinColumn(name = "parameters_id")
     private RealtyParameters parameters = new RealtyParameters();
 
     public ProductType getProductType() {
@@ -87,11 +85,11 @@ public class RealtyCriteria implements Serializable {
 	this.id = id;
     }
 
-    public Collection<RealtyUser> getUserSet() {
-	return userSet;
+    public Collection<RealtyUser> getUserCollection() {
+	return userCollection;
     }
 
-    public void setUserSet(Collection<RealtyUser> userSet) {
-	this.userSet = userSet;
+    public void setUserCollection(Collection<RealtyUser> userCollection) {
+	this.userCollection = userCollection;
     }
 }
