@@ -1,7 +1,10 @@
 package com.dmytro.realty.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,7 +18,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "realty_user")
@@ -35,9 +37,9 @@ public class RealtyUser implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinTable(name = "news_feed", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "criteria_id"))
-    private Collection<RealtyCriteria> criteriaCollection;
+    @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinTable(name = "news_feed", joinColumns = @JoinColumn(name = "user_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "criteria_id", nullable = false))
+    private Set<RealtyCriteria> criteriaCollection = new HashSet<>();
 
     public long getId() {
 	return id;
@@ -75,7 +77,13 @@ public class RealtyUser implements Serializable {
 	return criteriaCollection;
     }
 
-    public void setCriteriaCollection(Collection<RealtyCriteria> criteriaCollection) {
+    public void setCriteriaCollection(Set<RealtyCriteria> criteriaCollection) {
 	this.criteriaCollection = criteriaCollection;
+    }
+
+    @Override
+    public String toString() {
+	return "RealtyUser [id=" + id + ", login=" + login + ", password=" + password + ", email=" + email
+		+ ", criteriaCollection=" + criteriaCollection + "]";
     }
 }

@@ -5,7 +5,7 @@
 
 	<ui:define name="title">Realty Home</ui:define>
 	<ui:param name="centerTitle" value="Personal Cabinet" />
-	
+
 	<ui:define name="content">
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
@@ -37,6 +37,7 @@
 
 				</p:tabView>
 			</p:panel>
+			<p:commandButton value="Submit" update="growl" action="saveUser" actionListener="#{currentState.preferences.save}" />
 		</h:form>
 	</ui:define>
 </ui:composition>

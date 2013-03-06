@@ -3,6 +3,8 @@ package com.dmytro.realty.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,17 +14,20 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
@@ -43,13 +48,13 @@ public class RealtyCriteria implements Serializable {
     @Enumerated(EnumType.STRING)
     private ProductType productType;
 
-    @ElementCollection(targetClass = String.class)
-    @Enumerated(EnumType.STRING)
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
     @CollectionTable(name = "realty_operations", joinColumns = @JoinColumn(name = "criteria_id"))
     @Column(name = "operation_type")
-    private Collection<OperationType> operations = new ArrayList<>();
+    private Set<String> operations = new HashSet<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "parameters_id")
     private RealtyParameters parameters = new RealtyParameters();
 
@@ -69,11 +74,11 @@ public class RealtyCriteria implements Serializable {
 	this.parameters = parameters;
     }
 
-    public Collection<OperationType> getOperations() {
+    public Collection<String> getOperations() {
 	return operations;
     }
 
-    public void setOperations(Collection<OperationType> operations) {
+    public void setOperations(Set<String> operations) {
 	this.operations = operations;
     }
 

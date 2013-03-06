@@ -2,6 +2,7 @@ package com.dmytro.realty.web.controller;
 
 import java.util.Collection;
 
+import org.apache.commons.collections.ListUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -11,14 +12,18 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
+import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyUser;
+import com.dmytro.realty.security.RealtyUserDetails;
 import com.dmytro.realty.service.IUserService;
 import com.dmytro.realty.web.flow.jsf.PersonalCabinetBean;
 import com.dmytro.realty.web.flow.jsf.RealtyWizard;
 import com.dmytro.realty.web.flow.jsf.UserPreferencesBean;
+import com.dmytro.realty.web.flow.jsf.buffer.CriteriaBean;
 
 @Controller("realtyController")
 public class RealtyController {
+
     private final static Collection<? extends GrantedAuthority> USER_AUTHORITY = AuthorityUtils
 	    .createAuthorityList("ROLE_USER");
 
@@ -26,10 +31,13 @@ public class RealtyController {
     private IUserService userService;
 
     public UserPreferencesBean getPreferences() {
-	UserPreferencesBean preferencesBean = new UserPreferencesBean();
-	preferencesBean.setUser(getCurrentUser());
-	preferencesBean.setCriteriaList(preferencesBean.getUser().getCriteriaCollection());
-	return preferencesBean;
+	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	if (authentication != null && authentication.getAuthorities().containsAll(USER_AUTHORITY)) {
+	    RealtyUser realtyUser = ((RealtyUserDetails) authentication.getPrincipal()).getRealtyUser();
+	    System.out.println("Welome, " + realtyUser);
+	    return new UserPreferencesBean(realtyUser);
+	}
+	return new UserPreferencesBean();
     }
 
     public RealtyWizard getWizard(UserPreferencesBean preferences) {
@@ -48,7 +56,10 @@ public class RealtyController {
 	authorizeUser(preferencesBean.getUser());
 
 	RealtyUser user = preferencesBean.getUser();
-	user.setCriteriaCollection(preferencesBean.getCriteriaList());
+	user.getCriteriaCollection().clear();
+	for (CriteriaBean criteriaBean : preferencesBean.getCriteriaList()) {
+	    user.getCriteriaCollection().add(criteriaBean.getRealtyCriteria());
+	}
 	userService.saveUser(user);
     }
 
@@ -56,13 +67,5 @@ public class RealtyController {
 	Authentication authentication = new UsernamePasswordAuthenticationToken(user, user.getPassword(),
 		USER_AUTHORITY);
 	SecurityContextHolder.getContext().setAuthentication(authentication);
-    }
-
-    private RealtyUser getCurrentUser() {
-	SecurityContext context = SecurityContextHolder.getContext();
-	Authentication authentication = context.getAuthentication();
-	if (authentication == null)
-	    return null;
-	return (RealtyUser) authentication.getPrincipal();
     }
 }

@@ -8,12 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.dmytro.realty.domain.RealtyUser;
 
-public class RealtyUserDetails extends RealtyUser implements UserDetails {
+public class RealtyUserDetails implements UserDetails {
+    private RealtyUser realtyUser;
 
     public RealtyUserDetails(RealtyUser user) {
-	setEmail(user.getEmail());
-	setLogin(user.getLogin());
-	setPassword(user.getPassword());
+	realtyUser = user;
     }
 
     @Override
@@ -23,7 +22,12 @@ public class RealtyUserDetails extends RealtyUser implements UserDetails {
 
     @Override
     public String getUsername() {
-	return getLogin();
+	return realtyUser.getLogin();
+    }
+
+    @Override
+    public String getPassword() {
+	return realtyUser.getPassword();
     }
 
     @Override
@@ -44,5 +48,9 @@ public class RealtyUserDetails extends RealtyUser implements UserDetails {
     @Override
     public boolean isEnabled() {
 	return true;
+    }
+
+    public RealtyUser getRealtyUser() { 
+	return realtyUser;
     }
 }

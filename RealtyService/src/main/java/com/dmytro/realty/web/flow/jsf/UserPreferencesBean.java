@@ -2,8 +2,8 @@ package com.dmytro.realty.web.flow.jsf;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
@@ -18,15 +18,21 @@ import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
+import com.dmytro.realty.web.flow.jsf.buffer.CriteriaBean;
 
 public class UserPreferencesBean implements Serializable {
     private RealtyUser user;
-    private Collection<RealtyCriteria> criteriaList;
+    private List<CriteriaBean> criteriaList = new ArrayList<>();
 
     public UserPreferencesBean() {
 	user = new RealtyUser();
-	criteriaList = new LinkedList<>();
 	addCriteria();
+    }
+
+    public UserPreferencesBean(RealtyUser user) {
+	this.user = user;
+	for (RealtyCriteria criteria : user.getCriteriaCollection())
+	    criteriaList.add(new CriteriaBean(criteria));
     }
 
     public RealtyUser getUser() {
@@ -37,16 +43,16 @@ public class UserPreferencesBean implements Serializable {
 	this.user = user;
     }
 
-    public Collection<RealtyCriteria> getCriteriaList() {
+    public List<CriteriaBean> getCriteriaList() {
 	return criteriaList;
     }
 
-    public void setCriteriaList(Collection<RealtyCriteria> criteriaList) {
+    public void setCriteriaList(List<CriteriaBean> criteriaList) {
 	this.criteriaList = criteriaList;
     }
 
     public void addCriteria() {
-	criteriaList.add(new RealtyCriteria());
+	criteriaList.add(new CriteriaBean());
     }
 
     public void save(ActionEvent actionEvent) {
@@ -59,11 +65,11 @@ public class UserPreferencesBean implements Serializable {
 	return ProductType.values();
     }
 
-    public OperationType[] getOperationTypes(ProductType realtyUnit) {
+    public String[] getOperationTypes(ProductType realtyUnit) {
 	if (realtyUnit == ProductType.ROOM)
-	    return new OperationType[] { OperationType.RENT, OperationType.FARM_OUT, OperationType.LOOKING_PARTNER };
+	    return new String[] { "RENT", "FARM_OUT", "LOOKING_PARTNER" };
 	else
-	    return OperationType.values();
+	    return new String[] { "SELL", "BUY", "EXCHANGE", "RENT", "FARM_OUT", "LOOKING_PARTNER" };
     }
 
     public String login() throws ServletException, IOException {
