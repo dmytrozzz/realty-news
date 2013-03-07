@@ -22,7 +22,7 @@
 				<p:outputPanel id="selectOperation" autoUpdate="true">
 					<p:selectCheckboxMenu value="#{criteria.operations}" required="true" requiredMessage="Ви не обрали тип операції"
 						label="Choose operation" rendered="#{criteria.productType != null}" panelStyle="width:220px">
-						<f:selectItems itemLabel="#{opType.name()}" value="#{preferences.getOperationTypes(criteria.productType)}" />
+						<f:selectItems value="#{preferences.getOperationTypes(criteria.productType)}" />
 					</p:selectCheckboxMenu>
 				</p:outputPanel>
 			</p:column>
@@ -37,6 +37,6 @@
 					</h:panelGrid>
 				</p:overlayPanel>
 			</p:column>
-		</p:dataTable>
+		</p:dataTable>				
 	</p:panel>
 </ui:composition>

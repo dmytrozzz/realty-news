@@ -2,8 +2,8 @@ package com.dmytro.realty.web.flow.jsf;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
@@ -14,39 +14,45 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import com.dmytro.realty.domain.User;
-import com.dmytro.realty.domain.search.SearchCriteria;
+import com.dmytro.realty.domain.RealtyCriteria;
+import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
+import com.dmytro.realty.web.flow.jsf.buffer.CriteriaBean;
 
 public class UserPreferencesBean implements Serializable {
-    private User user;
-    private Collection<SearchCriteria> criteriaList;
+    private RealtyUser user;
+    private List<CriteriaBean> criteriaList = new ArrayList<>();
 
     public UserPreferencesBean() {
-	user = new User();
-	criteriaList = new LinkedList<>();
+	user = new RealtyUser();
 	addCriteria();
     }
 
-    public User getUser() {
+    public UserPreferencesBean(RealtyUser user) {
+	this.user = user;
+	for (RealtyCriteria criteria : user.getCriteriaCollection())
+	    criteriaList.add(new CriteriaBean(criteria));
+    }
+
+    public RealtyUser getUser() {
 	return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(RealtyUser user) {
 	this.user = user;
     }
 
-    public Collection<SearchCriteria> getCriteriaList() {
+    public List<CriteriaBean> getCriteriaList() {
 	return criteriaList;
     }
 
-    public void setCriteriaList(Collection<SearchCriteria> criteriaList) {
+    public void setCriteriaList(List<CriteriaBean> criteriaList) {
 	this.criteriaList = criteriaList;
     }
 
     public void addCriteria() {
-	criteriaList.add(new SearchCriteria());
+	criteriaList.add(new CriteriaBean());
     }
 
     public void save(ActionEvent actionEvent) {
@@ -59,11 +65,11 @@ public class UserPreferencesBean implements Serializable {
 	return ProductType.values();
     }
 
-    public OperationType[] getOperationTypes(ProductType realtyUnit) {
+    public String[] getOperationTypes(ProductType realtyUnit) {
 	if (realtyUnit == ProductType.ROOM)
-	    return new OperationType[] { OperationType.RENT, OperationType.FARM_OUT, OperationType.LOOKING_PARTNER };
+	    return new String[] { "RENT", "FARM_OUT", "LOOKING_PARTNER" };
 	else
-	    return OperationType.values();
+	    return new String[] { "SELL", "BUY", "EXCHANGE", "RENT", "FARM_OUT", "LOOKING_PARTNER" };
     }
 
     public String login() throws ServletException, IOException {
