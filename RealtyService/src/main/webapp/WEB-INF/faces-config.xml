@@ -5,7 +5,19 @@
 	version="2.1">
 
 	<application>
-		<!-- <message-bundle>JsfMessageResources</message-bundle> -->		
+		 <locale-config>
+			<default-locale>ua</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>ru</supported-locale>
+			<supported-locale>ua</supported-locale>
+		</locale-config>
+		<message-bundle>localization.ui</message-bundle>
+		<resource-bundle>
+			<base-name>localization.ui</base-name>
+			<var>ui</var>
+		</resource-bundle>
+
+		<!-- <message-bundle>JsfMessageResources</message-bundle> -->
 	</application>
 
 </faces-config>

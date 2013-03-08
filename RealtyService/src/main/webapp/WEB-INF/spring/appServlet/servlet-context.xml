@@ -6,13 +6,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces-2.2.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd		">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
 	<import resource="webflow.xml" />
 	<import resource="controllers.xml" />
-	<!-- <context:component-scan base-package="com.dmytro.realty.web.controller" /> -->
+	<!-- <context:component-scan base-package="com.dmytro.realty.web.controller" 
+		/> -->
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
@@ -22,29 +23,26 @@
 	<!-- Enable serving of classpath with Spring 3 resource serving mechanism. 
 		For example: /webflow-primefaces-showcase/app/resources/styles/blueprint/print.css -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-	<!-- 
-		Enable processing of JSF 2 resource requests. For example:
-		/webflow-primefaces-showcase/app/javax.faces.resource/jsf.js?ln=javax.faces
-	-->
+	<!-- Enable processing of JSF 2 resource requests. For example: /webflow-primefaces-showcase/app/javax.faces.resource/jsf.js?ln=javax.faces -->
 	<faces:resources />
-	
-	<!--
-		Maps request paths to flows in the flowRegistry; e.g. a path of
-		/hotels/booking looks for a flow with id "hotels/booking"
-	-->
+
+	<!-- Maps request paths to flows in the flowRegistry; e.g. a path of /hotels/booking 
+		looks for a flow with id "hotels/booking" -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry" />
 	</bean>
-	
-	<!--
-		Resolves views selected for rendering by @Controllers to .xhtml
-		resources in the /WEB-INF/views directory
-	-->
+
+	<!-- Resolves views selected for rendering by @Controllers to .xhtml resources 
+		in the /WEB-INF/views directory -->
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".xhtml" />
-	</bean>	
+	</bean>
+
+	<!-- <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" 
+		id="messageSource" p:basenames="WEB-INF/i18n/messages" p:fallbackToSystemLocale="false" 
+		/> -->
 
 	<bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor" />

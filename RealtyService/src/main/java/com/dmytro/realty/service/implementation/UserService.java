@@ -37,7 +37,7 @@ public class UserService implements IUserService, UserDetailsService {
     private ParametersRepository parametersRepository;
 
     @Autowired
-    private CriteriaRepository criteriaRepository;    
+    private CriteriaRepository criteriaRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -73,6 +73,6 @@ public class UserService implements IUserService, UserDetailsService {
 
     @Override
     public RealtyUser findUserByLogin(String login) {
-	return (RealtyUser) loadUserByUsername(login);
+	return userRepository.findByLogin(login);
     }
 }

@@ -24,48 +24,52 @@ import com.dmytro.realty.web.flow.jsf.buffer.CriteriaBean;
 @Controller("realtyController")
 public class RealtyController {
 
-    private final static Collection<? extends GrantedAuthority> USER_AUTHORITY = AuthorityUtils
-	    .createAuthorityList("ROLE_USER");
+	private final static Collection<? extends GrantedAuthority> USER_AUTHORITY = AuthorityUtils
+			.createAuthorityList("ROLE_USER");
 
-    @Autowired
-    private IUserService userService;
+	@Autowired
+	private IUserService userService;
 
-    public UserPreferencesBean getPreferences() {
-	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	if (authentication != null && authentication.getAuthorities().containsAll(USER_AUTHORITY)) {
-	    RealtyUser realtyUser = ((RealtyUserDetails) authentication.getPrincipal()).getRealtyUser();
-	    System.out.println("Welome, " + realtyUser);
-	    return new UserPreferencesBean(realtyUser);
+	public UserPreferencesBean getPreferences() {
+		Authentication authentication = SecurityContextHolder.getContext()
+				.getAuthentication();
+		if (authentication != null
+				&& authentication.getAuthorities().containsAll(USER_AUTHORITY)) {
+			RealtyUser realtyUser = ((RealtyUserDetails) authentication
+					.getPrincipal()).getRealtyUser();
+			System.out.println("Welome, " + realtyUser);
+			return new UserPreferencesBean(realtyUser);
+		}
+		return new UserPreferencesBean();
 	}
-	return new UserPreferencesBean();
-    }
 
-    public RealtyWizard getWizard(UserPreferencesBean preferences) {
-	return new RealtyWizard(preferences);
-    }
-
-    public PersonalCabinetBean getCabinet(UserPreferencesBean preferences) {
-	return new PersonalCabinetBean(preferences);
-    }
-
-    public boolean isAuthorized() {
-	return SecurityContextHolder.getContext().getAuthentication().getAuthorities().containsAll(USER_AUTHORITY);
-    }
-
-    public void saveUser(UserPreferencesBean preferencesBean) {
-	authorizeUser(preferencesBean.getUser());
-
-	RealtyUser user = preferencesBean.getUser();
-	user.getCriteriaCollection().clear();
-	for (CriteriaBean criteriaBean : preferencesBean.getCriteriaList()) {
-	    user.getCriteriaCollection().add(criteriaBean.getRealtyCriteria());
+	public RealtyWizard getWizard(UserPreferencesBean preferences) {
+		return new RealtyWizard(preferences);
 	}
-	userService.saveUser(user);
-    }
 
-    private void authorizeUser(RealtyUser user) {
-	Authentication authentication = new UsernamePasswordAuthenticationToken(user, user.getPassword(),
-		USER_AUTHORITY);
-	SecurityContextHolder.getContext().setAuthentication(authentication);
-    }
+	public PersonalCabinetBean getCabinet(UserPreferencesBean preferences) {
+		return new PersonalCabinetBean(preferences);
+	}
+
+	public boolean isAuthorized() {
+		return SecurityContextHolder.getContext().getAuthentication()
+				.getAuthorities().containsAll(USER_AUTHORITY);
+	}
+
+	public void saveUser(UserPreferencesBean preferencesBean) {
+		authorizeUser(preferencesBean.getUser());
+
+		RealtyUser user = preferencesBean.getUser();
+		user.getCriteriaCollection().clear();
+		for (CriteriaBean criteriaBean : preferencesBean.getCriteriaList()) {
+			user.getCriteriaCollection().add(criteriaBean.getRealtyCriteria());
+		}
+		userService.saveUser(user);
+	}
+
+	private void authorizeUser(RealtyUser user) {
+		Authentication authentication = new UsernamePasswordAuthenticationToken(
+				user, user.getPassword(), USER_AUTHORITY);
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+	}
 }
