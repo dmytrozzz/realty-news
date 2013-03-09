@@ -48,4 +48,9 @@ public class RealtyParameters implements Serializable {
     public void setToPrice(int toPrice) {
 	this.toPrice = toPrice;
     }
+
+    @Override
+    public String toString() {
+	return "RealtyParameters [id=" + id + ", fromPrice=" + fromPrice + ", toPrice=" + toPrice + "]";
+    }        
 }

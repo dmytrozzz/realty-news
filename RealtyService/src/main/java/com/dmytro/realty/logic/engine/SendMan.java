@@ -40,8 +40,7 @@ public class SendMan {
 	sendMail(to, "news@java.net", smtpHost, content);
     }
 
-    private void sendMail(String to, String from, String smtpHost, String content) {
-	System.out.println("Sending mail to " + to);
+    private void sendMail(String to, String from, String smtpHost, String content) {	
 	Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 	    protected PasswordAuthentication getPasswordAuthentication() {
 		return new PasswordAuthentication(login, pass);

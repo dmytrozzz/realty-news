@@ -15,18 +15,8 @@ public interface CriteriaRepository extends CrudRepository<RealtyCriteria, Long>
     @Query(value = "SELECT rsc FROM realty_search_criteria rsc WHERE rsc.product_type = :prodType and rsc.parameters_id = :params", nativeQuery = true)
     Collection<RealtyCriteria> nativeFindBy(@Param("prodType") String productType, @Param("params") long parameters);
 
-    @Query(value = "select crit from RealtyCriteria crit where crit.productType = :prodType and crit.parameters = :params "
-	    + "and crit.operations = :opers")
-    RealtyCriteria findBy(@Param("prodType") ProductType productType, @Param("params") RealtyParameters parameters,
-	    @Param("opers") Collection<String> operations);
-
-    @Query(value = "select crit from RealtyCriteria crit where crit.productType = :prodType and crit.parameters = :params")
-    Collection<RealtyCriteria> findBy(@Param("prodType") ProductType productType,
-	    @Param("params") RealtyParameters parameters);
-
-    RealtyCriteria findByProductTypeAndParametersAndOperations(ProductType productType, RealtyParameters parameters,
-	    Collection<String> operations);
-
     @Query(value = "SELECT operation_type FROM realty_operations WHERE criteria_id = :critId", nativeQuery = true)
     public Collection<String> findByCriteriaId(@Param("critId") long critId);
+    
+    //TODO request with specific user fetching(only payed and enabled)
 }

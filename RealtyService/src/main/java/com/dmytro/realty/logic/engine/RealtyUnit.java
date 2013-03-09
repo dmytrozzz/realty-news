@@ -16,7 +16,7 @@ public class RealtyUnit {
 	this.price = price;
 	this.offender = offender;
 	this.offerContent = offerContent;
-	this.phoneRef = phoneRef;	
+	this.phoneRef = phoneRef;
     }
 
     /*

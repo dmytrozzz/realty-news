@@ -97,4 +97,10 @@ public class RealtyCriteria implements Serializable {
     public void setUserCollection(Collection<RealtyUser> userCollection) {
 	this.userCollection = userCollection;
     }
+
+    @Override
+    public String toString() {
+	return "RealtyCriteria [id=" + id + ", userCollection=" + userCollection + ", productType=" + productType
+		+ ", operations=" + operations + ", parameters=" + parameters + "]";
+    }        
 }
