@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dmytro.realty.data.repository.CriteriaRepository;
 import com.dmytro.realty.domain.RealtyCriteria;
-import com.dmytro.realty.logic.engine.RealtyEngine;
+import com.dmytro.realty.engine.RealtyEngine;
 import com.dmytro.realty.service.IRealtyService;
 
 @Repository

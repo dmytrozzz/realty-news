@@ -1,4 +1,4 @@
-package com.dmytro.realty.logic.engine;
+package com.dmytro.realty.engine;
 
 /**
  * Created with IntelliJ IDEA. User: dmytro Date: 29.01.13 Time: 0:01 To change

@@ -1,4 +1,4 @@
-package com.dmytro.realty.logic.engine.parser;
+package com.dmytro.realty.engine.parser;
 
 import java.io.IOException;
 import java.net.URI;

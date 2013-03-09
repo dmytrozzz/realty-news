@@ -1,21 +1,16 @@
-package com.dmytro.realty.logic.engine.parser;
+package com.dmytro.realty.engine.parser;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.dmytro.realty.logic.engine.RealtyUnit;
-import com.dmytro.realty.logic.engine.builder.SlandoCriteriaConverter;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.LinkedList;
-import java.util.List;
+import com.dmytro.realty.engine.RealtyUnit;
+import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
 
 /**
  * Created with IntelliJ IDEA. User: dmytro Date: 28.01.13 Time: 21:44 To change
@@ -30,15 +25,15 @@ public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
     public static String OFFER_CONTENT_CLASS = "marginbott20 lheight20 large marginright40";
     public static String OFFER_CONTACT_CLASS = "block brkword lheight16";
 
-    public List<String> parseRequest(String request) throws RealtyUnparsebleException {
-	List<String> hrefs = new LinkedList<>();
+    public Set<String> parseRequest(String request) throws RealtyUnparsebleException {
+	Set<String> hrefs = new HashSet<>();
 	Document document = getSource(request);
 
 	Element element = document.getElementById(OFFERS_TABLE);
 	Elements as = element.getElementsByAttributeValue("class", OFFER_LINK_CLASS);
-	for (Element a : as)
+	for (Element a : as){	   
 	    hrefs.add(a.attr("href"));
-
+	}
 	return hrefs;
     }
 

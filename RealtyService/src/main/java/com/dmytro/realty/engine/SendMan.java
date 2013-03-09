@@ -1,4 +1,4 @@
-package com.dmytro.realty.logic.engine;
+package com.dmytro.realty.engine;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

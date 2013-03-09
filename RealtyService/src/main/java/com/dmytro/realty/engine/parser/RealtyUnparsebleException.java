@@ -1,4 +1,4 @@
-package com.dmytro.realty.logic.engine.parser;
+package com.dmytro.realty.engine.parser;
 
 public class RealtyUnparsebleException extends Exception {
     public RealtyUnparsebleException(String message) {

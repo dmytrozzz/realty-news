@@ -1,4 +1,4 @@
-package com.dmytro.realty.logic.engine.builder;
+package com.dmytro.realty.engine.builder;
 
 import com.dmytro.realty.domain.RealtyCriteria;
 

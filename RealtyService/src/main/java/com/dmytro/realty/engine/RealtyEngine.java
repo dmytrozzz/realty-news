@@ -1,30 +1,28 @@
-package com.dmytro.realty.logic.engine;
+package com.dmytro.realty.engine;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.dmytro.realty.domain.RealtyCriteria;
-import com.dmytro.realty.domain.RealtyParameters;
 import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
-import com.dmytro.realty.logic.engine.builder.RealtyCriteriaConverter;
-import com.dmytro.realty.logic.engine.builder.SlandoCriteriaConverter;
-import com.dmytro.realty.logic.engine.parser.IRealtyParser;
-import com.dmytro.realty.logic.engine.parser.RealtyUnparsebleException;
-import com.dmytro.realty.logic.engine.parser.SlandoRealtyParser;
+import com.dmytro.realty.engine.builder.RealtyCriteriaConverter;
+import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
+import com.dmytro.realty.engine.parser.IRealtyParser;
+import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyEngine {
     private SendMan sendMan;
     private IRealtyParser realtyParser;
     private RealtyCriteriaConverter criteriaConverter;
-    private Map<Long, List<String>> criteriaMap = new HashMap<>();
+    private Map<Long, Set<String>> criteriaMap = new HashMap<>();
 
     public RealtyEngine() {
 	sendMan = new SendMan();
@@ -32,15 +30,20 @@ public class RealtyEngine {
 	criteriaConverter = new SlandoCriteriaConverter();
     }
 
-    private List<RealtyUnit> grabRealtyUnits(String request) {
-	List<RealtyUnit> realtyUnits = new LinkedList<>();
-	List<String> offerLinks = new ArrayList<>();
+    private List<RealtyUnit> grabRealtyUnits(String request, long criteriaId) {
+	List<RealtyUnit> realtyUnits = new LinkedList<>();	
 	try {
-	    offerLinks = realtyParser.parseRequest(request);
+	    Set<String> source = realtyParser.parseRequest(request);
+	    
+	    source.removeAll(criteriaMap.get(criteriaId));
+	    
+	    criteriaMap.get(criteriaId).clear();
+	    criteriaMap.get(criteriaId).addAll(source);
 	} catch (Exception e) {
+	    e.printStackTrace();
 	}
 
-	for (String link : offerLinks) {
+	for (String link : criteriaMap.get(criteriaId)) {
 	    try {
 		realtyUnits.add(realtyParser.parseOffer(link));
 	    } catch (Exception e) {
@@ -60,16 +63,19 @@ public class RealtyEngine {
     }
 
     public void searchAndSubscribe(RealtyCriteria criteria, Collection<RealtyUser> userCollection) {
-	String request = criteriaConverter.buildRequest(criteria);	
+	if (!criteriaMap.containsKey(criteria.getId()))
+	    criteriaMap.put(criteria.getId(), new HashSet<String>());
 
-	List<RealtyUnit> realtyUnits = grabRealtyUnits(request);		
-	
-	for (RealtyUser user : userCollection) {	    
+	String request = criteriaConverter.buildRequest(criteria);
+
+	List<RealtyUnit> realtyUnits = grabRealtyUnits(request, criteria.getId());
+
+	for (RealtyUser user : userCollection) {
 	    sendNews(realtyUnits, user.getEmail());
 	}
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 	RealtyCriteria realtyCriteria = new RealtyCriteria();
 	realtyCriteria.setProductType(ProductType.ROOM);
 	realtyCriteria.getParameters().setFromPrice(2000);
@@ -77,13 +83,15 @@ public class RealtyEngine {
 
 	realtyCriteria.setOperations(Collections.singleton(OperationType.RENT.name()));
 
-	System.out.println("CRITERIA: -->" + realtyCriteria);
-
 	RealtyUser user = new RealtyUser();
 	user.setEmail("d.zonov@ukr.net");
 
 	RealtyEngine engine = new RealtyEngine();
-	engine.searchAndSubscribe(realtyCriteria, Collections.singletonList(user));
+	while (true) {
+	    System.out.println("Lets go!");
+	    engine.searchAndSubscribe(realtyCriteria, Collections.singletonList(user));
+	    Thread.sleep(10000);
+	}
 
     }
 }
