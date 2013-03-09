@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/webflow 
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
 	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	start-state="start-state">
 
 	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 
 	<on-start>
-		<evaluate expression="realtyController.getPreferences()" result="flowScope.preferences"></evaluate>
+		<evaluate expression="realtyController.getPreferences()" result="flowScope.preferences" />
 	</on-start>
 
 	<decision-state id="start-state">
@@ -16,14 +16,14 @@
 
 	<view-state id="wizard-page" view="wizard.xhtml">
 		<on-entry>
-			<evaluate expression="realtyController.getWizard(preferences)" result="viewScope.currentState"></evaluate>
+			<evaluate expression="realtyController.getWizard(preferences)" result="viewScope.currentState" />
 		</on-entry>
 	</view-state>
 
 	<view-state id="personal-cabinet" view="personalCabinet.xhtml">
 		<secured attributes="ROLE_USER" />
 		<on-entry>
-			<evaluate expression="realtyController.getCabinet(preferences)" result="viewScope.currentState"></evaluate>
+			<evaluate expression="realtyController.getCabinet(preferences)" result="viewScope.currentState" />
 		</on-entry>
 	</view-state>
 
