@@ -9,21 +9,24 @@
 		</div>
 	</c:if>
 
-	<h:form id="loginForm" prependId="false" onsubmit="document.#{p:component('loginForm')}.action='#{request.contextPath}/check_login';">
+	<h:form id="loginForm" prependId="false" target="/app/realty-flow" onsubmit="document.#{p:component('loginForm')}.action='#{request.contextPath}/check_login';">
 		<p:panel>
 			<p:growl id="sideGrowl" showDetail="true" sticky="false" />
-			<p:panelGrid columns="2">
-				<h:outputText value="#{ui.USERNAME}" />
+			<h:panelGrid columns="1">
+				<h:outputLabel for="j_username" value="#{ui.USERNAME}: " />
 				<p:inputText id="j_username" required="true" />
 
-				<h:outputText value="#{ui.PASSWORD}" />
+				<h:outputLabel for="j_password" value="#{ui.PASSWORD}: " />
 				<p:password id="j_password" required="true" />
-				
+
+				<h:outputLabel for="_spring_security_remember_me" value="#{ui.DONT_ASK_PASS}: " />
+				<p:selectBooleanCheckbox id="_spring_security_remember_me" />
+
 				<f:facet name="footer">
-					<p:commandButton id="saveButton" value="#{ui.LOGIN}" update="@form" ajax="false" />
+					<p:commandButton id="saveButton" value="#{ui.LOGIN}" update="@form" ajax="false" onsuccess="" />
 				</f:facet>
 
-			</p:panelGrid>
+			</h:panelGrid>
 		</p:panel>
 	</h:form>
 

@@ -8,9 +8,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	<import resource="webflow.xml" />
-	<import resource="controllers.xml" />
-	<!-- <context:component-scan base-package="com.dmytro.realty.web.controller" /> -->
+	<import resource="webflow.xml" />	
+	<context:component-scan base-package="com.dmytro.realty.web.controller" />
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
@@ -23,11 +22,7 @@
 	<faces:resources />
 
 	<!-- Maps request paths to flows in the flowRegistry; e.g. a path of /hotels/booking looks for a flow with id "hotels/booking" -->
-	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping" p:flowRegistry-ref="flowRegistry" />
-
-	<!-- Resolves views selected for rendering by @Controllers to .xhtml resources in the /WEB-INF/views directory -->
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:viewClass="org.springframework.faces.mvc.JsfView"
-		p:prefix="/WEB-INF/views/" p:suffix=".xhtml" />
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping" p:flowRegistry-ref="flowRegistry" />	
 
 	<bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="messageSource"
 		p:basenames="WEB-INF/i18n/ui" p:fallbackToSystemLocale="false" p:useCodeAsDefaultMessage="true" p:defaultEncoding="UTF-8" />
