@@ -2,26 +2,30 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
 
-	<p:panel header="Registration Part">
-		<!-- <h:messages errorClass="error" /> -->
-		<p:messages id="messages" showDetail="false" autoUpdate="true" />
+	<p:panel header="#{ui.ENTER_USER_DATA}">
+		<!-- <p:messages id="messages" autoUpdate="true" /> -->
 
-		<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
-		
-			<h:outputLabel for="login" value="Login: *" />
-			<p:password id="login" value="#{preferences.user.login}" required="true" />
+		<h:panelGrid columns="3" columnClasses="label, value" styleClass="grid">
+			<h:outputLabel for="login" value="#{ui.USERNAME}: *" />
+			<p:inputText id="login" value="#{preferences.user.login}" required="true" requiredMessage="#{ui.ERR_LOGIN_REQUIRED}" />
+			<p:message for="login" display="both" />
 
-			<h:outputLabel for="pwd1" value="Password: *" />
-			<p:password id="pwd1" value="#{preferences.user.password}" match="pwd2" label="Password" required="true" />
+			<h:outputLabel for="pwd1" value="#{ui.PASSWORD}: *" />
+			<p:password id="pwd1" value="#{preferences.user.password}" match="pwd2" label="#{ui.PASS_LABEL}" required="true"
+				requiredMessage="#{ui.ERR_PASS_REQUIRED}" />
+			<p:message for="pwd1" display="both" />
 
-			<h:outputLabel for="pwd2" value="Repeat Password: *" />
-			<p:password id="pwd2" value="#{preferences.user.password}" label="Repeated Password" required="true" />
+			<h:outputLabel for="pwd2" value="#{ui.REPEAT_PASS}: *" />
+			<p:password id="pwd2" value="#{preferences.user.password}" label="#{ui.REPEAT_PASS_LABEL}" required="true"
+				requiredMessage="#{ui.ERR_PASS_REQUIRED}" />
+			<p:message for="pwd2" display="both" />
 
-			<h:outputText value="Email: *" />
-			<p:inputText value="#{preferences.user.email}" required="true">
+			<h:outputText value="#{ui.EMAIL}: *" />
+			<p:inputText id="email" value="#{preferences.user.email}" required="true" requiredMessage="#{ui.ERR_EMAIL_REQUIRED}">
 				<!-- <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" /> -->
 			</p:inputText>
-			
+			<p:message for="email" display="both" />
+
 		</h:panelGrid>
 	</p:panel>
 </ui:composition>

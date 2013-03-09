@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<h:html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
-	xmlns:sf="http://www.springframework.org/tags/faces">
+<h:html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:sf="http://www.springframework.org/tags/faces">
 <f:view contentType="text/html" encoding="UTF-8">
+	<!-- i18n shortcut -->
+	<ui:param name="ui" value="#{resourceBundle}" />
+
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<h:title>#{resourceBundle.TITLE}</h:title>
-		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/screen.css" type="text/css"
-			media="screen, projection" />
-		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/print.css" type="text/css"
-			media="print" />
-		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/realty-style.css" type="text/css"
-			media="print" />
+		<!-- <h:title>#{resourceBundle.TITLE}</h:title> -->
+		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/screen.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/blueprint/print.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/realty-style.css" type="text/css" media="print" />
 		<!-- [if lt IE 8]>
 		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
 	<![endif] -->
@@ -28,13 +27,13 @@
 				<p:layoutUnit position="north" id="headerPane" size="75">
 					<h:form>
 						<p:menubar style="height:50px">
-							<p:menuitem value="#{resourceBundle.PERSONAL_CABINET}" action="goCabinet" />
-							<p:menuitem value="#{resourceBundle.WRITE_TO_DEVELOPERS}" url="#" />
+							<p:menuitem value="#{ui.PERSONAL_CABINET}" action="goCabinet" />
+							<p:menuitem value="#{ui.WRITE_TO_DEVELOPERS}" url="#" />
 							<f:facet name="options">
-								<h:outputFormat value="#{resourceBundle.WELCOME}">
+								<h:outputFormat value="#{ui.WELCOME}">
 									<f:param value="#{currentUser.name}" />
 								</h:outputFormat>
-								<p:commandButton value="#{resourceBundle.LOGOUT}" onclick="location.href='logout'" icon="ui-icon-extlink" />
+								<p:commandButton value="#{ui.LOGOUT}" onclick="location.href='logout'" icon="ui-icon-extlink" />
 							</f:facet>
 						</p:menubar>
 					</h:form>

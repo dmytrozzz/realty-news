@@ -16,18 +16,20 @@
 	</listener>
 
 	<!-- SPRING SECURITY -->
-	 <filter>
+	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
 
-	 <filter-mapping>
+	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
-		<!-- <servlet-name>/</servlet-name> -->
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<!-- <servlet-name>appServlet</servlet-name> -->
 	</filter-mapping>
-	
-	
+
+
 
 	<!-- JSF 2 IMPLEMENTATION -->
 	<context-param>
@@ -58,7 +60,7 @@
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.faces</url-pattern>
-	</servlet-mapping>	
+	</servlet-mapping>
 	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
 		<param-value>client</param-value>
@@ -83,7 +85,7 @@
 	<filter>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
 		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
-	</filter>	
+	</filter>
 
 	<filter-mapping>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
