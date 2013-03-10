@@ -1,7 +1,6 @@
 package com.dmytro.realty.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,6 +17,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "realty_user")
@@ -36,7 +36,13 @@ public class RealtyUser implements Serializable {
 
     @Column(name = "email")
     private String email;
-
+    
+    @Transient
+    private boolean enabled;
+    
+    @Transient
+    private boolean payed;
+    
     @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinTable(name = "news_feed", joinColumns = @JoinColumn(name = "user_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "criteria_id", nullable = false))
     private Set<RealtyCriteria> criteriaCollection = new HashSet<>();
@@ -81,9 +87,19 @@ public class RealtyUser implements Serializable {
 	this.criteriaCollection = criteriaCollection;
     }
 
-    @Override
-    public String toString() {
-	return "RealtyUser [id=" + id + ", login=" + login + ", password=" + password + ", email=" + email
-		+ ", criteriaCollection=" + criteriaCollection + "]";
+    public boolean isEnabled() {
+        return enabled;
     }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isPayed() {
+        return payed;
+    }
+
+    public void setPayed(boolean payed) {
+        this.payed = payed;
+    }        
 }

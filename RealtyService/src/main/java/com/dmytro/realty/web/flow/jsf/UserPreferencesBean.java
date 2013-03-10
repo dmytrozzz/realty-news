@@ -72,15 +72,15 @@ public class UserPreferencesBean implements Serializable {
 	    return new String[] { "SELL", "BUY", "EXCHANGE", "RENT", "FARM_OUT", "LOOKING_PARTNER" };
     }
 
-    public String login() throws ServletException, IOException {
-	ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-	HttpServletRequest request = ((HttpServletRequest) context.getRequest());
+    public String getServiceStatus() {
+	return user.isEnabled() ? "SERVICE_ENABLED" : "SERVICE_DISABLED";
+    }
 
-	ServletResponse resposnse = ((ServletResponse) context.getResponse());
-	RequestDispatcher dispatcher = request.getRequestDispatcher("/j_spring_security_check");
-	dispatcher.forward(request, resposnse);
-	FacesContext.getCurrentInstance().responseComplete();
+    public String getRunButtonLabel() {
+	return user.isEnabled() ? "STOP_SERVICE" : "RUN_SERVICE";
+    }
 
-	return null;
+    public String getPayedStatus() {
+	return user.isPayed() ? "SERVICE_PAYED" : "SERVICE_UNPAYED";
     }
 }

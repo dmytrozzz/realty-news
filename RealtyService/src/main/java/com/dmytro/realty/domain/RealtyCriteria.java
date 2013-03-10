@@ -96,5 +96,5 @@ public class RealtyCriteria implements Serializable {
 
     public void setUserCollection(Collection<RealtyUser> userCollection) {
 	this.userCollection = userCollection;
-    }      
+    }
 }

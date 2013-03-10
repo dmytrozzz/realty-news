@@ -13,17 +13,16 @@
 				<p:tabView id="tabView" effect="drop">
 
 					<p:tab id="tab1" title="#{ui.CONTROL_PANEL}">
-						<p:panel header="#{ui.CONTROL_PANEL}">
+						<p:panel id="controlPanel" header="#{ui.CONTROL_PANEL}">
 							<!-- TODO depends on where service is payed or trial -->
 							<h:panelGrid columns="2" cellpadding="10">
-								<p:commandButton value="#{ui.RUN_SERVICE}" action="runService" style="width:170px" />
-								<h:outputText value="#{ui['status']}" />
+								<p:commandButton value="#{ui[preferences.getRunButtonLabel()]}" action="runService" style="width:170px"
+									disabled="#{!preferences.user.isPayed()}" update="controlPanel" />
+								<h:outputText value="#{ui[preferences.getServiceStatus()]}" />
 
-								<p:commandButton value="#{ui.PAY_FOR_SERVICE}" action="payForService" style="width:170px" />
-								<h:outputText value="#{ui['status']}" />
-
-								<p:commandButton value="#{ui.STOP_SERVICE}" action="stopService" style="width:170px" />
-								<h:outputText value="#{ui['status']}" />
+								<p:commandButton value="#{ui.PAY_FOR_SERVICE}" action="payForService" style="width:170px" rendered="#{!preferences.user.isPayed()}"
+									update="controlPanel" />
+								<h:outputText value="#{ui[preferences.getPayedStatus()]}" rendered="#{!preferences.user.isPayed()}" />
 							</h:panelGrid>
 						</p:panel>
 					</p:tab>
@@ -36,7 +35,7 @@
 
 					<p:tab id="tab3" title="#{ui.CREDENTIALS}">
 						<h:panelGrid columns="2" cellpadding="10">
-							<ui:include src="components/userData.xhtml">								
+							<ui:include src="components/userData.xhtml">
 								<ui:param name="preferences" value="#{currentState.preferences}"></ui:param>
 							</ui:include>
 						</h:panelGrid>

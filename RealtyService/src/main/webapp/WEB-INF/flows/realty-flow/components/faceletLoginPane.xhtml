@@ -9,7 +9,7 @@
 		</div>
 	</c:if>
 
-	<h:form id="loginForm" prependId="false" target="/app/realty-flow" onsubmit="document.#{p:component('loginForm')}.action='#{request.contextPath}/check_login';">
+	<h:form id="loginForm" prependId="false" onsubmit="document.#{p:component('loginForm')}.action='#{request.contextPath}/check_login';">
 		<p:panel>
 			<p:growl id="sideGrowl" showDetail="true" sticky="false" />
 			<h:panelGrid columns="1">
@@ -23,31 +23,9 @@
 				<p:selectBooleanCheckbox id="_spring_security_remember_me" />
 
 				<f:facet name="footer">
-					<p:commandButton id="saveButton" value="#{ui.LOGIN}" update="@form" ajax="false" onsuccess="" />
+					<p:commandButton id="saveButton" value="#{ui.LOGIN}" update="@form" ajax="false" onsuccess="location.href='realty-flow'" />
 				</f:facet>
-
 			</h:panelGrid>
 		</p:panel>
 	</h:form>
-
-	<!-- <p:panel>
-		<form name="f" action="${request.contextPath}/check_login" method="post">
-			<p>
-				#{ui.USERNAME}: <br />
-				<c:if test="${not empty param.login_error}">
-					<c:set var="username" value="${sessionScope.SPRING_SECURITY_LAST_USERNAME}" />
-				</c:if>
-				<input type="text" name="j_username" value="#{username}" />
-			</p>
-			<p>
-				#{ui.PASSWORD}: <br /> <input type="password" name="j_password" />
-			</p>
-			<p>
-				<input type="checkbox" name="_spring_security_remember_me" /> #{ui.DONT_ASK_PASS}
-			</p>
-			<p>
-				<input name="submit" type="submit" value="#{ui.LOGIN}" />
-			</p>
-		</form>
-	</p:panel> -->
 </ui:composition>
