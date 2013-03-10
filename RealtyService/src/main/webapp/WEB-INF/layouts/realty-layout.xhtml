@@ -26,14 +26,14 @@
 			<ui:insert name="header">
 				<p:layoutUnit position="north" id="headerPane" size="75">
 					<h:form>
-						<p:menubar style="height:70px" >
+						<p:menubar style="height:70px">
 							<p:menuitem value="#{ui.PERSONAL_CABINET}" action="goCabinet" />
 							<p:menuitem value="#{ui.WRITE_TO_DEVELOPERS}" url="#" />
 							<p:menuitem value="#{ui.FEEDBACK}" url="#" />
 							<p:menuitem value="#{ui.HOW_IT_WORKS}" url="#" />
 							<p:menuitem value="#{ui.RECOMMENDATIONS}" url="#" />
-							
-							
+
+
 							<h:outputLink target="/app/frealty-flow"></h:outputLink>
 							<f:facet name="options">
 								<h:outputFormat value="#{ui.WELCOME}">
@@ -52,7 +52,9 @@
 
 			<p:layoutUnit position="west" size="200" header="#{leftTitle}">
 				<ui:insert name="leftSide" />
-				<p:graphicImage value="/app/resources/images/realty.jpg"/>
+				<p:graphicImage value="/app/resources/images/realty.jpg" style="display:none">
+					<p:effect type="slide" event="load" delay="300" />
+				</p:graphicImage>
 			</p:layoutUnit>
 
 			<p:layoutUnit position="east" size="1">
