@@ -28,6 +28,8 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.JoinFormula;
+import org.hibernate.annotations.Where;
 
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
@@ -42,6 +44,7 @@ public class RealtyCriteria implements Serializable {
     private long id;
 
     @ManyToMany(mappedBy = "criteriaCollection")
+    @Where(clause = "payed = 'true' and enabled = 'true'")
     private Collection<RealtyUser> userCollection;
 
     @Column(name = "product_type")

@@ -37,10 +37,10 @@ public class RealtyUser implements Serializable {
     @Column(name = "email")
     private String email;
     
-    @Transient
+    @Column(name = "enabled")
     private boolean enabled;
     
-    @Transient
+    @Column(name = "payed")
     private boolean payed;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
