@@ -19,16 +19,23 @@ public class ApacheSender {
 	for (RealtyUnit unit : units) {
 	    // embed the image and get the content id
 	    URL url;
+	    String cid = "Без телефону";
 	    try {
 		url = new URL(unit.getPhoneRef());
+		cid = email.embed(url, "Phone" + unit.hashCode());
 	    } catch (MalformedURLException e) {
+		System.out.println("Wrong telephone!!!");
 		e.printStackTrace();
-		continue;
 	    }
-	    String cid = email.embed(url, "Phone" + unit.hashCode());
+
 	    htmlContent += "<h4>" + unit.getOfferContent() + "</h4><br/>" + "<h5>Ціна: " + unit.getPrice() + "<h5>"
 		    + "|<h5>Ініціатор: " + unit.getOffender() + "<h5>" + "|<h5>Телефон:<h5><img src=\"cid:" + cid
-		    + "\"><br/>-------------------------------------------------------------------------<br/>"; //+ "<br/><a href=\"" + unit.getLink() + "\">Посилання на оголошення</a>";
+		    + "\"><br/>-------------------------------------------------------------------------<br/>"; // +
+														// "<br/><a href=\""
+														// +
+														// unit.getLink()
+														// +
+														// "\">Посилання на оголошення</a>";
 	}
 	htmlContent += "</html>";
 	email.setHtmlMsg(htmlContent);
