@@ -15,11 +15,11 @@
 	<context:component-scan base-package="com.dmytro.realty.security" />
 
 	<!-- Wiring batch tasking -->
-	 <!--<task:scheduler id="realtyScheduler" pool-size="10" />
+	 <task:scheduler id="realtyScheduler" pool-size="10" />
 
 	<task:scheduled-tasks scheduler="realtyScheduler">
 		<task:scheduled ref="realtyService" method="searchRealty"
 			fixed-delay="60000"/>
-	</task:scheduled-tasks>-->
+	</task:scheduled-tasks>
 
 </beans>
