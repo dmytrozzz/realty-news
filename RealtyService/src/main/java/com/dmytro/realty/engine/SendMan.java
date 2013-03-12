@@ -3,6 +3,12 @@ package com.dmytro.realty.engine;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
 
@@ -40,7 +46,7 @@ public class SendMan {
 	sendMail(to, "news@java.net", smtpHost, content);
     }
 
-    private void sendMail(String to, String from, String smtpHost, String content) {	
+    private void sendMail(String to, String from, String smtpHost, String content) {
 	Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 	    protected PasswordAuthentication getPasswordAuthentication() {
 		return new PasswordAuthentication(login, pass);

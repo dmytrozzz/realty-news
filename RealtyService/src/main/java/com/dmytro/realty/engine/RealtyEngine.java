@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.mail.EmailException;
+
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
@@ -19,24 +21,26 @@ import com.dmytro.realty.engine.parser.IRealtyParser;
 import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyEngine {
-    private SendMan sendMan;
+    // private SendMan sendMan;
+    private ApacheSender sendMan;
     private IRealtyParser realtyParser;
     private RealtyCriteriaConverter criteriaConverter;
     private Map<Long, Set<String>> criteriaMap = new HashMap<>();
 
     public RealtyEngine() {
-	sendMan = new SendMan();
+	// sendMan = new SendMan();
+	sendMan = new ApacheSender();
 	realtyParser = new SlandoRealtyParser();
 	criteriaConverter = new SlandoCriteriaConverter();
     }
 
     private List<RealtyUnit> grabRealtyUnits(String request, long criteriaId) {
-	List<RealtyUnit> realtyUnits = new LinkedList<>();	
+	List<RealtyUnit> realtyUnits = new LinkedList<>();
 	try {
 	    Set<String> source = realtyParser.parseRequest(request);
-	    
+
 	    source.removeAll(criteriaMap.get(criteriaId));
-	    
+
 	    criteriaMap.get(criteriaId).clear();
 	    criteriaMap.get(criteriaId).addAll(source);
 	} catch (Exception e) {
@@ -54,12 +58,24 @@ public class RealtyEngine {
 	return realtyUnits;
     }
 
-    private void sendNews(List<RealtyUnit> realtyUnits, String to) {
+    // private void sendNews(List<RealtyUnit> realtyUnits, String to) {
+    // String content = "";
+    // for (RealtyUnit unit : realtyUnits)
+    // content += unit.toString();
+    // if (content.length() > 1)
+    // sendMan.sendNews(to, content);
+    // }
+
+    private void sendNews(List<RealtyUnit> realtyUnits, Collection<RealtyUser> realtyUsers) throws EmailException {
 	String content = "";
-	for (RealtyUnit unit : realtyUnits)
-	    content += unit.toString();
-	if (content.length() > 1)
-	    sendMan.sendNews(to, content);
+	if (realtyUnits.size() > 0) {
+	    sendMan.createMessage(realtyUnits);
+
+	    for (RealtyUser user : realtyUsers) {
+		sendMan.addRecipient(user.getEmail());
+	    }
+	    sendMan.sendEmail();
+	}
     }
 
     public void searchAndSubscribe(RealtyCriteria criteria, Collection<RealtyUser> userCollection) {
@@ -70,9 +86,14 @@ public class RealtyEngine {
 
 	List<RealtyUnit> realtyUnits = grabRealtyUnits(request, criteria.getId());
 
-	for (RealtyUser user : userCollection) {
-	    sendNews(realtyUnits, user.getEmail());
-	}
+	//for (RealtyUser user : userCollection) {
+	    try {
+		sendNews(realtyUnits, userCollection);
+	    } catch (EmailException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	    }
+	//}
     }
 
     public static void main(String[] args) throws InterruptedException {
