@@ -1,7 +1,7 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
-	template="/WEB-INF/layouts/realty-layout.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions" template="/WEB-INF/layouts/realty-layout.xhtml">
 
 	<ui:define name="title">#{ui.REALTY_HOME}</ui:define>
 	<ui:param name="centerTitle" value="#{resourceBundle.PERSONAL_CABINET}" />
@@ -20,8 +20,9 @@
 									disabled="#{!preferences.user.isPayed()}" update="controlPanel" />
 								<h:outputText value="#{ui[preferences.getServiceStatus()]}" />
 
-								<p:commandButton value="#{ui.PAY_FOR_SERVICE}" action="payForService" style="width:170px" rendered="#{!preferences.user.isPayed()}"
-									update="controlPanel" />
+								<!-- <p:commandButton value="#{ui.PAY_FOR_SERVICE}" action="payForService" style="width:170px" rendered="#{!preferences.user.isPayed()}"
+									update="controlPanel" /> -->
+								<ui:include src="components/paymoney.xhtml" />
 								<h:outputText value="#{ui[preferences.getPayedStatus()]}" rendered="#{!preferences.user.isPayed()}" />
 							</h:panelGrid>
 						</p:panel>
@@ -43,7 +44,8 @@
 
 				</p:tabView>
 			</p:panel>
-			<p:commandButton value="#{ui.SAVE}" update="growl" action="saveUser" actionListener="#{currentState.preferences.save}" />
+			<p:commandButton value="#{ui.SAVE}" update="growl" action="saveUser"
+				actionListener="#{currentState.preferences.save}" />
 		</h:form>
 	</ui:define>
 </ui:composition>

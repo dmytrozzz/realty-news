@@ -53,6 +53,7 @@ public class ApacheSender {
     }
 
     public void sendEmail() throws EmailException {
+	email.setStartTLSEnabled(true);
 	email.send();
     }
 }
