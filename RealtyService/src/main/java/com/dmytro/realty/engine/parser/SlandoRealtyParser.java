@@ -31,7 +31,7 @@ public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
 
 	Element element = document.getElementById(OFFERS_TABLE);
 	Elements as = element.getElementsByAttributeValue("class", OFFER_LINK_CLASS);
-	for (Element a : as){	   
+	for (Element a : as) {
 	    hrefs.add(a.attr("href"));
 	}
 	return hrefs;
@@ -41,15 +41,20 @@ public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
 	Document document = getSource(link);
 
 	String price = document.getElementsByAttributeValue("class", OFFER_PRICE_CLASS).text();
+	System.out.println("Price: " + price);
 	String content = document.getElementsByAttributeValue("class", OFFER_CONTENT_CLASS).text();
+	System.out.println("content: " + price);
 	String phoneRef = getImage(document.getElementsByAttributeValue("rel", "phone"));
+	System.out.println("phone: " + price);
 	String contact = document.getElementsByAttributeValue("class", OFFER_CONTACT_CLASS).text();
+	System.out.println("contact: " + price);
 
 	return new RealtyUnit(link, price, contact, phoneRef, content);
     }
 
     private String getImage(Elements href) {
 	String classAttr = href.attr("class");
+	System.out.println("CLASS!!! " + classAttr);
 	if (classAttr.length() > 5) {
 	    String jsonObj = classAttr.substring(classAttr.indexOf("{"), classAttr.indexOf("}") + 1)
 		    .replace("clickerID", "\"clickerID\"").replace("\'", "\"");

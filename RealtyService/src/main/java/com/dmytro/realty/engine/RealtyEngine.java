@@ -69,8 +69,7 @@ public class RealtyEngine {
     private void sendNews(List<RealtyUnit> realtyUnits, Collection<RealtyUser> realtyUsers) throws EmailException {
 	String content = "";
 	if (realtyUnits.size() > 0) {
-	    sendMan.createMessage(realtyUnits);
-
+	    sendMan.createMessage(realtyUnits);	    
 	    for (RealtyUser user : realtyUsers) {
 		sendMan.addRecipient(user.getEmail());
 	    }

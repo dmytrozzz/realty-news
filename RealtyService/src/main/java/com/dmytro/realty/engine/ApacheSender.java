@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
@@ -13,10 +14,14 @@ public class ApacheSender {
     public void createMessage(List<RealtyUnit> units) throws EmailException {
 	email = new HtmlEmail();
 	email.setHostName("smtp.gmail.com");
-	email.setFrom("me@apache.org", "Me");
-	email.setSubject("Test email with inline image");
+	email.setSmtpPort(587);
+	email.setAuthenticator(new DefaultAuthenticator("krepka.klepka@gmail.com", "oprotvereziynyk123"));
+	email.setFrom("realtyhelper@realtyservice.com.ua", "Your Realty Helper");
+	email.setSubject("Realty Service Feed");
+	email.setCharset("UTF-8");
 	String htmlContent = "<html>";
 	for (RealtyUnit unit : units) {
+	    System.out.println(unit);
 	    // embed the image and get the content id
 	    URL url;
 	    String cid = "Без телефону";
@@ -24,8 +29,7 @@ public class ApacheSender {
 		url = new URL(unit.getPhoneRef());
 		cid = email.embed(url, "Phone" + unit.hashCode());
 	    } catch (MalformedURLException e) {
-		System.out.println("Wrong telephone!!!");
-		e.printStackTrace();
+		System.out.println("Wrong or no telephone!!!");
 	    }
 
 	    htmlContent += "<h4>" + unit.getOfferContent() + "</h4><br/>" + "<h5>Ціна: " + unit.getPrice() + "<h5>"
