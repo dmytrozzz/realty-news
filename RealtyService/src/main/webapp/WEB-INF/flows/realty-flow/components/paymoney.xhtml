@@ -4,21 +4,5 @@
 
 	<!-- <p:commandButton id="saveButton" value="#{ui.PAY_FOR_SERVICE}" process="@form" ajax="false" /> -->
 	<p:commandButton id="saveButton" value="#{ui.PAY_FOR_SERVICE}" type="button"
-		onclick="postwith('https://merchant.easypay.ua/client/order', {'merchant_id':'2701a2c2cdfe483ea8ce354dd31991db','amount':'5','desc':'paymoney','order_id':'0'})" />
-	<script>
-		function postwith(to, p) {
-			var myForm = document.createElement("form");
-			myForm.method = "post";
-			myForm.action = to;
-			for ( var k in p) {
-				var myInput = document.createElement("input");
-				myInput.setAttribute("name", k);
-				myInput.setAttribute("value", p[k]);
-				myForm.appendChild(myInput);
-			}
-			document.body.appendChild(myForm);
-			myForm.submit();
-			document.body.removeChild(myForm);
-		}
-	</script>
+		onclick="postwith('https://merchant.easypay.ua/client/order', {'merchant_id':'2701a2c2cdfe483ea8ce354dd31991db','amount':'5','desc':'paymoney','order_id':'0'})" />	
 </ui:composition>

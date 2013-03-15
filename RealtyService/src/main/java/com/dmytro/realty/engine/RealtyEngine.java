@@ -1,14 +1,14 @@
 package com.dmytro.realty.engine;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
+import org.apache.commons.collections.list.SetUniqueList;
 import org.apache.commons.mail.EmailException;
 
 import com.dmytro.realty.domain.RealtyCriteria;
@@ -18,58 +18,50 @@ import com.dmytro.realty.domain.search.enums.ProductType;
 import com.dmytro.realty.engine.builder.RealtyCriteriaConverter;
 import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
 import com.dmytro.realty.engine.parser.IRealtyParser;
+import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
 import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyEngine {
-    // private SendMan sendMan;
-    private ApacheSender sendMan;
+    private SendMan sendMan;
     private IRealtyParser realtyParser;
     private RealtyCriteriaConverter criteriaConverter;
-    private Map<Long, Set<String>> criteriaMap = new HashMap<>();
+
+    private Map<Long, LinkedSet> criteriaMap = new HashMap<>();
 
     public RealtyEngine() {
-	// sendMan = new SendMan();
-	sendMan = new ApacheSender();
+	sendMan = new SendMan();
 	realtyParser = new SlandoRealtyParser();
 	criteriaConverter = new SlandoCriteriaConverter();
     }
 
-    private List<RealtyUnit> grabRealtyUnits(String request, long criteriaId) {
-	List<RealtyUnit> realtyUnits = new LinkedList<>();
+    private List<RealtyOffer> grabRealtyOffers(String request, long criteriaId) {
+	List<RealtyOffer> resultOfferList = new LinkedList<>();
+
 	try {
-	    Set<String> source = realtyParser.parseRequest(request);
+	    List<String> offersLinks = realtyParser.parseRequest(request);	    
+	    for (String offer : offersLinks) {
+		
+		if (criteriaMap.get(criteriaId).add(offer)) {
+		    try {
+			resultOfferList.add(realtyParser.parseOffer(offer));
+		    } catch (RealtyUnparsebleException e) {
+			e.printStackTrace();
+			continue;
+		    }
+		}
 
-	    source.removeAll(criteriaMap.get(criteriaId));
-
-	    criteriaMap.get(criteriaId).clear();
-	    criteriaMap.get(criteriaId).addAll(source);
-	} catch (Exception e) {
+	    }
+	} catch (RealtyUnparsebleException e) {
 	    e.printStackTrace();
 	}
 
-	for (String link : criteriaMap.get(criteriaId)) {
-	    try {
-		realtyUnits.add(realtyParser.parseOffer(link));
-	    } catch (Exception e) {
-		continue;
-	    }
-	}
-
-	return realtyUnits;
+	return resultOfferList;
     }
 
-    // private void sendNews(List<RealtyUnit> realtyUnits, String to) {
-    // String content = "";
-    // for (RealtyUnit unit : realtyUnits)
-    // content += unit.toString();
-    // if (content.length() > 1)
-    // sendMan.sendNews(to, content);
-    // }
-
-    private void sendNews(List<RealtyUnit> realtyUnits, Collection<RealtyUser> realtyUsers) throws EmailException {
-	String content = "";
+    private void sendNews(List<RealtyOffer> realtyUnits, Collection<RealtyUser> realtyUsers) {
 	if (realtyUnits.size() > 0) {
-	    sendMan.createMessage(realtyUnits);	    
+	    sendMan.createMessage(realtyUnits);
+	    // TODO from DB already List or array of emails
 	    for (RealtyUser user : realtyUsers) {
 		sendMan.addRecipient(user.getEmail());
 	    }
@@ -79,25 +71,38 @@ public class RealtyEngine {
 
     public void searchAndSubscribe(RealtyCriteria criteria, Collection<RealtyUser> userCollection) {
 	if (!criteriaMap.containsKey(criteria.getId()))
-	    criteriaMap.put(criteria.getId(), new HashSet<String>());
+	    criteriaMap.put(criteria.getId(), new LinkedSet());
 
 	String request = criteriaConverter.buildRequest(criteria);
 
-	List<RealtyUnit> realtyUnits = grabRealtyUnits(request, criteria.getId());
+	List<RealtyOffer> realtyOffers = grabRealtyOffers(request, criteria.getId());	
 
-	//for (RealtyUser user : userCollection) {
-	    try {
-		sendNews(realtyUnits, userCollection);
-	    } catch (EmailException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	    }
-	//}
+	sendNews(realtyOffers, userCollection);
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    private static class LinkedSet {
+	private SetUniqueList criteriaLinkedSet = SetUniqueList.decorate(new ArrayList<String>());
+
+	public boolean add(Object element) {
+	    System.out.println(element);
+	    if (!criteriaLinkedSet.contains(element)) {
+		System.out.println("In cycle: " + element);
+		removeLast();
+		criteriaLinkedSet.add(0, element);
+		return true;
+	    }
+	    return false;
+	}
+
+	private void removeLast() {
+	    if (criteriaLinkedSet.size() > 0)
+		criteriaLinkedSet.remove(criteriaLinkedSet.size() - 1);
+	}
+    }
+
+    public static void main(String[] args) throws InterruptedException {		
 	RealtyCriteria realtyCriteria = new RealtyCriteria();
-	realtyCriteria.setProductType(ProductType.ROOM);
+	realtyCriteria.setProductType(ProductType.APPARTMENT);
 	realtyCriteria.getParameters().setFromPrice(2000);
 	realtyCriteria.getParameters().setToPrice(4000);
 
@@ -110,7 +115,7 @@ public class RealtyEngine {
 	while (true) {
 	    System.out.println("Lets go!");
 	    engine.searchAndSubscribe(realtyCriteria, Collections.singletonList(user));
-	    Thread.sleep(10000);
+	    Thread.sleep(20000);
 	}
 
     }
