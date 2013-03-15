@@ -1,0 +1,8 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+	<!-- <p:commandButton id="saveButton" value="#{ui.PAY_FOR_SERVICE}" process="@form" ajax="false" /> -->
+	<p:commandButton id="saveButton" value="#{ui.PAY_FOR_SERVICE}" type="button"
+		onclick="postwith('https://merchant.easypay.ua/client/order', {'merchant_id':'2701a2c2cdfe483ea8ce354dd31991db','amount':'5','desc':'paymoney','order_id':'0'})" />	
+</ui:composition>

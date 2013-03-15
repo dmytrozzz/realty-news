@@ -1,63 +1,71 @@
 package com.dmytro.realty.engine;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
 
+import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Date;
-import java.util.Properties;
-
 public class SendMan {
-    public static String smtpHost = "smtp.gmail.com";
-    public static String login = "krepka.klepka@gmail.com";
-    public static String pass = "oprotvereziynyk123";
-    Properties props;
+    HtmlEmail email;
 
-    public SendMan() {
-	props = new Properties();
-	props.setProperty("mail.transport.protocol", "smtp");
-	props.setProperty("mail.host", smtpHost);
-	props.setProperty("mail.user", "krapka.klepka@gmail.com");
-	props.setProperty("mail.password", "oprotvereziynyk123");
-	props.setProperty("mail.smtp.auth", "true");
-	props.setProperty("mail.smtp.port", "" + 587);
-	props.setProperty("mail.smtp.starttls.enable", "true");
-	props.put("mail.smtp.host", smtpHost);
-    }
+    public void createMessage(List<RealtyOffer> units) {
+	email = new HtmlEmail();
+	email.setHostName("smtp.gmail.com");
+	email.setSmtpPort(587);
+	email.setAuthenticator(new DefaultAuthenticator("krepka.klepka@gmail.com", "oprotvereziynyk123"));
+	email.setStartTLSEnabled(true);
 
-    private Message messageFactoryMethod(String from, String to, String content, Session session)
-	    throws MessagingException {
-	Message msg = new MimeMessage(session);
-	msg.setFrom(new InternetAddress(from));
-	InternetAddress[] address = { new InternetAddress(to) };
-	msg.setRecipients(Message.RecipientType.TO, address);
-	msg.setSubject("Slando realty news");
-	msg.setSentDate(new Date());
-	msg.setText(content);
-	return msg;
-    }
-
-    public void sendNews(String to, String content) {
-	sendMail(to, "news@java.net", smtpHost, content);
-    }
-
-    private void sendMail(String to, String from, String smtpHost, String content) {
-	Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
-	    protected PasswordAuthentication getPasswordAuthentication() {
-		return new PasswordAuthentication(login, pass);
+	email.setSubject("Realty Service Feed");
+	email.setCharset("UTF-8");
+	String htmlContent = "<html>";
+	for (RealtyOffer unit : units) {
+	    URL url;
+	    String cid = "Без телефону";
+	    try {
+		url = new URL(unit.getPhoneRef());
+		cid = email.embed(url, "Phone" + unit.hashCode());
+	    } catch (MalformedURLException e) {
+		System.out.println("Wrong or no telephone!!!");
+	    } catch (EmailException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	    }
-	});
-
-	try {
-	    Message msg = messageFactoryMethod(from, to, content, session);
-	    Transport.send(msg);
-	} catch (MessagingException mex) {
-	    mex.printStackTrace();
+	    htmlContent += format(unit, cid);
 	}
+	htmlContent += "</html>";
+	try {
+	    email.setFrom("realtyhelper@realtyservice.com.ua", "Your Realty Helper");
+	    email.setHtmlMsg(htmlContent);
+	    // set the alternative message
+	    email.setTextMsg("Your email client does not support HTML messages");
+	} catch (EmailException emae) {
+	    emae.printStackTrace();
+	}
+    }
+
+    public void addRecipient(String userEmail) {
+	try {
+	    email.addTo(userEmail);
+	} catch (EmailException e) {
+	    System.out.println("Missed " + userEmail);
+	    e.printStackTrace();
+	}
+    }
+
+    public void sendEmail() {
+	try {
+	    email.send();
+	} catch (EmailException e) {
+	    e.printStackTrace();
+	}
+    }
+
+    private String format(RealtyOffer unit, String imageCid) {
+	return unit.getOfferContent() + "<h5>Ціна: " + unit.getPrice() + " |Ініціатор: " + unit.getOffender()
+		+ " | Телефон: <img src=\"cid:" + imageCid + "\"> | <a href='" + unit.getLink()
+		+ "'>Посилання</a></h5>-------------------------------------------------------------------------<br/>";
     }
 }

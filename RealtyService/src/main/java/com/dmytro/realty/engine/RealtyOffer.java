@@ -4,14 +4,14 @@ package com.dmytro.realty.engine;
  * Created with IntelliJ IDEA. User: dmytro Date: 29.01.13 Time: 0:01 To change
  * this template use File | Settings | File Templates.
  */
-public class RealtyUnit {
+public class RealtyOffer {
     private String link;
     private String price;
     private String offerContent;
     private String offender;
     private String phoneRef;    
 
-    public RealtyUnit(String link, String price, String offender, String phoneRef, String offerContent) {
+    public RealtyOffer(String link, String price, String offender, String phoneRef, String offerContent) {
 	this.link = link;
 	this.price = price;
 	this.offender = offender;
