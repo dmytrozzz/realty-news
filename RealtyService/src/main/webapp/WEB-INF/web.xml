@@ -26,8 +26,6 @@
 		<url-pattern>/*</url-pattern>		
 	</filter-mapping>
 
-
-
 	<!-- JSF 2 IMPLEMENTATION -->
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
