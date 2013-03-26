@@ -22,84 +22,84 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "realty_user")
 public class RealtyUser implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-    @SequenceGenerator(name = "user_seq", sequenceName = "realty_user_id_seq", allocationSize = 1)
-    @Column(name = "id")
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+	@SequenceGenerator(name = "user_seq", sequenceName = "realty_user_id_seq", allocationSize = 1)
+	@Column(name = "id")
+	private long id;
 
-    @Column(name = "login")
-    private String login;
+	@Column(name = "login")
+	private String login;
 
-    @Column(name = "password")
-    private String password;
+	@Column(name = "password")
+	private String password;
 
-    @Column(name = "email")
-    private String email;
-    
-    @Column(name = "enabled")
-    private boolean enabled;
-    
-    @Column(name = "payed")
-    private boolean payed;
-    
-    @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-    @JoinTable(name = "news_feed", joinColumns = @JoinColumn(name = "user_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "criteria_id", nullable = false))
-    private Set<RealtyCriteria> criteriaCollection = new HashSet<>();
+	@Column(name = "email")
+	private String email;
 
-    public long getId() {
-	return id;
-    }
+	@Column(name = "enabled")
+	private boolean enabled;
 
-    public void setId(long id) {
-	this.id = id;
-    }
+	@Column(name = "payed")
+	private boolean payed;
 
-    public String getLogin() {
-	return login;
-    }
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "news_feed", joinColumns = @JoinColumn(name = "user_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "criteria_id", nullable = false))
+	private Set<RealtyCriteria> criteriaCollection = new HashSet<>();
 
-    public void setLogin(String login) {
-	this.login = login;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public String getPassword() {
-	return password;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public void setPassword(String password) {
-	this.password = password;
-    }
+	public String getLogin() {
+		return login;
+	}
 
-    public String getEmail() {
-	return email;
-    }
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
-    public void setEmail(String email) {
-	this.email = email;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public Collection<RealtyCriteria> getCriteriaCollection() {
-	return criteriaCollection;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setCriteriaCollection(Set<RealtyCriteria> criteriaCollection) {
-	this.criteriaCollection = criteriaCollection;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+	public Collection<RealtyCriteria> getCriteriaCollection() {
+		return criteriaCollection;
+	}
 
-    public boolean isPayed() {
-        return payed;
-    }
+	public void setCriteriaCollection(Set<RealtyCriteria> criteriaCollection) {
+		this.criteriaCollection = criteriaCollection;
+	}
 
-    public void setPayed(boolean payed) {
-        this.payed = payed;
-    }        
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public boolean isPayed() {
+		return payed;
+	}
+
+	public void setPayed(boolean payed) {
+		this.payed = payed;
+	}
 }

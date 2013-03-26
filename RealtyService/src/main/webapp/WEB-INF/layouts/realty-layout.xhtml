@@ -36,7 +36,7 @@
 	<h:body>
 		<p:layout fullPage="true">
 			<ui:insert name="header">
-				<p:layoutUnit position="north" id="headerPane" size="50">
+				<p:layoutUnit position="north" id="headerPane" size="85">
 					<h:form>
 						<p:menubar>
 							<p:menuitem value="#{ui.PERSONAL_CABINET}" action="goCabinet" />
@@ -72,7 +72,7 @@
 				</p:graphicImage>
 			</p:layoutUnit>
 
-			<p:layoutUnit position="east" size="1">
+			<p:layoutUnit position="east" size="1" rendered="false">
 				<ui:insert name="rightSide" />
 			</p:layoutUnit>
 

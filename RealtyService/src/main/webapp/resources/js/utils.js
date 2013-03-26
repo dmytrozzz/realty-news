@@ -1,4 +1,4 @@
-function postwith(to, p) {
+function post(to, p) {
 	var myForm = document.createElement("form");
 	myForm.method = "post";
 	myForm.action = to;
