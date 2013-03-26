@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<h:html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:sf="http://www.springframework.org/tags/faces">
+<h:html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:sf="http://www.springframework.org/tags/faces">
 <f:view contentType="text/html" encoding="UTF-8">
 	<!-- i18n shortcut -->
 	<ui:param name="ui" value="#{resourceBundle}" />
@@ -13,20 +9,15 @@
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<!-- <h:title>#{resourceBundle.TITLE}</h:title> -->
-		<link rel="stylesheet"
-			href="${request.contextPath}/app/resources/styles/blueprint/screen.css"
-			type="text/css" media="screen, projection" />
-		<link rel="stylesheet"
-			href="${request.contextPath}/app/resources/styles/blueprint/print.css"
-			type="text/css" media="print" />
-		<link rel="stylesheet"
-			href="${request.contextPath}/app/resources/styles/realty-style.css"
-			type="text/css" media="screen" />
-		<script type="text/javascript"
-			src="${request.contextPath}/app/resources/js/utils.js" />
-		<!-- [if lt IE 8]>
-		<link rel="stylesheet" href="${request.servletPath}/styles/blueprint/ie.css" type="text/css" media="screen, projection" />
-	<![endif] -->
+
+		<link href="${request.contextPath}/app/resources/frameworks/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen" />
+		<link href="${request.contextPath}/app/resources/frameworks/skeleton/layout.css" rel="stylesheet" media="screen" />
+		<link rel="stylesheet" href="${request.contextPath}/app/resources/frameworks/blueprint/screen.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="${request.contextPath}/app/resources/frameworks/blueprint/print.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/realty-style.css" type="text/css" media="screen" />
+
+		<script type="text/javascript" src="${request.contextPath}/app/resources/js/utils.js" />
+		<script type="text/javascript" src="${request.contextPath}/app/resources/frameworks/bootstrap/js/bootstrap.min.js" />
 		<ui:insert name="metadata">
 			<f:metadata>
 				<f:event listener="#{jsfUtil.initalizeContext}" type="preRenderView" />
@@ -37,7 +28,7 @@
 		<p:layout fullPage="true">
 			<ui:insert name="header">
 				<p:layoutUnit position="north" id="headerPane" size="85">
-					<h:form>
+					<h:form>					
 						<p:menubar>
 							<p:menuitem value="#{ui.PERSONAL_CABINET}" action="goCabinet" />
 							<p:menuitem value="#{ui.WRITE_TO_DEVELOPERS}" url="#" />
@@ -45,29 +36,24 @@
 							<p:menuitem value="#{ui.HOW_IT_WORKS}" url="#" />
 							<p:menuitem value="#{ui.RECOMMENDATIONS}" url="#" />
 
-							
-							<h:outputLink target="/app/frealty-flow"></h:outputLink>
 							<f:facet name="options">
-								 <h:outputFormat value="#{ui.WELCOME}">
+								<h:outputFormat value="#{ui.WELCOME}">
 									<f:param value="#{currentUser.name}" />
 								</h:outputFormat>
-								<p:commandButton value="#{ui.LOGOUT}"
-									onclick="location.href='logout'" icon="ui-icon-extlink" />
+								<p:commandButton value="#{ui.LOGOUT}" onclick="location.href='logout'" icon="ui-icon-extlink" />
 							</f:facet>
 						</p:menubar>
 					</h:form>
 				</p:layoutUnit>
 			</ui:insert>
 
-			<p:layoutUnit position="center" id="contentPane"
-				header="#{centerTitle}">
+			<p:layoutUnit position="center" id="contentPane" header="#{centerTitle}">
 				<ui:insert name="content" />
 			</p:layoutUnit>
 
 			<p:layoutUnit position="west" size="250" header="#{leftTitle}">
 				<ui:insert name="leftSide" />
-				<p:graphicImage value="/app/resources/images/realty.jpg"
-					style="display:none">
+				<p:graphicImage value="/app/resources/images/realty.jpg" style="display:none">
 					<p:effect type="slide" event="load" delay="300" />
 				</p:graphicImage>
 			</p:layoutUnit>

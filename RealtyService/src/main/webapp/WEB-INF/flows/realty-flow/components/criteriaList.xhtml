@@ -4,8 +4,8 @@
 
 	<p:panel header="#{ui.CRITERIA_TABLE}">
 		<p:messages autoUpdate="true" />
-		<p:commandButton value="#{ui.ADD_CRITERIA}" actionListener="#{preferences.addCriteria}" update="criteriaTable" />
 
+		<p:commandButton value="#{ui.ADD_CRITERIA}" actionListener="#{preferences.addCriteria}" update="criteriaTable" styleClass="btn btn-primary" icon="icon-user"/>
 		<p:dataTable id="criteriaTable" value="#{preferences.criteriaList}" var="criteria">
 			<!-- Обрати тип нерухомості -->
 			<p:column headerText="#{ui.REALTY_TYPE}">
