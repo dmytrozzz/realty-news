@@ -1,0 +1,14 @@
+--- 
+applications: 
+- framework: standalone
+  instances: 1
+  name: realtyservice
+  services: 
+    realtyDB: 
+      tier: free
+      version: "9.0"
+      vendor: postgresql
+  memory: 1G
+  url: realtyservice.${target-base}
+  path: RealtyService/target/tomcat7
+  runtime: java7

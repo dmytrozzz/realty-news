@@ -1,6 +1,7 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
 	template="/WEB-INF/layouts/realty-layout.xhtml">
 
 	<ui:define name="title">#{ui.WIZARD_PAGE_TITLE}</ui:define>
@@ -10,17 +11,18 @@
 	<ui:param name="centerTitle" value="#{resourceBundle.WIZARD_HELPER}" />
 
 	<ui:define name="leftSide">
-	 <ui:include src="components/faceletLoginPane.xhtml" /> 
-		<!-- <ui:include src="components/faceletLoginPane.xhtml" /> -->
+		<ui:include src="components/faceletLoginPane.xhtml" />
+		<ui:param name="preferences" value="#{currentState.preferences}" />
 	</ui:define>
 
 	<ui:define name="content">
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
 			<p:panel>
-				<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}" backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
+				<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}"
+					backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
 
-					<p:tab id="startTab" title="#{ui.WIZARD_START}">						
+					<p:tab id="startTab" title="#{ui.WIZARD_START}">
 						<h:outputText value="#{ui.START_WORKING}" />
 					</p:tab>
 
@@ -49,8 +51,8 @@
 								<h:outputText value="#{ui.TRIAL_MESSAGE}" />
 								<h:outputText />
 
-								<p:commandButton value="#{ui.WIZARD_SAVE}" update="growl" action="saveUser" onsuccess="goCabinet()"
-									actionListener="#{currentState.preferences.save}" />
+								<p:commandButton value="#{ui.WIZARD_SAVE}" update="growl" action="saveUser"
+									onsuccess="goCabinet()" actionListener="#{currentState.preferences.save}" />
 								<p:remoteCommand name="goCabinet" action="goCabinet" />
 							</h:panelGrid>
 						</p:panel>
