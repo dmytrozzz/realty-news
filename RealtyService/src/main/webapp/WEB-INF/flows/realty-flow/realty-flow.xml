@@ -16,7 +16,7 @@
 
 	<view-state id="home-page" view="home.xhtml" />
 
-	<view-state id="wizard-page" view="wizard.xhtml">
+	<view-state id="wizard-page" view="wizard.xhtml">	
 		<on-entry>
 			<evaluate expression="realtyController.getWizard(preferences)" result="viewScope.currentState" />
 		</on-entry>
@@ -46,6 +46,7 @@
 		</transition>
 
 		<transition on="goCabinet" to="personal-cabinet" />
+		<transition on="goWizard" to="wizard-page" />
 
 		<transition on="exit" to="end" />
 	</global-transitions>

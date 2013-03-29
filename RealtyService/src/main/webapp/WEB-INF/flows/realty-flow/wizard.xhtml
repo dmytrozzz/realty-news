@@ -5,9 +5,7 @@
 
 	<ui:define name="title">#{ui.WIZARD_PAGE_TITLE}</ui:define>
 
-	<ui:define name="header">
-		<ui:include src="pretty/navBar.xhtml"/>
-	</ui:define>
+	<ui:define name="header" />
 
 	<ui:param name="leftTitle" value="#{resourceBundle.LOGIN}" />
 	<ui:param name="centerTitle" value="#{resourceBundle.WIZARD_HELPER}" />
@@ -18,7 +16,7 @@
 	</ui:define>
 
 	<ui:define name="content">
-		 <h:form id="contentForm">
+		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
 			<p:panel>
 				<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}" backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
