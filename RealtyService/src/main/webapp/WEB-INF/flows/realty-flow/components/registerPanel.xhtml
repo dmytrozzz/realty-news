@@ -22,7 +22,7 @@
 
 			<h:outputText value="#{ui.EMAIL}: *" />
 			<p:inputText id="email" value="#{preferences.user.email}" required="true" requiredMessage="#{ui.ERR_EMAIL_REQUIRED}">
-				<!-- <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" /> -->
+				 <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" noMatchMessageDetail=""/>
 			</p:inputText>
 			<p:message for="email" display="both" />
 

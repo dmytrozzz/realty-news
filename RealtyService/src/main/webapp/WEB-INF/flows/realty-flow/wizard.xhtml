@@ -4,7 +4,10 @@
 	template="/WEB-INF/layouts/realty-layout.xhtml">
 
 	<ui:define name="title">#{ui.WIZARD_PAGE_TITLE}</ui:define>
-	<ui:define name="header"></ui:define>
+
+	<ui:define name="header">
+		<ui:include src="pretty/navBar.xhtml"></ui:include>
+	</ui:define>
 
 	<ui:param name="leftTitle" value="#{resourceBundle.LOGIN}" />
 	<ui:param name="centerTitle" value="#{resourceBundle.WIZARD_HELPER}" />
@@ -15,49 +18,10 @@
 	</ui:define>
 
 	<ui:define name="content">
-		<div id="myCarousel" class="carousel slide">
-			<div class="carousel-inner">
-				<div class="item">
-					<img src="resources/images/realty.jpg" alt=""/>
-						<div class="container">
-							<div class="carousel-caption">
-								<h1>Example headline.</h1>
-								<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id
-									dolor id nibh ultricies vehicula ut id elit.</p>
-								<a class="btn btn-large btn-primary" href="#">Sign up today</a>
-							</div>
-						</div>
-				</div>
-				<div class="item active">
-					<img src="resources/images/realty.jpg" alt=""/>
-						<div class="container">
-							<div class="carousel-caption">
-								<h1>Another example headline.</h1>
-								<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id
-									dolor id nibh ultricies vehicula ut id elit.</p>
-								<a class="btn btn-large btn-primary" href="#">Learn more</a>
-							</div>
-						</div>
-				</div>
-				<div class="item">
-					<img src="resources/images/realty.jpg" alt=""/>
-						<div class="container">
-							<div class="carousel-caption">
-								<h1>One more for good measure.</h1>
-								<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id
-									dolor id nibh ultricies vehicula ut id elit.</p>
-								<a class="btn btn-large btn-primary" href="#">Browse gallery</a>
-							</div>
-						</div>
-				</div>
-			</div>
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a> <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-		</div>
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
 			<p:panel>
 				<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}" backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
-
 					<p:tab id="startTab" title="#{ui.WIZARD_START}">
 						<h:outputText value="#{ui.START_WORKING}" />
 					</p:tab>
