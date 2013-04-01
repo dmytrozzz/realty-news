@@ -3,28 +3,29 @@
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
 	template="/WEB-INF/layouts/simple-layout.xhtml">
 
-	<ui:define name="header"></ui:define>
+	<ui:define name="header">
+		 <ui:include src="pretty/navBar.xhtml" />
+	</ui:define>
 
 	<ui:define name="content">
-		<ui:include src="pretty/navBar.xhtml" />
-		<!-- <p:dialog id="dialog" showEffect="slide">
-			<ui:include src="components/wizardPanel.xhtml">
-				<ui:param name="preferences" value="#{currentState.preferences}" />
-			</ui:include>
-		</p:dialog> -->
-		<ui:include src="pretty/carousell.xhtml" />
-		<ui:include src="pretty/marketing.xhtml" />
+		<p:growl id="growl" sticky="true" showDetail="true" />
 
-		<ui:insert name="modal">
-			<p:dialog widgetVar="dialog" modal="true" appendToBody="true" dynamic="true" resizable="false" showEffect="slide" draggable="false"
-				closable="false" showHeader="false" width="1000">
-				<h:form>
-					<ui:include src="components/wizardPanel.xhtml">
-						<ui:param name="preferences" value="#{currentState.preferences}" />
-					</ui:include>
-				</h:form>
-			</p:dialog>
-		</ui:insert>
-
+		 <!-- <ui:include src="pretty/carousell.xhtml" /> -->
+		<!-- <ui:include src="pretty/marketing.xhtml" /> -->
 	</ui:define>
+
+	<!-- <ui:define name="modal">
+		<style>
+.ui-dialog .ui-dialog-content {
+	overflow: visible;
+}
+</style>
+		<p:dialog widgetVar="dialog" modal="true" appendToBody="true" dynamic="true" resizable="false" showEffect="slide" draggable="false" width="1000">
+			<h:form>
+				<ui:include src="components/wizardPanel.xhtml">
+					<ui:param name="preferences" value="#{currentState.preferences}" />
+				</ui:include>
+			</h:form>
+		</p:dialog>
+	</ui:define> -->
 </ui:composition>
