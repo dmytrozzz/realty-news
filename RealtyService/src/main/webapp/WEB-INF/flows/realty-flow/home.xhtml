@@ -7,6 +7,11 @@
 
 	<ui:define name="content">
 		<ui:include src="pretty/navBar.xhtml" />
+		<p:dialog id="dialog" showEffect="slide">
+			<ui:include src="components/wizardPanel.xhtml">
+				<ui:param name="preferences" value="#{currentState.preferences}" />
+			</ui:include>
+		</p:dialog>
 		<ui:include src="pretty/carousell.xhtml" />
 		<ui:include src="pretty/marketing.xhtml" />
 	</ui:define>

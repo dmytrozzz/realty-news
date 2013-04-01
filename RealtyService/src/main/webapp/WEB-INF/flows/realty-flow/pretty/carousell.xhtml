@@ -37,12 +37,17 @@
 	height: 500px;
 }
 
-.carousel-caption {
+.carousel-caption { /* filter: blur(3px);
+	 -webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);  */
 	background-color: transparent;
 	position: static;
 	max-width: 550px;
 	padding: 0 20px;
 	margin-top: 300px;
+	position: static;
 }
 
 .carousel-caption h1,.carousel-caption .lead {
@@ -61,11 +66,12 @@
 		<div class="carousel-inner">
 			<div class="item active">
 				<img src="resources/images/хата1.jpg" alt="" />
+				<!-- <img src="resources/images/хата1.jpg" alt="" /> -->
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Знайдіть будинок своєї мрії.</h1>
 						<p class="lead">Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p>
-						<p:commandLink styleClass="btn btn-large btn-primary" value="Розпочати роботу прямо зараз" action="goWizard" />
+						<h:commandLink styleClass="btn btn-large btn-primary" value="Розпочати роботу прямо зараз" oncomplete="dialog.show()" />
 					</div>
 				</div>
 			</div>
@@ -90,16 +96,15 @@
 				</div>
 			</div>
 		</div>
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-		<a class="right carousel-control" href="#myCarousel"
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a> <a class="right carousel-control" href="#myCarousel"
 			data-slide="next">&rsaquo;</a>
-	</div>
-	
+	</div>	
+
 	<script>
-      !function ($) {
-        $(function(){
-          $('#myCarousel').carousel()
-        })
-      }(window.jQuery)
-    </script>
+		!function($) {
+			$(function() {
+				$('#myCarousel').carousel()
+			})
+		}(window.jQuery)
+	</script>
 </ui:composition>
