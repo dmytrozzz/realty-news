@@ -7,12 +7,24 @@
 
 	<ui:define name="content">
 		<ui:include src="pretty/navBar.xhtml" />
-		<p:dialog id="dialog" showEffect="slide">
+		<!-- <p:dialog id="dialog" showEffect="slide">
 			<ui:include src="components/wizardPanel.xhtml">
 				<ui:param name="preferences" value="#{currentState.preferences}" />
 			</ui:include>
-		</p:dialog>
+		</p:dialog> -->
 		<ui:include src="pretty/carousell.xhtml" />
 		<ui:include src="pretty/marketing.xhtml" />
+
+		<ui:insert name="modal">
+			<p:dialog widgetVar="dialog" modal="true" appendToBody="true" dynamic="true" resizable="false" showEffect="slide" draggable="false"
+				closable="false" showHeader="false" width="1000">
+				<h:form>
+					<ui:include src="components/wizardPanel.xhtml">
+						<ui:param name="preferences" value="#{currentState.preferences}" />
+					</ui:include>
+				</h:form>
+			</p:dialog>
+		</ui:insert>
+
 	</ui:define>
 </ui:composition>

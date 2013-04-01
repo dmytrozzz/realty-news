@@ -11,10 +11,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<!-- <h:title>#{resourceBundle.TITLE}</h:title> -->
 		
-		<link href="${request.contextPath}/app/resources/frameworks/skeleton/layout.css" rel="stylesheet" media="screen" />
 		<link rel="stylesheet" href="${request.contextPath}/app/resources/frameworks/blueprint/screen.css" type="text/css" media="screen, projection" />
 		<link rel="stylesheet" href="${request.contextPath}/app/resources/frameworks/blueprint/print.css" type="text/css" media="print" />
 		<link href="${request.contextPath}/app/resources/frameworks/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen" />
+		<link href="${request.contextPath}/app/resources/frameworks/skeleton/layout.css" rel="stylesheet" media="screen" />
 		<link rel="stylesheet" href="${request.contextPath}/app/resources/styles/realty-style.css" type="text/css" media="screen" />
 
 		<script type="text/javascript" src="${request.contextPath}/app/resources/js/utils.js" />
@@ -48,7 +48,7 @@
 			</ui:insert>
 
 			<p:layoutUnit position="center" id="contentPane" header="#{centerTitle}">
-				<ui:insert name="content" />
+				<ui:insert name="content" />				
 			</p:layoutUnit>
 
 			<p:layoutUnit position="west" size="250" header="#{leftTitle}">

@@ -29,7 +29,7 @@
 	<!-- JSF 2 IMPLEMENTATION -->
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
-		<param-value>bootstrap</param-value>
+		<param-value>dot-luv</param-value>
 	</context-param>
 	<!-- Use JSF view templates saved as *.xhtml, for use with Facelets -->
 	<context-param>

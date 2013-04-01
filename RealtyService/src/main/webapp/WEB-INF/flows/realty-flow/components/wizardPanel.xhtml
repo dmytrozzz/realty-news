@@ -3,22 +3,19 @@
 	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
-	<h:form id="contentForm">
+	<h:form id="wizardForm">
 		<p:growl id="growl" sticky="true" showDetail="true" />
 		<p:panel>
 			<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}" backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
-				<p:tab id="startTab" title="#{ui.WIZARD_START}">
-					<h:outputText value="#{ui.START_WORKING}" />
-				</p:tab>
-
-				<p:tab id="registration" title="#{ui.WIZARD_REGISTRATION}" >
-					<ui:include src="registerPanel.xhtml">
+			
+				<p:tab id="criteria" title="#{ui.WIZARD_CRITERIA_TABLE}">
+					<ui:include src="criteriaList.xhtml">
 						<ui:param name="preferences" value="#{currentState.preferences}" />
 					</ui:include>
 				</p:tab>
 
-				<p:tab id="criteria" title="#{ui.WIZARD_CRITERIA_TABLE}">
-					<ui:include src="criteriaList.xhtml">
+				<p:tab id="registration" title="#{ui.WIZARD_REGISTRATION}">
+					<ui:include src="registerPanel.xhtml">
 						<ui:param name="preferences" value="#{currentState.preferences}" />
 					</ui:include>
 				</p:tab>
