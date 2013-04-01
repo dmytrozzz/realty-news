@@ -4,28 +4,28 @@
 	template="/WEB-INF/layouts/simple-layout.xhtml">
 
 	<ui:define name="header">
-		 <ui:include src="pretty/navBar.xhtml" />
+		<ui:include src="pretty/navBar.xhtml" />
 	</ui:define>
 
 	<ui:define name="content">
 		<p:growl id="growl" sticky="true" showDetail="true" />
-
-		 <!-- <ui:include src="pretty/carousell.xhtml" /> -->
-		<!-- <ui:include src="pretty/marketing.xhtml" /> -->
+		<ui:include src="pretty/carousell.xhtml" />
+		<ui:include src="pretty/marketing.xhtml" />
 	</ui:define>
 
-	<!-- <ui:define name="modal">
+	<ui:define name="modal">
 		<style>
 .ui-dialog .ui-dialog-content {
 	overflow: visible;
 }
 </style>
-		<p:dialog widgetVar="dialog" modal="true" appendToBody="true" dynamic="true" resizable="false" showEffect="slide" draggable="false" width="1000">
+		<p:dialog widgetVar="dialog" appendToBody="true" modal="true" dynamic="true" resizable="false" showEffect="slide" draggable="false" width="1000"
+			position="top" style="margin-top:150px">
 			<h:form>
 				<ui:include src="components/wizardPanel.xhtml">
 					<ui:param name="preferences" value="#{currentState.preferences}" />
 				</ui:include>
 			</h:form>
 		</p:dialog>
-	</ui:define> -->
+	</ui:define>
 </ui:composition>

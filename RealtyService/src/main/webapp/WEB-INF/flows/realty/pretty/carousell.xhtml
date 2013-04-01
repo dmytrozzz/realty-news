@@ -2,57 +2,6 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
 	<style>
-#modal {
-	background: white;
-	position: fixed;
-	width: 50%;
-	top: 50%;
-	left: 50%;
-	margin: -25% 0 0 -25%;
-	/* Embiggen */
-	transform: scale(1.5); /* prefix me */
-	/* Hidden */
-	opacity: 0;
-	pointer-events: none;
-}
-
-.dialogIsOpen #page-wrap {
-	/* Blur and de-color */
-	-webkit-filter: blur(5px) grayscale(50%);
-	/* Recede */
-	-webkit-transform: scale(0.9);
-}
-
-.dialogIsOpen #modal {
-	/* Regular size and visible */
-	transform: scale(1); /* prefix me */
-	opacity: 1;
-	/* Clickable */
-	pointer-events: auto;
-}
-
-#page-wrap,#modal {
-	transition: all 0.4s ease; /* prefix me */
-}
-
-@
-include transition                          (all                         
-	 0.4s ease            
-	             ); @include filter     
-	                    (blur  
-	                      (5px
-	                       ) grayscale 
-	                        (50%)); @include transform                       
-	  (scale            
-	            (0.9        
-	                 )); body {
-	/* Use at your own discretion */
-	-webkit-transform: translateZ(0);
-}
-
-/* CUSTOMIZE THE CAROUSEL
-    -------------------------------------------------- */
-
 /* Carousel base class */
 .carousel {
 	margin-bottom: 60px;
@@ -122,12 +71,6 @@ include transition                          (all
 }
 
 /* Modality monster */
-html {
-	height: 100%;
-	overflow: hidden;
-	background-color: #222;
-}
-
 .avgrund-active carousel {
 	-webkit-transform: scale(0.9);
 	-moz-transform: scale(0.9);
@@ -155,10 +98,10 @@ html {
 	transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
 /*	--- Transparency ---*/
-div p:not (.lead ) .transparent {
+div p:not   (.lead   ) .transparent {
 	background-color: transparent;
 	opacity: 0.6;
-	filter: alpha(opacity =     60);
+	filter: alpha(opacity =         60);
 	opacity: 0.6;
 }
 </style>
@@ -171,7 +114,9 @@ div p:not (.lead ) .transparent {
 					<div class="carousel-caption">
 						<h1>Знайдіть будинок своєї мрії.</h1>
 						<p class="lead">Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p>
-						<p:commandLink onclick="dialog.show()" styleClass="btn btn-large btn-primary" value="Розпочати роботу прямо зараз" action="goWizard" />
+						<h:form>
+							<p:commandLink onsuccess="dialog.show()" styleClass="btn btn-large btn-primary" value="Розпочати роботу прямо зараз" action="goWizard" />
+						</h:form>
 					</div>
 				</div>
 			</div>
@@ -181,7 +126,9 @@ div p:not (.lead ) .transparent {
 					<div class="carousel-caption">
 						<h1>Знайдіть будинок своєї мрії.</h1>
 						<p class="lead">Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p>
-						<p:commandLink onclick="dialog.show()" styleClass="btn btn-large btn-primary" value="Розпочати роботу прямо зараз" action="goWizard" />
+						<h:form>
+							<p:commandLink onsuccess="dialog.show()" styleClass="btn btn-large btn-primary" value="Розпочати роботу прямо зараз" action="goWizard" />
+						</h:form>
 					</div>
 				</div>
 			</div>
@@ -191,7 +138,9 @@ div p:not (.lead ) .transparent {
 					<div class="carousel-caption">
 						<h1>Знайдіть будинок своєї мрії.</h1>
 						<p class="lead">Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p>
-						<p:commandLink onclick="dialog.show()" styleClass="btn btn-large btn-primary" value="Розпочати роботу прямо зараз" action="goWizard" />
+						<h:form>
+							<p:commandLink onsuccess="dialog.show()" styleClass="btn btn-large btn-primary" value="Розпочати роботу прямо зараз" action="goWizard" />
+						</h:form>
 					</div>
 				</div>
 			</div>

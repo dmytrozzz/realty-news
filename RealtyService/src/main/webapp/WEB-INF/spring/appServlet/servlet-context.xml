@@ -7,25 +7,26 @@
 		http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces-2.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	<import resource="webflow.xml" />	
-	<context:component-scan base-package="com.dmytro.realty.web.controller" />
+	<import resource="webflow.xml" />
 
-	<!-- Enables the Spring MVC @Controller programming model -->
+	<context:component-scan base-package="com.dmytro.realty.web.controller" />
 	<mvc:annotation-driven />
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources 
-		directory -->
-	<!-- Enable serving of classpath with Spring 3 resource serving mechanism. For example: /webflow-primefaces-showcase/app/resources/styles/blueprint/print.css -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-	<!-- Enable processing of JSF 2 resource requests. For example: /webflow-primefaces-showcase/app/javax.faces.resource/jsf.js?ln=javax.faces -->
 	<faces:resources />
 
-	<!-- Maps request paths to flows in the flowRegistry; e.g. a path of /hotels/booking looks for a flow with id "hotels/booking" -->
-	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping" p:flowRegistry-ref="flowRegistry" />	
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping" p:flowRegistry-ref="flowRegistry" />
 
 	<bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="messageSource"
-		p:basenames="WEB-INF/i18n/ui" p:fallbackToSystemLocale="false" p:useCodeAsDefaultMessage="true" p:defaultEncoding="UTF-8" />
+		p:basenames="WEB-INF/i18n/ui" p:fallbackToSystemLocale="false" p:useCodeAsDefaultMessage="true"
+		p:defaultEncoding="UTF-8" />
+
+	<!-- <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".xhtml" />
+	</bean>
+	<mvc:view-controller path="/login" /> -->
 
 	<bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver" id="localeResolver" />
 
