@@ -1,55 +1,57 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
+	<p:panelGrid columns="1">
+		<p:messages autoUpdate="true" />
+		<p:commandButton value="#{ui.ADD_CRITERIA}" actionListener="#{preferences.addCriteria}" update="criteriaTable" styleClass="btn btn-primary"
+			icon="icon-user" />
+		<p:dataTable id="criteriaTable" value="#{preferences.criteriaList}" var="criteria">
+			<!-- Обрати тип нерухомості -->
+			<p:column headerText="#{ui.REALTY_TYPE}">
+				<p:selectOneMenu value="#{criteria.productType}" required="true" requiredMessage="#{ui.ERR_CHOOSE_REALTY_TYPE}">
+					<f:selectItem itemLabel="#{ui.CHOOSE_REALTY_TYPE}" itemValue="#{null}" />
+					<f:selectItems var="realtyType" itemLabel="#{ui[realtyType.name()]}" value="#{preferences.realtyUnits}" />
+					<p:ajax update="selectOperation, parametersPanel" process="@this" />
+				</p:selectOneMenu>
+			</p:column>
 
-	<p:commandButton value="#{ui.ADD_CRITERIA}" actionListener="#{preferences.addCriteria}" update="criteriaTable" styleClass="btn btn-primary"
-		icon="icon-user" />
-	<p:dataTable id="criteriaTable" value="#{preferences.criteriaList}" var="criteria">
-		<!-- Обрати тип нерухомості -->
-		<p:column headerText="#{ui.REALTY_TYPE}">
-			<p:selectOneMenu value="#{criteria.productType}" required="true" requiredMessage="#{ui.ERR_CHOOSE_REALTY_TYPE}">
-				<f:selectItem itemLabel="#{ui.CHOOSE_REALTY_TYPE}" itemValue="#{null}" />
-				<f:selectItems var="realtyType" itemLabel="#{ui[realtyType.name()]}" value="#{preferences.realtyUnits}" />
-				<p:ajax update="selectOperation, parametersPanel" process="@this" />
-			</p:selectOneMenu>
-		</p:column>
+			<!-- Обрати тип операції -->
+			<p:column headerText="#{ui.OPERATION_TYPE}">
+				<p:outputPanel id="selectOperation" autoUpdate="true">
+					<p:selectCheckboxMenu value="#{criteria.operations}" required="true" requiredMessage="#{ui.ERR_CHOOSE_OPERATION}" label="#{ui.CHOOSE_OPERATION}"
+						rendered="#{criteria.productType != null}" panelStyle="width:220px">
+						<f:selectItems var="realtyOperation" itemLabel="#{ui[realtyOperation]}" value="#{preferences.getOperationTypes(criteria.productType)}" />
+						<p:ajax update="paramPane" process="@this" />
+					</p:selectCheckboxMenu>
+				</p:outputPanel>
+			</p:column>
 
-		<!-- Обрати тип операції -->
-		<p:column headerText="#{ui.OPERATION_TYPE}">
-			<p:outputPanel id="selectOperation" autoUpdate="true">
-				<p:selectCheckboxMenu value="#{criteria.operations}" required="true" requiredMessage="#{ui.ERR_CHOOSE_OPERATION}" label="#{ui.CHOOSE_OPERATION}"
-					rendered="#{criteria.productType != null}" panelStyle="width:220px">
-					<f:selectItems var="realtyOperation" itemLabel="#{ui[realtyOperation]}" value="#{preferences.getOperationTypes(criteria.productType)}" />
-					<p:ajax update="paramPane" process="@this" />
-				</p:selectCheckboxMenu>
-			</p:outputPanel>
-		</p:column>
+			<p:column id="parCol" headerText="#{ui.PARAMETERS}" style="width:24%">
+				<p:outputPanel id="paramPane">
+					<p:commandButton id="parametersButton" value="#{ui.CHOOSE_PARAMS}" rendered="#{criteria.operations.size() > 0}" type="button" />
+					<p:overlayPanel id="parametersPanel" for="parametersButton" showEffect="drop" hideEffect="fade" hideEvent="mousedown" dynamic="false">
+						<p:panelGrid columns="4">
+							<h:outputLabel for="from_price" value="#{ui.FROM_PRICE}: " />
+							<p:inputText id="from_price" value="#{criteria.parameters.fromPrice}" />
 
-		<p:column id="parCol" headerText="#{ui.PARAMETERS}" style="width:24%">
-			<p:outputPanel id="paramPane">
-				<p:commandButton id="parametersButton" value="#{ui.CHOOSE_PARAMS}" rendered="#{criteria.operations.size() > 0}" type="button" />
-				<p:overlayPanel id="parametersPanel" for="parametersButton" showEffect="drop" hideEffect="fade" hideEvent="mousedown" dynamic="false">
-					<p:panelGrid columns="4">
-						<h:outputLabel for="from_price" value="#{ui.FROM_PRICE}: " />
-						<p:inputText id="from_price" value="#{criteria.parameters.fromPrice}" />
+							<h:outputLabel for="to_price" value="#{ui.TO_PRICE}: " />
+							<p:inputText id="to_price" value="#{criteria.parameters.toPrice}" />
 
-						<h:outputLabel for="to_price" value="#{ui.TO_PRICE}: " />
-						<p:inputText id="to_price" value="#{criteria.parameters.toPrice}" />
+							<h:outputLabel for="from_rooms" value="#{ui.FROM_ROOMS}: " rendered='#{criteria.productType.name().equals("APPARTMENT")}' />
+							<p:inputText id="from_rooms" value="#{criteria.parameters.fromRooms}" rendered='#{criteria.productType.name().equals("APPARTMENT")}' />
 
-						<h:outputLabel for="from_rooms" value="#{ui.FROM_ROOMS}: " rendered='#{criteria.productType.name().equals("APPARTMENT")}' />
-						<p:inputText id="from_rooms" value="#{criteria.parameters.fromRooms}" rendered='#{criteria.productType.name().equals("APPARTMENT")}' />
+							<h:outputLabel for="to_rooms" value="#{ui.TO_ROOMS}: " rendered='#{criteria.productType.name().equals("APPARTMENT")}' />
+							<p:inputText id="to_rooms" value="#{criteria.parameters.toRooms}" rendered='#{criteria.productType.name().equals("APPARTMENT")}' />
 
-						<h:outputLabel for="to_rooms" value="#{ui.TO_ROOMS}: " rendered='#{criteria.productType.name().equals("APPARTMENT")}' />
-						<p:inputText id="to_rooms" value="#{criteria.parameters.toRooms}" rendered='#{criteria.productType.name().equals("APPARTMENT")}' />
+							<h:outputLabel for="private_check" value="#{ui.ONLY_PRIVATE}" />
+							<p:selectBooleanCheckbox id="private_check" value="#{criteria.parameters.privateBusiness}" />
 
-						<h:outputLabel for="private_check" value="#{ui.ONLY_PRIVATE}" />
-						<p:selectBooleanCheckbox id="private_check" value="#{criteria.parameters.privateBusiness}" />
-
-						<!-- <h:outputLabel />
+							<!-- <h:outputLabel />
 							<p:slider for="from_price,to_price" step="100" minValue="300" maxValue="10000" range="true" displayTemplate="Between {min} and {max}" /> -->
-					</p:panelGrid>
-				</p:overlayPanel>
-			</p:outputPanel>
-		</p:column>
-	</p:dataTable>
+						</p:panelGrid>
+					</p:overlayPanel>
+				</p:outputPanel>
+			</p:column>
+		</p:dataTable>
+	</p:panelGrid>
 </ui:composition>

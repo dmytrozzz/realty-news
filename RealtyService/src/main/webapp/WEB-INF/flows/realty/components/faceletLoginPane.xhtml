@@ -13,8 +13,6 @@
 
 	<h:form id="loginForm" prependId="false"
 		onsubmit="document.#{p:component('loginForm')}.action='#{request.contextPath}/check_login';">
-		<p:panel>
-			<p:growl id="sideGrowl" showDetail="true" sticky="false" />
 			<h:panelGrid columns="1">
 				<h:outputLabel for="username" value="#{ui.USERNAME}: " />
 				<p:inputText id="username" required="true" />
@@ -29,6 +27,5 @@
 					<p:commandButton id="saveButton" value="#{ui.LOGIN}" process="@form" ajax="false" />
 				</f:facet>
 			</h:panelGrid>
-		</p:panel>
 	</h:form>
 </ui:composition>

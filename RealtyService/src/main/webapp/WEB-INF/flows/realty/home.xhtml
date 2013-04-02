@@ -19,8 +19,8 @@
 	overflow: visible;
 }
 </style>
-		<p:dialog widgetVar="dialog" appendToBody="true" modal="true" dynamic="true" resizable="false" showEffect="slide" draggable="false" width="1000"
-			position="top" style="margin-top:150px">
+		<p:dialog widgetVar="dialog" appendToBody="true" modal="true" dynamic="true" resizable="false" showEffect="slide" hideEffect="slide"
+			draggable="false" width="1000" position="top" style="margin-top:150px">
 			<h:form>
 				<ui:include src="components/wizardPanel.xhtml">
 					<ui:param name="preferences" value="#{currentState.preferences}" />

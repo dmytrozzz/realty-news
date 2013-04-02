@@ -1,6 +1,6 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core">
 	<style>
 /* CUSTOMIZE THE NAVBAR
     -------------------------------------------------- */
@@ -53,30 +53,36 @@
 		<div class="container">
 			<div class="navbar navbar-inverse">
 				<div class="navbar-inner">
-					<h:outputLabel class="brand" value="Realty Service" />
+					<h:outputLabel styleClass="brand" value="Realty Service" />
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-						
-							<li><p:commandLink value="#{ui.PERSONAL_CABINET}" action="goCabinet" /></li>
-							<li><p:commandLink value="#{ui.HOW_IT_WORKS}" url="#" /></li>
-							<li><p:commandLink value="#{ui.RECOMMENDATIONS}" url="#" /></li>
-							<li><p:commandLink value="#{ui.WRITE_TO_DEVELOPERS}" url="#" /></li>
-							<li><p:commandLink value="#{ui.FEEDBACK}" url="#" /></li>
+							<li><h:outputLink value="/app/cabinet" rendered="#{authorized}">#{ui.PERSONAL_CABINET}</h:outputLink></li>
+							<li><h:outputLink value="/app/how-it-works">#{ui.HOW_IT_WORKS}</h:outputLink></li>
+							<li><h:outputLink value="/app/blog">#{ui.RECOMMENDATIONS}</h:outputLink></li>
+							<li><h:outputLink value="/app/write-to-developers">#{ui.WRITE_TO_DEVELOPERS}</h:outputLink></li>
+							<li><h:outputLink value="/app/feedback">#{ui.FEEDBACK}</h:outputLink></li>
 							<li class="divider-vertical" />
-							<!-- <li><p:commandButton value="#{ui.LOGOUT}" onclick="location.href='logout'" icon="ui-icon-extlink" styleClass="btn btn-small" /></li>
-							<li><h:outputFormat value="#{ui.WELCOME}" styleClass="navbar-text">
-									<f:param value="#{currentUser.name}" />
-								</h:outputFormat></li> -->
 						</ul>
 					</div>
 					<!--/.nav-collapse -->
+					<ul class="nav">
+						<li><p:commandLink id="loginLink" value="#{ui.LOGIN}" rendered="#{!authorized}" /></li>
+						<li><h:outputLink value="logout" rendered="#{authorized}">#{ui.LOGOUT}</h:outputLink></li>
+					</ul>
+					<h:outputFormat styleClass="navbar-text pull-right" value="#{ui.WELCOME}" rendered="#{authorized}">
+						<f:param value="#{currentUser.name}" />
+					</h:outputFormat>
 				</div>
 				<!-- /.navbar-inner -->
 			</div>
 			<!-- /.navbar -->
-
 		</div>
 		<!-- /.container -->
 		<!-- /.navbar-wrapper -->
+		<p:overlayPanel for="loginLink" showEffect="scale" hideEffect="puff">
+			<ui:include src="../components/faceletLoginPane.xhtml">
+				<ui:param name="preferences" value="#{currentState.preferences}" />
+			</ui:include>
+		</p:overlayPanel>
 	</h:form>
 </ui:composition>
