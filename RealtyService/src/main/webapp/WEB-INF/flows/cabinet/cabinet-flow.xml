@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	start-state="personal-cabinet">
+
+	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
+
+	<on-start>
+		<evaluate expression="realtyController.getPreferences()" result="flowScope.preferences" />
+	</on-start>
+
+	<view-state id="personal-cabinet" view="personalCabinet.xhtml">
+		<secured attributes="ROLE_USER" />
+
+		<on-entry>
+			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
+			<evaluate expression="realtyController.getCabinet(preferences)" result="viewScope.currentState" />
+		</on-entry>
+
+		<transition on="runService">
+			<evaluate expression="realtyController.runService(preferences.user)" />
+		</transition>
+
+		<!-- GET MONEY -->
+		<transition on="payForService">
+			<evaluate expression="realtyController.payForService(preferences.user)" />
+		</transition>
+	</view-state>
+
+	<global-transitions>
+		<transition on="saveUser">
+			<evaluate expression="realtyController.saveUser(preferences)" />
+		</transition>
+	</global-transitions>
+</flow>

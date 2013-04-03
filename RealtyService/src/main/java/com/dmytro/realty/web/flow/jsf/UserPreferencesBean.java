@@ -23,6 +23,7 @@ import com.dmytro.realty.web.flow.jsf.buffer.CriteriaBean;
 public class UserPreferencesBean implements Serializable {
 	private RealtyUser user;
 	private List<CriteriaBean> criteriaList = new ArrayList<>();
+	private boolean authorized = false;
 
 	public UserPreferencesBean() {
 		user = new RealtyUser();
@@ -33,6 +34,7 @@ public class UserPreferencesBean implements Serializable {
 		this.user = user;
 		for (RealtyCriteria criteria : user.getCriteriaCollection())
 			criteriaList.add(new CriteriaBean(criteria));
+		authorized = true;
 	}
 
 	public RealtyUser getUser() {
@@ -57,21 +59,23 @@ public class UserPreferencesBean implements Serializable {
 
 	public void save(ActionEvent actionEvent) {
 		// Persist user - this is in realty-flow
-		FacesMessage msg = new FacesMessage("Successful", "Welcome :"
-				+ user.getLogin());
+		FacesMessage msg = new FacesMessage("Successful", "Welcome :" + user.getLogin());
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 	public ProductType[] getRealtyUnits() {
 		return ProductType.values();
 	}
+	
+	public boolean isAuthorized() {
+		return authorized;
+	}	
 
 	public String[] getOperationTypes(ProductType realtyUnit) {
 		if (realtyUnit == ProductType.ROOM)
 			return new String[] { "RENT", "FARM_OUT", "LOOKING_PARTNER" };
 		else
-			return new String[] { "SELL", "BUY", "EXCHANGE", "RENT",
-					"FARM_OUT", "LOOKING_PARTNER" };
+			return new String[] { "SELL", "BUY", "EXCHANGE", "RENT", "FARM_OUT", "LOOKING_PARTNER" };
 	}
 
 	public String getServiceStatus() {
