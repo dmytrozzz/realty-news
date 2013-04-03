@@ -4,13 +4,13 @@
 	template="/WEB-INF/layouts/simple-layout.xhtml">
 
 	<ui:define name="header">
-		<ui:include src="pretty/navBar.xhtml" />
+		<ui:include src="../bricks/navBar.xhtml" />
 	</ui:define>
 
 	<ui:define name="content">
 		<p:growl id="growl" sticky="true" showDetail="true" />
-		<ui:include src="pretty/carousell.xhtml" />
-		<ui:include src="pretty/marketing.xhtml" />
+		<ui:include src="bricks/carousell.xhtml" />
+		<ui:include src="bricks/marketing.xhtml" />
 	</ui:define>
 
 	<ui:define name="modal">
@@ -22,10 +22,10 @@
 		<p:dialog widgetVar="dialog" appendToBody="true" modal="true" dynamic="true" resizable="false" showEffect="slide" hideEffect="slide"
 			draggable="false" width="800" position="top" style="margin-top:150px">
 			<h:form>
-				<ui:include src="components/wizardPanel.xhtml">
+				<ui:include src="bricks/wizard.xhtml">
 					<ui:param name="preferences" value="#{currentState.preferences}" />
 				</ui:include>
 			</h:form>
-		</p:dialog>		
+		</p:dialog>
 	</ui:define>
 </ui:composition>

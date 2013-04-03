@@ -7,7 +7,7 @@
 		<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}" backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
 
 			<p:tab id="criteria" title="#{ui.WIZARD_CRITERIA_TABLE}">
-				<ui:include src="criteriaList.xhtml">
+				<ui:include src="../../bricks/criteriaList.xhtml">
 					<ui:param name="preferences" value="#{currentState.preferences}" />
 				</ui:include>
 			</p:tab>

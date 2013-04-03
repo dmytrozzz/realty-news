@@ -10,7 +10,7 @@
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<!-- <h:title>#{resourceBundle.TITLE}</h:title> -->
-		
+
 		<link rel="stylesheet" href="${request.contextPath}/app/resources/frameworks/blueprint/screen.css" type="text/css" media="screen, projection" />
 		<link rel="stylesheet" href="${request.contextPath}/app/resources/frameworks/blueprint/print.css" type="text/css" media="print" />
 		<link href="${request.contextPath}/app/resources/frameworks/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen" />
@@ -25,30 +25,15 @@
 			</f:metadata>
 		</ui:insert>
 	</h:head>
-	
+
 	<h:body>
 		<p:layout fullPage="true">
-			<ui:insert name="header">
-				<p:layoutUnit position="north" id="headerPane" styleClass="navbar">
-					<h:form class="navbar-inner">
-						<ul class="nav">
-							<li><p:commandLink value="#{ui.PERSONAL_CABINET}" action="goCabinet" /></li>
-							<li><p:commandLink value="#{ui.WRITE_TO_DEVELOPERS}" url="#" /></li>
-							<li><p:commandLink value="#{ui.FEEDBACK}" url="#" /></li>
-							<li><p:commandLink value="#{ui.HOW_IT_WORKS}" url="#" /></li>
-							<li><p:commandLink value="#{ui.RECOMMENDATIONS}" url="#" /></li>
-							<li class="divider-vertical" />
-							<li><p:commandButton value="#{ui.LOGOUT}" onclick="location.href='logout'" icon="ui-icon-extlink" styleClass="btn btn-small" /></li>
-							<li><h:outputFormat value="#{ui.WELCOME}" styleClass="navbar-text">
-									<f:param value="#{currentUser.name}" />
-								</h:outputFormat></li>
-						</ul>
-					</h:form>
-				</p:layoutUnit>
-			</ui:insert>
+			<p:layoutUnit position="north" id="headerPane" size="80">
+				<ui:insert name="header" />
+			</p:layoutUnit>
 
 			<p:layoutUnit position="center" id="contentPane" header="#{centerTitle}">
-				<ui:insert name="content" />				
+				<ui:insert name="content" />
 			</p:layoutUnit>
 
 			<p:layoutUnit position="west" size="250" header="#{leftTitle}">

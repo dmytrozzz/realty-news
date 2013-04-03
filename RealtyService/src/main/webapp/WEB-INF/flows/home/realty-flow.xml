@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
 	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
-	start-state="start-state">
+	start-state="home-page">
 
 	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 
@@ -12,10 +12,6 @@
 			result="flowScope.preferences" />
 	</on-start>
 
-	<decision-state id="start-state">
-		<if then="personal-cabinet" else="home-page" test="realtyController.isAuthorized()" />
-	</decision-state>
-
 	<view-state id="home-page" view="home.xhtml">
 		<on-entry>
 			<evaluate expression="realtyController.isAuthorized()"
@@ -23,24 +19,7 @@
 			<evaluate expression="realtyController.getWizard(preferences)"
 				result="viewScope.currentState" />
 		</on-entry>
-	</view-state>
-
-	<view-state id="personal-cabinet" view="personalCabinet.xhtml">
-		<secured attributes="ROLE_USER" />
-		<on-entry>
-			<evaluate expression="realtyController.getCabinet(preferences)"
-				result="viewScope.currentState" />
-		</on-entry>
-
-		<transition on="runService">
-			<evaluate expression="realtyController.runService(preferences.user)" />
-		</transition>
-
-		<!-- TODO very important part related to pay money system -->
-		<transition on="payForService">
-			<evaluate expression="realtyController.payForService(preferences.user)" />
-		</transition>
-	</view-state>
+	</view-state>	
 
 	<end-state id="end" view=""></end-state>
 
@@ -48,8 +27,6 @@
 		<transition on="saveUser">
 			<evaluate expression="realtyController.saveUser(preferences)" />
 		</transition>
-
-		<transition on="goCabinet" to="personal-cabinet" />
 
 		<transition on="goWizard">
 			<evaluate expression="realtyController.getWizard(preferences)"
