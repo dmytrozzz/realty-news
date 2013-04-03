@@ -4,7 +4,7 @@
 
 	<p:messages id="regMessages" autoUpdate="false" />
 
-	<p:panelGrid columns="3">
+	<h:panelGrid columns="3">
 		<p:outputLabel for="login" value="#{ui.USERNAME}:" />
 		<p:inputText id="login" value="#{preferences.user.login}" required="true" requiredMessage="#{ui.ERR_LOGIN_REQUIRED}" />
 		<p:message for="login" display="both" />
@@ -24,5 +24,5 @@
 		</p:inputText>
 		<p:message for="email" display="both" />
 
-	</p:panelGrid>
+	</h:panelGrid>
 </ui:composition>

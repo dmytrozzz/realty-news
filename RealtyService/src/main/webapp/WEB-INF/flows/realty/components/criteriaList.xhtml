@@ -1,7 +1,7 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
-	<p:panelGrid columns="1">
+	<h:panelGrid columns="1">
 		<p:messages autoUpdate="true" />
 		<p:commandButton value="#{ui.ADD_CRITERIA}" actionListener="#{preferences.addCriteria}" update="criteriaTable" styleClass="btn btn-primary"
 			icon="icon-user" />
@@ -53,5 +53,5 @@
 				</p:outputPanel>
 			</p:column>
 		</p:dataTable>
-	</p:panelGrid>
+	</h:panelGrid>
 </ui:composition>

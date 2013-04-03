@@ -1,31 +1,28 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">	
 
 	<c:if test="${not empty param.login_error}">
 		<div class="error" style="background-color: red;">
-			#{ui.ERR_LOGIN_FAILED}<br /> #{ui.REASON}:
-			#{sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
+			#{ui.ERR_LOGIN_FAILED}<br /> #{ui.REASON}: #{sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
 		</div>
 	</c:if>
 
-	<h:form id="loginForm" prependId="false"
-		onsubmit="document.#{p:component('loginForm')}.action='#{request.contextPath}/check_login';">
-			<h:panelGrid columns="1">
-				<h:outputLabel for="username" value="#{ui.USERNAME}: " />
-				<p:inputText id="username" required="true" />
+	<h:form id="loginForm" prependId="false" onsubmit="document.#{p:component('loginForm')}.action='#{request.contextPath}/check_login';">
+		<h:panelGrid columns="2">
+			<h:outputLabel for="username" value="#{ui.USERNAME}: " />
+			<p:inputText id="username" required="true" />
 
-				<h:outputLabel for="password" value="#{ui.PASSWORD}: " />
-				<p:password id="password" required="true" />
+			<h:outputLabel for="password" value="#{ui.PASSWORD}: " />
+			<p:password id="password" required="true" />
 
-				<h:outputLabel for="_spring_security_remember_me" value="#{ui.DONT_ASK_PASS}: " />
-				<p:selectBooleanCheckbox id="_spring_security_remember_me" />
+			<!-- <h:outputLabel for="_spring_security_remember_me" value="#{ui.DONT_ASK_PASS}: " />
+			<p:selectBooleanCheckbox id="_spring_security_remember_me" /> -->
 
-				<f:facet name="footer">
-					<p:commandButton id="saveButton" value="#{ui.LOGIN}" process="@form" ajax="false" />
-				</f:facet>
-			</h:panelGrid>
+			<f:facet name="footer">
+				<p:commandButton id="saveButton" value="#{ui.LOGIN}" process="@form" ajax="false" />
+			</f:facet>
+		</h:panelGrid>
 	</h:form>
 </ui:composition>
