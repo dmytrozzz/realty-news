@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<flow xmlns="http://www.springframework.org/schema/webflow"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
 	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	start-state="home-page">
 
-	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
+	<!-- <var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" /> -->
 
 	<on-start>
-		<evaluate expression="realtyController.getPreferences()"
-			result="flowScope.preferences" />
+		<evaluate expression="realtyController.getPreferences()" result="flowScope.preferences" />
 	</on-start>
 
 	<view-state id="home-page" view="home.xhtml">
 		<on-entry>
-			<evaluate expression="realtyController.isAuthorized()"
-				result="viewScope.authorized" />
-			<evaluate expression="realtyController.getWizard(preferences)"
-				result="viewScope.currentState" />
+			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
+			<evaluate expression="realtyController.getWizard(preferences)" result="viewScope.currentState" />
 		</on-entry>
-	</view-state>	
+	</view-state>
 
-	<end-state id="end" view=""></end-state>
+	<end-state id="cabinet" view="flowRedirect:cabinet"/>
 
 	<global-transitions>
-		<transition on="saveUser">
-			<evaluate expression="realtyController.saveUser(preferences)" />
+		<transition on="saveUser" to="cabinet">
+			<evaluate expression="realtyController.saveUser(preferences)" />			
 		</transition>
 
 		<transition on="goWizard">
-			<evaluate expression="realtyController.getWizard(preferences)"
-				result="viewScope.currentState" />
+			<evaluate expression="realtyController.getWizard(preferences)" result="viewScope.currentState" />
 		</transition>
-
-		<transition on="exit" to="end" />
 	</global-transitions>
 </flow>
