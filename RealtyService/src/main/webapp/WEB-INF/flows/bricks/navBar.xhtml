@@ -48,7 +48,6 @@
 	margin-top: 10px;
 }
 </style>
-
 	<div class="navbar-wrapper">
 		<div class="container">
 			<div class="navbar navbar-inverse">
@@ -67,7 +66,7 @@
 					<!--/.nav-collapse -->
 					<ul class="nav">
 						<li><h:outputLink id="loginLink" value="javascript:void(0)" rendered="#{!currentState.preferences.authorized}">#{ui.LOGIN}</h:outputLink></li>
-						<li><h:outputLink value="logout" rendered="#{authorized}">#{ui.LOGOUT}</h:outputLink></li>
+						<li><h:outputLink value="logout" rendered="#{authorized}">#{ui.LOGOUT}</h:outputLink></li>						
 					</ul>
 					<h:outputFormat styleClass="navbar-text pull-right" value="#{ui.WELCOME}" rendered="#{currentState.preferences.authorized}">
 						<f:param value="#{currentUser.name}" />
