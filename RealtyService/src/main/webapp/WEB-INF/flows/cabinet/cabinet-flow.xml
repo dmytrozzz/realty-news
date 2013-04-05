@@ -4,7 +4,7 @@
 	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	start-state="personal-cabinet">
 
-	<!-- <var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" /> -->
+	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 
 	<on-start>
 		<evaluate expression="realtyController.getPreferences()" result="flowScope.preferences" />
