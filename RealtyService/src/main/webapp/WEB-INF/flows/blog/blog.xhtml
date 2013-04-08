@@ -1,0 +1,107 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/WEB-INF/layouts/simple-layout.xhtml">
+	<style>
+.marketing .span4 {
+	text-align: center;
+}
+
+.marketing h2 {
+	font-weight: normal;
+}
+
+.marketing .span4 p {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.featurette-divider {
+	margin: 80px 0;
+}
+
+.featurette {
+	padding-top: 120px;
+	overflow: hidden;
+}
+
+.featurette-image {
+	margin-top: -120px;
+}
+
+.featurette-image.pull-left {
+	margin-right: 40px;
+}
+
+.featurette-image.pull-right {
+	margin-left: 40px;
+}
+
+.featurette-heading {
+	font-size: 50px;
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+p: first-letter {
+	text-transform: uppercase;
+}
+
+p {
+	color: #424242;
+	font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond,
+		Times, serif;
+	letter-spacing: 0.1em;
+	text-align: center;
+	margin: 40px auto;
+	text-transform: lowercase;
+	line-height: 145%;
+	font-size: 14pt;
+	font-variant: small-caps;
+}
+</style>
+	<!-- <link rel="stylesheet" href="${request.contextPath}/app/resources/frameworks/blueprint/screen.css" type="text/css" media="screen, projection" /> -->
+	<ui:define name="header">
+		<ui:include src="../bricks/navBar.xhtml" />
+	</ui:define>
+
+	<ui:define name="content">
+		<p:growl id="growl" sticky="true" showDetail="true" />
+		<div class="container marketing" style="padding-top: 70px">
+			<hr class="featurette-divider" />
+			<h2 class="featurette-heading text-center">
+				Блог. <span class="muted">Тут зібрані корисні статті та інформація, яка допоможе вам.</span>
+			</h2>
+			<hr class="featurette-divider" />
+
+			<ui:repeat value="#{blogBean.articles}" var="article">
+				<div class="featurette">
+					<h3
+						style="font-family: Gill Sans, Verdana; font-size: 23px; line-height: 14px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">
+						<a href="http://foundation.zurb.com/page-templates4/blog.html#">#{article.title}</a>
+					</h3>
+					<h6>
+						<h:outputFormat value="#{ui.PUBLISHED}" styleClass="label label-inverse">
+							<f:param value="#{article.author}" />
+							<f:param value="#{article.date}" />
+						</h:outputFormat>
+					</h6>
+					<div class="row">
+						<div class="span4" style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
+							<p>#{article.getBreakedPreContent()}</p>
+						</div>
+						<div class="span6">
+							<img src="resources/images/blog/#{article.coolRef}.jpg" style="width: 400px; height: 200px" />
+						</div>
+						<div class="span9" style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
+							<p>#{article.getBreakedContent()}</p>
+						</div>
+					</div>
+				</div>
+				<hr class="featurette-divider" />
+			</ui:repeat>
+		</div>
+
+	</ui:define>
+</ui:composition>
