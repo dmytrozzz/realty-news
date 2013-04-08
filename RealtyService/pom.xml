@@ -126,11 +126,14 @@
 			<version>1.2</version>
 		</dependency>
 		<!-- Data Base -->
+		<!-- <dependency> <groupId>postgresql</groupId> <artifactId>postgresql</artifactId> <version>9.1-901.jdbc4</version> 
+			</dependency> -->
 		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.1-901.jdbc4</version>
+			<version>9.0-801.jdbc4</version>
 		</dependency>
+
 		<!-- Commons DBCP -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -290,19 +293,14 @@
 			<id>tomcat7-standalone-repo</id>
 			<url>http://ericbottard.github.com/cloudfoundry-tomcat-7</url>
 		</repository>
-		<!-- <repository>
-			<id>org.springframework.maven.milestone</id>
-			<name>Spring Maven Milestone Repository</name>
-			<url>http://maven.springframework.org/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository> -->
+		<!-- <repository> <id>org.springframework.maven.milestone</id> <name>Spring Maven Milestone Repository</name> 
+			<url>http://maven.springframework.org/milestone</url> <snapshots> <enabled>false</enabled> </snapshots> 
+			</repository> -->
 		<repository>
-        <id>springsource-milestones</id>
-        <name>SpringSource Milestones Proxy</name>
-        <url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
-      </repository>
+			<id>springsource-milestones</id>
+			<name>SpringSource Milestones Proxy</name>
+			<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
+		</repository>
 	</repositories>
 	<build>
 		<plugins>

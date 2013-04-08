@@ -15,7 +15,8 @@
 
 	<!-- <cloud:data-source id="dataSource" service-name="realtyDB" /> -->
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" lazy-init="default">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
+		lazy-init="default">
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="url" value="jdbc:postgresql://localhost:5432/realty" />
 		<property name="username" value="postgres" />
@@ -40,7 +41,6 @@
 		</property>
 	</bean>
 
-	<jpa:repositories base-package="com.dmytro.realty.data.repository" entity-manager-factory-ref="emf"
-		transaction-manager-ref="transactionManager" />
-
+	<jpa:repositories base-package="com.dmytro.realty.data.repository"
+		entity-manager-factory-ref="emf" transaction-manager-ref="transactionManager" />
 </beans>
