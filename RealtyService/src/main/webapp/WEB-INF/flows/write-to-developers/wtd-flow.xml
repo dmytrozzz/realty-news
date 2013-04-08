@@ -6,10 +6,9 @@
 
 	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 
-	<view-state id="start-page" view="blog.xhtml">
+	<view-state id="start-page" view="write-to-developers.xhtml">
 		<on-entry>
 			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
-			<evaluate expression="realtyController.getBlogBean()" result="viewScope.blogBean" />
 		</on-entry>
 	</view-state>
 </flow>

@@ -1,0 +1,86 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/WEB-INF/layouts/simple-layout.xhtml">
+	<style>
+.marketing .span4 {
+	text-align: center;
+}
+
+.marketing h2 {
+	font-weight: normal;
+}
+
+.marketing .span4 p {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.featurette-divider {
+	margin: 80px 0;
+}
+
+.featurette {
+	padding-top: 120px;
+	overflow: hidden;
+}
+
+.featurette-image {
+	margin-top: -120px;
+}
+
+.featurette-image.pull-left {
+	margin-right: 40px;
+}
+
+.featurette-image.pull-right {
+	margin-left: 40px;
+}
+
+.featurette-heading {
+	font-size: 50px;
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+</style>
+	<ui:define name="header">
+		<ui:include src="../bricks/navBar.xhtml" />
+	</ui:define>
+
+	<ui:define name="content">
+		<p:growl id="growl" sticky="true" showDetail="true" />
+
+		<div class="container marketing" style="padding-top: 70px">
+			<hr class="featurette-divider" />
+
+			<div class="featurette">
+				<h2 class="featurette-heading text-center">
+					Напишіть нам. <span class="muted">Моніторинг інтернет активності.</span>
+				</h2>
+				<h:form>
+					<p:panel>
+						<h:panelGrid columns="2">
+							<p:outputLabel for="credential" value="Enter Credential:" />
+							<p:inputText id="credential" />
+
+							<p:outputLabel for="message" value="Enter a message:" />
+							<p:inputTextarea id="message" />
+
+							<f:facet name="footer">
+								<p:commandButton value="Надіслати повідомлення" action="sendMessage" styleClass="pull-left" />
+							</f:facet>
+						</h:panelGrid>
+
+					</p:panel>
+				</h:form>
+				<hr class="featurette-divider" />
+				<p class="lead">Напишіть нам свої враження, відгуки чи пропозиції для покращення сервісу. Ми будемо робити все можливе, щоб покращувати сервіс
+					для вас.</p>
+			</div>
+
+			<hr class="featurette-divider" />
+		</div>
+
+	</ui:define>
+</ui:composition>
