@@ -35,8 +35,11 @@ public class RealtyController {
 			RealtyUser realtyUser = null;
 			if (authentication.getPrincipal() instanceof RealtyUserDetails)
 				realtyUser = ((RealtyUserDetails) authentication.getPrincipal()).getRealtyUser();
-			else
+			else if (authentication.getPrincipal() instanceof RealtyUser)
 				realtyUser = (RealtyUser) authentication.getPrincipal();
+			else {
+				return new UserPreferencesBean(new RealtyUser());
+			}
 			System.out.println("Welome, " + realtyUser);
 			return new UserPreferencesBean(realtyUser);
 		}
@@ -52,12 +55,12 @@ public class RealtyController {
 	}
 
 	public FeedBackBeen getFeedBackBeen() {
-		//TODO 
+		// TODO
 		return new FeedBackBeen(null);
 	}
-	
+
 	public BlogBean getBlogBean() {
-		//TODO 
+		// TODO
 		return new BlogBean(null);
 	}
 
