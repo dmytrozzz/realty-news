@@ -7,12 +7,12 @@
 	<ui:define name="header">
 		<ui:include src="../bricks/navBar.xhtml"></ui:include>
 	</ui:define>
-	
+
 	<ui:param name="centerTitle" value="#{resourceBundle.PERSONAL_CABINET}" />
 
 	<ui:define name="content">
-	
-	
+
+
 		<h:form id="contentForm">
 			<p:growl id="growl" sticky="true" showDetail="true" />
 			<p:panel>
@@ -26,11 +26,10 @@
 									disabled="#{!preferences.user.isPayed()}" update="controlPanel" />
 								<h:outputText value="#{ui[preferences.getServiceStatus()]}" />
 
-								<!-- <p:commandButton value="#{ui.PAY_FOR_SERVICE}" action="payForService" style="width:170px" rendered="#{!preferences.user.isPayed()}"
-									update="controlPanel" /> -->
 								<ui:include src="bricks/paymoney.xhtml" />
 								<h:outputText value="#{ui[preferences.getPayedStatus()]}" rendered="#{!preferences.user.isPayed()}" />
 							</h:panelGrid>
+
 						</p:panel>
 					</p:tab>
 
