@@ -19,7 +19,11 @@
 	</script>
 
 	<p:commandButton value="#{ui.PAY_FOR_SERVICE}" type="button"
-		onclick='post("https://merchant.easypay.ua/client/order",{"merchant_id":"2701a2c2cdfe483ea8ce354dd31991db","amount":5,"desc":"Оплата послуги","order_id":0})'>
+		onclick='post("https://merchant.easypay.ua/client/order", {"merchant_id":"2701a2c2cdfe483ea8ce354dd31991db","amount":5,"desc":"Оплата послуги","order_id":0})'>
+	</p:commandButton>
+
+	<p:commandButton value="#{ui.PAY_FOR_SERVICE}" type="button"
+		onclick='post("http://sprypay.ru/sppi/",{"spShopId":212966,"spShopPaymentId":123,"spCurrency":"uah","spPurpose":"Subscribing","spAmount":"50.00","spUserDataUserId":1234567,"spPurpose":"Subscribing","spPurpose":"Subscribing","spPurpose":"Subscribing"})'>
 	</p:commandButton>
 
 	<p:lightBox iframe="true" width="371" height="450">
@@ -28,5 +32,4 @@
 			<h:outputText value="Pay For Service" />
 		</h:outputLink>
 	</p:lightBox>
-
 </ui:composition>

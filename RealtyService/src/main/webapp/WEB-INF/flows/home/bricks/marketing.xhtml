@@ -20,11 +20,11 @@
 }
 
 .featurette {
-	 padding-top: 120px; 
-	 overflow: hidden; 
+	padding-top: 120px;
+	overflow: hidden;
 }
 
- .featurette-image {
+.featurette-image {
 	margin-top: -120px;
 }
 
@@ -34,21 +34,85 @@
 
 .featurette-image.pull-right {
 	margin-left: 40px;
-} 
+}
 
- .featurette-heading {
+.featurette-heading {
 	font-size: 50px;
 	font-weight: 300;
 	line-height: 1;
 	letter-spacing: -1px;
-} 
+}
+
+/* Columns */
+.column {
+	min-height: 200px;
+	padding: 20px 15px 15px;
+	/* border: 1px solid rgba(249, 89, 42, 0.4); */
+	border-radius: 4px;
+	 background-color: #fcdfd6;
+	/* background-color: white; */
+	background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0), white
+		65%, rgba(255, 255, 255, 0.8) 95%, rgba(255, 255, 255, 0));
+	box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.4), inset 0 1px 1px 1px
+		rgba(255, 255, 255, 0.8);
+	text-align: center;
+}
+
+.column h3 {
+	margin: 15px 0px;
+	font-size: 33px;
+	font-weight: normal;
+}
+
+.column p {
+	min-height: 100px;
+	font-family: 'Varela Round', sans-serif;
+	color: #4a4a4a;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+.column.design h3 {
+	color: #f1592a;
+}
+
+.column.export {
+	border-color: rgba(0, 137, 184, 0.4);
+	background-color: #cef1fa;
+	background-image: linear-gradient(-159deg, rgba(255, 255, 255, 0), white
+		65%, rgba(255, 255, 255, 0.8) 95%, rgba(255, 255, 255, 0));
+}
+
+.column.export h3 {
+	color: #00ace6;
+}
+
+.column.launch {
+	border-color: rgba(0, 158, 99, 0.4);
+	background-color: #ceeee2;
+}
+
+.column.launch h3 {
+	color: #00c27a;
+}
 </style>
 	<div class="container marketing">
 		<div class="row">
+			<div class="span4 column">
+				<img class="img-circle" data-src="holder.js/140x140" />
+				<h2>Знайдіть будинок своєї мрії.</h2>
+				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p>
+				<br />
+				<p>
+					<p:commandLink styleClass="btn" value="Дізнатись як це працює" action="goWizard" />
+				</p>
+			</div>
+			<!-- /.span4 -->
 			<div class="span4">
 				<img class="img-circle" data-src="holder.js/140x140" />
 				<h2>Знайдіть будинок своєї мрії.</h2>
-				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p><br/>
+				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p>
+				<br />
 				<!-- <p>
 					<p:commandLink styleClass="btn" value="Дізнатись як це працює" action="goWizard" />
 				</p> -->
@@ -57,16 +121,8 @@
 			<div class="span4">
 				<img class="img-circle" data-src="holder.js/140x140" />
 				<h2>Знайдіть будинок своєї мрії.</h2>
-				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p><br/>				
-				<!-- <p>
-					<p:commandLink styleClass="btn" value="Дізнатись як це працює" action="goWizard" />
-				</p> -->
-			</div>
-			<!-- /.span4 -->
-			<div class="span4">
-				<img class="img-circle" data-src="holder.js/140x140" />
-				<h2>Знайдіть будинок своєї мрії.</h2>
-				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p><br/>
+				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p>
+				<br />
 				<!-- <p>
 					<p:commandLink styleClass="btn" value="Дізнатись як це працює" action="goWizard" />
 				</p> -->
