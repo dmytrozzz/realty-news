@@ -19,13 +19,17 @@
 	</script>
 
 	<p:commandButton value="#{ui.PAY_FOR_SERVICE}" type="button"
-		onclick='post("https://merchant.easypay.ua/client/order",{"merchant_id":"2701a2c2cdfe483ea8ce354dd31991db","amount":5,"desc":"Оплата послуги","order_id":0})'>
+		onclick='post("https://merchant.easypay.ua/client/order", {"merchant_id":"2701a2c2cdfe483ea8ce354dd31991db","amount":5,"desc":"Оплата послуги","order_id":0})'>
+	</p:commandButton>
+
+	<p:commandButton value="#{ui.PAY_FOR_SERVICE}" type="button"
+		onclick='post("http://sprypay.ru/sppi/",{"spShopId":212966,"spShopPaymentId":123,"spCurrency":"uah","spPurpose":"Subscribing","spAmount":"50.00","spUserDataUserId":1234567,"spPurpose":"Subscribing","spPurpose":"Subscribing","spPurpose":"Subscribing"})'>
 	</p:commandButton>
 
 	<p:lightBox iframe="true" width="371" height="450">
-		<h:outputLink value="https://wallapi.com/api/subscription/?key=098c740987a4d1de60242db7ba4e736e&amp;uid=123&amp;widget=p4_1" title="Pay for service">
+		<h:outputLink value="https://wallapi.com/api/subscription/?key=098c740987a4d1de60242db7ba4e736e&amp;uid=123&amp;widget=p4_1"
+			title="#{ui.PAY_FOR_SERVICE}" styleClass="btn btn-primary">
 			<h:outputText value="Pay For Service" />
 		</h:outputLink>
 	</p:lightBox>
-
 </ui:composition>

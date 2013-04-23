@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<h:html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:sf="http://www.springframework.org/tags/faces">
 <f:view contentType="text/html" encoding="UTF-8">
 	<!-- i18n shortcut -->
@@ -9,57 +13,30 @@
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-		<link rel="stylesheet" href="${request.contextPath}/app/resources/frameworks/blueprint/screen.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet"
+			href="${request.contextPath}/app/resources/frameworks/blueprint/screen.css"
+			type="text/css" media="screen, projection" />
 
-		<link href="${request.contextPath}/app/resources/frameworks/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-		<link href="${request.contextPath}/app/resources/styles/bootstrap-stuff.css" rel="stylesheet" media="screen" />
+		<link
+			href="${request.contextPath}/app/resources/frameworks/bootstrap/css/bootstrap.min.css"
+			rel="stylesheet" media="screen" />
+		<link
+			href="${request.contextPath}/app/resources/styles/bootstrap-stuff.css"
+			rel="stylesheet" media="screen" />
+		<link
+			href="${request.contextPath}/app/resources/styles/realty-style.css"
+			rel="stylesheet" media="screen" />
 
-		<link href="${request.contextPath}/app/resources/styles/realty-style.css" rel="stylesheet" media="screen" />
-
-		<script type="text/javascript" src="${request.contextPath}/app/resources/frameworks/bootstrap/js/bootstrap.min.js" />
+		<script type="text/javascript"
+			src="${request.contextPath}/app/resources/frameworks/bootstrap/js/bootstrap.min.js" />
+		<script type="text/javascript"
+			src="${request.contextPath}/app/resources/frameworks/holder/holder.js" />
 		<ui:insert name="metadata">
 			<f:metadata>
 				<f:event listener="#{jsfUtil.initalizeContext}" type="preRenderView" />
 			</f:metadata>
 		</ui:insert>
 		<ui:insert name="includes" />
-		<style type="text/css">
-
-/* Sticky footer styles
-      -------------------------------------------------- */
-html,body {
-	/* height: 100%; */
-	/* The html and body elements cannot have any padding or margin. */
-}
-
-/* Wrapper for page content to push down footer */
-#wrap {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	/* Negative indent footer by it's height */
-	margin: 0 auto -60px;
-}
-
-/* Set the fixed height of the footer here */
-#push,#footer {
-	height: 60px;
-}
-
-#footer {
-	background-color: #f5f5f5;
-}
-
-/* Lastly, apply responsive CSS fixes as necessary */
-@media ( max-width : 767px) {
-	#footer {
-		margin-left: -20px;
-		margin-right: -20px;
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-}
-</style>
 	</h:head>
 
 	<h:body>
@@ -69,11 +46,17 @@ html,body {
 
 		<div id="footer">
 			<div class="container">
-				<p class="muted credit">
-					<a href="terms-of-use">Terms of use</a> <a href="terms-of-refund">Terms of refund</a>
-				</p>
+				<p class="muted credit">dmytrozzz@i.ua</p>
 			</div>
 		</div>
+		<!-- <footer id="footer">
+		<p class="pull-right">
+			<a href="#">Back to top</a>
+		</p>
+		<p>
+			&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+		</p>
+		</footer> -->
 	</h:body>
 </f:view>
 </h:html>

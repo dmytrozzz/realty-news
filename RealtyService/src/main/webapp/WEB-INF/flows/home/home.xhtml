@@ -2,17 +2,17 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
 	template="/WEB-INF/layouts/simple-layout.xhtml">
-
 	<ui:define name="header">
 		<ui:include src="../bricks/navBar.xhtml" />
 	</ui:define>
 
 	<ui:define name="content">
 		<p:growl id="growl" sticky="true" showDetail="true" />
+		
 		<ui:include src="bricks/carousell.xhtml" />
 		<ui:include src="bricks/marketing.xhtml" />
 	</ui:define>
-
+	
 	<ui:define name="modal">
 		<style>
 .ui-dialog .ui-dialog-content {
