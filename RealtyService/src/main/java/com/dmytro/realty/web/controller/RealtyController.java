@@ -52,12 +52,7 @@ public class RealtyController {
 
 	public PersonalCabinetBean getCabinet(UserPreferencesBean preferences) {
 		return new PersonalCabinetBean(preferences);
-	}
-
-	public FeedBackBeen getFeedBackBeen() {
-		// TODO
-		return new FeedBackBeen(null);
-	}
+	}	
 
 	public BlogBean getBlogBean() {
 		// TODO

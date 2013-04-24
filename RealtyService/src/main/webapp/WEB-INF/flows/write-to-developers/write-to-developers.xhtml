@@ -56,26 +56,26 @@
 
 			<div class="featurette">
 				<h2 class="featurette-heading text-center">
-					Напишіть нам. <span class="muted">Моніторинг інтернет активності.</span>
+					Напишіть нам. <span class="muted">Ми чекаємо на відгуки.</span>
 				</h2>
 				<h:form>
 					<p:panel>
 						<h:panelGrid columns="2">
-							<p:outputLabel for="credential" value="Enter Credential:" />
-							<p:inputText id="credential" />
+							<p:outputLabel for="credential" value="#{ui.YOUR_CREDENTIALS}" />
+							<p:inputText id="credential" value="#{feedBackBean.feedBack.author}" />
 
-							<p:outputLabel for="message" value="Enter a message:" />
-							<p:inputTextarea id="message" />
+							<p:outputLabel for="message" value="#{ui.YOUR_MESSAGE}" />
+							<p:inputTextarea id="message" value="#{feedBackBean.feedBack.content}"/>
 
 							<f:facet name="footer">
-								<p:commandButton value="Надіслати повідомлення" action="sendMessage" styleClass="pull-left" />
+								<p:commandButton value="#{ui.SEND_MESSAGE}" action="sendMessage" styleClass="pull-left" />
 							</f:facet>
 						</h:panelGrid>
 
 					</p:panel>
 				</h:form>
 				<hr class="featurette-divider" />
-				<p class="lead">Напишіть нам свої враження, відгуки чи пропозиції для покращення сервісу. Ми будемо робити все можливе, щоб покращувати сервіс
+				<p class="lead pull-center">Напишіть нам свої враження, відгуки чи пропозиції для покращення сервісу. Ми будемо робити все можливе, щоб покращувати сервіс
 					для вас.</p>
 			</div>
 

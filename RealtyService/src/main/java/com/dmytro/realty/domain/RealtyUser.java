@@ -102,4 +102,9 @@ public class RealtyUser implements Serializable {
 	public void setPayed(boolean payed) {
 		this.payed = payed;
 	}
+
+	@Override
+	public String toString() {
+		return login;
+	}
 }
