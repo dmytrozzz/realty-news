@@ -1,6 +1,9 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 	<script>
 		function post(to, p) {
 			var myForm = document.createElement("form");
@@ -25,11 +28,4 @@
 	<p:commandButton value="#{ui.PAY_FOR_SERVICE}" type="button"
 		onclick='post("http://sprypay.ru/sppi/",{"spShopId":212966,"spShopPaymentId":123,"spCurrency":"uah","spPurpose":"Subscribing","spAmount":"50.00","spUserDataUserId":1234567,"spPurpose":"Subscribing","spPurpose":"Subscribing","spPurpose":"Subscribing"})'>
 	</p:commandButton>
-
-	<p:lightBox iframe="true" width="371" height="450">
-		<h:outputLink value="https://wallapi.com/api/subscription/?key=098c740987a4d1de60242db7ba4e736e&amp;uid=123&amp;widget=p4_1"
-			title="#{ui.PAY_FOR_SERVICE}" styleClass="btn btn-primary">
-			<h:outputText value="Pay For Service" />
-		</h:outputLink>
-	</p:lightBox>
 </ui:composition>
