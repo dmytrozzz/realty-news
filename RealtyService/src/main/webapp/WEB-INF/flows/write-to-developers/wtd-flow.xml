@@ -9,6 +9,11 @@
 	<view-state id="start-page" view="write-to-developers.xhtml">
 		<on-entry>
 			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
+			<evaluate expression="feedBackController.createLightFeedBackBean()" result="viewScope.feedBackBean" />
 		</on-entry>
+
+		<transition on="sendMessage">
+			<evaluate expression="feedBackController.postFeedBack(viewScope.feedBackBean.feedBack)" />
+		</transition>
 	</view-state>
 </flow>

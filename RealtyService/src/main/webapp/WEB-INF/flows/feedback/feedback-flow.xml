@@ -8,8 +8,8 @@
 
 	<view-state id="start-page" view="feedback.xhtml">
 		<on-entry>
-			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
-			<evaluate expression="realtyController.getFeedBackBeen()" result="viewScope.feedBackBeen" />
+		<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
+			<evaluate expression="feedBackController.createFullFeedBackBean()" result="viewScope.feedBackBean" />
 		</on-entry>
 	</view-state>
 </flow>
