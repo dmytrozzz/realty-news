@@ -13,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.security.RealtyUserDetails;
 import com.dmytro.realty.service.IUserService;
-import com.dmytro.realty.web.flow.jsf.BlogBean;
-import com.dmytro.realty.web.flow.jsf.FeedBackBeen;
 import com.dmytro.realty.web.flow.jsf.PersonalCabinetBean;
 import com.dmytro.realty.web.flow.jsf.RealtyWizard;
 import com.dmytro.realty.web.flow.jsf.UserPreferencesBean;
@@ -53,11 +51,6 @@ public class RealtyController {
 	public PersonalCabinetBean getCabinet(UserPreferencesBean preferences) {
 		return new PersonalCabinetBean(preferences);
 	}	
-
-	public BlogBean getBlogBean() {
-		// TODO
-		return new BlogBean(null);
-	}
 
 	public boolean isAuthorized() {
 		return SecurityContextHolder.getContext().getAuthentication().getAuthorities().containsAll(USER_AUTHORITY);

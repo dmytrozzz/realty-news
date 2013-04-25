@@ -75,35 +75,32 @@ p {
 			</h2>
 			<hr class="featurette-divider" />
 
-			<ui:repeat value="#{posts}" var="article">
-				<div class="featurette">
-					<h3
-						style="font-family: Gill Sans, Verdana; font-size: 23px; line-height: 14px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">
-						<a href="blog/#{article.suffix}">#{article.title}</a>
-					</h3>
-					<h6>
-						<h:outputFormat value="#{ui.PUBLISHED}" styleClass="label label-inverse">
-							<f:param value="#{article.author}" />
-							<f:param value="#{article.postDate}" />
-						</h:outputFormat>
-					</h6>
-					<div class="row">
-						<div class="span4"
-							style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
-							<p>#{article.foreword}</p>
-						</div>
-						<div class="span6">
-							<img src="resources/images/blog/#{article.picture}.jpg" style="width: 400px; height: 200px" />
-						</div>
-						<div class="span9"
-							style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
-							<p>#{article.getBreakedContent()}</p>
-						</div>
+			<div class="featurette">
+				<h3
+					style="font-family: Gill Sans, Verdana; font-size: 23px; line-height: 14px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">
+					<a href="http://foundation.zurb.com/page-templates4/blog.html#">#{article.title}</a>
+				</h3>
+				<h6>
+					<h:outputFormat value="#{ui.PUBLISHED}" styleClass="label label-inverse">
+						<f:param value="#{article.author}" />
+						<f:param value="#{article.date}" />
+					</h:outputFormat>
+				</h6>
+				<div class="row">
+					<div class="span4"
+						style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
+						<p>#{article.getBreakedPreContent()}</p>
+					</div>
+					<div class="span6">
+						<img src="resources/images/blog/#{article.coolRef}.jpg" style="width: 400px; height: 200px" />
+					</div>
+					<div class="span9"
+						style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
+						<p>#{article.getBreakedContent()}</p>
 					</div>
 				</div>
-				<hr class="featurette-divider" />
-			</ui:repeat>
+			</div>
+			<hr class="featurette-divider" />
 		</div>
-
 	</ui:define>
 </ui:composition>

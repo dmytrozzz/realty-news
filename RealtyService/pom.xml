@@ -137,7 +137,7 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-		<!-- Hibernate -->
+		<!-- Hibernate -->		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -158,6 +158,7 @@
 			<artifactId>hibernate-jpamodelgen</artifactId>
 			<version>1.2.0.Final</version>
 		</dependency>
+		
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>

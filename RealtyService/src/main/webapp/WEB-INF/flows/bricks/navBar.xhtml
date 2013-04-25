@@ -1,11 +1,7 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:sec="http://www.springframework.org/security/tags">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:sec="http://www.springframework.org/security/tags">
 	<style>
 /* CUSTOMIZE THE NAVBAR
     -------------------------------------------------- */
@@ -57,36 +53,28 @@
 		<div class="container">
 			<div class="navbar navbar-inverse">
 				<div class="navbar-inner">
-					<h:outputLink styleClass="brand"
-						value="#{request.contextPath}/app/home">#{ui.TITLE}</h:outputLink>
+					<h:outputLink styleClass="brand" value="#{request.contextPath}/app/home">#{ui.TITLE}</h:outputLink>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li><h:outputLink value="#{request.contextPath}/app/cabinet"
-									rendered="#{authorized}">#{ui.PERSONAL_CABINET}</h:outputLink></li>
-							<li><h:outputLink
-									value="#{request.contextPath}/app/how-it-works">#{ui.HOW_IT_WORKS}</h:outputLink></li>
+							<li><h:outputLink value="#{request.contextPath}/app/cabinet" rendered="#{authorized}">#{ui.PERSONAL_CABINET}</h:outputLink></li>
+							<li><h:outputLink value="#{request.contextPath}/app/how-it-works">#{ui.HOW_IT_WORKS}</h:outputLink></li>
 							<li><h:outputLink value="#{request.contextPath}/app/blog">#{ui.RECOMMENDATIONS}</h:outputLink></li>
-							<li><h:outputLink
-									value="#{request.contextPath}/app/write-to-developers">#{ui.WRITE_TO_DEVELOPERS}</h:outputLink></li>
-							<li><h:outputLink
-									value="#{request.contextPath}/app/feedback">#{ui.FEEDBACK}</h:outputLink></li>
+							<li><h:outputLink value="#{request.contextPath}/app/write-to-developers">#{ui.WRITE_TO_DEVELOPERS}</h:outputLink></li>
+							<li><h:outputLink value="#{request.contextPath}/app/feedback">#{ui.FEEDBACK}</h:outputLink></li>
 							<li class="divider-vertical" />
 						</ul>
 					</div>
 					<!--/.nav-collapse -->
 					<ul class="nav">
 						<sec:authorize access="isAnonymous()">
-							<li><h:outputLink id="loginLink" value="javascript:void(0)"
-									rendered="#{!currentState.preferences.authorized}">#{ui.LOGIN}</h:outputLink></li>
+							<li><h:outputLink id="loginLink" value="javascript:void(0)">#{ui.LOGIN}</h:outputLink></li>
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
 							<li><h:outputLink value="logout" rendered="#{authorized}">#{ui.LOGOUT}</h:outputLink></li>
 						</sec:authorize>
 					</ul>
 					<sec:authorize access="isAuthenticated()">
-						<h:outputFormat styleClass="navbar-text pull-right"
-							value="#{ui.WELCOME}"
-							rendered="#{currentState.preferences.authorized}">
+						<h:outputFormat styleClass="navbar-text pull-right" value="#{ui.WELCOME}">
 							<f:param value="#{currentUser.name}" />
 						</h:outputFormat>
 					</sec:authorize>
@@ -95,10 +83,9 @@
 			</div>
 			<!-- /.navbar -->
 		</div>
-		
+
 		<sec:authorize access="isAnonymous()">
-			<p:overlayPanel for="loginLink" showEffect="scale" hideEffect="puff"
-				dynamic="true" rendered="#{!currentState.preferences.authorized}">
+			<p:overlayPanel for="loginLink" showEffect="scale" hideEffect="puff" dynamic="true">
 				<ui:include src="loginPanel.xhtml">
 					<ui:param name="preferences" value="#{currentState.preferences}" />
 				</ui:include>

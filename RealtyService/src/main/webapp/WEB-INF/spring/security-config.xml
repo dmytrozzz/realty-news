@@ -13,6 +13,7 @@
 		<intercept-url pattern="/app/home" access="permitAll" />
 		<intercept-url pattern="/app/how-it-works" access="permitAll" />
 		<intercept-url pattern="/app/blog" access="permitAll" />
+		<intercept-url pattern="/app/blog/**" access="permitAll" />
 		<intercept-url pattern="/app/write-to-developers" access="permitAll" />
 		<intercept-url pattern="/app/feedback" access="permitAll" />
 

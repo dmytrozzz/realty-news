@@ -6,10 +6,23 @@
 
 	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 
-	<view-state id="start-page" view="blog.xhtml">
+	<input name="singlePost" type="boolean" />
+	<input name="suffix" />
+
+	<decision-state id="start-page">
+		<if test="singlePost" then="post" else="blog" />
+	</decision-state>
+
+	<view-state id="blog">
 		<on-entry>
-			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
-			<evaluate expression="realtyController.getBlogBean()" result="viewScope.blogBean" />
+			<evaluate expression="blogController.getAllPosts()" result="viewScope.posts" />
 		</on-entry>
 	</view-state>
+
+	<view-state id="post">
+		<on-entry>
+			<evaluate expression="blogController.getPost(suffix)" result="viewScope.post" />
+		</on-entry>
+	</view-state>
+
 </flow>
