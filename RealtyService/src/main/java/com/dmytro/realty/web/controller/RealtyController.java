@@ -33,8 +33,11 @@ public class RealtyController {
 			RealtyUser realtyUser = null;
 			if (authentication.getPrincipal() instanceof RealtyUserDetails)
 				realtyUser = ((RealtyUserDetails) authentication.getPrincipal()).getRealtyUser();
-			else
+			else if (authentication.getPrincipal() instanceof RealtyUser)
 				realtyUser = (RealtyUser) authentication.getPrincipal();
+			else {
+				return new UserPreferencesBean(new RealtyUser());
+			}
 			System.out.println("Welome, " + realtyUser);
 			return new UserPreferencesBean(realtyUser);
 		}
@@ -47,7 +50,7 @@ public class RealtyController {
 
 	public PersonalCabinetBean getCabinet(UserPreferencesBean preferences) {
 		return new PersonalCabinetBean(preferences);
-	}
+	}	
 
 	public boolean isAuthorized() {
 		return SecurityContextHolder.getContext().getAuthentication().getAuthorities().containsAll(USER_AUTHORITY);

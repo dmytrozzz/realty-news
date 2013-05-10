@@ -1,7 +1,14 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 	<style>
+/* .marketing .container {
+	margin-bottom: 60px;
+}
+ */
 .marketing .span4 {
 	text-align: center;
 }
@@ -20,11 +27,11 @@
 }
 
 .featurette {
-	 padding-top: 120px; 
-	 overflow: hidden; 
+	padding-top: 120px;
+	overflow: hidden;
 }
 
- .featurette-image {
+.featurette-image {
 	margin-top: -120px;
 }
 
@@ -34,97 +41,114 @@
 
 .featurette-image.pull-right {
 	margin-left: 40px;
-} 
+}
 
- .featurette-heading {
+.featurette-heading {
 	font-size: 50px;
 	font-weight: 300;
 	line-height: 1;
 	letter-spacing: -1px;
-} 
+}
+
+/* Columns */
+.coolPanel {
+	/* min-height: 200px;
+	padding: 20px 15px 15px; */
+	border-radius: 20px;
+	/* border: 1px solid rgba(0, 137, 184, 0.4); */
+	background-color: rgb(245, 245, 245);
+	background-image: -webkit-linear-gradient(-159deg, rgba(255, 255, 255, 0),
+		white 65%, rgba(255, 255, 255, 0.8) 95%, rgba(255, 255, 255, 0));
+	box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.4), inset 0 1px 1px 1px
+		rgba(255, 255, 255, 0.8);
+}
+
+.coolPanel h3 {
+	margin: 15px 0px;
+	font-size: 33px;
+	font-weight: normal;
+}
+
+.coolPanel p {
+	min-height: 100px;
+	font-family: 'Varela Round', sans-serif;
+	color: #4a4a4a;
+	font-size: 15px;
+	line-height: 20px;
+}
 </style>
 	<div class="container marketing">
 		<div class="row">
-			<div class="span4">
+			<div class="span4 coolPanel">
 				<img class="img-circle" data-src="holder.js/140x140" />
 				<h2>Знайдіть будинок своєї мрії.</h2>
-				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p><br/>
-				<!-- <p>
-					<p:commandLink styleClass="btn" value="Дізнатись як це працює" action="goWizard" />
-				</p> -->
+				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук
+					квартири, як про клопіт.</p>
 			</div>
 			<!-- /.span4 -->
-			<div class="span4">
+			<div class="span4 coolPanel">
 				<img class="img-circle" data-src="holder.js/140x140" />
-				<h2>Знайдіть будинок своєї мрії.</h2>
-				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p><br/>				
-				<!-- <p>
-					<p:commandLink styleClass="btn" value="Дізнатись як це працює" action="goWizard" />
-				</p> -->
+				<h2>Ви маєте право вибору.</h2>
+				<p>Не давайте обставинам, наполегливим брокерам чи недостачі
+					часу прийняти рішення, яке вам не вигідне.</p>
 			</div>
 			<!-- /.span4 -->
-			<div class="span4">
+			<div class="span4 coolPanel">
 				<img class="img-circle" data-src="holder.js/140x140" />
-				<h2>Знайдіть будинок своєї мрії.</h2>
-				<p>Скористайтесь нашим сервісом і перестаньте думати про пошук квартири, як про клопіт.</p><br/>
-				<!-- <p>
-					<p:commandLink styleClass="btn" value="Дізнатись як це працює" action="goWizard" />
-				</p> -->
+				<h2>Ви застраховані від шахраїв.</h2>
+				<p>Забудьте про агенства, які просять у вас невідомі завдатки за
+					невідому інформацію. Наш сервіс надає найсвіжіші дані на вторинному
+					ринку нерухомості за копійки.</p>
 			</div>
 			<!-- /.span4 -->
-		</div>
-		<!-- /.row -->
-
-
-		<!-- START THE FEATURETTES -->
-
-		<hr class="featurette-divider" />
-
-		<div class="featurette">
-			<img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-chrome.png" />
-			<h2 class="featurette-heading">
-				First featurette headling. <span class="muted">It'll blow your mind.</span>
-			</h2>
-			<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus
-				magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
 		</div>
 
 		<hr class="featurette-divider" />
 
 		<div class="featurette">
-			<img class="featurette-image pull-left" src="../assets/img/examples/browser-icon-firefox.png" />
+			<img class="featurette-image pull-right"
+				src="resources/images/marketing/news.png" />
 			<h2 class="featurette-heading">
-				Oh yeah, it's that good. <span class="muted">See for yourself.</span>
+				Безліч інформації на порталі. <span class="muted">Готуйте
+					свої мізки.</span>
 			</h2>
-			<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus
-				magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+			<p class="lead">На нашому ресурсі ви знайдете безліч корисної
+				інформації не тільки про те, як шукати нерухомість, а й як
+				перетворити її на актив та змусити приносити дохід, як вигідніше її
+				продати, а також найсвіжіші новини в області нерухомості і багато
+				іншого.</p>
 		</div>
 
 		<hr class="featurette-divider" />
 
 		<div class="featurette">
-			<img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-safari.png" />
+			<img class="featurette-image pull-left"
+				src="resources/images/marketing/home.png" />
 			<h2 class="featurette-heading">
-				And lastly, this one. <span class="muted">Checkmate.</span>
+				Шукайте житло миттю. <span class="muted">І живіть в комфорті.</span>
 			</h2>
-			<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus
-				magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+			<p class="lead">Цей сервіс створено, щоб позбавити вас проблем.
+				Скористайтесь його перевагами і не пожалкуєте.</p>
 		</div>
 
 		<hr class="featurette-divider" />
 
-		<!-- /END THE FEATURETTES -->
+		<div class="featurette">
+			<img class="featurette-image pull-left"
+				src="resources/images/marketing/people.png" /> <img
+				class="featurette-image pull-center"
+				src="resources/images/marketing/trunk.png" /> <img
+				class="featurette-image pull-right"
+				src="resources/images/marketing/home3.png" />
+			<h2 class="featurette-heading">
+				Ми не обіцяємо, що переїзд в нове житло буде легким. <span
+					class="muted">Але ми гарантуємо, що воно не забариться.</span>
+			</h2>
+			<p class="lead"></p>
+		</div>
 
+		<hr class="featurette-divider" />
 
-		<!-- FOOTER -->
-		<!-- <footer>
-		<p class="pull-right">
-			<a href="#">Back to top</a>
-		</p>
-		<p>
-			&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-		</p>
-		</footer> -->
 	</div>
 	<!-- /.container -->
 </ui:composition>

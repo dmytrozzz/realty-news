@@ -4,11 +4,11 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
 	<h:form id="wizardForm">
-		<p:notificationBar position="top" effect="slide" widgetVar="bar" styleClass="top">
+		<!-- <p:notificationBar position="top" effect="slide" widgetVar="bar" styleClass="top">
 			<h:outputText value="#{barMessage}" style="color:#FFCC00;font-size:36px;" />
-		</p:notificationBar>
-
-		<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}" onnext="bar.show()" backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
+		</p:notificationBar> -->
+<!-- onnext="bar.show()" -->
+		<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}"  backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
 
 			<p:tab id="criteria" title="#{ui.WIZARD_CRITERIA_TABLE}">
 				<ui:param name="barMessage" value="#{ui.CRITERIA_SEARCH_HELP}"/>

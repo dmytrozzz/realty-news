@@ -4,7 +4,7 @@
 	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	start-state="home-page">
 
-	<!-- <var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" /> -->
+	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 
 	<on-start>
 		<evaluate expression="realtyController.getPreferences()" result="flowScope.preferences" />
@@ -17,7 +17,7 @@
 		</on-entry>
 	</view-state>
 
-	<end-state id="cabinet" view="flowRedirect:cabinet"/>
+	<end-state id="cabinet" view="flowRedirect:cabinet" />
 
 	<global-transitions>
 		<transition on="saveUser" to="cabinet">

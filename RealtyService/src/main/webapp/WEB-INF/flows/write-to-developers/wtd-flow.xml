@@ -6,23 +6,14 @@
 
 	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
 
-	<input name="singlePost" type="boolean" />
-	<input name="suffix" />
-
-	<decision-state id="start-page">
-		<if test="singlePost" then="post" else="blog" />
-	</decision-state>
-
-	<view-state id="blog">
+	<view-state id="start-page" view="write-to-developers.xhtml">
 		<on-entry>
-			<evaluate expression="blogController.getAllPosts()" result="viewScope.posts" />
+			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
+			<evaluate expression="feedBackController.createLightFeedBackBean()" result="viewScope.feedBackBean" />
 		</on-entry>
-	</view-state>
 
-	<view-state id="post">
-		<on-entry>
-			<evaluate expression="blogController.getPost(suffix)" result="viewScope.post" />
-		</on-entry>
+		<transition on="sendMessage">
+			<evaluate expression="feedBackController.postFeedBack(viewScope.feedBackBean.feedBack)" />
+		</transition>
 	</view-state>
-
 </flow>
