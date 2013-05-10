@@ -1,0 +1,81 @@
+package com.dmytro.realty.engine;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.collections.CollectionUtils;
+
+import com.dmytro.realty.domain.RealtyCriteria;
+import com.dmytro.realty.engine.builder.RealtyCriteriaConverter;
+import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
+import com.dmytro.realty.engine.parser.IRealtyParser;
+import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
+import com.dmytro.realty.engine.parser.SlandoRealtyParser;
+
+public class RealtyTeam {
+	private IRealtyParser realtyParser;
+	private RealtyCriteriaConverter criteriaConverter;
+
+	private Map<Long, LinkedList<String>> criteriaMap = new HashMap<>();
+
+	public RealtyTeam(SlandoCriteriaConverter converter,
+			SlandoRealtyParser parser) {
+		this.criteriaConverter = converter;
+		this.realtyParser = parser;
+	}
+
+	public List<RealtyOffer> collectOffers(RealtyCriteria criteria) {
+		if (!criteriaMap.containsKey(criteria.getId()))
+			criteriaMap.put(criteria.getId(), new LinkedList<String>());
+
+		String request = criteriaConverter.buildRequest(criteria);
+		
+		System.out.println(request);
+
+		return grabRealtyOffers(request, criteria.getId());
+	}
+
+	/**
+	 * Grabs list of offer links from site page
+	 * 
+	 * @param request
+	 *            request to site with criteria parameters
+	 * @param criteriaId
+	 *            criteria id
+	 * @return List of new realty offers from page
+	 */
+	@SuppressWarnings("unchecked")
+	private List<RealtyOffer> grabRealtyOffers(String request, long criteriaId) {
+
+		List<RealtyOffer> newOffers = new LinkedList<>();
+
+		List<String> oldLinks = criteriaMap.get(criteriaId);
+		List<String> parsedLinks = null;
+		Collection<String> newLinks = null;
+
+		try {
+			parsedLinks = realtyParser.parseRequest(request);
+			newLinks = CollectionUtils.disjunction(oldLinks,
+					CollectionUtils.union(oldLinks, parsedLinks));
+		} catch (RealtyUnparsebleException e) {
+			e.printStackTrace();
+		}
+
+		if (parsedLinks != null && newLinks != null && newLinks.size() > 0) {
+			oldLinks.clear();
+			oldLinks.addAll(parsedLinks);
+			for (String newOfferLink : newLinks) {
+				try {
+					newOffers.add(realtyParser.parseOffer(newOfferLink));
+				} catch (RealtyUnparsebleException e) {
+					e.printStackTrace();
+					continue;
+				}
+			}
+		}
+		return newOffers;
+	}
+}

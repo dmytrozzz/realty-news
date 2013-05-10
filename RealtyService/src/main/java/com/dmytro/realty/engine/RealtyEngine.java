@@ -1,5 +1,6 @@
 package com.dmytro.realty.engine;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -21,56 +22,13 @@ import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
 import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyEngine {
-	private SendMan sendMan;
-	private IRealtyParser realtyParser;
-	private RealtyCriteriaConverter criteriaConverter;
-
-	private Map<Long, LinkedList<String>> criteriaMap = new HashMap<>();
+	private SendMan sendMan = new SendMan();
+	private List<RealtyTeam> realtyTeams = new LinkedList<>();
 
 	public RealtyEngine() {
-		sendMan = new SendMan();
-		realtyParser = new SlandoRealtyParser();
-		criteriaConverter = new SlandoCriteriaConverter();
-	}
-
-	/**
-	 * Grabs list of offer links from site page
-	 * 
-	 * @param request
-	 *            request to site with criteria parameters
-	 * @param criteriaId
-	 *            criteria id
-	 * @return List of new realty offers from page
-	 */
-	@SuppressWarnings("unchecked")
-	private List<RealtyOffer> grabRealtyOffers(String request, long criteriaId) {
-		List<RealtyOffer> newOffers = new LinkedList<>();
-
-		List<String> oldLinks = criteriaMap.get(criteriaId);
-		List<String> parsedLinks = null;
-		Collection<String> newLinks = null;
-
-		try {
-			parsedLinks = realtyParser.parseRequest(request);
-			newLinks = CollectionUtils.disjunction(oldLinks,
-					CollectionUtils.union(oldLinks, parsedLinks));
-		} catch (RealtyUnparsebleException e) {
-			e.printStackTrace();
-		}
-
-		if (parsedLinks != null && newLinks != null && newLinks.size() > 0) {
-			oldLinks.clear();
-			oldLinks.addAll(parsedLinks);
-			for (String newOfferLink : newLinks) {
-				try {
-					newOffers.add(realtyParser.parseOffer(newOfferLink));
-				} catch (RealtyUnparsebleException e) {
-					e.printStackTrace();
-					continue;
-				}
-			}
-		}
-		return newOffers;
+		// Slando
+		realtyTeams.add(new RealtyTeam(new SlandoCriteriaConverter(),
+				new SlandoRealtyParser()));
 	}
 
 	/**
@@ -81,7 +39,8 @@ public class RealtyEngine {
 	 * @param realtyUsers
 	 *            list of users, subscribed for this criteria
 	 */
-	private void sendNews(List<RealtyOffer> newRealtyOffers, Collection<RealtyUser> realtyUsers) {
+	private void sendNews(List<RealtyOffer> newRealtyOffers,
+			Collection<RealtyUser> realtyUsers) {
 		sendMan.createMessage(newRealtyOffers);
 		// TODO from DB already List or array of emails
 		for (RealtyUser user : realtyUsers) {
@@ -98,16 +57,16 @@ public class RealtyEngine {
 	 * @param userCollection
 	 *            collection of {@link RealtyUser}, subscribed for criteria
 	 */
-	public void searchAndSubscribe(RealtyCriteria criteria, Collection<RealtyUser> userCollection) {
-		if (!criteriaMap.containsKey(criteria.getId()))
-			criteriaMap.put(criteria.getId(), new LinkedList<String>());
-
-		String request = criteriaConverter.buildRequest(criteria);
-
-		List<RealtyOffer> realtyOffers = grabRealtyOffers(request, criteria.getId());
+	public void searchAndSubscribe(RealtyCriteria criteria,
+			Collection<RealtyUser> userCollection) {
 		
-		if (realtyOffers.size() > 0)
-			sendNews(realtyOffers, userCollection);
+		List<RealtyOffer> resultOffers = new ArrayList<>();
+		
+		for (RealtyTeam team : realtyTeams)
+			resultOffers.addAll(team.collectOffers(criteria));
+
+		if (resultOffers.size() > 0)
+			sendNews(resultOffers, userCollection);
 	}
 
 	public static void main(String[] args) throws InterruptedException {
@@ -116,7 +75,8 @@ public class RealtyEngine {
 		realtyCriteria.getParameters().setFromPrice(2000);
 		realtyCriteria.getParameters().setToPrice(4000);
 
-		realtyCriteria.setOperations(Collections.singleton(OperationType.RENT.name()));
+		realtyCriteria.setOperations(Collections.singleton(OperationType.RENT
+				.name()));
 
 		RealtyUser user = new RealtyUser();
 		user.setEmail("d.zonov@ukr.net");
@@ -124,7 +84,8 @@ public class RealtyEngine {
 		RealtyEngine engine = new RealtyEngine();
 		while (true) {
 			System.out.println("Lets go!");
-			engine.searchAndSubscribe(realtyCriteria, Collections.singletonList(user));
+			engine.searchAndSubscribe(realtyCriteria,
+					Collections.singletonList(user));
 			Thread.sleep(20000);
 		}
 

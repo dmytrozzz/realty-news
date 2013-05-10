@@ -19,10 +19,10 @@ import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
 public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
 
     public static String OFFERS_TABLE = "offers_table";
-    public static String OFFER_LINK_CLASS = "link linkWithHash detailsLink clicker {clickerID:'ads_title'}";
+    public static String OFFER_LINK_CLASS = "link linkWithHash detailsLink {clickerID:'ads_title'}";
 
     public static String OFFER_PRICE_CLASS = "xxxx-large lheight24 margintop7 block not-arranged";
-    public static String OFFER_CONTENT_CLASS = "marginbott20 lheight20 large marginright40";
+    public static String OFFER_CONTENT_CLASS = "margintop10 lheight20 large marginright40";
     public static String OFFER_CONTACT_CLASS = "block brkword lheight16";
 
     public List<String> parseRequest(String request) throws RealtyUnparsebleException {
