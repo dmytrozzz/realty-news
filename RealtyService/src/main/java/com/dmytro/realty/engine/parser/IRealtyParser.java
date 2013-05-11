@@ -1,10 +1,14 @@
 package com.dmytro.realty.engine.parser;
 
 import java.util.List;
+import java.util.Properties;
 
 import com.dmytro.realty.engine.RealtyOffer;
+import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
 
 public interface IRealtyParser {
+	void setRequestBuilder(RealtyRequestBuilder requestBuilder);
+	
     /**
      * Parses request with search criteria parameters
      * 

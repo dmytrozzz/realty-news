@@ -1,24 +1,16 @@
 package com.dmytro.realty.engine;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.collections.CollectionUtils;
 
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
-import com.dmytro.realty.engine.builder.RealtyCriteriaConverter;
-import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
-import com.dmytro.realty.engine.parser.IRealtyParser;
-import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
+import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
 import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyEngine {
@@ -27,8 +19,12 @@ public class RealtyEngine {
 
 	public RealtyEngine() {
 		// Slando
-		realtyTeams.add(new RealtyTeam(new SlandoCriteriaConverter(),
-				new SlandoRealtyParser()));
+		//realtyTeams.add(new RealtyTeam("slando", new RealtyRequestBuilder(),
+		//		new SlandoRealtyParser()));
+		
+		// Aviso
+				realtyTeams.add(new RealtyTeam("aviso", new RealtyRequestBuilder(),
+						new SlandoRealtyParser()));
 	}
 
 	/**
@@ -59,9 +55,9 @@ public class RealtyEngine {
 	 */
 	public void searchAndSubscribe(RealtyCriteria criteria,
 			Collection<RealtyUser> userCollection) {
-		
+
 		List<RealtyOffer> resultOffers = new ArrayList<>();
-		
+
 		for (RealtyTeam team : realtyTeams)
 			resultOffers.addAll(team.collectOffers(criteria));
 

@@ -1,38 +1,42 @@
 package com.dmytro.realty.engine;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.commons.collections.CollectionUtils;
 
 import com.dmytro.realty.domain.RealtyCriteria;
-import com.dmytro.realty.engine.builder.RealtyCriteriaConverter;
-import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
+import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
 import com.dmytro.realty.engine.parser.IRealtyParser;
 import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
-import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyTeam {
 	private IRealtyParser realtyParser;
-	private RealtyCriteriaConverter criteriaConverter;
+	private RealtyRequestBuilder criteriaConverter;
 
 	private Map<Long, LinkedList<String>> criteriaMap = new HashMap<>();
 
-	public RealtyTeam(SlandoCriteriaConverter converter,
-			SlandoRealtyParser parser) {
+	public RealtyTeam(String teamName, RealtyRequestBuilder converter, IRealtyParser parser) {
+		Properties properties = getProperties(teamName);
 		this.criteriaConverter = converter;
+		this.criteriaConverter.setProperties(properties);
 		this.realtyParser = parser;
-	}
+		this.realtyParser.setRequestBuilder(converter);
+	}	
 
 	public List<RealtyOffer> collectOffers(RealtyCriteria criteria) {
 		if (!criteriaMap.containsKey(criteria.getId()))
 			criteriaMap.put(criteria.getId(), new LinkedList<String>());
 
 		String request = criteriaConverter.buildRequest(criteria);
-		
+
 		System.out.println(request);
 
 		return grabRealtyOffers(request, criteria.getId());
@@ -77,5 +81,16 @@ public class RealtyTeam {
 			}
 		}
 		return newOffers;
+	}
+	
+	private Properties getProperties(String teamName) {
+		Properties properties = new Properties();
+		try (InputStream propFile = new FileInputStream(teamName
+				+ ".properties")) {
+			properties.load(propFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return properties;
 	}
 }

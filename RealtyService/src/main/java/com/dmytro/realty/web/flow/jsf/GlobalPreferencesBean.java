@@ -12,7 +12,7 @@ public final class GlobalPreferencesBean {
 
     public OperationType[] getOperationTypes(ProductType realtyUnit) {
 	if (realtyUnit == ProductType.ROOM)
-	    return new OperationType[] { OperationType.RENT, OperationType.FARM_OUT, OperationType.LOOKING_PARTNER };
+	    return new OperationType[] { OperationType.RENT};//, OperationType.FARM_OUT, OperationType.LOOKING_PARTNER };
 	else
 	    return OperationType.values();
     }
