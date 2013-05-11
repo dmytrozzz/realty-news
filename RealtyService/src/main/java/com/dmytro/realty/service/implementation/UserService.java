@@ -17,6 +17,7 @@ import com.dmytro.realty.data.repository.UserRepository;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
 import com.dmytro.realty.domain.RealtyUser;
+import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.security.RealtyUserDetails;
 import com.dmytro.realty.service.IUserService;
 
@@ -35,7 +36,8 @@ public class UserService implements IUserService, UserDetailsService {
 	private CriteriaRepository criteriaRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username)
+			throws UsernameNotFoundException {
 		RealtyUser user = userRepository.findByLogin(username);
 		if (user == null) {
 			throw new UsernameNotFoundException("Invalid username/password");
@@ -49,16 +51,18 @@ public class UserService implements IUserService, UserDetailsService {
 		for (RealtyCriteria criteria : user.getCriteriaCollection()) {
 			// Check unique parameters
 			RealtyParameters p = criteria.getParameters();
-			RealtyParameters dataP = parametersRepository.findByParameters(p.getFromPrice(), p.getToPrice());
+			RealtyParameters dataP = parametersRepository.findByParameters(
+					p.getFromPrice(), p.getToPrice());
 			if (dataP != null)
 				p.setId(dataP.getId());
 
 			// Check unique criteria
-			Collection<RealtyCriteria> dataCList = criteriaRepository.nativeFindBy(criteria.getProductType().name(),
-					p.getId());
+			Collection<RealtyCriteria> dataCList = criteriaRepository
+					.nativeFindBy(criteria.getProductType().name(), p.getId());
 			for (RealtyCriteria dataC : dataCList) {
-				Collection<String> operations = criteriaRepository.findByCriteriaId(dataC.getId());
-				if (operations.size() == dataC.getOperations().size() && operations.containsAll(dataC.getOperations())) {
+				OperationType operation = criteriaRepository
+						.findByCriteriaId(dataC.getId());
+				if (operation == dataC.getOperation()) {
 					criteria.setId(dataC.getId());
 				}
 			}

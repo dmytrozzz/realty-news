@@ -18,17 +18,17 @@
 			<!-- Обрати тип операції -->
 			<p:column headerText="#{ui.OPERATION_TYPE}">
 				<p:outputPanel id="selectOperation" autoUpdate="true">
-					<p:selectCheckboxMenu value="#{criteria.operations}" required="true" requiredMessage="#{ui.ERR_CHOOSE_OPERATION}" label="#{ui.CHOOSE_OPERATION}"
+					<p:selectOneMenu value="#{criteria.operation}" required="true" requiredMessage="#{ui.ERR_CHOOSE_OPERATION}" label="#{ui.CHOOSE_OPERATION}"
 						rendered="#{criteria.productType != null}" panelStyle="width:220px">
 						<f:selectItems var="realtyOperation" itemLabel="#{ui[realtyOperation]}" value="#{preferences.getOperationTypes(criteria.productType)}" />
 						<p:ajax update="paramPane" process="@this" />
-					</p:selectCheckboxMenu>
+					</p:selectOneMenu>
 				</p:outputPanel>
 			</p:column>
 
 			<p:column id="parCol" headerText="#{ui.PARAMETERS}" style="width:24%">
 				<p:outputPanel id="paramPane">
-					<p:commandButton id="parametersButton" value="#{ui.CHOOSE_PARAMS}" rendered="#{criteria.operations.size() > 0}" type="button" />
+					<p:commandButton id="parametersButton" value="#{ui.CHOOSE_PARAMS}" rendered="#{criteria.operation != null}" type="button" />
 					<p:overlayPanel id="parametersPanel" for="parametersButton" showEffect="drop" hideEffect="fade" hideEvent="mousedown" dynamic="false">
 						<p:panelGrid columns="4">
 							<h:outputLabel for="from_price" value="#{ui.FROM_PRICE}: " />

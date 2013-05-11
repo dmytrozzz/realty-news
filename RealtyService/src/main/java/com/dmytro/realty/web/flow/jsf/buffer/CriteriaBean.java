@@ -6,24 +6,24 @@ import java.util.List;
 
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
+import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
 
 public class CriteriaBean implements Serializable {
 
     private ProductType productType;
 
-    private List<String> operations;
+    private OperationType operation;
 
     private RealtyParameters parameters;
 
     public CriteriaBean() {
-	this.operations = new ArrayList<>();
 	this.parameters = new RealtyParameters();
     }
 
     public CriteriaBean(RealtyCriteria criteria) {
 	this.productType = criteria.getProductType();
-	this.operations = new ArrayList<>(criteria.getOperations());
+	this.operation = criteria.getOperation();
 	this.parameters = criteria.getParameters();
     }
 
@@ -35,15 +35,15 @@ public class CriteriaBean implements Serializable {
 	this.productType = productType;
     }
 
-    public List<String> getOperations() {
-	return operations;
-    }
+    public OperationType getOperation() {
+		return operation;
+	}
 
-    public void setOperations(List<String> operations) {
-	this.operations = operations;
-    }
+	public void setOperation(OperationType operation) {
+		this.operation = operation;
+	}
 
-    public RealtyParameters getParameters() {
+	public RealtyParameters getParameters() {
 	return parameters;
     }
 
@@ -53,7 +53,7 @@ public class CriteriaBean implements Serializable {
 
     public RealtyCriteria getRealtyCriteria() {
 	RealtyCriteria realtyCriteria = new RealtyCriteria();
-	realtyCriteria.getOperations().addAll(operations);
+	realtyCriteria.setOperation(operation);
 	realtyCriteria.setParameters(parameters);
 	realtyCriteria.setProductType(productType);
 	return realtyCriteria;

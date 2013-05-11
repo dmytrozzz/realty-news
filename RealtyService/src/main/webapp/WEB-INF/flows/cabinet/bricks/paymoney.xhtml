@@ -4,6 +4,20 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+
+	<p:menuButton value="#{ui.PAY_FOR_SERVICE}"
+		rendered="#{!preferences.user.isPayed()}">
+		<p:menuitem value="#{ui.BY_CARD}"
+			onclick='post("https://liqpay.com/", {"do":"clickNbuy","button":"i1032136775"})' />
+		<p:menuitem value="#{ui.BY_EASYPAY}"
+			onclick='post("https://merchant.easypay.ua/client/order", {"merchant_id":"2701a2c2cdfe483ea8ce354dd31991db","amount":5,"desc":"Оплата послуги","order_id":0})' />
+		<p:menuitem value="#{ui.BY_TERMINAL}"
+			onclick='post("http://sprypay.ru/sppi/",{"spShopId":212966,"spShopPaymentId":123,"spCurrency":"uah","spPurpose":"Subscribing","spAmount":"50.00","spUserDataUserId":1234567,"spPurpose":"Subscribing","spPurpose":"Subscribing","spPurpose":"Subscribing"})' />
+	</p:menuButton>
+
+	<h:outputText value="#{ui[preferences.getPayedStatus()]}"
+		rendered="#{!preferences.user.isPayed()}" />
+
 	<script>
 		function post(to, p) {
 			var myForm = document.createElement("form");
@@ -20,17 +34,4 @@
 			document.body.removeChild(myForm);
 		}
 	</script>
-
-	<p:stack icon="/app/resources/images/realty.jpg"
-		rendered="#{!preferences.user.isPayed()}" >
-		<p:menuitem value="#{ui.PAY_FOR_SERVICE}"
-			icon="/images/stack/coda.png"
-			onclick='post("https://liqpay.com/", {"do":"clickNbuy","button":"i1032136775"})' />
-		<p:menuitem value="#{ui.PAY_FOR_SERVICE}"
-			icon="/images/stack/safari.png"
-			onclick='post("https://merchant.easypay.ua/client/order", {"merchant_id":"2701a2c2cdfe483ea8ce354dd31991db","amount":5,"desc":"Оплата послуги","order_id":0})' />
-		<p:menuitem value="#{ui.PAY_FOR_SERVICE}"
-			icon="/images/stack/finder.png"
-			onclick='post("http://sprypay.ru/sppi/",{"spShopId":212966,"spShopPaymentId":123,"spCurrency":"uah","spPurpose":"Subscribing","spAmount":"50.00","spUserDataUserId":1234567,"spPurpose":"Subscribing","spPurpose":"Subscribing","spPurpose":"Subscribing"})' />
-	</p:stack>
 </ui:composition>

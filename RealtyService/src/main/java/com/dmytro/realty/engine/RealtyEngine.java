@@ -75,8 +75,7 @@ public class RealtyEngine {
 		realtyCriteria.getParameters().setFromPrice(2000);
 		realtyCriteria.getParameters().setToPrice(4000);
 
-		realtyCriteria.setOperations(Collections.singleton(OperationType.RENT
-				.name()));
+		realtyCriteria.setOperation(OperationType.RENT);
 
 		RealtyUser user = new RealtyUser();
 		user.setEmail("d.zonov@ukr.net");

@@ -37,67 +37,65 @@ import com.dmytro.realty.domain.search.enums.ProductType;
 @Entity
 @Table(name = "realty_search_criteria")
 public class RealtyCriteria implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "criteria_seq")
-    @SequenceGenerator(name = "criteria_seq", sequenceName = "search_criteria_id_seq", allocationSize = 1)
-    @Column(name = "id")
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "criteria_seq")
+	@SequenceGenerator(name = "criteria_seq", sequenceName = "search_criteria_id_seq", allocationSize = 1)
+	@Column(name = "id")
+	private long id;
 
-    @ManyToMany(mappedBy = "criteriaCollection")
-    @Where(clause = "payed = 'true' and enabled = 'true'")    
-    private Collection<RealtyUser> userCollection;
+	@ManyToMany(mappedBy = "criteriaCollection")
+	@Where(clause = "payed = 'true' and enabled = 'true'")
+	private Collection<RealtyUser> userCollection;
 
-    @Column(name = "product_type")
-    @Enumerated(EnumType.STRING)
-    private ProductType productType;
+	@Column(name = "product_type")
+	@Enumerated(EnumType.STRING)
+	private ProductType productType;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Fetch(FetchMode.JOIN)
-    @CollectionTable(name = "realty_operations", joinColumns = @JoinColumn(name = "criteria_id"))
-    @Column(name = "operation_type")
-    private Set<String> operations = new HashSet<>();
+	@Column(name = "operation_type")
+	@Enumerated(EnumType.STRING)
+	private OperationType operation;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "parameters_id")
-    private RealtyParameters parameters = new RealtyParameters();
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "parameters_id")
+	private RealtyParameters parameters = new RealtyParameters();
 
-    public ProductType getProductType() {
-	return productType;
-    }
+	public ProductType getProductType() {
+		return productType;
+	}
 
-    public void setProductType(ProductType productType) {
-	this.productType = productType;
-    }
+	public void setProductType(ProductType productType) {
+		this.productType = productType;
+	}
 
-    public RealtyParameters getParameters() {
-	return parameters;
-    }
+	public RealtyParameters getParameters() {
+		return parameters;
+	}
 
-    public void setParameters(RealtyParameters parameters) {
-	this.parameters = parameters;
-    }
+	public void setParameters(RealtyParameters parameters) {
+		this.parameters = parameters;
+	}	
 
-    public Collection<String> getOperations() {
-	return operations;
-    }
+	public OperationType getOperation() {
+		return operation;
+	}
 
-    public void setOperations(Set<String> operations) {
-	this.operations = operations;
-    }
+	public void setOperation(OperationType operation) {
+		this.operation = operation;
+	}
 
-    public long getId() {
-	return id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-	this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public Collection<RealtyUser> getUserCollection() {
-	return userCollection;
-    }
+	public Collection<RealtyUser> getUserCollection() {
+		return userCollection;
+	}
 
-    public void setUserCollection(Collection<RealtyUser> userCollection) {
-	this.userCollection = userCollection;
-    }
+	public void setUserCollection(Collection<RealtyUser> userCollection) {
+		this.userCollection = userCollection;
+	}
 }
