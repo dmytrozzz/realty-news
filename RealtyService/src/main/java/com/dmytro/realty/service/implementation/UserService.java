@@ -57,15 +57,13 @@ public class UserService implements IUserService, UserDetailsService {
 				p.setId(dataP.getId());
 
 			// Check unique criteria
-			Collection<RealtyCriteria> dataCList = criteriaRepository
-					.nativeFindBy(criteria.getProductType().name(), p.getId());
-			for (RealtyCriteria dataC : dataCList) {
-				OperationType operation = criteriaRepository
-						.findByCriteriaId(dataC.getId());
-				if (operation == dataC.getOperation()) {
-					criteria.setId(dataC.getId());
-				}
-			}
+			RealtyCriteria dataC = criteriaRepository.nativeFindBy(criteria
+					.getProductType().name(), criteria.getOperation().name(), p
+					.getId());
+
+			if (dataC != null)
+				criteria.setId(dataC.getId());
+
 		}
 		user.setId(userRepository.save(user).getId());
 	}

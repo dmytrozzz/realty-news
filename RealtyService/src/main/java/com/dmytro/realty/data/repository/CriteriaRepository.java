@@ -12,11 +12,8 @@ import com.dmytro.realty.domain.search.enums.OperationType;
 
 public interface CriteriaRepository extends CrudRepository<RealtyCriteria, Long> {
 
-    @Query(value = "SELECT * FROM realty_search_criteria WHERE product_type = :prodType and parameters_id = :params", nativeQuery = true)
-    Collection<RealtyCriteria> nativeFindBy(@Param("prodType") String productType, @Param("params") long parameters);
-
-    @Query(value = "SELECT operation_type FROM realty_operations WHERE criteria_id = :critId", nativeQuery = true)
-    public OperationType findByCriteriaId(@Param("critId") long critId);
+    @Query(value = "SELECT * FROM realty_search_criteria WHERE product_type = :prodType and operation_type = :opType and parameters_id = :params", nativeQuery = true)
+    RealtyCriteria nativeFindBy(@Param("prodType") String productType, @Param("opType") String operationType,@Param("params") long parameters);    
     
     //TODO request with specific user fetching(only payed and enabled)
 }
