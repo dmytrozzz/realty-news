@@ -11,6 +11,9 @@ import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
 import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
+import com.dmytro.realty.engine.parser.AvisoRealtyParser;
+import com.dmytro.realty.engine.parser.RealtorRealtyParser;
+import com.dmytro.realty.engine.parser.RioRealtyParser;
 import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyEngine {
@@ -19,12 +22,21 @@ public class RealtyEngine {
 
 	public RealtyEngine() {
 		// Slando
-		//realtyTeams.add(new RealtyTeam("slando", new RealtyRequestBuilder(),
-		//		new SlandoRealtyParser()));
-		
+		// realtyTeams.add(new RealtyTeam("slando", new RealtyRequestBuilder(),
+		// new SlandoRealtyParser()));
+
 		// Aviso
-				realtyTeams.add(new RealtyTeam("aviso", new RealtyRequestBuilder(),
-						new SlandoRealtyParser()));
+		// realtyTeams.add(new RealtyTeam("aviso", new RealtyRequestBuilder(),
+		// new AvisoRealtyParser()));
+
+		// Rio
+		// realtyTeams.add(new RealtyTeam("rio", new RealtyRequestBuilder(),
+		// new RioRealtyParser()));
+
+		// Realtor
+		realtyTeams.add(new RealtyTeam("rieltor", new RealtyRequestBuilder(),
+				new RealtorRealtyParser()));
+
 	}
 
 	/**
@@ -60,7 +72,8 @@ public class RealtyEngine {
 
 		for (RealtyTeam team : realtyTeams)
 			resultOffers.addAll(team.collectOffers(criteria));
-
+		
+		System.out.println("OK! Sending!");
 		if (resultOffers.size() > 0)
 			sendNews(resultOffers, userCollection);
 	}

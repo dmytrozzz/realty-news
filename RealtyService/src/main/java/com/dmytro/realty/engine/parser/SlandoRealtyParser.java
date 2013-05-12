@@ -27,34 +27,16 @@ public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
 	public static String OFFER_CONTENT_CLASS = "margintop10 lheight20 large marginright40";
 	public static String OFFER_CONTACT_CLASS = "block brkword lheight16";
 
-	public List<String> parseRequest(String request)
+	public void parseRequest(Document document, List<String> links)
 			throws RealtyUnparsebleException {
-		List<String> hrefs = new LinkedList<>();
-		Document document = getSource(request);
 
 		Element element = document.getElementById(OFFERS_TABLE);
 		Elements as = element.getElementsByAttributeValue("class",
 				OFFER_LINK_CLASS);
 		for (Element a : as) {
-			hrefs.add(a.attr("href"));
+			links.add(a.attr("href"));
 		}
-		return hrefs;
-	}
-
-	public RealtyOffer parseOffer(String link) throws RealtyUnparsebleException {
-		Document document = getSource(link);
-
-		String price = document.getElementsByAttributeValue("class",
-				OFFER_PRICE_CLASS).text();
-		String content = document.getElementsByAttributeValue("class",
-				OFFER_CONTENT_CLASS).text();
-		String phoneRef = getImage(document.getElementsByAttributeValue("rel",
-				"phone"));
-		String contact = document.getElementsByAttributeValue("class",
-				OFFER_CONTACT_CLASS).text();
-
-		return new RealtyOffer(link, price, contact, phoneRef, content);
-	}
+	}	
 
 	private String getImage(Elements href) {
 		String classAttr = href.attr("class");
@@ -71,6 +53,36 @@ public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
 	}
 
 	private String createImageAddress(String id) {
-		return requestBuilder.buildReqularRequest() + requestBuilder.getProperties().getProperty("PHONE")+ id + "/?nomobile=1";
+		return requestBuilder.buildReqularRequest()
+				+ requestBuilder.getProperties().getProperty("PHONE") + id
+				+ "/?nomobile=1";
 	}
+
+	@Override
+	protected String parsePrice(Document document) {
+		return document.getElementsByAttributeValue("class", OFFER_PRICE_CLASS)
+				.text();
+	}
+
+	@Override
+	protected String parsePhone(Document document) {
+		return getImage(document.getElementsByAttributeValue("rel", "phone"));
+	}
+
+	@Override
+	protected String parseDate(Document document) {
+		return document.getElementsByAttributeValue("class", "pding0_10 ").text();
+	}	
+
+	@Override
+	protected String parseOffender(Document document) {
+		return document.getElementsByAttributeValue("class",
+				OFFER_CONTACT_CLASS).text();
+	}
+
+	@Override
+	protected String parseContent(Document document) {
+		return document.getElementsByAttributeValue("class",
+				OFFER_CONTENT_CLASS).text();
+	}	
 }

@@ -1,8 +1,10 @@
 package com.dmytro.realty.engine.builder;
 
+import java.lang.annotation.Retention;
 import java.util.Properties;
 
 import com.dmytro.realty.domain.RealtyCriteria;
+import com.dmytro.realty.domain.search.enums.ProductType;
 
 public class RealtyRequestBuilder {
 
@@ -22,20 +24,51 @@ public class RealtyRequestBuilder {
 						+ criteria.getOperation());
 
 		// add search parameters: price;
-		request += "/?"
+		request += properties.getProperty("BEGIN")
 				+ parametrize(properties.getProperty("FILTER_PRICE"), criteria
 						.getParameters().getFromPrice(), criteria
 						.getParameters().getToPrice());
 		// rooms
-		request += "&"
-				+ parametrize(properties.getProperty("FILTER_ROOMS"), criteria
-						.getParameters().getFromRooms(), criteria
-						.getParameters().getToRooms());
+		if (criteria.getProductType() != ProductType.ROOM) {
+			if (properties.getProperty("NAME").equals("AVISO"))
+				request += getRooms(criteria.getParameters().getFromRooms(),
+						criteria.getParameters().getToRooms());
+			else if (properties.getProperty("NAME").equals("RIELTOR")) {
+				request += getRealtorRooms(criteria.getParameters()
+						.getFromRooms(), criteria.getParameters().getToRooms());
+			} else
+				request += "&"
+						+ parametrize(properties.getProperty("FILTER_ROOMS"),
+								criteria.getParameters().getFromRooms(),
+								criteria.getParameters().getToRooms());
+		}
 
-		// currency
-		request += "&" + properties.getProperty("CURRENCY");
+		if (properties.getProperty("CURRENCY") != null)
+			request += "&" + properties.getProperty("CURRENCY");
+
+		// end
+		if (properties.getProperty("END") != null)
+			request += properties.getProperty("END");
 
 		return request;
+	}
+
+	private String getRealtorRooms(int from, int to) {
+		String rooms = "";
+		for (int i = from; i < to-1; i++) {
+			rooms += i + ",";
+		}
+		rooms += to;
+		return "&" + parametrize(properties.getProperty("FILTER_ROOMS"), rooms);
+	}
+
+	private String getRooms(int from, int to) {
+		String rooms = "";
+		for (int i = from; i < to; i++) {
+			rooms += "&"
+					+ parametrize(properties.getProperty("FILTER_ROOMS"), i);
+		}
+		return rooms;
 	}
 
 	public String buildReqularRequest() {

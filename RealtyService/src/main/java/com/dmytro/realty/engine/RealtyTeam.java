@@ -18,8 +18,9 @@ import com.dmytro.realty.engine.parser.IRealtyParser;
 import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
 
 public class RealtyTeam {
-	private IRealtyParser realtyParser;
+	
 	private RealtyRequestBuilder criteriaConverter;
+	private IRealtyParser realtyParser;	
 
 	private Map<Long, LinkedList<String>> criteriaMap = new HashMap<>();
 
