@@ -10,7 +10,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.dmytro.realty.engine.RealtyOffer;
-import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
 
 //import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
 
@@ -27,41 +26,33 @@ public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
 	public static String OFFER_CONTENT_CLASS = "margintop10 lheight20 large marginright40";
 	public static String OFFER_CONTACT_CLASS = "block brkword lheight16";
 
-	public void parseRequest(Document document, List<String> links)
-			throws RealtyUnparsebleException {
+	public void parseRequest(Document document, List<String> links) throws RealtyUnparsebleException {
 
 		Element element = document.getElementById(OFFERS_TABLE);
-		Elements as = element.getElementsByAttributeValue("class",
-				OFFER_LINK_CLASS);
+		Elements as = element.getElementsByAttributeValue("class", OFFER_LINK_CLASS);
 		for (Element a : as) {
 			links.add(a.attr("href"));
 		}
-	}	
+	}
 
 	private String getImage(Elements href) {
 		String classAttr = href.attr("class");
 		if (classAttr.length() > 5) {
-			String jsonObj = classAttr
-					.substring(classAttr.indexOf("{"),
-							classAttr.indexOf("}") + 1)
+			String jsonObj = classAttr.substring(classAttr.indexOf("{"), classAttr.indexOf("}") + 1)
 					.replace("clickerID", "\"clickerID\"").replace("\'", "\"");
 			JSONObject obj = (JSONObject) JSONValue.parse(jsonObj);
-			String imageRef = createImageAddress(obj.get("id") + "");
+			
+			String imageRef = requestBuilder.getProperties().getProperty("PURE_HOST")
+					+ requestBuilder.getProperties().getProperty("PHONE") + obj.get("id") + "/?nomobile=1";
+			
 			return imageRef;
 		}
-		return "No telephone";
-	}
-
-	private String createImageAddress(String id) {
-		return requestBuilder.buildReqularRequest()
-				+ requestBuilder.getProperties().getProperty("PHONE") + id
-				+ "/?nomobile=1";
+		return "Невідомо";
 	}
 
 	@Override
 	protected String parsePrice(Document document) {
-		return document.getElementsByAttributeValue("class", OFFER_PRICE_CLASS)
-				.text();
+		return document.getElementsByAttributeValue("class", OFFER_PRICE_CLASS).text();
 	}
 
 	@Override
@@ -72,17 +63,15 @@ public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
 	@Override
 	protected String parseDate(Document document) {
 		return document.getElementsByAttributeValue("class", "pding0_10 ").text();
-	}	
+	}
 
 	@Override
 	protected String parseOffender(Document document) {
-		return document.getElementsByAttributeValue("class",
-				OFFER_CONTACT_CLASS).text();
+		return document.getElementsByAttributeValue("class", OFFER_CONTACT_CLASS).text();
 	}
 
 	@Override
 	protected String parseContent(Document document) {
-		return document.getElementsByAttributeValue("class",
-				OFFER_CONTENT_CLASS).text();
-	}	
+		return document.getElementsByAttributeValue("class", OFFER_CONTENT_CLASS).text();
+	}
 }

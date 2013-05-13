@@ -5,19 +5,18 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Properties;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import com.dmytro.realty.engine.RealtyOffer;
-import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
+import com.dmytro.realty.engine.builder.DefaultRealtyRequestBuilder;
 
 public abstract class AbstractJsoupRealtyParser implements IRealtyParser {
 
-	protected RealtyRequestBuilder requestBuilder;
+	protected DefaultRealtyRequestBuilder requestBuilder;
 
-	public void setRequestBuilder(RealtyRequestBuilder requestBuilder) {
+	public void setRequestBuilder(DefaultRealtyRequestBuilder requestBuilder) {
 		this.requestBuilder = requestBuilder;
 	}
 

@@ -13,24 +13,30 @@ import java.util.Properties;
 import org.apache.commons.collections.CollectionUtils;
 
 import com.dmytro.realty.domain.RealtyCriteria;
-import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
+import com.dmytro.realty.engine.builder.DefaultRealtyRequestBuilder;
+import com.dmytro.realty.engine.builder.AvisoRequestBuilder;
+import com.dmytro.realty.engine.builder.RealtorRequestBuilder;
+import com.dmytro.realty.engine.parser.AvisoRealtyParser;
 import com.dmytro.realty.engine.parser.IRealtyParser;
+import com.dmytro.realty.engine.parser.RealtorRealtyParser;
 import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
+import com.dmytro.realty.engine.parser.RioRealtyParser;
+import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyTeam {
-	
-	private RealtyRequestBuilder criteriaConverter;
-	private IRealtyParser realtyParser;	
+
+	private DefaultRealtyRequestBuilder criteriaConverter;
+	private IRealtyParser realtyParser;
 
 	private Map<Long, LinkedList<String>> criteriaMap = new HashMap<>();
 
-	public RealtyTeam(String teamName, RealtyRequestBuilder converter, IRealtyParser parser) {
+	private RealtyTeam(String teamName, DefaultRealtyRequestBuilder converter, IRealtyParser parser) {
 		Properties properties = getProperties(teamName);
 		this.criteriaConverter = converter;
 		this.criteriaConverter.setProperties(properties);
 		this.realtyParser = parser;
 		this.realtyParser.setRequestBuilder(converter);
-	}	
+	}
 
 	public List<RealtyOffer> collectOffers(RealtyCriteria criteria) {
 		if (!criteriaMap.containsKey(criteria.getId()))
@@ -63,8 +69,7 @@ public class RealtyTeam {
 
 		try {
 			parsedLinks = realtyParser.parseRequest(request);
-			newLinks = CollectionUtils.disjunction(oldLinks,
-					CollectionUtils.union(oldLinks, parsedLinks));
+			newLinks = CollectionUtils.disjunction(oldLinks, CollectionUtils.union(oldLinks, parsedLinks));
 		} catch (RealtyUnparsebleException e) {
 			e.printStackTrace();
 		}
@@ -83,15 +88,33 @@ public class RealtyTeam {
 		}
 		return newOffers;
 	}
-	
+
 	private Properties getProperties(String teamName) {
 		Properties properties = new Properties();
-		try (InputStream propFile = new FileInputStream(teamName
-				+ ".properties")) {
+		try (InputStream propFile = new FileInputStream(teamName + ".properties")) {
 			properties.load(propFile);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return properties;
+	}
+
+	public static List<RealtyTeam> createTeams() {
+		List<RealtyTeam> realtyTeams = new LinkedList<>();
+		// Slando
+		realtyTeams.add(new RealtyTeam("slando", new DefaultRealtyRequestBuilder(), new SlandoRealtyParser()));
+
+		// Aviso
+		// realtyTeams.add(new RealtyTeam("aviso", new AvisoRequestBuilder(),
+		// new AvisoRealtyParser()));
+
+		// Rio
+		// realtyTeams.add(new RealtyTeam("rio", new
+		// DefaultRealtyRequestBuilder(), new RioRealtyParser()));
+
+		// Realtor
+		// realtyTeams.add(new RealtyTeam("rieltor", new
+		// RealtorRequestBuilder(), new RealtorRealtyParser()));
+		return realtyTeams;
 	}
 }

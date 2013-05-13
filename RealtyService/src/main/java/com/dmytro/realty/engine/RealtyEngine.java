@@ -10,7 +10,6 @@ import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.domain.search.enums.OperationType;
 import com.dmytro.realty.domain.search.enums.ProductType;
-import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
 import com.dmytro.realty.engine.parser.AvisoRealtyParser;
 import com.dmytro.realty.engine.parser.RealtorRealtyParser;
 import com.dmytro.realty.engine.parser.RioRealtyParser;
@@ -21,21 +20,7 @@ public class RealtyEngine {
 	private List<RealtyTeam> realtyTeams = new LinkedList<>();
 
 	public RealtyEngine() {
-		// Slando
-		// realtyTeams.add(new RealtyTeam("slando", new RealtyRequestBuilder(),
-		// new SlandoRealtyParser()));
-
-		// Aviso
-		// realtyTeams.add(new RealtyTeam("aviso", new RealtyRequestBuilder(),
-		// new AvisoRealtyParser()));
-
-		// Rio
-		// realtyTeams.add(new RealtyTeam("rio", new RealtyRequestBuilder(),
-		// new RioRealtyParser()));
-
-		// Realtor
-		realtyTeams.add(new RealtyTeam("rieltor", new RealtyRequestBuilder(),
-				new RealtorRealtyParser()));
+		realtyTeams.addAll(RealtyTeam.createTeams());
 
 	}
 

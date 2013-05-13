@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Properties;
 
 import com.dmytro.realty.engine.RealtyOffer;
-import com.dmytro.realty.engine.builder.RealtyRequestBuilder;
+import com.dmytro.realty.engine.builder.DefaultRealtyRequestBuilder;
 
 public interface IRealtyParser {
-	void setRequestBuilder(RealtyRequestBuilder requestBuilder);
+	void setRequestBuilder(DefaultRealtyRequestBuilder requestBuilder);
 	
     /**
      * Parses request with search criteria parameters
