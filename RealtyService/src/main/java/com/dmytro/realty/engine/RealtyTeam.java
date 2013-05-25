@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import com.dmytro.realty.engine.builder.MirKvartirRequestBuilder;
 import org.apache.commons.collections.CollectionUtils;
 
 import com.dmytro.realty.domain.RealtyCriteria;
@@ -102,7 +103,7 @@ public class RealtyTeam {
 	public static List<RealtyTeam> createTeams() {
 		List<RealtyTeam> realtyTeams = new LinkedList<>();
 		// Slando
-		realtyTeams.add(new RealtyTeam("slando", new DefaultRealtyRequestBuilder(), new SlandoRealtyParser()));
+		//realtyTeams.add(new RealtyTeam("slando", new DefaultRealtyRequestBuilder(), new SlandoRealtyParser()));
 
 		// Aviso
 		// realtyTeams.add(new RealtyTeam("aviso", new AvisoRequestBuilder(),
@@ -115,6 +116,10 @@ public class RealtyTeam {
 		// Realtor
 		// realtyTeams.add(new RealtyTeam("rieltor", new
 		// RealtorRequestBuilder(), new RealtorRealtyParser()));
+
+        // MirKvartir
+         realtyTeams.add(new RealtyTeam("mir-kvartir", new
+                 MirKvartirRequestBuilder(), new RealtorRealtyParser()));
 		return realtyTeams;
 	}
 }
