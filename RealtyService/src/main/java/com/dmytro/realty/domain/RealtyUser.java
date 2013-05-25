@@ -15,9 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "realty_user")
@@ -36,12 +36,13 @@ public class RealtyUser implements Serializable {
 
 	@Column(name = "email")
 	private String email;
-
+	
 	@Column(name = "enabled")
-	private boolean enabled;
-
-	@Column(name = "payed")
-	private boolean payed;
+	public boolean enabled;
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "billing_id")
+	private Billing billing = new Billing();
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "news_feed", joinColumns = @JoinColumn(name = "user_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "criteria_id", nullable = false))
@@ -86,23 +87,15 @@ public class RealtyUser implements Serializable {
 	public void setCriteriaCollection(Set<RealtyCriteria> criteriaCollection) {
 		this.criteriaCollection = criteriaCollection;
 	}
-
-	public boolean isEnabled() {
-		return enabled;
+	
+	public Billing getBilling() {
+		return billing;
 	}
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+	public void setBilling(Billing billing) {
+		this.billing = billing;
 	}
-
-	public boolean isPayed() {
-		return payed;
-	}
-
-	public void setPayed(boolean payed) {
-		this.payed = payed;
-	}
-
+	
 	@Override
 	public String toString() {
 		return login;
