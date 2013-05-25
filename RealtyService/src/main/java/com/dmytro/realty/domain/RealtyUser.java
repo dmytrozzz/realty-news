@@ -40,6 +40,10 @@ public class RealtyUser implements Serializable {
 	@Column(name = "enabled")
 	public boolean enabled;
 	
+	@Column(name = "payed")
+	public boolean payed;
+	
+	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "billing_id")
 	private Billing billing = new Billing();
@@ -100,4 +104,20 @@ public class RealtyUser implements Serializable {
 	public String toString() {
 		return login;
 	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public boolean isPayed() {
+		return payed;
+	}
+
+	public void setPayed(boolean payed) {
+		this.payed = payed;
+	}		
 }

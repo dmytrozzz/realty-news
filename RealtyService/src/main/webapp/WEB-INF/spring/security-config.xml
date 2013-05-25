@@ -17,19 +17,16 @@
 		<intercept-url pattern="/app/write-to-developers" access="permitAll" />
 		<intercept-url pattern="/app/feedback" access="permitAll" />
 
-		<intercept-url pattern="http://realtyservice.cloudfoundry.com/realty/app/user-pay/easy/success"
-			access="permitAll" />
-		<intercept-url pattern="http://realtyservice.cloudfoundry.com/realty/app/user-pay/easy/error"
-			access="permitAll" />
+		<intercept-url pattern="/app/user-pay/**" access="permitAll" />
 
 		<intercept-url pattern="/app/resources/**" access="permitAll" />
 		<intercept-url pattern="/app/javax.faces.resource/**" access="permitAll" />
 
 		<intercept-url pattern="/**" access="isAuthenticated()" />
 
-		<form-login login-page="/app/home" login-processing-url="/check_login"
-			default-target-url="/app/home" authentication-failure-url="/app/home?login_error=1"
-			password-parameter="password" username-parameter="username" always-use-default-target="true" />
+		<form-login login-page="/app/home" login-processing-url="/check_login" default-target-url="/app/home"
+			authentication-failure-url="/app/home?login_error=1" password-parameter="password" username-parameter="username"
+			always-use-default-target="true" />
 		<logout logout-url="/app/logout" logout-success-url="/app/home" delete-cookies="JSESSIONID" />
 	</http>
 
@@ -48,10 +45,9 @@
 	</authentication-manager>
 
 
-	<!-- <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" 
-		lazy-init="default"> <beans:property name="driverClassName" value="org.postgresql.Driver" /> <beans:property 
-		name="url" value="jdbc:postgresql://localhost:5432/realty" /> <beans:property name="username" value="postgres" 
-		/> <beans:property name="password" value="postgres" /> </beans:bean> <beans:bean id="myUserDetailsService" 
-		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl"> <beans:property name="dataSource" 
-		ref="dataSource" /> <beans:property name="rolePrefix" value="ROLE_" /> </beans:bean> -->
+	<!-- <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" lazy-init="default"> 
+		<beans:property name="driverClassName" value="org.postgresql.Driver" /> <beans:property name="url" value="jdbc:postgresql://localhost:5432/realty" 
+		/> <beans:property name="username" value="postgres" /> <beans:property name="password" value="postgres" /> </beans:bean> 
+		<beans:bean id="myUserDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl"> <beans:property 
+		name="dataSource" ref="dataSource" /> <beans:property name="rolePrefix" value="ROLE_" /> </beans:bean> -->
 </beans:beans>

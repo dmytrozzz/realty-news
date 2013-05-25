@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,8 +24,11 @@ public class Billing implements Serializable{
 	private int sum;
 	private BillingState status;
 	private BillingService service;
-
-	private boolean payed;
+	
+	private String uniqueID;
+	
+	@OneToOne(mappedBy="billing")
+	private RealtyUser user;
 
 	public enum BillingState {
 		PROCESSING, PAYED, FAILED, NEW
@@ -66,12 +70,21 @@ public class Billing implements Serializable{
 		this.service = service;
 	}
 
-	public boolean isPayed() {
-		return payed;
+	public String getUniqueID() {
+		return uniqueID;
 	}
 
-	public void setPayed(boolean payed) {
-		this.payed = payed;
+	public void setUniqueID(String uniqueID) {
+		this.uniqueID = uniqueID;
 	}
 
+	public RealtyUser getUser() {
+		return user;
+	}
+
+	public void setUser(RealtyUser user) {
+		this.user = user;
+	}	
+	
+	
 }

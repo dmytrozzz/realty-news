@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dmytro.realty.data.repository.BillingRepository;
 import com.dmytro.realty.data.repository.UserRepository;
 import com.dmytro.realty.service.IPayService;
 
@@ -14,7 +15,10 @@ import com.dmytro.realty.service.IPayService;
 public class PayService implements IPayService {
 	
 	@Autowired
-	private UserRepository userRepository;	
+	private UserRepository userRepository;
+	
+	@Autowired
+	private BillingRepository billingRepository;
 
 	@Override
 	public String getPay() {
