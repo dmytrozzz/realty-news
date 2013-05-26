@@ -25,6 +25,7 @@ public abstract class AbstractJsoupRealtyParser implements IRealtyParser {
 			throws RealtyUnparsebleException {
 		List<String> links = new LinkedList<>();
 		parseRequest(getSource(request), links);
+        System.out.println(links);
 		return links;
 	}
 

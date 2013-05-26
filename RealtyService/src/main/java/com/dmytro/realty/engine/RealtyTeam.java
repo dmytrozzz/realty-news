@@ -11,18 +11,13 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.dmytro.realty.engine.builder.MirKvartirRequestBuilder;
+import com.dmytro.realty.engine.parser.*;
 import org.apache.commons.collections.CollectionUtils;
 
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.engine.builder.DefaultRealtyRequestBuilder;
 import com.dmytro.realty.engine.builder.AvisoRequestBuilder;
 import com.dmytro.realty.engine.builder.RealtorRequestBuilder;
-import com.dmytro.realty.engine.parser.AvisoRealtyParser;
-import com.dmytro.realty.engine.parser.IRealtyParser;
-import com.dmytro.realty.engine.parser.RealtorRealtyParser;
-import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
-import com.dmytro.realty.engine.parser.RioRealtyParser;
-import com.dmytro.realty.engine.parser.SlandoRealtyParser;
 
 public class RealtyTeam {
 
@@ -119,7 +114,7 @@ public class RealtyTeam {
 
         // MirKvartir
          realtyTeams.add(new RealtyTeam("mir-kvartir", new
-                 MirKvartirRequestBuilder(), new RealtorRealtyParser()));
+                 MirKvartirRequestBuilder(), new MirKvartirRealtyParser()));
 		return realtyTeams;
 	}
 }
