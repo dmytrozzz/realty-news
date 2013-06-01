@@ -160,9 +160,7 @@ public class LiqPayResponse {
 
 	public String getGoodsId() {
 		return goodsId;
-	}
-	
-	
+	}	
 	
 
 	public String getDetails() {

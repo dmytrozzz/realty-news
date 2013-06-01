@@ -1,8 +1,8 @@
 package com.dmytro.realty.web.controller;
 
+import com.dmytro.realty.domain.Billing;
 import com.dmytro.realty.service.IPayService;
 import com.dmytro.realty.service.moneymaker.LiqPayRequest;
-import com.dmytro.realty.service.moneymaker.MoneyUrl;
 
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +17,10 @@ public class PayMaBillController {
 	@Autowired
 	private IPayService payService;
 
-	@RequestMapping(value = "/user-pay/easy/success", method = RequestMethod.GET)
-	public void easyPaySuccess(@RequestParam(value = "order_id") long orderId,
-			@RequestParam(value = "amount") int amount,
-			@RequestParam(value = "commission") String commision) {
-		System.out.println("Pay was made: " + orderId + "|" + amount + "|"
-				+ commision + "|");
-	}
-
-	@RequestMapping(value = "/user-pay/easy/error", method = RequestMethod.GET)
-	public void easyPayError(@RequestParam(value = "order_id") long orderId) {
-		System.out.println("Pay was failed: " + orderId);
-
-	}
-
 	@RequestMapping(value = "/user-pay/easy/pay", method = RequestMethod.GET)
 	public RedirectView easyPay() {
+		Billing billy = payService.createEasyPayBilling();
+		
 		RedirectView redirect = new RedirectView(
 				"https://merchant.easypay.ua/client/order");
 
@@ -40,9 +28,21 @@ public class PayMaBillController {
 				"2701a2c2cdfe483ea8ce354dd31991db");
 		redirect.addStaticAttribute("desc", "Оплата послуги");
 		redirect.addStaticAttribute("amount", 5);
-		redirect.addStaticAttribute("order_id", 0);
+		redirect.addStaticAttribute("order_id", billy.getUniqueID());
 
 		return redirect;
+	}
+
+	@RequestMapping(value = "/user-pay/easy/process", method = RequestMethod.POST)
+	public void easyPayResponse(@RequestParam(value = "order_id") String orderId,
+			@RequestParam(value = "amount") int amount,
+			@RequestParam(value = "commission") String comission) {
+		payService.processEasyPayBilling(orderId, amount, comission);
+	}
+
+	@RequestMapping(value = "/user-pay/easy/error", method = RequestMethod.GET)
+	public void easyPayError(@RequestParam(value = "order_id") long orderId) {
+		System.out.println("Pay was failed: " + orderId);
 	}
 
 	@RequestMapping(value = "/user-pay/liq/pay", method = RequestMethod.GET)
@@ -59,27 +59,28 @@ public class PayMaBillController {
 		return redirect;
 	}
 
-	@RequestMapping(value = MoneyUrl.LIQ_PAY_RESPONSE_HANDLER, method = RequestMethod.POST)
+	@RequestMapping(value = "/user-pay/liq/process", method = RequestMethod.POST)
 	public void liqPayResponse(@RequestParam("operation_xml") String xmlEncoded) {
 		String xml = new String(Base64.decodeBase64(xmlEncoded));
 		payService.processLiqPayBilling(xml);
 	}
 
-	@RequestMapping(value = "/user-pay/spry/pay", method = RequestMethod.GET)
-	public RedirectView spryPay() {
-		RedirectView redirect = new RedirectView("http://sprypay.ru/sppi/");
-
-		redirect.addStaticAttribute("spShopId", 212966);
-		redirect.addStaticAttribute("spShopPaymentId", 123);
-		redirect.addStaticAttribute("spCurrency", "uah");
-		redirect.addStaticAttribute("spPurpose", "Subscribing");
-		redirect.addStaticAttribute("spAmount", "50.00");
-		redirect.addStaticAttribute("spUserDataUserId", 1234567);
-		redirect.addStaticAttribute("do", "clickNbuy");
-		redirect.addStaticAttribute("button", "i1032136775");
-		redirect.addStaticAttribute("do", "clickNbuy");
-		redirect.addStaticAttribute("button", "i1032136775");
-
-		return redirect;
-	}
+	/*
+	 * @RequestMapping(value = "/user-pay/spry/pay", method = RequestMethod.GET)
+	 * public RedirectView spryPay() { RedirectView redirect = new
+	 * RedirectView("http://sprypay.ru/sppi/");
+	 * 
+	 * redirect.addStaticAttribute("spShopId", 212966);
+	 * redirect.addStaticAttribute("spShopPaymentId", 123);
+	 * redirect.addStaticAttribute("spCurrency", "uah");
+	 * redirect.addStaticAttribute("spPurpose", "Subscribing");
+	 * redirect.addStaticAttribute("spAmount", "50.00");
+	 * redirect.addStaticAttribute("spUserDataUserId", 1234567);
+	 * redirect.addStaticAttribute("do", "clickNbuy");
+	 * redirect.addStaticAttribute("button", "i1032136775");
+	 * redirect.addStaticAttribute("do", "clickNbuy");
+	 * redirect.addStaticAttribute("button", "i1032136775");
+	 * 
+	 * return redirect; }
+	 */
 }

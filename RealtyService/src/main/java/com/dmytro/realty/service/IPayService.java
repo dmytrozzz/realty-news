@@ -1,5 +1,6 @@
 package com.dmytro.realty.service;
 
+import com.dmytro.realty.domain.Billing;
 import com.dmytro.realty.service.moneymaker.LiqPayRequest;
 
 public interface IPayService {
@@ -8,4 +9,7 @@ public interface IPayService {
 
     void processLiqPayBilling(String xml);
 
+    void processEasyPayBilling(String orderId, int amount, String comission);
+
+	Billing createEasyPayBilling();
 }

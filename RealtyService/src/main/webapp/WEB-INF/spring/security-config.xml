@@ -18,6 +18,7 @@
 		<intercept-url pattern="/app/feedback" access="permitAll" />
 
 		<intercept-url pattern="/app/user-pay/liq/process" access="permitAll" />
+		<intercept-url pattern="/app/user-pay/easy/process" access="permitAll" />
 		<intercept-url pattern="/app/user-pay/**" access="permitAll" />
 
 		<intercept-url pattern="/app/resources/**" access="permitAll" />

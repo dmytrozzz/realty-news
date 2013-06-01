@@ -20,9 +20,9 @@ public class Billing implements Serializable {
     
     @Enumerated(EnumType.STRING)
     private BillingService service;
-
-    private String uniqueID;
     
+    private String uniqueID;
+
     private String transactionID;
 
     @OneToOne(mappedBy = "billing")
@@ -76,17 +76,17 @@ public class Billing implements Serializable {
 
     public void setService(BillingService service) {
         this.service = service;
-    }
-
-    public String getUniqueID() {
-        return uniqueID;
-    }
-
-    public void setUniqueID(String uniqueID) {
-        this.uniqueID = uniqueID;
-    }
+    }    
     
-    public String getTransactionID() {
+    public String getUniqueID() {
+		return uniqueID;
+	}
+
+	public void setUniqueID(String uniqueID) {
+		this.uniqueID = uniqueID;
+	}
+
+	public String getTransactionID() {
 		return transactionID;
 	}
 
@@ -102,17 +102,7 @@ public class Billing implements Serializable {
         this.user = user;
     }
 
-    public static Billing createLiqPayBilling() {
-        return new Billing(1, BillingState.NEW, BillingService.LIQPAY);
-    }
-
-    public static Billing createEasyPayBilling() {
-        return new Billing(1, BillingState.NEW, BillingService.EASYPAY);
-    }
-
-    public static Billing createSpryPayBilling() {
-        return new Billing(1, BillingState.NEW, BillingService.SPRYPAY);
-    }
-
-
+    public static Billing createBilling(BillingService service) {
+        return new Billing(1, BillingState.NEW, service);
+    }    
 }
