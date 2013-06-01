@@ -37,6 +37,9 @@ public class RealtyUser implements Serializable {
 	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "phone")
+	private String phone;
+	
 	@Column(name = "enabled")
 	public boolean enabled;
 	
@@ -46,7 +49,7 @@ public class RealtyUser implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "billing_id")
-	private Billing billing = new Billing();
+	private Billing billing;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "news_feed", joinColumns = @JoinColumn(name = "user_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "criteria_id", nullable = false))
@@ -82,6 +85,14 @@ public class RealtyUser implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}		
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public Collection<RealtyCriteria> getCriteriaCollection() {

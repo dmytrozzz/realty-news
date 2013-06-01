@@ -1,4 +1,4 @@
-package com.dmytro.realty.security;
+package com.dmytro.realty.web.security;
 
 import java.util.Collection;
 

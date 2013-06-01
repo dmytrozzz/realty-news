@@ -1,0 +1,44 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+	<h:form id="wizardForm">
+		<!-- <p:notificationBar position="top" effect="slide" widgetVar="bar" styleClass="top">
+			<h:outputText value="#{barMessage}" style="color:#FFCC00;font-size:36px;" />
+		</p:notificationBar> -->
+<!-- onnext="bar.show()" -->
+		<p:wizard widgetVar="wiz" flowListener="#{currentState.onFlowProcess}"  backLabel="#{ui.WIZARD_BACK}" nextLabel="#{ui.WIZARD_NEXT}">
+
+			<p:tab id="criteria" title="#{ui.WIZARD_CRITERIA_TABLE}">
+				<ui:param name="barMessage" value="#{ui.CRITERIA_SEARCH_HELP}"/>
+				<ui:include src="../../bricks/criteriaList.xhtml">
+					<ui:param name="preferences" value="#{currentState.preferences}" />
+				</ui:include>
+			</p:tab>
+
+			<p:tab id="registration" title="#{ui.WIZARD_REGISTRATION}">
+			<ui:param name="barMessage" value="#{ui.CRITERIA_SEARCH_HELP}"/>
+				<ui:include src="registerPanel.xhtml">
+					<ui:param name="preferences" value="#{currentState.preferences}" />
+				</ui:include>
+			</p:tab>
+
+			<p:tab id="confirm" title="#{ui.WIZARD_CONFIRMATION}">
+			<ui:param name="barMessage" value="#{ui.CRITERIA_SEARCH_HELP}"/>
+				<h:panelGrid id="confirmation" columns="2">
+					<h:outputText value="#{ui.USERNAME}: " />
+					<h:outputText styleClass="outputLabel" value="#{currentState.preferences.user.login}" />
+
+					<h:outputText value="#{ui.EMAIL}: " />
+					<h:outputText styleClass="outputLabel" value="#{currentState.preferences.user.email}" />
+
+					<h:outputText value="#{ui.TRIAL_MESSAGE}" />
+					<h:outputText />
+
+					<p:commandButton value="#{ui.WIZARD_SAVE}" action="saveUser" actionListener="#{currentState.preferences.save}" />
+				</h:panelGrid>
+			</p:tab>
+		</p:wizard>
+	</h:form>
+</ui:composition>

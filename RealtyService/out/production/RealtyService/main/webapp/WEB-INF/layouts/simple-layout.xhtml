@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:sf="http://www.springframework.org/tags/faces">
+<f:view contentType="text/html" encoding="UTF-8">
+	<!-- i18n shortcut -->
+	<ui:param name="ui" value="#{resourceBundle}" />
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<link rel="stylesheet"
+			href="${request.contextPath}/app/resources/frameworks/blueprint/screen.css"
+			type="text/css" media="screen, projection" />
+
+		<link
+			href="${request.contextPath}/app/resources/frameworks/bootstrap/css/bootstrap.min.css"
+			rel="stylesheet" media="screen" />
+		<link
+			href="${request.contextPath}/app/resources/styles/bootstrap-stuff.css"
+			rel="stylesheet" media="screen" />
+		<link
+			href="${request.contextPath}/app/resources/styles/realty-style.css"
+			rel="stylesheet" media="screen" />
+
+		<script type="text/javascript"
+			src="${request.contextPath}/app/resources/frameworks/bootstrap/js/bootstrap.min.js" />
+		<script type="text/javascript"
+			src="${request.contextPath}/app/resources/frameworks/holder/holder.js" />
+		<ui:insert name="metadata">
+			<f:metadata>
+				<f:event listener="#{jsfUtil.initalizeContext}" type="preRenderView" />
+			</f:metadata>
+		</ui:insert>
+		<ui:insert name="includes" />
+	</h:head>
+
+	<h:body>
+		<ui:insert name="header" />
+		<ui:insert name="content" />
+		<ui:insert name="modal" />
+
+		<div id="footer">
+			<div class="container">
+				<p class="muted credit">dmytrozzz@i.ua</p>
+			</div>
+		</div>
+		<!-- <footer id="footer">
+		<p class="pull-right">
+			<a href="#">Back to top</a>
+		</p>
+		<p>
+			&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+		</p>
+		</footer> -->
+	</h:body>
+</f:view>
+</h:html>

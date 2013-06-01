@@ -1,0 +1,12 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+	<p:menuButton value="#{ui.PAY_FOR_SERVICE}" rendered="#{!preferences.user.isPayed()}">
+		<p:menuitem value="#{ui.BY_CARD}" url="user-pay/liq/pay" />
+		<p:menuitem value="#{ui.BY_EASYPAY}" url="user-pay/easy/pay" />
+		<p:menuitem value="#{ui.BY_TERMINAL}" url="user-pay/spry/pay" />
+	</p:menuButton>
+
+	<h:outputText value="#{ui[preferences.getPayedStatus()]}" rendered="#{!preferences.user.isPayed()}" />	
+</ui:composition>

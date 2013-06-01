@@ -1,7 +1,5 @@
 package com.dmytro.realty.service.implementation;
 
-import java.util.Collection;
-
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,8 +15,7 @@ import com.dmytro.realty.data.repository.UserRepository;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
 import com.dmytro.realty.domain.RealtyUser;
-import com.dmytro.realty.domain.search.enums.OperationType;
-import com.dmytro.realty.security.RealtyUserDetails;
+import com.dmytro.realty.web.security.RealtyUserDetails;
 import com.dmytro.realty.service.IUserService;
 
 @Repository

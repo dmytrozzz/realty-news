@@ -11,7 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import com.dmytro.realty.domain.RealtyUser;
-import com.dmytro.realty.security.RealtyUserDetails;
+import com.dmytro.realty.web.security.RealtyUserDetails;
 import com.dmytro.realty.service.IUserService;
 import com.dmytro.realty.web.flow.jsf.PersonalCabinetBean;
 import com.dmytro.realty.web.flow.jsf.RealtyWizard;
