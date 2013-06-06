@@ -15,12 +15,14 @@
 
 	<view-state id="blog">
 		<on-entry>
+		<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
 			<evaluate expression="blogController.getAllPosts()" result="viewScope.posts" />
 		</on-entry>
 	</view-state>
 
 	<view-state id="post">
 		<on-entry>
+		<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
 			<evaluate expression="blogController.getPost(suffix)" result="viewScope.post" />
 		</on-entry>
 	</view-state>

@@ -1,12 +1,49 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions"
-	template="/WEB-INF/layouts/realty-layout.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions" template="/WEB-INF/layouts/simple-layout.xhtml">
+	<style>
+.marketing .span4 {
+	text-align: center;
+}
 
+.marketing h2 {
+	font-weight: normal;
+}
+
+.marketing .span4 p {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.featurette-divider {
+	margin: 60px 0;
+}
+
+.featurette {
+	padding-top: 120px;
+	overflow: hidden;
+}
+
+.featurette-image {
+	margin-top: -120px;
+}
+
+.featurette-image.pull-left {
+	margin-right: 40px;
+}
+
+.featurette-image.pull-right {
+	margin-left: 40px;
+}
+
+.featurette-heading {
+	font-size: 50px;
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+</style>
 	<ui:define name="title">#{ui.REALTY_HOME}</ui:define>
 	<ui:define name="header">
 		<ui:include src="../bricks/navBar.xhtml"></ui:include>
@@ -15,42 +52,59 @@
 	<ui:param name="centerTitle" value="#{resourceBundle.PERSONAL_CABINET}" />
 
 	<ui:define name="content">
+		<div class="container marketing" style="padding-top: 70px">
+			<h:form id="contentForm">
+				<p:growl id="growl" sticky="true" showDetail="true" autoUpdate="true" />
+				<hr class="featurette-divider" />
+				<h2 class="featurette-heading text-center">
+					#{ui.PERSONAL_CABINET}. <span class="muted">Тут ви здійснюєте керування послугою.</span>
+				</h2>
+				<hr class="featurette-divider" />
+				<p:panel>
+					<p:tabView id="tabView" effect="drop">
 
-
-		<h:form id="contentForm">
-			<p:growl id="growl" sticky="true" showDetail="true" />
-			<p:panel>
-				<p:tabView id="tabView" effect="drop">
-
-					<p:tab id="controlPanel" title="#{ui.CONTROL_PANEL}">						
+						<p:tab id="controlPanel" title="#{ui.CONTROL_PANEL}">
 							<!-- TODO depends on where service is payed or trial -->
 							<h:panelGrid columns="2" cellpadding="10">
-								<p:commandButton value="#{ui[preferences.getRunButtonLabel()]}"
-									action="runService" style="width:170px"
+								<p:commandButton value="#{ui[preferences.getRunButtonLabel()]}" action="runService" style="width:170px"
 									disabled="#{!preferences.user.isPayed()}" update="controlPanel" />
 								<h:outputText value="#{ui[preferences.getServiceStatus()]}" />
-								<ui:include src="bricks/paymoney.xhtml" />																	
+								<ui:include src="bricks/paymoney.xhtml" />
 							</h:panelGrid>
-					</p:tab>
+						</p:tab>
 
-					<p:tab id="tab2" title="#{ui.SEARCH_OPTIONS}">
-						<ui:include src="../bricks/criteriaList.xhtml">
-							<ui:param name="preferences" value="#{currentState.preferences}" />
-						</ui:include>
-					</p:tab>
-
-					<p:tab id="tab3" title="#{ui.CREDENTIALS}">
-						<h:panelGrid columns="2" cellpadding="10">
-							<ui:include src="bricks/userData.xhtml">
-								<ui:param name="preferences" value="#{currentState.preferences}"></ui:param>
+						<p:tab id="tab2" title="#{ui.SEARCH_OPTIONS}">
+							<ui:include src="../bricks/criteriaList.xhtml">
+								<ui:param name="preferences" value="#{currentState.preferences}" />
 							</ui:include>
-						</h:panelGrid>
-					</p:tab>
+							<p:commandButton value="#{ui.SAVE}" action="saveUser" actionListener="#{currentState.preferences.save}" />
+							<br />
+							<br />
+						</p:tab>
 
-				</p:tabView>
-			</p:panel>
-			<p:commandButton value="#{ui.SAVE}" update="growl" action="saveUser"
-				actionListener="#{currentState.preferences.save}" />
-		</h:form>
+						<p:tab id="tab3" title="#{ui.CREDENTIALS}">
+							<h:panelGrid columns="2" cellpadding="10">
+								<ui:include src="bricks/userData.xhtml">
+									<ui:param name="preferences" value="#{currentState.preferences}"></ui:param>
+								</ui:include>
+							</h:panelGrid>
+							<p:commandButton value="#{ui.SAVE}" action="saveUser" actionListener="#{currentState.preferences.save}" />
+							<br />
+							<br />
+						</p:tab>
+					</p:tabView>
+				</p:panel>
+				<!-- <style>
+#footer {
+	position: fixed;
+	bottom: 0;
+}
+</style> -->
+			</h:form>
+			<hr class="featurette-divider" />
+		</div>
+		<!-- <p:graphicImage value="/app/resources/images/realty.jpg" style="display:none">
+			<p:effect type="slide" event="load" delay="300" />
+		</p:graphicImage> -->
 	</ui:define>
 </ui:composition>
