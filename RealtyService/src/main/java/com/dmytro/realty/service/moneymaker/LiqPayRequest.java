@@ -24,7 +24,7 @@ public class LiqPayRequest {
                 "<result_url>http://realtyservice.com.ua/app/cabinet</result_url>" +
                 "<server_url>http://realtyservice.com.ua/app/user-pay/liq/process</server_url>" +
                 "<order_id>" + id + "</order_id>" +
-                "<amount>1.01</amount>" +
+                "<amount>0.10</amount>" +
                 "<currency>UAH</currency>" +
                 "<description>Realty service subscription</description>" +
                 "<default_phone></default_phone>" +

@@ -67,7 +67,7 @@
 							<!-- TODO depends on where service is payed or trial -->
 							<h:panelGrid columns="2" cellpadding="10">
 								<p:commandButton value="#{ui[preferences.getRunButtonLabel()]}" action="runService" style="width:170px"
-									disabled="#{!preferences.user.isPayed()}" update="controlPanel" />
+									disabled="#{!preferences.user.isPayed()}" update="@form" process="@form" />
 								<h:outputText value="#{ui[preferences.getServiceStatus()]}" />
 								<ui:include src="bricks/paymoney.xhtml" />
 							</h:panelGrid>
