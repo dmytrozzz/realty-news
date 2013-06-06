@@ -22,21 +22,15 @@
 			<p:panel>
 				<p:tabView id="tabView" effect="drop">
 
-					<p:tab id="tab1" title="#{ui.CONTROL_PANEL}">
-						<p:panel id="controlPanel" header="#{ui.CONTROL_PANEL}">
+					<p:tab id="controlPanel" title="#{ui.CONTROL_PANEL}">						
 							<!-- TODO depends on where service is payed or trial -->
 							<h:panelGrid columns="2" cellpadding="10">
 								<p:commandButton value="#{ui[preferences.getRunButtonLabel()]}"
 									action="runService" style="width:170px"
 									disabled="#{!preferences.user.isPayed()}" update="controlPanel" />
 								<h:outputText value="#{ui[preferences.getServiceStatus()]}" />
-
-
-								<ui:include src="bricks/paymoney.xhtml" />
-								
-									
+								<ui:include src="bricks/paymoney.xhtml" />																	
 							</h:panelGrid>
-						</p:panel>
 					</p:tab>
 
 					<p:tab id="tab2" title="#{ui.SEARCH_OPTIONS}">

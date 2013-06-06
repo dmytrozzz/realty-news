@@ -73,11 +73,11 @@
 							<li><h:outputLink value="logout" rendered="#{authorized}">#{ui.LOGOUT}</h:outputLink></li>
 						</sec:authorize>
 					</ul>
-					<sec:authorize access="isAuthenticated()">
+					<!--<sec:authorize access="isAuthenticated()">
 						<h:outputFormat styleClass="navbar-text pull-right" value="#{ui.WELCOME}">
 							<f:param value="#{currentUser.name}" />
 						</h:outputFormat>
-					</sec:authorize>
+					</sec:authorize>-->
 				</div>
 				<!-- /.navbar-inner -->
 			</div>
