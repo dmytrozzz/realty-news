@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50c045cb-01eb-456a-8d80-2f78466337f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/realty-layout.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/realty-layout.xhtml" />
+    <list default="true" id="a34abdf3-b190-4ece-9645-32a790cdc55f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Location.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Product.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/search/enums/OperationType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/search/enums/ProductType.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/search/enums/Term.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/GlobalPreferencesBean.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/buffer/CriteriaBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/buffer/CriteriaBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/builder/DefaultRealtyRequestBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/builder/DefaultRealtyRequestBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/marketing.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/marketing.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realty.iml" afterPath="$PROJECT_DIR$/realty.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="50c045cb-01eb-456a-8d80-2f78466337f9" time="1370489810354" ignored="false" />
-    <file path="/MirKvartirRequestBuilder.java" changelist="50c045cb-01eb-456a-8d80-2f78466337f9" time="1369416443991" ignored="false" />
-    <file path="/mir-kvartir.properties" changelist="50c045cb-01eb-456a-8d80-2f78466337f9" time="1369416731452" ignored="false" />
-    <file path="/RealtyTeam.java" changelist="50c045cb-01eb-456a-8d80-2f78466337f9" time="1369490294520" ignored="false" />
-    <file path="/MirKvartirRealtyParser.java" changelist="50c045cb-01eb-456a-8d80-2f78466337f9" time="1369490227013" ignored="false" />
-    <file path="/AbstractJsoupRealtyParser.java" changelist="50c045cb-01eb-456a-8d80-2f78466337f9" time="1369490601049" ignored="false" />
+    <file path="/Dummy.txt" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370704822368" ignored="false" />
+    <file path="/fragment.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370704775777" ignored="false" />
+    <file path="/criteriaList.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370710472451" ignored="false" />
+    <file path="/ui_uk.properties" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370712529584" ignored="false" />
+    <file path="/UserPreferencesBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370709634244" ignored="false" />
+    <file path="/RealtyLocation.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370706091620" ignored="false" />
+    <file path="/Product.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370706547716" ignored="false" />
+    <file path="/RealtyCriteria.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370714070501" ignored="false" />
+    <file path="/CriteriaBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370715564508" ignored="false" />
+    <file path="/RealtyEngine.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370709034209" ignored="false" />
+    <file path="/DefaultRealtyRequestBuilder.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370709092443" ignored="false" />
+    <file path="/marketing.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370710582940" ignored="false" />
+    <file path="/Location.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370715160050" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +43,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -73,55 +101,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MirKvartirRequestBuilder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/builder/MirKvartirRequestBuilder.java">
+      <file leaf-file-name="UserPreferencesBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="66" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0">
+            <state line="27" column="42" selection-start="918" selection-end="918" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RealtyCriteria.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="40" selection-start="936" selection-end="936" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RealtyController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="35" selection-start="1840" selection-end="1840" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RealtorRealtyParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/RealtorRealtyParser.java">
+      <file leaf-file-name="CriteriaBean.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/buffer/CriteriaBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="40" selection-start="566" selection-end="629" vertical-scroll-proportion="0.0">
+            <state line="31" column="48" selection-start="963" selection-end="963" vertical-scroll-proportion="0.80585104">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Location.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Location.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="45" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RealtyUser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="69" selection-start="1655" selection-end="1655" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MirKvartirRealtyParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/MirKvartirRealtyParser.java">
+      <file leaf-file-name="criteriaList.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="55" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
+            <state line="24" column="57" selection-start="1839" selection-end="1839" vertical-scroll-proportion="-3.3333333">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractJsoupRealtyParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/AbstractJsoupRealtyParser.java">
+      <file leaf-file-name="marketing.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/marketing.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="32" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navBar.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="39" selection-start="3132" selection-end="3132" vertical-scroll-proportion="-16.208334">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="realty-layout.xhtml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/realty-layout.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="16" selection-start="1818" selection-end="1818" vertical-scroll-proportion="0.90163934">
+            <state line="148" column="31" selection-start="4364" selection-end="4364" vertical-scroll-proportion="-8.625">
               <folding />
             </state>
           </provider>
@@ -145,19 +199,32 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/mir-kvartir.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/search/enums/OperationType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/search/enums/ProductType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/search/enums/RealtyLocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/search/enums/Term.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Realty.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/builder/DefaultRealtyRequestBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/builder/MirKvartirRequestBuilder.java" />
-        <option value="$PROJECT_DIR$/mir-kvartir.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/MirKvartirRealtyParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/AbstractJsoupRealtyParser.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/realty-layout.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/marketing.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Location.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/buffer/CriteriaBean.java" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="pluginUpdatePolicy" value="UPDATE" />
+        <option name="usePluginRegistry" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -321,7 +388,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
+              <option name="myItemId" value="i18n" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource Bundle 'ui'" />
+              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flows" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -343,7 +444,211 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flows" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flows" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bricks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="buffer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -373,6 +678,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -380,39 +745,30 @@
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="MavenSettings" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/realty-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib" />
+    <property name="options.lastSelected" value="MavenSettings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/ROOT/WEB-INF/lib" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="Downloaded.Files.Path" value="$PROJECT_DIR$/lib" />
     <property name="dynamic.classpath" value="false" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.RealtyEngine">
+  <component name="RunManager" selected="Maven.Run This Shit">
     <configuration default="false" name="RealtyEngine" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.dmytro.realty.engine.RealtyEngine" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
@@ -458,6 +814,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -483,19 +852,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -532,8 +888,35 @@
       <patterns />
       <method />
     </configuration>
-    <list size="1">
+    <configuration default="false" name="Run This Shit" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="tomcat7:run-war" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.RealtyEngine" />
+      <item index="1" class="java.lang.String" itemvalue="Maven.Run This Shit" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -565,34 +948,34 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="50c045cb-01eb-456a-8d80-2f78466337f9" name="Default" comment="" />
-      <created>1369410081253</created>
-      <updated>1369410081253</updated>
+      <changelist id="a34abdf3-b190-4ece-9645-32a790cdc55f" name="Default" comment="" />
+      <created>1370631487944</created>
+      <updated>1370631487944</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1286" height="777" extended-state="6" />
-    <editor active="false" />
+    <frame x="-3" y="0" width="1286" height="777" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6703645" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.6703645" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33549434" sideWeight="0.6703645" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18557537" sideWeight="0.6703645" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24473257" sideWeight="0.6703645" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959481" sideWeight="0.6703645" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280507" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -662,105 +1045,132 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mir-kvartir.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="26" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" />
+        <state line="18" column="34" selection-start="412" selection-end="521" vertical-scroll-proportion="0.68010074">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mir-kvartir.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="20" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0" />
+        <state line="4" column="13" selection-start="84" selection-end="84" vertical-scroll-proportion="0.15625">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/builder/DefaultRealtyRequestBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="24" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+        <state line="40" column="24" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.33333334">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="58" selection-start="2239" selection-end="2239" vertical-scroll-proportion="0.1322314">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/FeedBackController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="17" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="46" selection-start="120" selection-end="120" vertical-scroll-proportion="0.18691589" />
+        <state line="13" column="34" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="25" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.044378698">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/marketing.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="31" selection-start="4364" selection-end="4364" vertical-scroll-proportion="-8.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="45" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="69" selection-start="1655" selection-end="1655" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/RealtyWizard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="124" selection-end="124" vertical-scroll-proportion="0.15957446">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="57" selection-start="1839" selection-end="1839" vertical-scroll-proportion="-3.3333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="40" selection-start="936" selection-end="936" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="35" selection-start="1840" selection-end="1840" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="37" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/builder/DefaultRealtyRequestBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="21" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="27" column="42" selection-start="918" selection-end="918" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/buffer/CriteriaBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="749" selection-end="749" vertical-scroll-proportion="-2.2266667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/AvisoRealtyParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="42" selection-start="858" selection-end="1032" vertical-scroll-proportion="0.35012594">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mir-kvartir.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="474" selection-end="474" vertical-scroll-proportion="0.7178841" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="73" selection-start="3678" selection-end="3678" vertical-scroll-proportion="1.1460958">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/builder/MirKvartirRequestBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="66" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/RealtorRealtyParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="40" selection-start="566" selection-end="629" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/MirKvartirRealtyParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="55" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/AbstractJsoupRealtyParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="32" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="39" selection-start="3132" selection-end="3132" vertical-scroll-proportion="-16.208334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/realty-layout.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="16" selection-start="1818" selection-end="1818" vertical-scroll-proportion="0.90163934">
-          <folding />
+        <state line="31" column="48" selection-start="963" selection-end="963" vertical-scroll-proportion="0.80585104">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -793,6 +1203,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>groovy-1.8.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

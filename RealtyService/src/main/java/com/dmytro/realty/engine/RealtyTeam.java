@@ -98,7 +98,7 @@ public class RealtyTeam {
 	public static List<RealtyTeam> createTeams() {
 		List<RealtyTeam> realtyTeams = new LinkedList<>();
 		// Slando
-		//realtyTeams.add(new RealtyTeam("slando", new DefaultRealtyRequestBuilder(), new SlandoRealtyParser()));
+		realtyTeams.add(new RealtyTeam("slando", new DefaultRealtyRequestBuilder(), new SlandoRealtyParser()));
 
 		// Aviso
 		// realtyTeams.add(new RealtyTeam("aviso", new AvisoRequestBuilder(),
@@ -113,8 +113,8 @@ public class RealtyTeam {
 		// RealtorRequestBuilder(), new RealtorRealtyParser()));
 
         // MirKvartir
-         realtyTeams.add(new RealtyTeam("mir-kvartir", new
-                 MirKvartirRequestBuilder(), new MirKvartirRealtyParser()));
+        // realtyTeams.add(new RealtyTeam("mir-kvartir", new
+        //         MirKvartirRequestBuilder(), new MirKvartirRealtyParser()));
 		return realtyTeams;
 	}
 }

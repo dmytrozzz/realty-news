@@ -20,11 +20,21 @@
 				<p:outputPanel id="selectOperation" autoUpdate="true">
 					<p:selectOneMenu value="#{criteria.operation}" required="true" requiredMessage="#{ui.ERR_CHOOSE_OPERATION}" label="#{ui.CHOOSE_OPERATION}"
 						rendered="#{criteria.productType != null}" panelStyle="width:220px">
+                        <f:selectItem itemLabel="#{ui.CHOOSE_OPERATION}" itemValue="#{null}" />
 						<f:selectItems var="realtyOperation" itemLabel="#{ui[realtyOperation]}" value="#{preferences.getOperationTypes(criteria.productType)}" />
-						<p:ajax update="paramPane" process="@this" />
+						<p:ajax update="paramPane locPane" process="@this" />
 					</p:selectOneMenu>
 				</p:outputPanel>
 			</p:column>
+
+            <!-- Обрати розташування -->
+            <p:column id="locCol" headerText="#{ui.CHOOSE_LOCATION}" style="width:24%">
+                <p:outputPanel id="locPane">
+            <p:selectCheckboxMenu value="#{criteria.locations}" label="#{ui.CHOOSE_LOCATION}" panelStyle="width:220px" rendered="#{criteria.operation != null}">
+                <f:selectItems value="#{preferences.realtyLocations}" var="realtyLocation" itemLabel="#{ui[realtyLocation]}" />
+            </p:selectCheckboxMenu>
+                </p:outputPanel>
+            </p:column>
 
 			<p:column id="parCol" headerText="#{ui.PARAMETERS}" style="width:24%">
 				<p:outputPanel id="paramPane">

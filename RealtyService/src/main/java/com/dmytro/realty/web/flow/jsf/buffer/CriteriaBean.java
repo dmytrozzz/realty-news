@@ -1,61 +1,78 @@
 package com.dmytro.realty.web.flow.jsf.buffer;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.dmytro.realty.domain.Location;
+import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
-import com.dmytro.realty.domain.search.enums.OperationType;
-import com.dmytro.realty.domain.search.enums.ProductType;
+
+import java.io.Serializable;
+import java.util.*;
 
 public class CriteriaBean implements Serializable {
 
-    private ProductType productType;
+    private Product.Type productType;
 
-    private OperationType operation;
+    private Product.Operation operation;
 
     private RealtyParameters parameters;
 
+    private List<String> locations;
+
     public CriteriaBean() {
-	this.parameters = new RealtyParameters();
+        this.parameters = new RealtyParameters();
+        locations = new LinkedList<>();
     }
 
     public CriteriaBean(RealtyCriteria criteria) {
-	this.productType = criteria.getProductType();
-	this.operation = criteria.getOperation();
-	this.parameters = criteria.getParameters();
+        this.productType = criteria.getProductType();
+        this.operation = criteria.getOperation();
+        this.parameters = criteria.getParameters();
+        locations = new LinkedList<>();
+        for(Location l : criteria.getLocations())
+            locations.add(l.getLocation().name());
     }
 
-    public ProductType getProductType() {
-	return productType;
+    public Product.Type getProductType() {
+        return productType;
     }
 
-    public void setProductType(ProductType productType) {
-	this.productType = productType;
+    public void setProductType(Product.Type productType) {
+        this.productType = productType;
     }
 
-    public OperationType getOperation() {
-		return operation;
-	}
+    public Product.Operation getOperation() {
+        return operation;
+    }
 
-	public void setOperation(OperationType operation) {
-		this.operation = operation;
-	}
+    public void setOperation(Product.Operation operation) {
+        this.operation = operation;
+    }
 
-	public RealtyParameters getParameters() {
-	return parameters;
+    public RealtyParameters getParameters() {
+        return parameters;
     }
 
     public void setParameters(RealtyParameters parameters) {
-	this.parameters = parameters;
+        this.parameters = parameters;
+    }
+
+    public List<String> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<String> locations) {
+        this.locations = locations;
     }
 
     public RealtyCriteria getRealtyCriteria() {
-	RealtyCriteria realtyCriteria = new RealtyCriteria();
-	realtyCriteria.setOperation(operation);
-	realtyCriteria.setParameters(parameters);
-	realtyCriteria.setProductType(productType);
-	return realtyCriteria;
+        RealtyCriteria realtyCriteria = new RealtyCriteria();
+        realtyCriteria.setOperation(operation);
+        realtyCriteria.setParameters(parameters);
+        realtyCriteria.setProductType(productType);
+        Set<Location> locationList = new HashSet<>();
+        for(String l : locations)
+        locationList.add(new Location(Product.Location.valueOf(l)));
+        realtyCriteria.setLocations(locationList);
+        return realtyCriteria;
     }
 }

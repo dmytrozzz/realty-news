@@ -6,10 +6,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyUser;
-import com.dmytro.realty.domain.search.enums.OperationType;
-import com.dmytro.realty.domain.search.enums.ProductType;
 import com.dmytro.realty.engine.parser.AvisoRealtyParser;
 import com.dmytro.realty.engine.parser.RealtorRealtyParser;
 import com.dmytro.realty.engine.parser.RioRealtyParser;
@@ -65,11 +64,11 @@ public class RealtyEngine {
 
 	public static void main(String[] args) throws InterruptedException {
 		RealtyCriteria realtyCriteria = new RealtyCriteria();
-		realtyCriteria.setProductType(ProductType.APPARTMENT);
+		realtyCriteria.setProductType(Product.Type.APPARTMENT);
 		realtyCriteria.getParameters().setFromPrice(2000);
 		realtyCriteria.getParameters().setToPrice(4000);
 
-		realtyCriteria.setOperation(OperationType.RENT);
+		realtyCriteria.setOperation(Product.Operation.RENT);
 
 		RealtyUser user = new RealtyUser();
 		user.setEmail("d.zonov@ukr.net");

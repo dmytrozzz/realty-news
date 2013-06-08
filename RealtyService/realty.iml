@@ -10,25 +10,24 @@
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target/ROOT" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
-      <excludeFolder url="file://$MODULE_DIR$/target/m2e-wtp" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
-      <excludeFolder url="file://$MODULE_DIR$/target/realty-1.0.0-BUILD-SNAPSHOT" />
       <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
       <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/tomcat" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/target/realty-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib" />
+          <root url="file://$MODULE_DIR$/target/ROOT/WEB-INF/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/target/realty-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib" />
+          <root url="file://$MODULE_DIR$/target/ROOT/WEB-INF/lib" />
         </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/target/realty-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/target/realty-1.0.0-BUILD-SNAPSHOT/WEB-INF/lib" recursive="false" type="SOURCES" />
+        <jarDirectory url="file://$MODULE_DIR$/target/ROOT/WEB-INF/lib" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/target/ROOT/WEB-INF/lib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>

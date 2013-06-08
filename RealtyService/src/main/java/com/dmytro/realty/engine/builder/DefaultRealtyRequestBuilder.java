@@ -2,10 +2,9 @@ package com.dmytro.realty.engine.builder;
 
 import java.util.Properties;
 
+import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
-import com.dmytro.realty.domain.search.enums.OperationType;
-import com.dmytro.realty.domain.search.enums.ProductType;
 
 public class DefaultRealtyRequestBuilder {
 
@@ -26,11 +25,11 @@ public class DefaultRealtyRequestBuilder {
 
 	private String getParameters(RealtyCriteria criteria, RealtyParameters parameters) {
 		return price(parameters.getFromPrice(), parameters.getToPrice())
-				+ (criteria.getProductType() != ProductType.ROOM ? rooms(parameters.getFromRooms(),
+				+ (criteria.getProductType() != Product.Type.ROOM ? rooms(parameters.getFromRooms(),
 						parameters.getToRooms()) : "");
 	}
 
-	private String getCriteriaPart(ProductType productType, OperationType operation) {
+	private String getCriteriaPart(Product.Type productType, Product.Operation operation) {
 		return properties.getProperty(productType + "_" + operation);
 	}
 

@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
-import com.dmytro.realty.domain.search.enums.OperationType;
 
 public interface CriteriaRepository extends CrudRepository<RealtyCriteria, Long> {
 
