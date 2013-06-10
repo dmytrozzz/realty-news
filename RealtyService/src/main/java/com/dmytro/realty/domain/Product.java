@@ -16,7 +16,17 @@ public class Product {
     }
 
     public enum Location {
-        HOLOSIEVO, DARNITSA, DESNA, DNIPROVSKY, OBOLON, PECHERSK, PODOLSKIY, SVYATOSHYN, SOLOMYANKA, SHEVCHENKIVSKIY
+        HOLOSIEVO(1), DARNITSA(3), DESNA(5), DNIPROVSKY(7), OBOLON(9), PECHERSK(11), PODOLSKIY(13), SVYATOSHYN(15), SOLOMYANKA(17), SHEVCHENKIVSKIY(19);
+
+        int slandoIndex = 0;
+
+        private Location(int slandoIndex) {
+            this.slandoIndex = slandoIndex;
+        }
+
+        public int getSlandoIndex() {
+            return slandoIndex;
+        }
     }
 
     enum Term {

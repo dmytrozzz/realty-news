@@ -1,7 +1,10 @@
 package com.dmytro.realty.engine.builder;
 
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
+import com.dmytro.realty.domain.Location;
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
@@ -20,7 +23,7 @@ public class DefaultRealtyRequestBuilder {
 
 	public String buildRequest(RealtyCriteria criteria) {
 		return getSearchHost() + "/" + getCriteriaPart(criteria.getProductType(), criteria.getOperation())
-				+ getParameters(criteria, criteria.getParameters()) + properties.getProperty("END");
+				+ getParameters(criteria, criteria.getParameters()) + location(criteria.getLocations())+properties.getProperty("END");
 	}
 
 	private String getParameters(RealtyCriteria criteria, RealtyParameters parameters) {
@@ -44,6 +47,13 @@ public class DefaultRealtyRequestBuilder {
 		}
 		return target;
 	}
+
+    protected String location(Set<Location> locations) {
+        String s = "&search%5Bdistrict_id%5D%5B0%5D=3&search%5Bdistrict_id%5D%5B1%5D=5";
+        for(Location l : locations)
+            s+="&search%5Bdistrict_id%5D%5B0%5D="+l.getLocation().getSlandoIndex();
+        return s;
+    }
 
 	protected String rooms(int fromRooms, int toRooms){
 		return "&" + parametrize(properties.getProperty("FILTER_ROOMS"), fromRooms, toRooms);

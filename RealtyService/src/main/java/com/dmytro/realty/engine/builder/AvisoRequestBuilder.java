@@ -1,5 +1,9 @@
 package com.dmytro.realty.engine.builder;
 
+import com.dmytro.realty.domain.Location;
+
+import java.util.Set;
+
 public class AvisoRequestBuilder extends DefaultRealtyRequestBuilder {
 
 	@Override
@@ -10,5 +14,4 @@ public class AvisoRequestBuilder extends DefaultRealtyRequestBuilder {
 		}
 		return rooms;
 	}
-
 }
