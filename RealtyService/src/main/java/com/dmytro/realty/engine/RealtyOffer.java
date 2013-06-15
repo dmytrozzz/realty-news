@@ -9,7 +9,10 @@ public class RealtyOffer {
 	private String price;
 	private String offerContent;
 	private String offender;
-	private String phoneRef;
+
+	private String phone;
+    private boolean phoneLink;
+
 	private String date;
 
 	public RealtyOffer() {
@@ -21,7 +24,7 @@ public class RealtyOffer {
 		this.price = price;
 		this.offender = offender;
 		this.offerContent = offerContent;
-		this.phoneRef = phoneRef;
+		this.phone = phoneRef;
 		this.date = date;
 	}
 
@@ -67,15 +70,23 @@ public class RealtyOffer {
 		this.link = link;
 	}
 
-	public String getPhoneRef() {
-		return phoneRef;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setPhoneRef(String phoneRef) {
-		this.phoneRef = phoneRef;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public String getDate() {
+    public boolean isPhoneLink() {
+        return phoneLink;
+    }
+
+    public void setPhoneLink(boolean phoneLink) {
+        this.phoneLink = phoneLink;
+    }
+
+    public String getDate() {
 		return date;
 	}
 

@@ -1,5 +1,10 @@
 package com.dmytro.realty.engine.builder;
 
+import com.dmytro.realty.domain.Location;
+import com.dmytro.realty.domain.RealtyCriteria;
+
+import java.util.Set;
+
 /**
  * Created with IntelliJ IDEA.
  * User: dmytro
@@ -7,7 +12,29 @@ package com.dmytro.realty.engine.builder;
  * Time: 19:02
  * To change this template use File | Settings | File Templates.
  */
-public class MirKvartirRequestBuilder extends DefaultRealtyRequestBuilder {
+public class MirKvartirRequestBuilder extends ARealtyRequestBuilder {
+
+    @Override
+    public String host() {
+        return "http://mirkvartir.ua";
+    }
+
+    @Override
+    protected String criteria(RealtyCriteria criteria) {
+        String criteriaString = "/?module=offers";
+        switch (criteria.getProductType())
+        {
+            case APPARTMENT:
+                criteriaString+= "&section=1972&";
+        }
+
+        return "";
+    }
+
+    @Override
+    protected String location(Set<Location> locations) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 
     protected String rooms(int fromRooms, int toRooms) {
         String roomProperty = fromRooms == 5 ? "5-100" : fromRooms + "";
@@ -17,7 +44,7 @@ public class MirKvartirRequestBuilder extends DefaultRealtyRequestBuilder {
             roomProperty += toRooms == 5 ? "5-100" : toRooms + "";
         }
 
-        return "&" + parametrize(properties.getProperty("FILTER_ROOMS"), fromRooms, toRooms);
+        return "&" ;//+ parametrize(properties.getProperty("FILTER_ROOMS"), fromRooms, toRooms);
     }
 
     @Override

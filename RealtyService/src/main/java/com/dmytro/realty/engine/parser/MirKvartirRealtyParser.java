@@ -20,8 +20,7 @@ public class MirKvartirRealtyParser extends AbstractJsoupProxyRealtyParser {
         Elements divs = source.getElementsByAttributeValue("class", "f");
         for (Element div : divs)
             for (Element a : div.getElementsByTag("a"))
-                links.add(requestBuilder.getProperties().getProperty(
-                        "PURE_HOST") + a.attr("href"));
+                links.add(requestBuilder.host() + a.attr("href"));
     }
 
     @Override

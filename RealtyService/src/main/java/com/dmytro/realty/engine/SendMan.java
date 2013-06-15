@@ -24,11 +24,11 @@ public class SendMan {
 		String htmlContent = "<html>";
 		for (RealtyOffer unit : units) {
 			URL url;
-			String phone = unit.getPhoneRef();
+			String phone = unit.getPhone();
 			boolean phoneAsIs = true;
 			//if phone is image
 			try {
-				url = new URL(unit.getPhoneRef());
+				url = new URL(unit.getPhone());
 				phone = email.embed(url, "Phone" + unit.hashCode());
 				phoneAsIs = false;
 			} catch (MalformedURLException e) {
@@ -67,16 +67,16 @@ public class SendMan {
 		}
 	}
 
-	private String format(RealtyOffer unit, String imageCid, boolean phoneAsIs) {
+	private String format(RealtyOffer unit, String phone, boolean phoneAsIs) {
 		return unit.getOfferContent()
 				+ "<h5>Ціна: "
 				+ unit.getPrice()
-				+ " |Дата: "
+				+ " |Додано: "
 				+ unit.getDate()
 				+ " |Ініціатор: "
 				+ unit.getOffender()
 				+ " | Телефон: + "
-				+ (phoneAsIs ? imageCid : "<img src=\"cid:" + imageCid + "\">")
+				+ (phoneAsIs ? phone : "<img src=\"cid:" + phone + "\">")
 				+ " | <a href='"
 				+ unit.getLink()
 				+ "'>Посилання</a></h5>-------------------------------------------------------------------------<br/>";

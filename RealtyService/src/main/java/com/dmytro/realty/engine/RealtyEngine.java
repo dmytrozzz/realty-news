@@ -2,13 +2,11 @@ package com.dmytro.realty.engine;
 
 import java.util.*;
 
+import com.dmytro.realty.domain.Location;
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyUser;
-import com.dmytro.realty.engine.parser.AvisoRealtyParser;
-import com.dmytro.realty.engine.parser.RealtorRealtyParser;
-import com.dmytro.realty.engine.parser.RioRealtyParser;
-import com.dmytro.realty.engine.parser.SlandoRealtyParser;
+import com.dmytro.realty.engine.parser.*;
 
 public class RealtyEngine {
 	private SendMan sendMan = new SendMan();
@@ -46,7 +44,7 @@ public class RealtyEngine {
 	 *            collection of {@link RealtyUser}, subscribed for criteria
 	 */
 	public void searchAndSubscribe(RealtyCriteria criteria,
-			Collection<RealtyUser> userCollection) {
+			Collection<RealtyUser> userCollection) throws RealtyUnparsebleException {
 
 		List<RealtyOffer> resultOffers = new ArrayList<>();
 
@@ -58,28 +56,45 @@ public class RealtyEngine {
 			sendNews(resultOffers, userCollection);
 	}
 
-	public static void main(String[] args) throws InterruptedException {
-		RealtyCriteria realtyCriteria = new RealtyCriteria();
-		realtyCriteria.setProductType(Product.Type.APPARTMENT);
-		realtyCriteria.getParameters().setFromPrice(2000);
-		realtyCriteria.getParameters().setToPrice(5000);
+    public static RealtyCriteria criteria(Product.Type type,int fromP, int toP, int fromR, int toR, Product.Operation oper) {
+        RealtyCriteria realtyCriteria = new RealtyCriteria();
+        realtyCriteria.setProductType(type);
+        realtyCriteria.getParameters().setFromPrice(fromP);
+        realtyCriteria.getParameters().setToPrice(toP);
 
-        realtyCriteria.getParameters().setFromRooms(1);
-        realtyCriteria.getParameters().setToRooms(3);
+        realtyCriteria.getParameters().setFromRooms(fromR);
+        realtyCriteria.getParameters().setToRooms(toR);
 
-		realtyCriteria.setOperation(Product.Operation.RENT);
+        realtyCriteria.setOperation(oper);
+        return realtyCriteria;
+    }
+
+    public static List<Location> locations(Product.Location... locations){
+        List<Location> locationList = new LinkedList<>();
+        for(Product.Location l : locations)
+            locationList.add(new Location(l));
+        return locationList;
+    }
+
+
+
+	public static void main(String[] args) throws InterruptedException, RealtyUnparsebleException {
+
+		RealtyCriteria criteria = criteria(Product.Type.APPARTMENT,200000,500000,1,3, Product.Operation.BUY);
+        List<Location> location = null;
+
 
 		RealtyUser user = new RealtyUser();
 		user.setEmail("d.zonov@ukr.net");
 
-        RealtyUser user2 = new RealtyUser();
-        user2.setEmail("Vados77777@bigmir.net");
+        //RealtyUser user2 = new RealtyUser();
+       // user2.setEmail("Vados77777@bigmir.net");
 
 		RealtyEngine engine = new RealtyEngine();
 		while (true) {
 			System.out.println("Lets go!");
-			engine.searchAndSubscribe(realtyCriteria,
-                    Arrays.asList(user,user2));
+			engine.searchAndSubscribe(criteria,
+                    Arrays.asList(user));
 			Thread.sleep(20000);
 		}
 

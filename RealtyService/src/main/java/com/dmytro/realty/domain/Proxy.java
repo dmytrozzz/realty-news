@@ -22,6 +22,8 @@ public class Proxy {
 
     private int port;
 
+    private int tries;
+
     private int failures;
 
     public long getId() {
@@ -46,6 +48,14 @@ public class Proxy {
 
     public void setPort(int port) {
         this.port = port;
+    }
+
+    public int getTries() {
+        return tries;
+    }
+
+    public void setTries(int tries) {
+        this.tries = tries;
     }
 
     public int getFailures() {

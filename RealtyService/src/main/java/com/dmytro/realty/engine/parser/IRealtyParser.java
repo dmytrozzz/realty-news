@@ -1,13 +1,12 @@
 package com.dmytro.realty.engine.parser;
 
 import java.util.List;
-import java.util.Properties;
 
 import com.dmytro.realty.engine.RealtyOffer;
-import com.dmytro.realty.engine.builder.DefaultRealtyRequestBuilder;
+import com.dmytro.realty.engine.builder.ARealtyRequestBuilder;
 
 public interface IRealtyParser {
-	void setRequestBuilder(DefaultRealtyRequestBuilder requestBuilder);
+	void setRequestBuilder(ARealtyRequestBuilder requestBuilder);
 	
     /**
      * Parses request with search criteria parameters
@@ -22,7 +21,7 @@ public interface IRealtyParser {
     /**
      * Parses one offer
      * 
-     * @param Offer
+     * @param offerRequest
      *            request link to offer page
      * @return {@link RealtyOffer} instance based on parsed information
      * @throws RealtyUnparsebleException

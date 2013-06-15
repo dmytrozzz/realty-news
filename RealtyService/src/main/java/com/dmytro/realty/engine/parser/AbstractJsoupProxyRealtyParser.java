@@ -6,17 +6,17 @@ import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.dmytro.realty.engine.builder.ARealtyRequestBuilder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import com.dmytro.realty.engine.RealtyOffer;
-import com.dmytro.realty.engine.builder.DefaultRealtyRequestBuilder;
 
 public abstract class AbstractJsoupProxyRealtyParser implements IRealtyParser {
 
-	protected DefaultRealtyRequestBuilder requestBuilder;
+	protected ARealtyRequestBuilder requestBuilder;
 
-	public void setRequestBuilder(DefaultRealtyRequestBuilder requestBuilder) {
+	public void setRequestBuilder(ARealtyRequestBuilder requestBuilder) {
 		this.requestBuilder = requestBuilder;
 	}
 
@@ -42,7 +42,7 @@ public abstract class AbstractJsoupProxyRealtyParser implements IRealtyParser {
 		offer.setOfferContent(parseContent(document));
 		offer.setOffender(parseOffender(document));		
 		offer.setDate(parseDate(document));
-		offer.setPhoneRef(parsePhone(document));
+		offer.setPhone(parsePhone(document));
 		offer.setPrice(parsePrice(document));
 		
 		return offer;
@@ -63,10 +63,10 @@ public abstract class AbstractJsoupProxyRealtyParser implements IRealtyParser {
 		try {
 			URI uri = new URI(request);
 			return Jsoup.parse(uri.toURL(), 20000);
-		} catch (URISyntaxException | IOException e) {
+		} catch (URISyntaxException | IOException e ) {
             e.printStackTrace();
 			throw new RealtyUnparsebleException("Can't parse the link: "
-					+ request);
-		}
-	}
+					+ request,e);
+        }
+    }
 }
