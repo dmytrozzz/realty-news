@@ -13,7 +13,7 @@ import java.util.List;
  * Time: 16:50
  * To change this template use File | Settings | File Templates.
  */
-public class MirKvartirRealtyParser extends AbstractJsoupRealtyParser {
+public class MirKvartirRealtyParser extends AbstractJsoupProxyRealtyParser {
 
     @Override
     protected void parseRequest(Document source, List<String> links) throws RealtyUnparsebleException {

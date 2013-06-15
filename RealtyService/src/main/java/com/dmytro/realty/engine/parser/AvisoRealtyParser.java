@@ -1,16 +1,12 @@
 package com.dmytro.realty.engine.parser;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.parser.Tag;
 import org.jsoup.select.Elements;
 
-import com.dmytro.realty.engine.RealtyOffer;
-
-public class AvisoRealtyParser extends AbstractJsoupRealtyParser {
+public class AvisoRealtyParser extends AbstractJsoupProxyRealtyParser {
 	public static String OFFER = "line_ads white";
 	public static String OFFER_LINK_CLASS = "link linkWithHash detailsLink {clickerID:'ads_title'}";
 

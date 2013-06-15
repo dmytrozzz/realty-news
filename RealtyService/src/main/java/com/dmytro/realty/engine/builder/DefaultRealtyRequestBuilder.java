@@ -49,7 +49,7 @@ public class DefaultRealtyRequestBuilder {
 	}
 
     protected String location(Set<Location> locations) {
-        String s = "&search%5Bdistrict_id%5D%5B0%5D=3&search%5Bdistrict_id%5D%5B1%5D=5";
+        String s = "";
         for(Location l : locations)
             s+="&search%5Bdistrict_id%5D%5B0%5D="+l.getLocation().getSlandoIndex();
         return s;

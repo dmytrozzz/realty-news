@@ -1,10 +1,6 @@
 package com.dmytro.realty.engine;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
@@ -66,18 +62,24 @@ public class RealtyEngine {
 		RealtyCriteria realtyCriteria = new RealtyCriteria();
 		realtyCriteria.setProductType(Product.Type.APPARTMENT);
 		realtyCriteria.getParameters().setFromPrice(2000);
-		realtyCriteria.getParameters().setToPrice(4000);
+		realtyCriteria.getParameters().setToPrice(5000);
+
+        realtyCriteria.getParameters().setFromRooms(1);
+        realtyCriteria.getParameters().setToRooms(3);
 
 		realtyCriteria.setOperation(Product.Operation.RENT);
 
 		RealtyUser user = new RealtyUser();
 		user.setEmail("d.zonov@ukr.net");
 
+        RealtyUser user2 = new RealtyUser();
+        user2.setEmail("Vados77777@bigmir.net");
+
 		RealtyEngine engine = new RealtyEngine();
 		while (true) {
 			System.out.println("Lets go!");
 			engine.searchAndSubscribe(realtyCriteria,
-					Collections.singletonList(user));
+                    Arrays.asList(user,user2));
 			Thread.sleep(20000);
 		}
 

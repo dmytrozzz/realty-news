@@ -1,6 +1,5 @@
 package com.dmytro.realty.engine.parser;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.json.simple.JSONObject;
@@ -9,15 +8,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.dmytro.realty.engine.RealtyOffer;
-
 //import com.dmytro.realty.engine.builder.SlandoCriteriaConverter;
 
 /**
  * Created with IntelliJ IDEA. User: dmytro Date: 28.01.13 Time: 21:44 To change
  * this template use File | Settings | File Templates.
  */
-public class SlandoRealtyParser extends AbstractJsoupRealtyParser {
+public class SlandoRealtyParser extends AbstractJsoupProxyRealtyParser {
 
 	public static String OFFERS_TABLE = "offers_table";
 	public static String OFFER_LINK_CLASS = "link linkWithHash detailsLink {clickerID:'ads_title'}";

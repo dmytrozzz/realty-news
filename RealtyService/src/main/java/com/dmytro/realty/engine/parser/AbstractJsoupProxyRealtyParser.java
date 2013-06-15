@@ -12,7 +12,7 @@ import org.jsoup.nodes.Document;
 import com.dmytro.realty.engine.RealtyOffer;
 import com.dmytro.realty.engine.builder.DefaultRealtyRequestBuilder;
 
-public abstract class AbstractJsoupRealtyParser implements IRealtyParser {
+public abstract class AbstractJsoupProxyRealtyParser implements IRealtyParser {
 
 	protected DefaultRealtyRequestBuilder requestBuilder;
 
@@ -64,6 +64,7 @@ public abstract class AbstractJsoupRealtyParser implements IRealtyParser {
 			URI uri = new URI(request);
 			return Jsoup.parse(uri.toURL(), 20000);
 		} catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
 			throw new RealtyUnparsebleException("Can't parse the link: "
 					+ request);
 		}

@@ -150,13 +150,6 @@
 			<version>1.2.0.Final</version>
 		</dependency>
 
-		<!-- File Uploading -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.2.1</version>
-		</dependency>
-
 		<!-- Logging -->
 		<!-- <dependency> <groupId>log4j</groupId> <artifactId>log4j</artifactId> 
 			<version>1.2.15</version> <exclusions> <exclusion> <groupId>javax.mail</groupId> 
@@ -170,12 +163,6 @@
 
 
 		<!-- Commons -->
-		<dependency>
-	<groupId>commons-lang</groupId>
-	<artifactId>commons-lang</artifactId>
-	<version>2.6</version>
-</dependency>
-            
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>

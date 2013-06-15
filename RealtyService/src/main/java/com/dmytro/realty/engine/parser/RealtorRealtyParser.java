@@ -6,7 +6,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class RealtorRealtyParser extends AbstractJsoupRealtyParser {
+public class RealtorRealtyParser extends AbstractJsoupProxyRealtyParser {
 
 	@Override
 	protected void parseRequest(Document source, List<String> links)
