@@ -1,10 +1,7 @@
 package com.dmytro.realty.engine.builder;
 
-import com.dmytro.realty.domain.Location;
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
-
-import java.util.Set;
 
 public class AvisoRequestBuilder extends ARealtyRequestBuilder {
 
@@ -17,30 +14,30 @@ public class AvisoRequestBuilder extends ARealtyRequestBuilder {
     protected String criteria(RealtyCriteria criteria) {
         String criteriaString = "/list.php?r=";
         switch (criteria.getProductType()) {
-            case APPARTMENT:
+            case APARTMENT:
                 if (criteria.getOperation() == Product.Operation.BUY)
                     return criteriaString + "101";
                 else if (criteria.getOperation() == Product.Operation.RENT)
                     return criteriaString + "121";
             case ROOM:
                 return criteriaString + "126";
-            case HOUSE:
-                if (criteria.getOperation() == Product.Operation.BUY)
-                    return criteriaString + "191";
-                else if (criteria.getOperation() == Product.Operation.RENT)
-                    return criteriaString + "196";
+//            case HOUSE:
+//                if (criteria.getOperation() == Product.Operation.BUY)
+//                    return criteriaString + "191";
+//                else if (criteria.getOperation() == Product.Operation.RENT)
+//                    return criteriaString + "196";
         }
         return "";
     }
 
     @Override
-    protected String location(Set<Location> locations) {
-        return "";
+    protected String location(Product.Location location) {
+        return "&distr=" + location.getAvisoIndex();
     }
 
     @Override
     protected String price(int from, int to) {
-        return "&"+parametrize("pricefrom={0}&priceto={1}",from,to) + "&curr=3";
+        return "&" + parametrize("pricefrom={0}&priceto={1}", from, to) + "&curr=3";
     }
 
     @Override

@@ -47,10 +47,10 @@ public class RealtyService implements IRealtyService {
                 realtyEngine.searchAndSubscribe(criteria, criteria.getUserCollection());
             } catch (RealtyUnparsebleException e) {
                 e.printStackTrace();
-                if (e.getCause() instanceof IOException) {
+                //if (e.getCause() instanceof IOException) {
                     proxy.setFailures(proxy.getFailures() + 1);
                     proxy = proxyRepository.save(proxy);
-                }
+                //}
             }
         }
     }

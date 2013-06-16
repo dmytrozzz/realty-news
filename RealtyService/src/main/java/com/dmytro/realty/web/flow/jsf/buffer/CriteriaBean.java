@@ -1,12 +1,10 @@
 package com.dmytro.realty.web.flow.jsf.buffer;
 
-import com.dmytro.realty.domain.Location;
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
 
 import java.io.Serializable;
-import java.util.*;
 
 public class CriteriaBean implements Serializable {
 
@@ -16,20 +14,17 @@ public class CriteriaBean implements Serializable {
 
     private RealtyParameters parameters;
 
-    private List<String> locations;
+    private Product.Location location;
 
     public CriteriaBean() {
         this.parameters = new RealtyParameters();
-        locations = new LinkedList<>();
     }
 
     public CriteriaBean(RealtyCriteria criteria) {
         this.productType = criteria.getProductType();
         this.operation = criteria.getOperation();
+        this.location = criteria.getLocation();
         this.parameters = criteria.getParameters();
-        locations = new LinkedList<>();
-        for(Location l : criteria.getLocations())
-            locations.add(l.getLocation().name());
     }
 
     public Product.Type getProductType() {
@@ -56,12 +51,12 @@ public class CriteriaBean implements Serializable {
         this.parameters = parameters;
     }
 
-    public List<String> getLocations() {
-        return locations;
+    public Product.Location getLocation() {
+        return location;
     }
 
-    public void setLocations(List<String> locations) {
-        this.locations = locations;
+    public void setLocation(Product.Location location) {
+        this.location = location;
     }
 
     public RealtyCriteria getRealtyCriteria() {
@@ -69,10 +64,7 @@ public class CriteriaBean implements Serializable {
         realtyCriteria.setOperation(operation);
         realtyCriteria.setParameters(parameters);
         realtyCriteria.setProductType(productType);
-        Set<Location> locationList = new HashSet<>();
-        for(String l : locations)
-        locationList.add(new Location(Product.Location.valueOf(l)));
-        realtyCriteria.setLocations(locationList);
+        realtyCriteria.setLocation(location);
         return realtyCriteria;
     }
 }

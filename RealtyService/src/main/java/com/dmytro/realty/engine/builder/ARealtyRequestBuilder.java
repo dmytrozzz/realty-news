@@ -1,11 +1,8 @@
 package com.dmytro.realty.engine.builder;
 
-import com.dmytro.realty.domain.Location;
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyParameters;
-
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,11 +15,11 @@ public abstract class ARealtyRequestBuilder {
 
     public String buildRequest(RealtyCriteria criteria) {
         return host() + criteria(criteria) + parameters(criteria, criteria.getParameters())
-                + location(criteria.getLocations()) + end();
+                + (criteria.getLocation() == null ? "" : location(criteria.getLocation())) + end();
     }
 
     private String parameters(RealtyCriteria criteria, RealtyParameters parameters) {
-        return (criteria.getProductType() == Product.Type.APPARTMENT ? rooms(parameters.getFromRooms(),
+        return (criteria.getProductType() == Product.Type.APARTMENT ? rooms(parameters.getFromRooms(),
                 parameters.getToRooms()) : "") + price(parameters.getFromPrice(), parameters.getToPrice());
     }
 
@@ -30,7 +27,7 @@ public abstract class ARealtyRequestBuilder {
 
     protected abstract String criteria(RealtyCriteria criteria);
 
-    protected abstract String location(Set<Location> locations);
+    protected abstract String location(Product.Location location);
 
     protected abstract String price(int from, int to);
 

@@ -1,10 +1,7 @@
 package com.dmytro.realty.engine.builder;
 
-import com.dmytro.realty.domain.Location;
+import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
-import org.jsoup.HttpStatusException;
-
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -31,27 +28,24 @@ public class SlandoRequestBuilder extends ARealtyRequestBuilder {
                 criteriaString += "arenda";
                 break;
         }
-        criteriaString+="-";
+        criteriaString += "-";
         switch (criteria.getProductType()) {
             case ROOM:
                 criteriaString += "komnat";
                 break;
-            case APPARTMENT:
+            case APARTMENT:
                 criteriaString += "kvartir";
                 break;
-            case HOUSE:
-                criteriaString += "domov";
-                break;
+//            case HOUSE:
+//                criteriaString += "domov";
+//                break;
         }
         return criteriaString + "/?";
     }
 
     @Override
-    protected String location(Set<Location> locations) {
-        String s = "";
-        for (Location l : locations)
-            s += "&search%5Bdistrict_id%5D%5B0%5D=" + l.getLocation().getSlandoIndex();
-        return s;
+    protected String location(Product.Location location) {
+        return "&search%5Bdistrict_id%5D%5B0%5D=" + location.getSlandoIndex();
     }
 
     @Override

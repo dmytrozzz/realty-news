@@ -18,33 +18,44 @@ public class MirKvartirRealtyParser extends AbstractJsoupProxyRealtyParser {
     @Override
     protected void parseRequest(Document source, List<String> links) throws RealtyUnparsebleException {
         Elements divs = source.getElementsByAttributeValue("class", "f");
+        divs.addAll(source.getElementsByAttributeValue("class", "o f"));
+
         for (Element div : divs)
             for (Element a : div.getElementsByTag("a"))
-                links.add(requestBuilder.host() + a.attr("href"));
+                if (a.attr("href").contains("/view/")
+                        && !links.contains(requestBuilder.host() + a.attr("href")))
+                    links.add(requestBuilder.host() + a.attr("href"));
     }
 
     @Override
     protected String parsePrice(Document document) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return document.getElementsByAttributeValue("class", "price_h2").text().replaceAll("\\D+", "");
     }
 
     @Override
     protected String parsePhone(Document document) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    protected String parseDate(Document document) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        Elements contacts = document.getElementsByAttributeValue("class", "contacts");
+        return contacts.first().getElementsByTag("li").first().text();
     }
 
     @Override
     protected String parseOffender(Document document) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        Elements contacts = document.getElementsByAttributeValue("class", "contacts");
+        return contacts.first().getElementsByTag("li").last().text();
     }
 
     @Override
+    protected String parseDate(Document document) {
+        String extra = document.getElementsByAttributeValue("class", "extra").text();
+        if (extra.contains(":"))
+            return extra.substring(extra.indexOf(":")+2, extra.indexOf(":") + 19);
+        return extra;
+    }
+
+
+    @Override
     protected String parseContent(Document document) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return document.getElementsByAttributeValue("class", "text").html()
+                .replace("<p>", "").replace("</p>", "");
     }
 }

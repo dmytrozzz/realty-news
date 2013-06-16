@@ -1,9 +1,7 @@
 package com.dmytro.realty.engine.builder;
 
-import com.dmytro.realty.domain.Location;
+import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
-
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,33 +20,43 @@ public class MirKvartirRequestBuilder extends ARealtyRequestBuilder {
     @Override
     protected String criteria(RealtyCriteria criteria) {
         String criteriaString = "/?module=offers";
-        switch (criteria.getProductType())
-        {
-            case APPARTMENT:
-                criteriaString+= "&section=1972&";
+        switch (criteria.getProductType()) {
+            case APARTMENT:
+                if (criteria.getOperation() == Product.Operation.BUY)
+                    criteriaString += "&section=1972";
+                else if (criteria.getOperation() == Product.Operation.RENT)
+                    criteriaString += "&section=1976";
+                break;
+            case ROOM:
+                criteriaString += "&section=1977";
+                break;
+//            case HOUSE:
+//                return "";
         }
-
-        return "";
+        return criteriaString + "&s=1&region=1";
     }
 
     @Override
-    protected String location(Set<Location> locations) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    protected String location(Product.Location location) {
+        return "&slist=" + location.getMirKvartirIndex();
     }
 
     protected String rooms(int fromRooms, int toRooms) {
-        String roomProperty = fromRooms == 5 ? "5-100" : fromRooms + "";
-        if (fromRooms != toRooms) {
-            for (int i = fromRooms + 1; i <= toRooms; i++)
-                roomProperty += "%2C" + i;
-            roomProperty += toRooms == 5 ? "5-100" : toRooms + "";
+        String roomProperty = fromRooms >= 5 ? "5-100" : fromRooms + "";
+        if (fromRooms != toRooms && fromRooms < 5) {
+            for (int i = fromRooms + 1; i <= toRooms; i++) {
+                if (toRooms < 5)
+                    roomProperty += "%2C" + i;
+                else
+                    roomProperty += "%2C5-100";
+            }
         }
 
-        return "&" ;//+ parametrize(properties.getProperty("FILTER_ROOMS"), fromRooms, toRooms);
+        return "&" + parametrize("flat={0}", roomProperty);
     }
 
     @Override
     protected String price(int fromPrice, int toPrice) {
-        return "&price=от+"+fromPrice+"+до+"+toPrice+"&currency=2";
+        return "&price=от+" + fromPrice + "+до+" + toPrice + "&currency=2";
     }
 }

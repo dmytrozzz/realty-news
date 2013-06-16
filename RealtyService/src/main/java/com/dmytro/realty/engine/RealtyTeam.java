@@ -1,13 +1,8 @@
 package com.dmytro.realty.engine;
 
 import com.dmytro.realty.domain.RealtyCriteria;
-import com.dmytro.realty.engine.builder.ARealtyRequestBuilder;
-import com.dmytro.realty.engine.builder.RealtorRequestBuilder;
-import com.dmytro.realty.engine.builder.RioRequestBuilder;
-import com.dmytro.realty.engine.parser.IRealtyParser;
-import com.dmytro.realty.engine.parser.RealtorRealtyParser;
-import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
-import com.dmytro.realty.engine.parser.RioRealtyParser;
+import com.dmytro.realty.engine.builder.*;
+import com.dmytro.realty.engine.parser.*;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.FileInputStream;
@@ -55,8 +50,8 @@ public class RealtyTeam {
         List<String> parsedLinks = null;
         Collection<String> newLinks = null;
 
-
         parsedLinks = realtyParser.parseRequest(request);
+
         newLinks = CollectionUtils.disjunction(oldLinks, CollectionUtils.union(oldLinks, parsedLinks));
 
 
@@ -83,20 +78,19 @@ public class RealtyTeam {
     public static List<RealtyTeam> createTeams() {
         List<RealtyTeam> realtyTeams = new LinkedList<>();
         // Slando
-        //realtyTeams.add(new RealtyTeam(new SlandoRequestBuilder(), new SlandoRealtyParser()));
+        realtyTeams.add(new RealtyTeam(new SlandoRequestBuilder(), new SlandoRealtyParser()));
 
         // Aviso
-        // realtyTeams.add(new RealtyTeam(new AvisoRequestBuilder(), new AvisoRealtyParser()));
+        realtyTeams.add(new RealtyTeam(new AvisoRequestBuilder(), new AvisoRealtyParser()));
 
         // Rio
-        //realtyTeams.add(new RealtyTeam(new RioRequestBuilder(), new RioRealtyParser()));
+        realtyTeams.add(new RealtyTeam(new RioRequestBuilder(), new RioRealtyParser()));
 
         // Realtor
         realtyTeams.add(new RealtyTeam(new RealtorRequestBuilder(), new RealtorRealtyParser()));
 
         // MirKvartir
-        // realtyTeams.add(new RealtyTeam("mir-kvartir", new
-        //         MirKvartirRequestBuilder(), new MirKvartirRealtyParser()));
+        realtyTeams.add(new RealtyTeam(new MirKvartirRequestBuilder(), new MirKvartirRealtyParser()));
         return realtyTeams;
     }
 }

@@ -1,6 +1,5 @@
 package com.dmytro.realty.engine.builder;
 
-import com.dmytro.realty.domain.Location;
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 
@@ -27,14 +26,14 @@ public class RioRequestBuilder extends ARealtyRequestBuilder {
         realtyCriteria = criteria;
         String criteriaString = "/ru/search/?category=1";
         switch (criteria.getProductType()) {
-            case APPARTMENT:
+            case APARTMENT:
                 criteriaString += "&realty_type=2";
                 break;
             case ROOM:
                 criteriaString += "&realty_type=3";
                 break;
-            case HOUSE:
-                criteriaString = "/ru/search/?category=4&realty_type=5";
+//            case HOUSE:
+//                criteriaString = "/ru/search/?category=4&realty_type=5";
         }
         switch (criteria.getOperation()) {
             case BUY:
@@ -46,7 +45,7 @@ public class RioRequestBuilder extends ARealtyRequestBuilder {
     }
 
     @Override
-    protected String location(Set<Location> locations) {
+    protected String location(Product.Location locations) {
         return "&state_id=10&city_id=10&district_id=0";
     }
 

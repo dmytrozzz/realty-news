@@ -29,9 +29,9 @@ public class RealtyCriteria implements Serializable {
     @Enumerated(EnumType.STRING)
     private Product.Operation operation;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "location_relation", joinColumns = @JoinColumn(name = "criteria_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "location_id", nullable = false))
-    private Set<Location> locations = new HashSet<>();
+    @Column(name = "location")
+    @Enumerated(EnumType.STRING)
+    private Product.Location location;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "parameters_id")
@@ -77,11 +77,11 @@ public class RealtyCriteria implements Serializable {
         this.userCollection = userCollection;
     }
 
-    public Set<Location> getLocations() {
-        return locations;
+    public Product.Location getLocation() {
+        return location;
     }
 
-    public void setLocations(Set<Location> locations) {
-        this.locations = locations;
+    public void setLocation(Product.Location location) {
+        this.location = location;
     }
 }

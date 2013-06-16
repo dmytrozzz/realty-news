@@ -12,20 +12,38 @@ public class Product {
         RENT, BUY//, FARM_OUT, SELL, EXCHANGE, LOOKING_PARTNER
     }
     public enum Type {
-        APPARTMENT, ROOM, HOUSE//, SOIL
+        APARTMENT, ROOM//, HOUSE//, SOIL
     }
 
     public enum Location {
-        HOLOSIEVO(1), DARNITSA(3), DESNA(5), DNIPROVSKY(7), OBOLON(9), PECHERSK(11), PODOLSKIY(13), SVYATOSHYN(15), SOLOMYANKA(17), SHEVCHENKIVSKIY(19);
+        HOLOSIEVO(1,1,81,369), DARNITSA(3,2,85,370), DESNA(5,3,83,371), DNIPROVSKY(7,4,84,372), OBOLON(9,5,76,374), PECHERSK(11,6,82,375), PODOLSKIY(13,7,78,376), SVYATOSHYN(15,8,86,377), SOLOMYANKA(17,9,80,378), SHEVCHENKIVSKIY(19,10,79,379);
 
         int slandoIndex = 0;
+        int avisoIndex = 0;
+        int rieltorIndex = 0;
+        int mirKvartirIndex = 0;
 
-        private Location(int slandoIndex) {
+        private Location(int slandoIndex,int avisoIndex,int rieltorIndex, int mirKvartirIndex) {
             this.slandoIndex = slandoIndex;
+            this.avisoIndex = avisoIndex;
+            this.rieltorIndex = rieltorIndex;
+            this.mirKvartirIndex = mirKvartirIndex;
         }
 
         public int getSlandoIndex() {
             return slandoIndex;
+        }
+
+        public int getAvisoIndex() {
+            return avisoIndex;
+        }
+
+        public int getRieltorIndex() {
+            return rieltorIndex;
+        }
+
+        public int getMirKvartirIndex() {
+            return mirKvartirIndex;
         }
     }
 
