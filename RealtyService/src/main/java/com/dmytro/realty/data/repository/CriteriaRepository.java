@@ -1,13 +1,10 @@
 package com.dmytro.realty.data.repository;
 
-import java.util.Collection;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.dmytro.realty.domain.RealtyCriteria;
-import com.dmytro.realty.domain.RealtyParameters;
 
 public interface CriteriaRepository extends CrudRepository<RealtyCriteria, Long> {
 

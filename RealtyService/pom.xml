@@ -228,6 +228,7 @@
 				<configuration>
 					<url>http://91.239.232.58:8080/manager/text</url>
 					<server>VPSTomcatS</server>
+                    <path>/</path>
 				</configuration>
 			</plugin>
 		</plugins>

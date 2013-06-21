@@ -3,7 +3,6 @@ package com.dmytro.realty.web.controller;
 import com.dmytro.realty.domain.Billing;
 import com.dmytro.realty.service.IPayService;
 import com.dmytro.realty.service.moneymaker.LiqPayRequest;
-
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,59 +13,61 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller("payMaBillController")
 public class PayMaBillController {
-	@Autowired
-	private IPayService payService;
+    @Autowired
+    private IPayService payService;
 
-	@RequestMapping(value = "/user-pay/easy/pay", method = RequestMethod.GET)
-	public RedirectView easyPay() {
-		Billing billy = payService.createEasyPayBilling();
-		
-		RedirectView redirect = new RedirectView(
-				"https://merchant.easypay.ua/client/order");
+    @RequestMapping(value = "/user-pay/easy/pay", method = RequestMethod.GET)
+    public RedirectView easyPay() {
+        Billing billy = payService.createEasyPayBilling();
 
-		redirect.addStaticAttribute("merchant_id",
-				"2701a2c2cdfe483ea8ce354dd31991db");
-		redirect.addStaticAttribute("desc", "Оплата послуги");
-		redirect.addStaticAttribute("amount", 5);
-		redirect.addStaticAttribute("order_id", billy.getUniqueID());
+        if (billy != null) {
+            RedirectView redirect = new RedirectView("https://merchant.easypay.ua/client/order");
 
-		return redirect;
-	}
+            redirect.addStaticAttribute("merchant_id", "2701a2c2cdfe483ea8ce354dd31991db");
+            redirect.addStaticAttribute("desc", "Оплата послуги");
+            redirect.addStaticAttribute("amount", 5);
+            redirect.addStaticAttribute("order_id", billy.getUniqueID());
+            return redirect;
+        }
 
-	@RequestMapping(value = "/user-pay/easy/process", method = RequestMethod.POST)
-	public void easyPayResponse(@RequestParam(value = "order_id") String orderId,
-			@RequestParam(value = "amount") int amount,
-			@RequestParam(value = "commission") String comission) {
-		payService.processEasyPayBilling(orderId, amount, comission);
-	}
+        return new RedirectView("/cabinet");
+    }
 
-	@RequestMapping(value = "/user-pay/easy/error", method = RequestMethod.GET)
-	public void easyPayError(@RequestParam(value = "order_id") long orderId) {
-		System.out.println("Pay was failed: " + orderId);
-	}
+    @RequestMapping(value = "/user-pay/easy/process", method = RequestMethod.POST)
+    public void easyPayResponse(@RequestParam(value = "order_id") String orderId,
+                                @RequestParam(value = "amount") int amount,
+                                @RequestParam(value = "commission") String comission) {
+        System.out.println("Controller Was here ----" + orderId + "---" + amount + "---" + comission);
+        payService.processEasyPayBilling(orderId, amount, comission);
+    }
 
-	@RequestMapping(value = "/user-pay/liq/pay", method = RequestMethod.GET)
-	public RedirectView liqPay() {
-		LiqPayRequest request = payService.createLiqPayBilling();
-		RedirectView redirect = new RedirectView(
-				"https://liqpay.com/?do=clickNbuy");
+    @RequestMapping(value = "/user-pay/easy/error", method = RequestMethod.GET)
+    public void easyPayError(@RequestParam(value = "order_id") long orderId) {
+        System.out.println("Pay was failed: " + orderId);
+    }
 
-		// redirect.addStaticAttribute("do", "clickNbuy");
-		// redirect.addStaticAttribute("button", "i1032136775");
-		redirect.addStaticAttribute("operation_xml", request.getOperationXml());
-		redirect.addStaticAttribute("signature", request.getSignature());
+    @RequestMapping(value = "/user-pay/liq/pay", method = RequestMethod.GET)
+    public RedirectView liqPay() {
+        LiqPayRequest request = payService.createLiqPayBilling();
+        RedirectView redirect = new RedirectView(
+                "https://liqpay.com/?do=clickNbuy");
 
-		return redirect;
-	}
+        // redirect.addStaticAttribute("do", "clickNbuy");
+        // redirect.addStaticAttribute("button", "i1032136775");
+        redirect.addStaticAttribute("operation_xml", request.getOperationXml());
+        redirect.addStaticAttribute("signature", request.getSignature());
 
-	@RequestMapping(value = "/user-pay/liq/process", method = RequestMethod.POST)
-	public void liqPayResponse(@RequestParam("operation_xml") String xmlEncoded) {
-		String xml = new String(Base64.decodeBase64(xmlEncoded));
-		payService.processLiqPayBilling(xml);
-	}
+        return redirect;
+    }
+
+    @RequestMapping(value = "/user-pay/liq/process", method = RequestMethod.POST)
+    public void liqPayResponse(@RequestParam("operation_xml") String xmlEncoded) {
+        String xml = new String(Base64.decodeBase64(xmlEncoded));
+        payService.processLiqPayBilling(xml);
+    }
 
 	/*
-	 * @RequestMapping(value = "/user-pay/spry/pay", method = RequestMethod.GET)
+     * @RequestMapping(value = "/user-pay/spry/pay", method = RequestMethod.GET)
 	 * public RedirectView spryPay() { RedirectView redirect = new
 	 * RedirectView("http://sprypay.ru/sppi/");
 	 * 

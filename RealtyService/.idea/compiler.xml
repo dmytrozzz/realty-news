@@ -25,6 +25,9 @@
         <module name="realty" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="realty" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 
