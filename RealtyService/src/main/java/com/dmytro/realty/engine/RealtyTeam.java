@@ -5,9 +5,6 @@ import com.dmytro.realty.engine.builder.*;
 import com.dmytro.realty.engine.parser.*;
 import org.apache.commons.collections.CollectionUtils;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 
 public class RealtyTeam {
@@ -59,20 +56,14 @@ public class RealtyTeam {
             oldLinks.clear();
             oldLinks.addAll(parsedLinks);
             for (String newOfferLink : newLinks) {
-                newOffers.add(realtyParser.parseOffer(newOfferLink));
+                try {
+                    newOffers.add(realtyParser.parseOffer(newOfferLink));
+                } catch (RealtyUnparsebleException rue) {
+                    rue.printStackTrace();
+                }
             }
         }
         return newOffers;
-    }
-
-    private Properties getProperties(String teamName) {
-        Properties properties = new Properties();
-        try (InputStream propFile = new FileInputStream(teamName + ".properties")) {
-            properties.load(propFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return properties;
     }
 
     public static List<RealtyTeam> createTeams() {
