@@ -19,9 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 
-import static com.dmytro.realty.domain.Billing.BillingState.FAILED;
-import static com.dmytro.realty.domain.Billing.BillingState.NEW;
-import static com.dmytro.realty.domain.Billing.BillingState.PROCESSING;
+import static com.dmytro.realty.domain.Billing.BillingState.*;
 
 @Repository
 @Transactional
@@ -30,7 +28,6 @@ public class PayService implements IPayService {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private BillingRepository billingRepository;
 
@@ -57,7 +54,6 @@ public class PayService implements IPayService {
                     billy.setStatus(FAILED);
                 else
                     billy.setStatus(PROCESSING);
-
                 billy.setTransactionID(response.getTransactionId());
                 billy.getUser().setPhone(response.getSenderPhone());
 
@@ -70,15 +66,19 @@ public class PayService implements IPayService {
 
     @Override
     public void processEasyPayBilling(String orderId, int amount, String comission) {
-        System.out.println("Was here ----" + orderId+"---"+amount+"---"+comission);
+        System.out.println("Was here ----" + orderId + "---" + amount + "---" + comission);
+
         Billing billy = billingRepository.findByUniqueID(orderId);
 
         if (billy != null && Arrays.asList(NEW, PROCESSING).contains(billy.getStatus())) {
-            billy.setStatus(BillingState.PAYED);
-            billy.getUser().setPayed(true);
-            billy.getUser().setEnabled(true);
+            RealtyUser payUser = userRepository.findByBillingId(billy.getId());
+            payUser.setPayed(true);
+            payUser.setEnabled(true);
+            payUser.getBilling().setStatus(PAYED);
+            userRepository.save(payUser);
+            //billy.setStatus(BillingState.PAYED);
+            //billingRepository.save(billy);
         }
-        billingRepository.save(billy);
     }
 
     @Override
@@ -96,6 +96,9 @@ public class PayService implements IPayService {
         else if (principal instanceof RealtyUser)
             user = (RealtyUser) principal;
 
+        RealtyUser payUser = userRepository.findOne(user.getId());
+
+
         Billing billing = null;
         if (user != null) {
             billing = user.getBilling();
@@ -104,9 +107,12 @@ public class PayService implements IPayService {
         if (billing == null || Arrays.asList(FAILED, NEW).contains(billing.getStatus())) {
             billing = billingRepository.save(Billing.createBilling(service));
             billing.setUniqueID(billing.getId() + "");
-            billing.setUser(user);
-            billing = billingRepository.save(billing);
-        }
-        return billing;
+        } else
+            billing.setService(service);
+
+        payUser.setBilling(billing);
+        userRepository.save(payUser);
+
+        return billingRepository.save(billing);
     }
 }

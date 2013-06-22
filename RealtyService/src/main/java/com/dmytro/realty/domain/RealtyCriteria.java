@@ -18,7 +18,6 @@ public class RealtyCriteria implements Serializable {
     private long id;
 
     @ManyToMany(mappedBy = "criteriaCollection")
-    @Where(clause = "payed = 'true' and enabled = 'true'")
     private Collection<RealtyUser> userCollection;
 
     @Column(name = "product_type")

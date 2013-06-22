@@ -5,6 +5,7 @@ import com.dmytro.realty.data.repository.ProxyRepository;
 import com.dmytro.realty.data.repository.UserRepository;
 import com.dmytro.realty.domain.Proxy;
 import com.dmytro.realty.domain.RealtyCriteria;
+import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.engine.RealtyEngine;
 import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
 import com.dmytro.realty.service.IRealtyService;
@@ -13,7 +14,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -21,37 +23,38 @@ import java.io.IOException;
 public class RealtyService implements IRealtyService {
     @Autowired
     private CriteriaRepository criteriaRepository;
-
     @Autowired
     private ProxyRepository proxyRepository;
-
     @Autowired
     private UserRepository userRepository;
-
     private RealtyEngine realtyEngine = new RealtyEngine();
+
+    public static Proxy proxy;
 
     @Override
     public void searchRealty() {
         Iterable<RealtyCriteria> criterias = criteriaRepository.findAll();
-        Proxy proxy = proxyRepository.getRandom();
-        System.setProperty("http.proxyHost", proxy.getAddress());
-        System.setProperty("http.proxyPort", proxy.getPort() + "");
+        RealtyService.proxy = proxyRepository.getRandom();
+        long start = System.currentTimeMillis();
 
         for (RealtyCriteria criteria : criterias) {
-            proxy.setTries(proxy.getTries() + 1);
-//	    System.out.println("FIRST!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//	    List<Integer> ids = userRepository.findAllUserIds(criteria.getId());
-//	    System.out.println("SECOND!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//	    List<RealtyUser> users = userRepository.findPayedAndEnabled(ids);
-            try {
-                realtyEngine.searchAndSubscribe(criteria, criteria.getUserCollection());
-            } catch (RealtyUnparsebleException e) {
-                e.printStackTrace();
-                //if (e.getCause() instanceof IOException) {
+            List<RealtyUser> coolMan = new LinkedList<>();
+            for (RealtyUser user : criteria.getUserCollection())
+                if (user.enabled && user.payed)
+                    coolMan.add(user);
+
+            if (!coolMan.isEmpty()) {
+                proxy.setTries(proxy.getTries() + 1);
+                try {
+                    realtyEngine.searchAndSubscribe(criteria, coolMan);
+                } catch (RealtyUnparsebleException e) {
+                    System.out.println(e.getMessage());
                     proxy.setFailures(proxy.getFailures() + 1);
-                    proxy = proxyRepository.save(proxy);
-                //}
+                }
             }
         }
+        long time = (System.currentTimeMillis() - start) / 1000;
+        proxy.setSeconds((proxy.getSeconds() + (int) time) / 2);
+        proxyRepository.save(proxy);
     }
 }

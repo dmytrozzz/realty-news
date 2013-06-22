@@ -4,15 +4,8 @@ import com.dmytro.realty.domain.Proxy;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-/**
- * Created with IntelliJ IDEA.
- * User: dmytro
- * Date: 15.06.13
- * Time: 10:52
- * To change this template use File | Settings | File Templates.
- */
 public interface ProxyRepository extends CrudRepository<Proxy, Long> {
 
-    @Query(value = "select p from proxy p order by random() limit 1",nativeQuery = true)
-    public Proxy getRandom();
+    @Query(value = "select p.id, p.address, p.port, p.failures, p.tries, p.seconds from proxy p order by random() limit 1", nativeQuery = true)
+    Proxy getRandom();
 }

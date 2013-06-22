@@ -17,6 +17,40 @@ public class RealtyEngine {
 
     }
 
+    public static RealtyCriteria criteria(Product.Type type, int fromP, int toP, int fromR, int toR, Product.Operation oper) {
+        RealtyCriteria realtyCriteria = new RealtyCriteria();
+        realtyCriteria.setProductType(type);
+        realtyCriteria.getParameters().setFromPrice(fromP);
+        realtyCriteria.getParameters().setToPrice(toP);
+
+        realtyCriteria.getParameters().setFromRooms(fromR);
+        realtyCriteria.getParameters().setToRooms(toR);
+
+        realtyCriteria.setOperation(oper);
+        return realtyCriteria;
+    }
+
+    public static void main(String[] args) throws InterruptedException, RealtyUnparsebleException, IOException {
+
+        RealtyCriteria criteria = criteria(
+                Product.Type.APARTMENT, 2000, 5000, 1, 3, Product.Operation.RENT);
+
+        RealtyUser user = new RealtyUser();
+        user.setEmail("d.zonov@ukr.net");
+
+        RealtyUser user2 = new RealtyUser();
+        user2.setEmail("Vados77777@bigmir.net");
+
+        RealtyEngine engine = new RealtyEngine();
+        while (true) {
+            System.out.println("Lets go!");
+            engine.searchAndSubscribe(criteria,
+                    Arrays.asList(user));
+            Thread.sleep(90000);
+        }
+
+    }
+
     /**
      * Sends new offers to users
      *
@@ -48,9 +82,7 @@ public class RealtyEngine {
             try {
                 resultOffers.addAll(team.collectOffers(criteria));
             } catch (RealtyUnparsebleException rue) {
-                if (rue.getCause() instanceof IOException)
-                    someError = true;
-                rue.printStackTrace();
+                someError = true;
             }
         }
 
@@ -60,39 +92,5 @@ public class RealtyEngine {
 
         //todo if(someError)
         //    throw new RealtyUnparsebleException("IO Error");
-    }
-
-    public static RealtyCriteria criteria(Product.Type type, int fromP, int toP, int fromR, int toR, Product.Operation oper) {
-        RealtyCriteria realtyCriteria = new RealtyCriteria();
-        realtyCriteria.setProductType(type);
-        realtyCriteria.getParameters().setFromPrice(fromP);
-        realtyCriteria.getParameters().setToPrice(toP);
-
-        realtyCriteria.getParameters().setFromRooms(fromR);
-        realtyCriteria.getParameters().setToRooms(toR);
-
-        realtyCriteria.setOperation(oper);
-        return realtyCriteria;
-    }
-
-    public static void main(String[] args) throws InterruptedException, RealtyUnparsebleException {
-
-        RealtyCriteria criteria = criteria(
-                Product.Type.APARTMENT, 2000, 5000, 1, 3, Product.Operation.RENT);
-
-        RealtyUser user = new RealtyUser();
-        user.setEmail("d.zonov@ukr.net");
-
-        RealtyUser user2 = new RealtyUser();
-        user2.setEmail("Vados77777@bigmir.net");
-
-        RealtyEngine engine = new RealtyEngine();
-        while (true) {
-            System.out.println("Lets go!");
-            engine.searchAndSubscribe(criteria,
-                    Arrays.asList(user));
-            Thread.sleep(90000);
-        }
-
     }
 }

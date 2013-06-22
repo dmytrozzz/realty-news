@@ -33,12 +33,12 @@ public class PayMaBillController {
         return new RedirectView("/cabinet");
     }
 
-    @RequestMapping(value = "/user-pay/easy/process", method = RequestMethod.POST)
+    @RequestMapping(value = "/user-pay/easy/process", method = {RequestMethod.POST,RequestMethod.GET})
     public void easyPayResponse(@RequestParam(value = "order_id") String orderId,
                                 @RequestParam(value = "amount") int amount,
-                                @RequestParam(value = "commission") String comission) {
-        System.out.println("Controller Was here ----" + orderId + "---" + amount + "---" + comission);
-        payService.processEasyPayBilling(orderId, amount, comission);
+                                @RequestParam(value = "commission") String commission) {
+        System.out.println("Controller Was here ----" + orderId + "---" + amount + "---" + commission);
+        payService.processEasyPayBilling(orderId, amount, commission);
     }
 
     @RequestMapping(value = "/user-pay/easy/error", method = RequestMethod.GET)

@@ -26,6 +26,9 @@ public class Proxy {
 
     private int failures;
 
+    @Column(nullable = true)
+    private int seconds;
+
     public long getId() {
         return id;
     }
@@ -64,5 +67,13 @@ public class Proxy {
 
     public void setFailures(int failures) {
         this.failures = failures;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
     }
 }
