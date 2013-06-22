@@ -30,6 +30,7 @@ public class PayService implements IPayService {
 
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private BillingRepository billingRepository;
 
@@ -95,7 +96,10 @@ public class PayService implements IPayService {
         else if (principal instanceof RealtyUser)
             user = (RealtyUser) principal;
 
-        Billing billing = user.getBilling();
+        Billing billing = null;
+        if (user != null) {
+            billing = user.getBilling();
+        }
 
         if (billing == null || Arrays.asList(FAILED, NEW).contains(billing.getStatus())) {
             billing = billingRepository.save(Billing.createBilling(service));
