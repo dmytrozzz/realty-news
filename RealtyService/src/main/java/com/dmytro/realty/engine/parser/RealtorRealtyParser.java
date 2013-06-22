@@ -47,8 +47,14 @@ public class RealtorRealtyParser extends AbstractJsoupProxyRealtyParser {
 
     @Override
     protected String parseContent(Document document) {
-        return document.getElementsByAttributeValue("class", "txt-box")
-                .first().getElementsContainingOwnText("Описание").get(0).nextElementSibling().text();
+        Element firstElement = document.getElementsByAttributeValue("class", "txt-box").first();
+        if (!firstElement.getElementsContainingOwnText("Описание").isEmpty())
+            return firstElement.getElementsContainingOwnText("Описание").get(0).nextElementSibling().text();
+        else if (!firstElement.getElementsContainingOwnText("Детали").isEmpty())
+            return firstElement.getElementsContainingOwnText("Детали").get(0).nextElementSibling().text();
+        else if (!firstElement.getElementsContainingOwnText("В квартире есть").isEmpty())
+            return firstElement.getElementsContainingOwnText("В квартире есть").get(0).nextElementSibling().text();
+        return "";
     }
 
 }
