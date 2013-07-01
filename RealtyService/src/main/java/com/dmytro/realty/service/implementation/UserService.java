@@ -1,5 +1,6 @@
 package com.dmytro.realty.service.implementation;
 
+import com.dmytro.realty.engine.SendMan;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,8 +44,8 @@ public class UserService implements IUserService, UserDetailsService {
 	}
 
 	public void saveUser(RealtyUser user) {
-		if (!userRepository.exists(user.getId()))
-			user.setPassword(DigestUtils.sha256Hex(user.getPassword()));
+		//if (!userRepository.exists(user.getId()))
+		//	user.setPassword(DigestUtils.sha256Hex(user.getPassword()));
 		for (RealtyCriteria criteria : user.getCriteriaCollection()) {
 			// Check unique parameters
 			RealtyParameters p = criteria.getParameters();
@@ -55,7 +56,7 @@ public class UserService implements IUserService, UserDetailsService {
 
 			// Check unique criteria
 			RealtyCriteria dataC = criteriaRepository.nativeFindBy(criteria
-					.getProductType().name(), criteria.getOperation().name(), p
+					.getProductType().name(), criteria.getOperation().name(), criteria.getLocation().name(), p
 					.getId());
 
 			if (dataC != null)
@@ -69,4 +70,9 @@ public class UserService implements IUserService, UserDetailsService {
 	public RealtyUser findUserByLogin(String login) {
 		return userRepository.findByLogin(login);
 	}
+
+    @Override
+    public void registration(RealtyUser user) {
+        SendMan.sendMessage(user);
+    }
 }

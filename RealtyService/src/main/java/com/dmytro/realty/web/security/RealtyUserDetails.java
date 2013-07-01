@@ -50,7 +50,7 @@ public class RealtyUserDetails implements UserDetails {
 	return true;
     }
 
-    public RealtyUser getRealtyUser() { 
+    public RealtyUser getRealtyUser() {
 	return realtyUser;
     }
 }

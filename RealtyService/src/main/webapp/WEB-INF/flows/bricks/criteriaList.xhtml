@@ -61,14 +61,14 @@
                             <p:inputText id="to_price" value="#{criteria.parameters.toPrice}"/>
 
                             <h:outputLabel for="from_rooms" value="#{ui.FROM_ROOMS}: "
-                                           rendered='#{criteria.productType.name().equals("APPARTMENT")}'/>
+                                           rendered='#{criteria.productType.name().equals("APARTMENT")}'/>
                             <p:inputText id="from_rooms" value="#{criteria.parameters.fromRooms}"
-                                         rendered='#{criteria.productType.name().equals("APPARTMENT")}'/>
+                                         rendered='#{criteria.productType.name().equals("APARTMENT")}'/>
 
                             <h:outputLabel for="to_rooms" value="#{ui.TO_ROOMS}: "
-                                           rendered='#{criteria.productType.name().equals("APPARTMENT")}'/>
+                                           rendered='#{criteria.productType.name().equals("APARTMENT")}'/>
                             <p:inputText id="to_rooms" value="#{criteria.parameters.toRooms}"
-                                         rendered='#{criteria.productType.name().equals("APPARTMENT")}'/>
+                                         rendered='#{criteria.productType.name().equals("APARTMENT")}'/>
 
                             <h:outputLabel for="private_check" value="#{ui.ONLY_PRIVATE}"/>
                             <p:selectBooleanCheckbox id="private_check" value="#{criteria.parameters.privateBusiness}"/>

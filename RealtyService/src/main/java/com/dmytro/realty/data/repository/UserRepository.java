@@ -19,4 +19,6 @@ public interface UserRepository extends CrudRepository<RealtyUser, Long> {
     @Query(value = "select * from realty_user where billing_id = :billingID", nativeQuery = true)
     RealtyUser findByBillingId(@Param("billingID") long uniqueID);
 
+    RealtyUser findByLoginAndEmail(String login, String email);
+
 }

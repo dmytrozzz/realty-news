@@ -41,10 +41,10 @@ public class RealtyUser implements Serializable {
 	private String phone;
 	
 	@Column(name = "enabled")
-	public boolean enabled;
+	public boolean enabled = true;
 	
 	@Column(name = "payed")
-	public boolean payed;
+	public boolean payed = true;
 	
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

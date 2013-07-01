@@ -17,6 +17,9 @@ public class UserPreferencesBean implements Serializable {
     private List<CriteriaBean> criteriaList = new ArrayList<>();
     private boolean authorized = false;
 
+    private String emailToRestore;
+    private String loginToRestore;
+
     public UserPreferencesBean() {
         user = new RealtyUser();
         addCriteria();
@@ -86,5 +89,21 @@ public class UserPreferencesBean implements Serializable {
 
     public String getPayedStatus() {
         return user.isPayed() ? "SERVICE_PAYED" : "SERVICE_UNPAYED";
+    }
+
+    public String getEmailToRestore() {
+        return emailToRestore;
+    }
+
+    public void setEmailToRestore(String emailToRestore) {
+        this.emailToRestore = emailToRestore;
+    }
+
+    public String getLoginToRestore() {
+        return loginToRestore;
+    }
+
+    public void setLoginToRestore(String loginToRestore) {
+        this.loginToRestore = loginToRestore;
     }
 }

@@ -27,5 +27,9 @@
 		<transition on="goWizard">
 			<evaluate expression="realtyController.getWizard(preferences)" result="viewScope.currentState" />
 		</transition>
+
+        <transition on="restorePass">
+            <evaluate expression="realtyController.restorePass(preferences)" />
+        </transition>
 	</global-transitions>
 </flow>

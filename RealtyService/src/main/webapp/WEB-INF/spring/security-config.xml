@@ -34,9 +34,7 @@
 
 
 	<authentication-manager>
-		<authentication-provider user-service-ref="userService">
-			<password-encoder hash="sha-256" />
-		</authentication-provider>
+		<authentication-provider user-service-ref="userService"/>
 
 		<authentication-provider>
 			<user-service>
