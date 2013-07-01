@@ -6,4 +6,6 @@ public interface IUserService {
     public RealtyUser findUserByLogin(String login);
 
     public void saveUser(RealtyUser user);
+
+    public void registration(RealtyUser user);
 }

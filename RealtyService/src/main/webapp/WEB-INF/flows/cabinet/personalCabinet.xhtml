@@ -71,6 +71,9 @@
 								<h:outputText value="#{ui[preferences.getServiceStatus()]}" />
 								<ui:include src="bricks/paymoney.xhtml" />
 							</h:panelGrid>
+                            <p:commandButton value="#{ui.SAVE}" action="saveUser" actionListener="#{currentState.preferences.save}" />
+                            <br />
+                            <br />
 						</p:tab>
 
 						<p:tab id="tab2" title="#{ui.SEARCH_OPTIONS}">

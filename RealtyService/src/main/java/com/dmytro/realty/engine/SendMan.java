@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+import com.dmytro.realty.domain.RealtyUser;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
@@ -12,15 +13,8 @@ public class SendMan {
 	HtmlEmail email;
 
 	public void createMessage(List<RealtyOffer> units) {
-		email = new HtmlEmail();
-		email.setHostName("smtp.gmail.com");
-		email.setSmtpPort(587);
-		email.setAuthenticator(new DefaultAuthenticator(
-				"krepka.klepka@gmail.com", "oprotvereziynyk123"));
-		email.setStartTLSEnabled(true);
+		email = createEmail();
 
-		email.setSubject("Realty Service Feed");
-		email.setCharset("UTF-8");
 		String htmlContent = "<html>";
 		for (RealtyOffer unit : units) {
 			URL url;
@@ -66,6 +60,37 @@ public class SendMan {
 			e.printStackTrace();
 		}
 	}
+
+    private static HtmlEmail createEmail(){
+        HtmlEmail email = new HtmlEmail();
+        email.setHostName("smtp.gmail.com");
+        email.setSmtpPort(587);
+        email.setAuthenticator(new DefaultAuthenticator(
+                "krepka.klepka@gmail.com", "oprotvereziynyk123"));
+        email.setStartTLSEnabled(true);
+
+        email.setSubject("Realty Service Feed");
+        email.setCharset("UTF-8");
+        return email;
+    }
+
+    public static void sendMessage(RealtyUser user){
+        HtmlEmail email = createEmail();
+        String htmlContent = "<html>";
+        htmlContent+="<h4>Ваш логін: </h4><h1>" + user.getLogin() + "</h1>";
+        htmlContent+="<h4>Ваш пароль: </h4><h1>" + user.getPassword() + "</h1>";
+        htmlContent+="</html>";
+        try {
+            email.setFrom("realtyhelper@realtyservice.com.ua", "Your Realty Helper");
+            email.setHtmlMsg(htmlContent);
+            // set the alternative message
+            email.setTextMsg("Your email client does not support HTML messages");
+            email.addTo(user.getEmail());
+            email.send();
+        } catch (EmailException emae) {
+            emae.printStackTrace();
+        }
+    }
 
 	private String format(RealtyOffer unit, String phone, boolean phoneAsIs) {
 		return unit.getOfferContent()
