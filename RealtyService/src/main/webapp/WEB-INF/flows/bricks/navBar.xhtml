@@ -73,6 +73,12 @@
 							<li><h:outputLink value="logout" rendered="#{authorized}">#{ui.LOGOUT}</h:outputLink></li>
 						</sec:authorize>
 					</ul>
+                    <div class="nav-collapse collapse pull-right">
+                        <ul class="nav">
+                            <li><a href="?lang=uk">УКР</a></li>
+                            <li><a href="?lang=ru">РУС</a></li>
+                        </ul>
+                    </div>
 					<!--<sec:authorize access="isAuthenticated()">
 						<h:outputFormat styleClass="navbar-text pull-right" value="#{ui.WELCOME}">
 							<f:param value="#{currentUser.name}" />

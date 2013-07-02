@@ -14,7 +14,7 @@
 			<listener ref="facesContextListener" />
 			<listener ref="securityListener" />
 		</flow-execution-listeners>
-        <flow-execution-repository max-executions="0" max-execution-snapshots="30"/>
+        <flow-execution-repository max-executions="0" max-execution-snapshots="0"/>
 	</flow-executor>
 
 	<!-- The registry of executable flow definitions -->
