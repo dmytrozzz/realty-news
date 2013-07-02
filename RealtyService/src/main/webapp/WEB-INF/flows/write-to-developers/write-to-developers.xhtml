@@ -68,7 +68,7 @@
 							<p:inputTextarea id="message" value="#{feedBackBean.feedBack.content}"/>
 
 							<f:facet name="footer">
-								<p:commandButton value="#{ui.SEND_MESSAGE}" action="sendMessage" styleClass="pull-left" />
+								<p:commandButton value="#{ui.SEND_MESSAGE}" action="sendMessage" update="@form" styleClass="pull-left" />
 							</f:facet>
 						</h:panelGrid>
 

@@ -26,7 +26,7 @@ public class FeedBack implements Serializable {
 	private String content;
 	
 	@Column(name = "good")
-	private boolean good = true;
+	private boolean good;
 
 	public long getId() {
 		return id;

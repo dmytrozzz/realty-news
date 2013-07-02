@@ -14,6 +14,7 @@
 
 		<transition on="sendMessage">
 			<evaluate expression="feedBackController.postFeedBack(viewScope.feedBackBean.feedBack)" />
+            <evaluate expression="feedBackController.createLightFeedBackBean()" result="viewScope.feedBackBean" />
 		</transition>
 	</view-state>
 </flow>
