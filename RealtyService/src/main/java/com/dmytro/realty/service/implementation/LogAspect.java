@@ -23,7 +23,6 @@ public class LogAspect {
 
     @Around("execution(* com.dmytro.realty.service.implementation.IRealtyService.*.*(..))")
     public Object logTimeMethod(ProceedingJoinPoint joinPoint) throws Throwable {
-
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 

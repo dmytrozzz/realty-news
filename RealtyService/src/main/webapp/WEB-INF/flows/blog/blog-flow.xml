@@ -18,13 +18,29 @@
 		<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
 			<evaluate expression="blogController.getAllPosts()" result="viewScope.posts" />
 		</on-entry>
+        <transition on="createArticle" to="publish">
+            <evaluate expression="blogController.createPost()" result="viewScope.article"/>
+        </transition>
 	</view-state>
 
 	<view-state id="post">
 		<on-entry>
 		<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
-			<evaluate expression="blogController.getPost(suffix)" result="viewScope.post" />
+			<evaluate expression="blogController.getPost(suffix)" result="viewScope.article" />
 		</on-entry>
+        <transition on="editArticle" to="publish">
+            <evaluate expression="blogController.getPost(article.id)" result="viewScope.article"/>
+        </transition>
 	</view-state>
+
+    <view-state id="publish">
+        <on-entry>
+            <evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
+        </on-entry>
+        <transition on="saveArticle">
+            <evaluate expression="blogController.savePost(viewScope.article)" />
+        </transition>
+    </view-state>
+
 
 </flow>

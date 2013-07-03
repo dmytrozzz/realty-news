@@ -1,0 +1,37 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+    template="/WEB-INF/layouts/simple-layout.xhtml">
+	<ui:define name="header">
+		<ui:include src="../bricks/navBar.xhtml" />
+	</ui:define>
+
+	<ui:define name="content">
+		<p:growl id="growl" sticky="true" showDetail="true" />
+		<div class="container marketing" style="padding-top: 70px">
+           <h:form>
+			<hr class="featurette-divider" />
+
+            <p:outputLabel for="title" value="#{ui.POST_TITLE}:" />
+            <p:inputText id="title" value="#{article.title}" required="true" requiredMessage="#{ui.ERR_TITLE_REQUIRED}" />
+            <p:message for="title" display="both" />
+
+            <p:outputLabel for="foreword" value="#{ui.POST_FOREWORD}:" />
+            <p:inputTextarea id="foreword" value="#{article.title}" rows="6" cols="33" maxlength="254" counterTemplate="Ще {0} символів."/>
+
+            <p:outputLabel for="content" value="#{ui.POST_CONTENT}:" />
+            <p:editor value="#{article.content}"/>
+
+            <p:outputLabel for="suffix" value="#{ui.POST_SUFFIX}:" />
+            <p:inputText id="suffix" value="#{article.suffix}" required="true" requiredMessage="#{ui.ERR_SUFFIX_REQUIRED}" />
+            <p:message for="suffix" display="both" />
+
+            @Column(name = "picture")
+            private String picture;
+
+            <hr class="featurette-divider" />
+                <p:commandButton value="#{ui.SAVE}:" icon="ui-icon-disk" action="saveArticle" />
+           </h:form>
+        </div>
+	</ui:define>
+</ui:composition>

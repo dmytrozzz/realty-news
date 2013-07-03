@@ -2,6 +2,7 @@ package com.dmytro.realty.web.controller;
 
 import java.util.List;
 
+import com.dmytro.realty.data.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,4 +30,12 @@ public class BlogController {
 	public BlogPost getPost(String suffix) {
 		return blogService.getPost(suffix);
 	}
+
+    public BlogPost createPost(){
+        return new BlogPost();
+    }
+
+    public void savePost(BlogPost post) {
+        blogService.savePost(post);
+    }
 }

@@ -12,4 +12,6 @@ public interface IBlogService {
 	
 	BlogPost getPost(String suffix);
 
+    BlogPost savePost(BlogPost post);
+
 }
