@@ -33,4 +33,9 @@ public class BlogService implements IBlogService {
     public BlogPost savePost(BlogPost post) {
         return blogRepository.save(post);
     }
+
+    @Override
+    public void deletePost(BlogPost post) {
+        blogRepository.delete(post.getId());
+    }
 }

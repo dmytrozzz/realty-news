@@ -1,46 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow xmlns="http://www.springframework.org/schema/webflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
 	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
-	start-state="start-page">
+      start-state="start-page">
 
-	<var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil" />
+    <var name="jsfUtil" class="com.dmytro.realty.web.flow.jsf.JSFUtil"/>
 
-	<input name="singlePost" type="boolean" />
-	<input name="suffix" />
+    <input name="singlePost" type="boolean"/>
+    <input name="modify" type="boolean"/>
+    <input name="suffix"/>
 
-	<decision-state id="start-page">
-		<if test="singlePost" then="post" else="blog" />
-	</decision-state>
+    <decision-state id="start-page">
+        <if test="singlePost" then="watch-modify" else="blog"/>
+    </decision-state>
 
-	<view-state id="blog">
-		<on-entry>
-		<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
-			<evaluate expression="blogController.getAllPosts()" result="viewScope.posts" />
-		</on-entry>
-        <transition on="createArticle" to="publish">
-            <evaluate expression="blogController.createPost()" result="viewScope.article"/>
-        </transition>
-	</view-state>
+    <decision-state id="watch-modify">
+        <if test="modify" then="modify-post" else="post"/>
+    </decision-state>
 
-	<view-state id="post">
-		<on-entry>
-		<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
-			<evaluate expression="blogController.getPost(suffix)" result="viewScope.article" />
-		</on-entry>
-        <transition on="editArticle" to="publish">
-            <evaluate expression="blogController.getPost(article.id)" result="viewScope.article"/>
-        </transition>
-	</view-state>
-
-    <view-state id="publish">
+    <view-state id="blog">
         <on-entry>
-            <evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
+            <evaluate expression="blogController.getAllPosts()" result="viewScope.posts"/>
         </on-entry>
-        <transition on="saveArticle">
-            <evaluate expression="blogController.savePost(viewScope.article)" />
-        </transition>
     </view-state>
 
+    <view-state id="post">
+        <on-entry>
+            <evaluate expression="blogController.getPost(suffix)" result="viewScope.article"/>
+        </on-entry>
+    </view-state>
+
+    <view-state id="modify-post" view="publish.xhtml">
+        <on-entry>
+            <evaluate expression="blogController.getPost(suffix)" result="viewScope.article"/>
+        </on-entry>
+    </view-state>
+
+    <view-state id="create-post" view="publish.xhtml">
+        <on-entry>
+            <evaluate expression="blogController.createPost()" result="viewScope.article"/>
+        </on-entry>
+    </view-state>
+
+    <global-transitions>
+        <transition on="createArticle" to="create-post"/>
+
+        <transition on="saveArticle">
+            <evaluate expression="blogController.savePost(viewScope.article)"/>
+        </transition>
+
+        <transition on="removeArticle" to="blog">
+            <evaluate expression="blogController.deletePost(viewScope.article)"/>
+        </transition>
+    </global-transitions>
 
 </flow>

@@ -11,26 +11,29 @@
 		<div class="container marketing" style="padding-top: 70px">
            <h:form>
 			<hr class="featurette-divider" />
-
+<h:panelGrid columns="3">
             <p:outputLabel for="title" value="#{ui.POST_TITLE}:" />
             <p:inputText id="title" value="#{article.title}" required="true" requiredMessage="#{ui.ERR_TITLE_REQUIRED}" />
             <p:message for="title" display="both" />
 
             <p:outputLabel for="foreword" value="#{ui.POST_FOREWORD}:" />
-            <p:inputTextarea id="foreword" value="#{article.title}" rows="6" cols="33" maxlength="254" counterTemplate="Ще {0} символів."/>
+            <p:inputTextarea id="foreword" value="#{article.foreword}" rows="5" cols="22" maxlength="254" counterTemplate="Ще {0} символів."/>
+            <br/>
 
             <p:outputLabel for="content" value="#{ui.POST_CONTENT}:" />
-            <p:editor value="#{article.content}"/>
+            <p:editor id="content" value="#{article.content}" width="1000"/>
+            <br/>
 
             <p:outputLabel for="suffix" value="#{ui.POST_SUFFIX}:" />
             <p:inputText id="suffix" value="#{article.suffix}" required="true" requiredMessage="#{ui.ERR_SUFFIX_REQUIRED}" />
             <p:message for="suffix" display="both" />
-
+</h:panelGrid>
             @Column(name = "picture")
             private String picture;
 
             <hr class="featurette-divider" />
                 <p:commandButton value="#{ui.SAVE}:" icon="ui-icon-disk" action="saveArticle" />
+               <a href="blog/#{article.suffix}">#{ui.WATCH_POST}</a>
            </h:form>
         </div>
 	</ui:define>

@@ -1,6 +1,7 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui" xmlns:sec="http://www.springframework.org/security/tags"
 	template="/WEB-INF/layouts/simple-layout.xhtml">
 	<style>
 .marketing .span4 {
@@ -73,9 +74,11 @@ p {
 			<h2 class="featurette-heading text-center">
 				#{ui.BLOG_TITLE}. <span class="muted">#{ui.BLOG_SUB_TITLE}.</span>
 			</h2>
+            <h:form>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <p:commandButton value="#{ui.CREATE_POST}:" icon="ui-icon-disk" action="createArticle" />
             </sec:authorize>
+            </h:form>
 			<hr class="featurette-divider" />
 
 			<ui:repeat value="#{posts}" var="article">

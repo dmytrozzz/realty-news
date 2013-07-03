@@ -80,6 +80,12 @@ p {
                     <f:param value="#{article.postDate}" />
                 </h:outputFormat>
             </h6>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                <a href="blog/edit/#{article.suffix}">#{ui.EDIT_POST}:</a>
+                <h:form>
+                    <p:commandButton value="#{ui.REMOVE_POST}:" icon="ui-icon-delete" action="removeArticle" />
+                </h:form>
+            </sec:authorize>
 			<hr class="featurette-divider" />
 			<div class="featurette">
 				<div class="row">
@@ -92,15 +98,12 @@ p {
 					</div>
 					<div class="span9"
 						style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
-                        <h:outputText value="#{article.value}" escape="false" />
+                        <h:outputText value="#{article.content}" escape="false" />
                         <!--<p>#{article.getBreakedContent()}</p>-->
 					</div>
 				</div>
 			</div>
 			<hr class="featurette-divider" />
-            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <p:commandButton value="#{ui.EDIT_POST}:" icon="ui-icon-disk" action="editArticle" />
-            </sec:authorize>
 		</div>
 	</ui:define>
 </ui:composition>

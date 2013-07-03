@@ -8,4 +8,6 @@ public interface IUserService {
     public void saveUser(RealtyUser user);
 
     public void registration(RealtyUser user);
+
+    public RealtyUser getCurrentUser();
 }

@@ -56,7 +56,9 @@
 					<h:outputLink styleClass="brand" value="#{request.contextPath}/app/home">#{ui.TITLE}</h:outputLink>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li><h:outputLink value="#{request.contextPath}/app/cabinet" rendered="#{authorized}">#{ui.PERSONAL_CABINET}</h:outputLink></li>
+                            <sec:authorize access="isAuthenticated()">
+							    <li><h:outputLink value="#{request.contextPath}/app/cabinet">#{ui.PERSONAL_CABINET}</h:outputLink></li>
+                            </sec:authorize>
 							<li><h:outputLink value="#{request.contextPath}/app/how-it-works">#{ui.HOW_IT_WORKS}</h:outputLink></li>
 							<li><h:outputLink value="#{request.contextPath}/app/blog">#{ui.RECOMMENDATIONS}</h:outputLink></li>
 							<li><h:outputLink value="#{request.contextPath}/app/write-to-developers">#{ui.WRITE_TO_DEVELOPERS}</h:outputLink></li>
@@ -70,7 +72,7 @@
 							<li><h:outputLink id="loginLink" value="javascript:void(0)">#{ui.LOGIN}</h:outputLink></li>
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
-							<li><h:outputLink value="logout" rendered="#{authorized}">#{ui.LOGOUT}</h:outputLink></li>
+							<li><h:outputLink value="logout">#{ui.LOGOUT}</h:outputLink></li>
 						</sec:authorize>
 					</ul>
                     <div class="nav-collapse collapse pull-right">

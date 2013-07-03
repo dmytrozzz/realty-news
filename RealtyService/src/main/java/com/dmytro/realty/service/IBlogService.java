@@ -14,4 +14,5 @@ public interface IBlogService {
 
     BlogPost savePost(BlogPost post);
 
+    void deletePost(BlogPost post);
 }

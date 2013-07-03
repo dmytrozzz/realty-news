@@ -23,7 +23,6 @@ import java.util.Collection;
 
 @Controller("realtyController")
 public class RealtyController {
-
     private final static Collection<? extends GrantedAuthority> USER_AUTHORITY = AuthorityUtils
             .createAuthorityList("ROLE_USER");
 
