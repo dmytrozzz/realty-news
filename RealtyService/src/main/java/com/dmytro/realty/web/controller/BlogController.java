@@ -24,13 +24,11 @@ public class BlogController {
 
     @RequestMapping(value = "blog/{suffix}", method = RequestMethod.GET)
     public String getBlogPost(@PathVariable("suffix") String suffix) {
-        System.out.println("WE HERE!!!");
         return "/app/blog?singlePost=" + true + "&suffix=" + suffix;
     }
 
     @RequestMapping(value = "blog/edit/{suffix}", method = RequestMethod.GET)
     public String getBlogPostEdit(@PathVariable("suffix") String suffix) {
-        System.out.println("WE HERE!!!");
         return "/app/blog?singlePost=" + true + "&modify=" + true + "&suffix=" + suffix;
     }
 

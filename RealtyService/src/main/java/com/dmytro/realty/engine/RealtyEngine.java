@@ -62,7 +62,8 @@ public class RealtyEngine {
         sendMan.createMessage(newRealtyOffers);
         // TODO from DB already List or array of emails
         for (RealtyUser user : realtyUsers) {
-            sendMan.addRecipient(user.getEmail());
+            if (user.payed && user.enabled)
+                sendMan.addRecipient(user.getEmail());
         }
         sendMan.sendEmail();
     }

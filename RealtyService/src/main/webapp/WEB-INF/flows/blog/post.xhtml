@@ -54,7 +54,8 @@ p {
 	font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond,
 		Times, serif;
 	letter-spacing: 0.1em;
-	text-align: center;
+        text-align: center;
+        text-indent:10px;
 	margin: 40px auto;
 	text-transform: lowercase;
 	line-height: 145%;
@@ -71,7 +72,7 @@ p {
 		<p:growl id="growl" sticky="true" showDetail="true" />
 		<div class="container marketing" style="padding-top: 70px">
 			<hr class="featurette-divider" />
-			<h2 class="featurette-heading text-center" style="font-family: Gill Sans, Verdana; text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">
+			<h2 class="featurette-heading text-center" style="font-family: Gill Sans, Verdana; font-style:italic; text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">
                 #{article.title}
 			</h2>
             <h6>
@@ -83,21 +84,21 @@ p {
             <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <a href="blog/edit/#{article.suffix}">#{ui.EDIT_POST}:</a>
                 <h:form>
-                    <p:commandButton value="#{ui.REMOVE_POST}:" icon="ui-icon-delete" action="removeArticle" />
+                    <p:commandButton value="#{ui.REMOVE_POST}:" icon="ui-icon-delete" action="removeArticle" styleClass="pull-right" />
                 </h:form>
             </sec:authorize>
 			<hr class="featurette-divider" />
 			<div class="featurette">
 				<div class="row">
-					<div class="span4"
-						style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
+					<div class="span8"
+						style="font-family: georgia, serif; color: #381704; font-size: 21px;font-style:italic; text-align: justify; font-weight: normal; line-height: 150%; padding: 0px;">
 						<p>#{article.foreword}</p>
 					</div>
-					<div class="span6">
+					<div class="span4">
 						<img src="resources/images/blog/#{article.picture}.jpg" style="width: 400px; height: 200px" />
 					</div>
-					<div class="span9"
-						style="font-family: georgia, serif; color: #381704; font-size: 17px; font-weight: normal; line-height: 150%; padding: 0px;">
+					<div class="span12"
+						style="font-family: georgia, serif; color: #381704; font-size: 17px;text-indent:35px; font-weight: normal; line-height: 150%; padding: 0px;">
                         <h:outputText value="#{article.content}" escape="false" />
                         <!--<p>#{article.getBreakedContent()}</p>-->
 					</div>

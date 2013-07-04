@@ -13,11 +13,11 @@
 			<hr class="featurette-divider" />
 <h:panelGrid columns="3">
             <p:outputLabel for="title" value="#{ui.POST_TITLE}:" />
-            <p:inputText id="title" value="#{article.title}" required="true" requiredMessage="#{ui.ERR_TITLE_REQUIRED}" />
+            <p:inputText id="title" value="#{article.title}" required="true" size="35" requiredMessage="#{ui.ERR_TITLE_REQUIRED}" />
             <p:message for="title" display="both" />
 
             <p:outputLabel for="foreword" value="#{ui.POST_FOREWORD}:" />
-            <p:inputTextarea id="foreword" value="#{article.foreword}" rows="5" cols="22" maxlength="254" counterTemplate="Ще {0} символів."/>
+            <p:inputTextarea id="foreword" value="#{article.foreword}" maxlength="255" />
             <br/>
 
             <p:outputLabel for="content" value="#{ui.POST_CONTENT}:" />
@@ -25,7 +25,7 @@
             <br/>
 
             <p:outputLabel for="suffix" value="#{ui.POST_SUFFIX}:" />
-            <p:inputText id="suffix" value="#{article.suffix}" required="true" requiredMessage="#{ui.ERR_SUFFIX_REQUIRED}" />
+            <p:inputText id="suffix" value="#{article.suffix}" required="true" size="35" requiredMessage="#{ui.ERR_SUFFIX_REQUIRED}" />
             <p:message for="suffix" display="both" />
 </h:panelGrid>
             @Column(name = "picture")

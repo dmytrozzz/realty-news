@@ -13,6 +13,9 @@ public interface UserRepository extends CrudRepository<RealtyUser, Long> {
     @Query("select user from RealtyUser user where user.id in :userIds and user.payed=true and user.enabled=true")
     List<RealtyUser> findPayedAndEnabled(@Param("userIds") List<Integer> userIds);
 
+    @Query("select user.id from RealtyUser user where user.payed=true and user.enabled=true")
+    List<Long> findPayedAndEnabled();
+
     @Query(value = "SELECT user_id FROM news_feed WHERE criteria_id = :criteriaId", nativeQuery = true)
     List<Long> findAllUserIds(@Param("criteriaId") long criteriaId);
 
