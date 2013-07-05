@@ -2,7 +2,7 @@ package com.dmytro.realty.engine.parser;
 
 import java.util.List;
 
-import com.dmytro.realty.engine.RealtyOffer;
+import com.dmytro.realty.domain.RealtyOffer;
 import com.dmytro.realty.engine.builder.ARealtyRequestBuilder;
 
 public interface IRealtyParser {

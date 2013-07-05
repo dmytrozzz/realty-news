@@ -1,6 +1,7 @@
 package com.dmytro.realty.engine;
 
 import com.dmytro.realty.domain.RealtyCriteria;
+import com.dmytro.realty.domain.RealtyOffer;
 import com.dmytro.realty.engine.builder.*;
 import com.dmytro.realty.engine.parser.*;
 import org.apache.commons.collections.CollectionUtils;

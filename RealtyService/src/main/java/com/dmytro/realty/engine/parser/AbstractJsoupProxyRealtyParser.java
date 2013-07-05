@@ -1,6 +1,6 @@
 package com.dmytro.realty.engine.parser;
 
-import com.dmytro.realty.engine.RealtyOffer;
+import com.dmytro.realty.domain.RealtyOffer;
 import com.dmytro.realty.engine.builder.ARealtyRequestBuilder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
