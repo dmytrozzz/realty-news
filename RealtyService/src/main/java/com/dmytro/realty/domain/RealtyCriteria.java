@@ -34,7 +34,7 @@ public class RealtyCriteria implements Serializable {
     @JoinColumn(name = "parameters_id")
     private RealtyParameters parameters = new RealtyParameters();
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "offers_relation", joinColumns = @JoinColumn(name = "criteria_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "offer_id", nullable = false))
     private Set<RealtyOffer> offerSet = new HashSet<>();
 

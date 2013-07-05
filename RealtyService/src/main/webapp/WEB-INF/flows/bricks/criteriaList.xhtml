@@ -41,7 +41,8 @@
                     </p:selectOneMenu>
             </p:column>
 
-            <p:column id="parCol" headerText="#{ui.PARAMETERS}" style="width:2%" rendered="#{criteria.operation != null}">
+            <p:column id="parCol" headerText="" style="width:24%" rendered="#{criteria.operation != null}">
+                <f:facet name="header">#{ui.PARAMETERS}</f:facet>
                 <p:rowToggler />
             </p:column>
 

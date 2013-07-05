@@ -1,6 +1,7 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions"
+    xmlns:sec="http://www.springframework.org/security/tags">
 	<style>
 /* Carousel base class */
 .carousel {
@@ -111,37 +112,43 @@ div p:not   (.lead   ) .transparent {
 			<div class="item active">
 				<img src="resources/images/room1.jpg" alt="" />
 				<div class="container">
-                    <h:form rendered="#{!authorized}">
+                    <sec:authorize access="isAnonymous()">
+                    <h:form>
 					<div class="carousel-caption">
 						<h1>#{ui.IMAGE_1_TITLE}.</h1>
 						<p class="lead">#{ui.IMAGE_1_CONTENT}</p>
 							<p:commandLink onsuccess="dialog.show()" styleClass="btn btn-large btn-primary" value="#{ui.IMAGE_1_BUTTON}" action="goWizard" />
 					</div>
                     </h:form>
+                    </sec:authorize>
 				</div>
 			</div>
 			<div class="item">
 				<img src="resources/images/kitchen1.jpg" alt="" />
 				<div class="container">
-                    <h:form rendered="#{!authorized}">
+                    <sec:authorize access="isAnonymous()">
+                    <h:form>
 					<div class="carousel-caption">
 						<h1>#{ui.IMAGE_2_TITLE}.</h1>
 						<p class="lead">#{ui.IMAGE_2_CONTENT}</p>
 							<p:commandLink onsuccess="dialog.show()" styleClass="btn btn-large btn-primary" value="#{ui.IMAGE_2_BUTTON}" action="goWizard" />
 					</div>
                     </h:form>
+                    </sec:authorize>
 				</div>
 			</div>
 			<div class="item">
 				<img src="resources/images/house1.jpg" alt="" />
 				<div class="container">
-                    <h:form rendered="#{!authorized}">
+                    <sec:authorize access="isAnonymous()">
+                    <h:form>
 					<div class="carousel-caption">
 						<h1>#{ui.IMAGE_3_TITLE}.</h1>
 						<p class="lead">#{ui.IMAGE_3_CONTENT}</p>
 							<p:commandLink onsuccess="dialog.show()" styleClass="btn btn-large btn-primary" value="#{ui.IMAGE_3_BUTTON}" action="goWizard" />
 					</div>
                     </h:form>
+                    </sec:authorize>
 				</div>
 			</div>
 		</div>
