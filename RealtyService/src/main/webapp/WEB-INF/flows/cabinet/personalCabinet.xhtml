@@ -63,6 +63,12 @@
 				<p:panel>
 					<p:tabView id="tabView" effect="drop">
 
+                        <p:tab id="offerPanel" title="#{ui.OFFERS_PANEL}">
+                            <ui:include src="bricks/offers.xhtml">
+                                <ui:param name="preferences" value="#{currentState.preferences}"/>
+                            </ui:include>
+                        </p:tab>
+
 						<p:tab id="controlPanel" title="#{ui.CONTROL_PANEL}">
 							<!-- TODO depends on where service is payed or trial -->
 							<h:panelGrid columns="2" cellpadding="10">

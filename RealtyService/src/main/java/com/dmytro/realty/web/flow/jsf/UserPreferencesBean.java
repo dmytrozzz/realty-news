@@ -2,6 +2,7 @@ package com.dmytro.realty.web.flow.jsf;
 
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
+import com.dmytro.realty.domain.RealtyOffer;
 import com.dmytro.realty.domain.RealtyUser;
 
 import javax.faces.application.FacesMessage;
@@ -39,6 +40,14 @@ public class UserPreferencesBean implements Serializable {
 
     public List<RealtyCriteria> getCriteriaList() {
         return new ArrayList<>(user.getCriteriaCollection());
+    }
+
+    public List<RealtyOffer> getOffers(){
+        List<RealtyOffer> realtyOffers = new ArrayList<>();
+        for(RealtyCriteria criteria : user.getCriteriaCollection()){
+            realtyOffers.addAll(criteria.getOfferSet());
+        }
+        return realtyOffers;
     }
 
     public void save(ActionEvent actionEvent) {

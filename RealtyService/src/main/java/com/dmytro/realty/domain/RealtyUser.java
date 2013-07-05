@@ -3,19 +3,7 @@ package com.dmytro.realty.domain;
 import java.io.Serializable;
 import java.util.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "realty_user")
@@ -43,8 +31,11 @@ public class RealtyUser implements Serializable {
 	
 	@Column(name = "payed")
 	public boolean payed = true;
-	
-	
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "add_time")
+    private Date addTime;
+
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "billing_id")
 	private Billing billing;
@@ -128,5 +119,13 @@ public class RealtyUser implements Serializable {
 
 	public void setPayed(boolean payed) {
 		this.payed = payed;
-	}		
+	}
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
+    }
 }

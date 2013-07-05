@@ -1,7 +1,5 @@
 package com.dmytro.realty.domain;
 
-import org.hibernate.annotations.Where;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -35,6 +33,10 @@ public class RealtyCriteria implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "parameters_id")
     private RealtyParameters parameters = new RealtyParameters();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "offers_relation", joinColumns = @JoinColumn(name = "criteria_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "offer_id", nullable = false))
+    private Set<RealtyOffer> offerSet = new HashSet<>();
 
     public Product.Type getProductType() {
         return productType;
@@ -82,5 +84,9 @@ public class RealtyCriteria implements Serializable {
 
     public void setLocation(Product.Location location) {
         this.location = location;
+    }
+
+    public Set<RealtyOffer> getOfferSet() {
+        return offerSet;
     }
 }
