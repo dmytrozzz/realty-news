@@ -91,6 +91,8 @@ public class RealtyEngine {
         System.out.println("OK! Sending!");
         if (resultOffers.size() > 0)
             sendNews(resultOffers, userCollection);
+        else
+            SendMan.sendNoOffersMessage(userCollection);
 
         //todo if(someError)
         //    throw new RealtyUnparsebleException("IO Error");
