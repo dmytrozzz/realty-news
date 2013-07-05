@@ -71,31 +71,26 @@
 								<h:outputText value="#{ui[preferences.getServiceStatus()]}" />
 								<ui:include src="bricks/paymoney.xhtml" />
 							</h:panelGrid>
-                            <p:commandButton value="#{ui.SAVE}" action="saveUser" actionListener="#{currentState.preferences.save}" />
-                            <br />
-                            <br />
 						</p:tab>
 
 						<p:tab id="tab2" title="#{ui.SEARCH_OPTIONS}">
 							<ui:include src="../bricks/criteriaList.xhtml">
 								<ui:param name="preferences" value="#{currentState.preferences}" />
 							</ui:include>
-							<p:commandButton value="#{ui.SAVE}" action="saveUser" actionListener="#{currentState.preferences.save}" />
-							<br />
-							<br />
 						</p:tab>
 
 						<p:tab id="tab3" title="#{ui.CREDENTIALS}">
 							<h:panelGrid columns="2" cellpadding="10">
 								<ui:include src="bricks/userData.xhtml">
-									<ui:param name="preferences" value="#{currentState.preferences}"></ui:param>
+									<ui:param name="preferences" value="#{currentState.preferences}"/>
 								</ui:include>
 							</h:panelGrid>
-							<p:commandButton value="#{ui.SAVE}" action="saveUser" actionListener="#{currentState.preferences.save}" />
-							<br />
-							<br />
 						</p:tab>
 					</p:tabView>
+                    <br />
+                    <p:commandButton value="#{ui.SAVE}" action="saveUser" actionListener="#{currentState.preferences.save}" />
+                    <br />
+                    <br />
 				</p:panel>
 				<!-- <style>
 #footer {

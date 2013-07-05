@@ -7,7 +7,6 @@ import com.dmytro.realty.service.IUserService;
 import com.dmytro.realty.web.flow.jsf.PersonalCabinetBean;
 import com.dmytro.realty.web.flow.jsf.RealtyWizard;
 import com.dmytro.realty.web.flow.jsf.UserPreferencesBean;
-import com.dmytro.realty.web.flow.jsf.buffer.CriteriaBean;
 import com.dmytro.realty.web.security.RealtyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -39,7 +38,6 @@ public class RealtyController {
             else {
                 return new UserPreferencesBean(new RealtyUser());
             }
-            System.out.println("Welome, " + realtyUser);
             return new UserPreferencesBean(realtyUser);
         }
         return new UserPreferencesBean();
@@ -59,20 +57,14 @@ public class RealtyController {
         return SecurityContextHolder.getContext().getAuthentication().getAuthorities().containsAll(USER_AUTHORITY);
     }
 
-    public void saveUser(UserPreferencesBean preferencesBean) {
-        authorizeUser(preferencesBean.getUser());
-
-        RealtyUser user = preferencesBean.getUser();
-        user.getCriteriaCollection().clear();
-        for (CriteriaBean criteriaBean : preferencesBean.getCriteriaList()) {
-            user.getCriteriaCollection().add(criteriaBean.getRealtyCriteria());
-        }
+    public void registerUser(RealtyUser user) {
+        authorizeUser(user);
         userService.saveUser(user);
         SendMan.sendMessage(user);
     }
 
-    public void update(RealtyUser user) {
-        userService.update(user);
+    public void saveUser(RealtyUser user) {
+        userService.saveUser(user);
     }
 
     private void authorizeUser(RealtyUser user) {

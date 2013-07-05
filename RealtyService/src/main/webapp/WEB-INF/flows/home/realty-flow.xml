@@ -12,7 +12,6 @@
 
 	<view-state id="home-page" view="home.xhtml">
 		<on-entry>
-			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
 			<evaluate expression="realtyController.getWizard(preferences)" result="viewScope.currentState" />
 		</on-entry>
 	</view-state>
@@ -21,7 +20,7 @@
 
 	<global-transitions>
 		<transition on="saveUser" to="cabinet">
-			<evaluate expression="realtyController.saveUser(preferences)" />			
+			<evaluate expression="realtyController.registerUser(preferences.user)" />
 		</transition>
 
 		<transition on="goWizard">

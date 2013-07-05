@@ -2,28 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a34abdf3-b190-4ece-9645-32a790cdc55f" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyOffer.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/AbstractJsoupProxyRealtyParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/AbstractJsoupProxyRealtyParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/IRealtyParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/parser/IRealtyParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/SendMan.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/SendMan.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/parameters.xhtml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/buffer/CriteriaBean.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/IUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/IUserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/ParametersRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/ParametersRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Product.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Product.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyParameters.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyParameters.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/realty-flow.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/realty-flow.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realty.iml" afterPath="$PROJECT_DIR$/realty.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_en.properties" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_en.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_ru.properties" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_ru.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/wizard.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/wizard.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373005739900" ignored="false" />
     <file path="/fragment.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373011893333" ignored="false" />
-    <file path="/criteriaList.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371381514417" ignored="false" />
-    <file path="/ui_uk.properties" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372690155052" ignored="false" />
-    <file path="/UserPreferencesBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370709634244" ignored="false" />
+    <file path="/criteriaList.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373037073777" ignored="false" />
+    <file path="/ui_uk.properties" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373024500980" ignored="false" />
+    <file path="/UserPreferencesBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373013887836" ignored="false" />
     <file path="/RealtyLocation.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370706091620" ignored="false" />
-    <file path="/Product.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371382889223" ignored="false" />
-    <file path="/RealtyCriteria.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371905825059" ignored="false" />
+    <file path="/Product.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373024015402" ignored="false" />
+    <file path="/RealtyCriteria.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373024407396" ignored="false" />
     <file path="/CriteriaBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371381261186" ignored="false" />
     <file path="/RealtyEngine.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372930718608" ignored="false" />
     <file path="/DefaultRealtyRequestBuilder.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371288290815" ignored="false" />
@@ -55,7 +67,7 @@
     <file path="/webflow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372769874593" ignored="false" />
     <file path="/PayService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371912515974" ignored="false" />
     <file path="/PayMaBillController.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371910525013" ignored="false" />
-    <file path="/RealtyUser.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372689841548" ignored="false" />
+    <file path="/RealtyUser.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373013379737" ignored="false" />
     <file path="/Billing.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371910592593" ignored="false" />
     <file path="/LogService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371902639932" ignored="false" />
     <file path="/root-context.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371903421766" ignored="false" />
@@ -66,8 +78,8 @@
     <file path="/loginPanel.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372680305830" ignored="false" />
     <file path="/ui_ru.properties" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372690141482" ignored="false" />
     <file path="/servlet-context.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372771817647" ignored="false" />
-    <file path="/navBar.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372860200890" ignored="false" />
-    <file path="/realty-flow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372771205352" ignored="false" />
+    <file path="/navBar.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373034733689" ignored="false" />
+    <file path="/realty-flow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373025413132" ignored="false" />
     <file path="/write-to-developers.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372775033039" ignored="false" />
     <file path="/blog-flow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372862932928" ignored="false" />
     <file path="/post.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372927100055" ignored="false" />
@@ -78,13 +90,19 @@
     <file path="/BlogService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372862678041" ignored="false" />
     <file path="/BlogRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372853120849" ignored="false" />
     <file path="/RealtyUserDetails.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372853226041" ignored="false" />
-    <file path="/UserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372948645729" ignored="false" />
-    <file path="/RealtyController.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372948689054" ignored="false" />
+    <file path="/UserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373035549338" ignored="false" />
+    <file path="/RealtyController.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373025379655" ignored="false" />
     <file path="/IUserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372859353466" ignored="false" />
     <file path="/CriteriaRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372936210841" ignored="false" />
     <file path="/home.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372937392552" ignored="false" />
-    <file path="/cabinet-flow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372948345189" ignored="false" />
+    <file path="/cabinet-flow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373025452207" ignored="false" />
     <file path="/a.dummy" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373006489941" ignored="false" />
+    <file path="/ParametersRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373014458841" ignored="false" />
+    <file path="/personalCabinet.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373027266162" ignored="false" />
+    <file path="/wizard.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373034395186" ignored="false" />
+    <file path="/userData.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373027464384" ignored="false" />
+    <file path="/jpa-context.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373031162105" ignored="false" />
+    <file path="/parameters.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373037056837" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,15 +168,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ui_uk.properties" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties">
-          <provider editor-type-id="text-editor">
-            <state line="123" column="36" selection-start="5961" selection-end="5961" vertical-scroll-proportion="0.0">
+      <file leaf-file-name="wizard.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/wizard.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="71" selection-start="1117" selection-end="1117" vertical-scroll-proportion="-10.730769">
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="ResourceBundle">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="criteriaList.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="49" selection-start="1392" selection-end="1392" vertical-scroll-proportion="-12.461538">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RealtyController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="35" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/parameters.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="997" selection-end="997" vertical-scroll-proportion="-11.076923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navBar.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="81" column="49" selection-start="3259" selection-end="3259" vertical-scroll-proportion="-24.923077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="70" selection-start="2130" selection-end="2130" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserPreferencesBean.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="74" selection-start="1253" selection-end="1253" vertical-scroll-proportion="-0.15384616">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="personalCabinet.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="25" selection-start="1613" selection-end="1613" vertical-scroll-proportion="-8.192307">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -180,22 +260,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/blog/post.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/blog/blog.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/home.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/BlogController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/IUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_en.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_ru.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/IUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyParameters.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/realty-flow.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/userData.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/wizard.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/parameters.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java" />
       </list>
     </option>
   </component>
@@ -572,7 +652,117 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bricks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flows" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="cabinet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flows" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cabinet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bricks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flows" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bricks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -617,6 +807,142 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="implementation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -947,16 +1273,16 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6703645" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Chat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Chat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2705443" sideWeight="0.6728869" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2705443" sideWeight="0.67069155" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.6728869" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.67069155" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.32491767" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1920" y="181" width="1600" height="899" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="97" y="100" width="1086" height="577" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1032,127 +1358,118 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/realty-flow.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="34" selection-start="727" selection-end="727" vertical-scroll-proportion="0.23431952">
+        <state line="13" column="18" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/userData.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="74" selection-start="450" selection-end="450" vertical-scroll-proportion="0.10356732">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="89" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.3877551">
+        <state line="7" column="34" selection-start="501" selection-end="501" vertical-scroll-proportion="0.14946619">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/home.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="19" selection-start="1353" selection-end="1353" vertical-scroll-proportion="-21.461538">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/simple-layout.xhtml">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/hibernate-core-4.2.2.Final.jar!/org/hibernate/dialect/PostgreSQL81Dialect.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="25" selection-start="1577" selection-end="1577" vertical-scroll-proportion="0.0">
+        <state line="6" column="25" selection-start="176" selection-end="176" vertical-scroll-proportion="0.10663507">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/BlogService.java">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/hibernate-core-4.2.2.Final.jar!/org/hibernate/dialect/PostgreSQL82Dialect.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="13" selection-start="687" selection-end="687" vertical-scroll-proportion="0.0">
+        <state line="6" column="75" selection-start="226" selection-end="226" vertical-scroll-proportion="0.105017506">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/BlogController.java">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/hibernate-core-4.2.2.Final.jar!/org/hibernate/dialect/PostgreSQLDialect.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="74" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.42857143">
+        <state line="10" column="69" selection-start="265" selection-end="265" vertical-scroll-proportion="0.18903151">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/hibernate-core-4.2.2.Final.jar!/org/hibernate/dialect/PostgresPlusDialect.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="77" selection-start="1247" selection-end="1247" vertical-scroll-proportion="0.0">
+        <state line="6" column="82" selection-start="233" selection-end="233" vertical-scroll-proportion="0.10663507">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/IUserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="40" selection-start="340" selection-end="340" vertical-scroll-proportion="0.26530612">
+        <state line="35" column="79" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.58573073">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="41" selection-start="2749" selection-end="2749" vertical-scroll-proportion="0.0">
+        <state line="62" column="25" selection-start="1613" selection-end="1613" vertical-scroll-proportion="-8.192307">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_en.properties">
-      <provider editor-type-id="text-editor">
-        <state line="103" column="16" selection-start="3024" selection-end="3024" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/Billing.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/navBar.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="178" selection-end="408" vertical-scroll-proportion="0.24489796">
+        <state line="81" column="49" selection-start="3259" selection-end="3259" vertical-scroll-proportion="-24.923077">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/wizard.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="413" selection-end="413" vertical-scroll-proportion="0.18367347">
+        <state line="19" column="71" selection-start="1117" selection-end="1117" vertical-scroll-proportion="-10.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/criteriaList.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="49" selection-start="1392" selection-end="1392" vertical-scroll-proportion="-12.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/bricks/parameters.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="997" selection-end="997" vertical-scroll-proportion="-11.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="35" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="2809" selection-end="2809" vertical-scroll-proportion="0.0057537397">
+        <state line="47" column="70" selection-start="2130" selection-end="2130" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_ru.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/UserPreferencesBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="7" selection-start="17023" selection-end="17023" vertical-scroll-proportion="0.8858502">
+        <state line="45" column="74" selection-start="1253" selection-end="1253" vertical-scroll-proportion="-0.15384616">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n/ui_uk.properties">
-      <provider editor-type-id="text-editor">
-        <state line="123" column="36" selection-start="5961" selection-end="5961" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="ResourceBundle">
-        <state />
       </provider>
     </entry>
   </component>

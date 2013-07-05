@@ -44,27 +44,26 @@ public class UserService implements IUserService, UserDetailsService {
         //if (!userRepository.exists(user.getId()))
         //	user.setPassword(DigestUtils.sha256Hex(user.getPassword()));
         for (RealtyCriteria criteria : user.getCriteriaCollection()) {
-            // Check unique parameters
-            RealtyParameters p = criteria.getParameters();
-            RealtyParameters dataP = parametersRepository.findByParameters(
-                    p.getFromPrice(), p.getToPrice());
-            if (dataP != null)
-                p.setId(dataP.getId());
+            // If parameters exists - assign id to criteria
+            RealtyParameters currentParams = criteria.getParameters();
+            RealtyParameters dbParams = parametersRepository.findByParameters(
+                    currentParams.getFromPrice(), currentParams.getToPrice(), currentParams.getFromRooms(), currentParams.getToRooms());
+            if (dbParams != null)
+                criteria.getParameters().setId(dbParams.getId());
+            else criteria.getParameters().setId(0);
 
             // Check unique criteria
             RealtyCriteria dataC = criteriaRepository.nativeFindBy(criteria
-                    .getProductType().name(), criteria.getOperation().name(), criteria.getLocation().name(), p
-                    .getId());
+                    .getProductType().name(), criteria.getOperation().name(),
+                    criteria.getLocation().name(),
+                    currentParams.getId());
 
             if (dataC != null)
                 criteria.setId(dataC.getId());
+            else criteria.setId(0);
 
         }
         user.setId(userRepository.save(user).getId());
-    }
-
-    public void update(RealtyUser user) {
-        userRepository.save(user);
     }
 
     @Override

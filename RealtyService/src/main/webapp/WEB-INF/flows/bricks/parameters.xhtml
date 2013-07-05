@@ -1,0 +1,26 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <p:panelGrid id="paramsPanel" columns="4">
+        <h:outputLabel for="from_price" value="#{ui.FROM_PRICE}: "/>
+        <p:inputText id="from_price" value="#{criteria.parameters.fromPrice}"/>
+
+        <h:outputLabel for="to_price" value="#{ui.TO_PRICE}: "/>
+        <p:inputText id="to_price" value="#{criteria.parameters.toPrice}"/>
+
+        <h:outputLabel for="from_rooms" value="#{ui.FROM_ROOMS}: "
+                       rendered='#{criteria.productType.name().equals("APARTMENT")}'/>
+        <p:inputText id="from_rooms" value="#{criteria.parameters.fromRooms}"
+                     rendered='#{criteria.productType.name().equals("APARTMENT")}'/>
+
+        <h:outputLabel for="to_rooms" value="#{ui.TO_ROOMS}: "
+                       rendered='#{criteria.productType.name().equals("APARTMENT")}'/>
+        <p:inputText id="to_rooms" value="#{criteria.parameters.toRooms}"
+                     rendered='#{criteria.productType.name().equals("APARTMENT")}'/>
+
+        <!-- <h:outputLabel />
+        <p:slider for="from_price,to_price" step="100" minValue="300" maxValue="10000" range="true" displayTemplate="Between {min} and {max}" /> -->
+    </p:panelGrid>
+</ui:composition>

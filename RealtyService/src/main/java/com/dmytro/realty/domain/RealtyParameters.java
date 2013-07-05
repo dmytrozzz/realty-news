@@ -25,13 +25,12 @@ public class RealtyParameters implements Serializable {
 
     @Column(name = "price_to")
     private int toPrice = 5000;
-    
-    @Transient
+
+    @Column(name = "rooms_from")
     private int fromRooms = 1;
-    @Transient
+
+    @Column(name = "rooms_to")
     private int toRooms = 3;
-    @Transient
-    private boolean privateBusiness;    
     
     public long getId() {
 	return id;
@@ -71,13 +70,5 @@ public class RealtyParameters implements Serializable {
 
     public void setToRooms(int toRooms) {
         this.toRooms = toRooms;
-    }        
-
-    public boolean isPrivateBusiness() {
-        return privateBusiness;
     }
-
-    public void setPrivateBusiness(boolean privateBusiness) {
-        this.privateBusiness = privateBusiness;
-    }       
 }

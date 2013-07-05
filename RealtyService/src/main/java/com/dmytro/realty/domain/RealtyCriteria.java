@@ -30,7 +30,7 @@ public class RealtyCriteria implements Serializable {
 
     @Column(name = "location")
     @Enumerated(EnumType.STRING)
-    private Product.Location location;
+    private Product.Location location = Product.Location.ALL;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "parameters_id")

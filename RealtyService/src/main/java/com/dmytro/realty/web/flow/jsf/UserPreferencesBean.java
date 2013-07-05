@@ -3,7 +3,6 @@ package com.dmytro.realty.web.flow.jsf;
 import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyUser;
-import com.dmytro.realty.web.flow.jsf.buffer.CriteriaBean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -14,9 +13,6 @@ import java.util.List;
 
 public class UserPreferencesBean implements Serializable {
     private RealtyUser user;
-    private List<CriteriaBean> criteriaList = new ArrayList<>();
-    private boolean authorized = false;
-
     private String emailToRestore;
     private String loginToRestore;
 
@@ -27,9 +23,6 @@ public class UserPreferencesBean implements Serializable {
 
     public UserPreferencesBean(RealtyUser user) {
         this.user = user;
-        for (RealtyCriteria criteria : user.getCriteriaCollection())
-            criteriaList.add(new CriteriaBean(criteria));
-        authorized = true;
     }
 
     public RealtyUser getUser() {
@@ -40,21 +33,17 @@ public class UserPreferencesBean implements Serializable {
         this.user = user;
     }
 
-    public List<CriteriaBean> getCriteriaList() {
-        return criteriaList;
-    }
-
-    public void setCriteriaList(List<CriteriaBean> criteriaList) {
-        this.criteriaList = criteriaList;
-    }
-
     public void addCriteria() {
-        criteriaList.add(new CriteriaBean());
+        user.getCriteriaCollection().add(new RealtyCriteria());
+    }
+
+    public List<RealtyCriteria> getCriteriaList() {
+        return new ArrayList<>(user.getCriteriaCollection());
     }
 
     public void save(ActionEvent actionEvent) {
         // Persist user - this is in realty-flow
-        FacesMessage msg = new FacesMessage("Successful", "Дані успішно збережено :" + user.getLogin());
+        FacesMessage msg = new FacesMessage("OK!", "Дані успішно збережено: " + user.getLogin());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
@@ -64,10 +53,6 @@ public class UserPreferencesBean implements Serializable {
 
     public Product.Location[] getRealtyLocations() {
         return Product.Location.values();
-    }
-
-    public boolean isAuthorized() {
-        return authorized;
     }
 
     public Product.Operation[] getOperationTypes(Product.Type realtyUnit) {
