@@ -17,15 +17,12 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import java.util.Collection;
 
 @Controller("realtyController")
 public class RealtyController {
     private final static Collection<? extends GrantedAuthority> USER_AUTHORITY = AuthorityUtils
             .createAuthorityList("ROLE_USER");
-
     @Autowired
     private IUserService userService;
     @Autowired
@@ -72,6 +69,10 @@ public class RealtyController {
         }
         userService.saveUser(user);
         SendMan.sendMessage(user);
+    }
+
+    public void update(RealtyUser user) {
+        userService.update(user);
     }
 
     private void authorizeUser(RealtyUser user) {

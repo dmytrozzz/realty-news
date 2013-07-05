@@ -10,4 +10,6 @@ public interface IUserService {
     public void registration(RealtyUser user);
 
     public RealtyUser getCurrentUser();
+
+    public void update(RealtyUser user);
 }

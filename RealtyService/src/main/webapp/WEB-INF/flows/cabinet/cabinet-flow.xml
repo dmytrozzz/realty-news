@@ -30,7 +30,7 @@
 
 	<global-transitions>
 		<transition on="saveUser">
-			<evaluate expression="realtyController.saveUser(preferences)" />
+			<evaluate expression="realtyController.update(preferences.user)" />
 		</transition>
 	</global-transitions>
 </flow>

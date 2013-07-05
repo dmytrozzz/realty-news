@@ -11,8 +11,6 @@ import com.dmytro.realty.service.IUserService;
 import com.dmytro.realty.web.security.RealtyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,18 +19,16 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
-
 @Repository
 @Transactional
 @Service("userService")
 public class UserService implements IUserService, UserDetailsService {
-@Autowired
-private UserRepository userRepository;
-@Autowired
-private ParametersRepository parametersRepository;
-@Autowired
-private CriteriaRepository criteriaRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private ParametersRepository parametersRepository;
+    @Autowired
+    private CriteriaRepository criteriaRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username)
@@ -67,6 +63,10 @@ private CriteriaRepository criteriaRepository;
         user.setId(userRepository.save(user).getId());
     }
 
+    public void update(RealtyUser user) {
+        userRepository.save(user);
+    }
+
     @Override
     public RealtyUser findUserByLogin(String login) {
         return userRepository.findByLogin(login);
@@ -79,7 +79,7 @@ private CriteriaRepository criteriaRepository;
 
     public RealtyUser getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null){
+        if (authentication != null) {
             if (authentication.getPrincipal() instanceof RealtyUserDetails)
                 return ((RealtyUserDetails) authentication.getPrincipal()).getRealtyUser();
             else if (authentication.getPrincipal() instanceof RealtyUser)
