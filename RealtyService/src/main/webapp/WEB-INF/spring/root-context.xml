@@ -23,7 +23,7 @@
 
     <task:scheduled-tasks scheduler="realtyScheduler">
         <task:scheduled ref="realtyService" method="searchRealty"
-                        fixed-delay="90000"/>
+                        cron="0 */5 6-23,0-1 * * *"/>
     </task:scheduled-tasks>
 
 </beans>
