@@ -1,6 +1,8 @@
 package com.dmytro.realty.web.controller;
 
+import com.dmytro.realty.data.repository.RealtyOfferRepository;
 import com.dmytro.realty.data.repository.UserRepository;
+import com.dmytro.realty.domain.RealtyOffer;
 import com.dmytro.realty.domain.RealtyUser;
 import com.dmytro.realty.engine.SendMan;
 import com.dmytro.realty.service.IUserService;
@@ -17,6 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import java.util.Collection;
+import java.util.List;
 
 @Controller("realtyController")
 public class RealtyController {
@@ -26,6 +29,8 @@ public class RealtyController {
     private IUserService userService;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private RealtyOfferRepository offerRepository;
 
     public UserPreferencesBean getPreferences() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -80,6 +85,10 @@ public class RealtyController {
     public void payForService(RealtyUser user) {
         user.setPayed(true);
         user.setEnabled(true);
+    }
+
+    public List<RealtyOffer> getOffersByUser(RealtyUser user) {
+        return offerRepository.getOffersByUser(user.getId());
     }
 
     public void restorePass(UserPreferencesBean preferencesBean) {

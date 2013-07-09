@@ -42,14 +42,6 @@ public class UserPreferencesBean implements Serializable {
         return new ArrayList<>(user.getCriteriaCollection());
     }
 
-    public List<RealtyOffer> getOffers(){
-        List<RealtyOffer> realtyOffers = new ArrayList<>();
-        for(RealtyCriteria criteria : user.getCriteriaCollection()){
-            realtyOffers.addAll(criteria.getOfferSet());
-        }
-        return realtyOffers;
-    }
-
     public void save(ActionEvent actionEvent) {
         // Persist user - this is in realty-flow
         FacesMessage msg = new FacesMessage("OK!", "Дані успішно збережено: " + user.getLogin());

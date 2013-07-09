@@ -14,8 +14,8 @@
 		<secured attributes="ROLE_USER" />
 
 		<on-entry>
-			<evaluate expression="realtyController.isAuthorized()" result="viewScope.authorized" />
 			<evaluate expression="realtyController.getCabinet(preferences)" result="viewScope.currentState" />
+            <evaluate expression="realtyController.getOffersByUser(preferences.user)" result="viewScope.currentState.realtyOffers"/>
 		</on-entry>
 
 		<transition on="runService">
@@ -29,6 +29,9 @@
 	</view-state>
 
 	<global-transitions>
+        <transition on="refresh">
+            <evaluate expression="realtyController.getOffersByUser(preferences.user)" result="viewScope.currentState.realtyOffers"/>
+        </transition>
 		<transition on="saveUser">
 			<evaluate expression="realtyController.saveUser(preferences.user)" />
 		</transition>

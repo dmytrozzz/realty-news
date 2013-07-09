@@ -2,9 +2,10 @@ package com.dmytro.realty.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
-@Table(name = "favorite_offers")
+@Table(name = "realty_offer")
 public class RealtyOffer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "offer_seq")
@@ -14,21 +15,29 @@ public class RealtyOffer implements Serializable {
 
     private String link;
     private String price;
-    private String offerContent;
+    private String content;
     private String offender;
     private String phone;
     private boolean phoneLink;
     private String date;
 
+    @ManyToOne
+    @JoinColumn(name="criteria_id")
+    private RealtyCriteria realtyCriteria;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "add_time", updatable = false, insertable = false)
+    private Date addTime;
+
     public RealtyOffer() {
     }
 
     public RealtyOffer(String link, String price, String offender,
-                       String phoneRef, String offerContent, String date) {
+                       String phoneRef, String content, String date) {
         this.link = link;
         this.price = price;
         this.offender = offender;
-        this.offerContent = offerContent;
+        this.content = content;
         this.phone = phoneRef;
         this.date = date;
     }
@@ -41,12 +50,12 @@ public class RealtyOffer implements Serializable {
         this.price = price;
     }
 
-    public String getOfferContent() {
-        return offerContent;
+    public String getContent() {
+        return content;
     }
 
-    public void setOfferContent(String offerContent) {
-        this.offerContent = offerContent;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getOffender() {
@@ -89,6 +98,22 @@ public class RealtyOffer implements Serializable {
         this.date = date;
     }
 
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
+    }
+
+    public RealtyCriteria getRealtyCriteria() {
+        return realtyCriteria;
+    }
+
+    public void setRealtyCriteria(RealtyCriteria realtyCriteria) {
+        this.realtyCriteria = realtyCriteria;
+    }
+
     @Override
     public String toString() {
         return "RealtyUnit{"
@@ -98,8 +123,8 @@ public class RealtyOffer implements Serializable {
                 + link
                 + '\''
                 + "\n\r--------------------------------------------------------------------------"
-                + "\n\r, offerContent='"
-                + offerContent.replace(".", ".\n\r")
+                + "\n\r, content='"
+                + content.replace(".", ".\n\r")
                 + '\''
                 + "\n\r, price='"
                 + price

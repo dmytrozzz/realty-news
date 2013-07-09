@@ -8,7 +8,6 @@ import org.apache.commons.mail.HtmlEmail;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collection;
 import java.util.List;
 
 public class SendMan {
@@ -45,7 +44,7 @@ public class SendMan {
         }
     }
 
-    public static void sendNoOffersMessage(Collection<RealtyUser> users) {
+    public static void sendNoOffersMessage(String[] emails) {
         HtmlEmail email = createEmail();
         String htmlContent = "<html>";
         htmlContent += "<h3>За вашими критеріями нічого не знайдено. Спробуйте підібрати щось реалістичніше): </h3>";
@@ -55,8 +54,8 @@ public class SendMan {
             email.setHtmlMsg(htmlContent);
             // set the alternative message
             email.setTextMsg("Your email client does not support HTML messages");
-            for (RealtyUser user : users)
-                email.addTo(user.getEmail());
+
+            email.addTo(emails);
             email.send();
         } catch (EmailException emae) {
             emae.printStackTrace();
@@ -95,7 +94,7 @@ public class SendMan {
         }
     }
 
-    public void addRecipient(String userEmail) {
+    public void addRecipients(String... userEmail) {
         try {
             email.addTo(userEmail);
         } catch (EmailException e) {
@@ -113,7 +112,7 @@ public class SendMan {
     }
 
     private String format(RealtyOffer unit, String phone, boolean phoneAsIs) {
-        return unit.getOfferContent()
+        return unit.getContent()
                 + "<h5>Ціна: "
                 + unit.getPrice()
                 + " |Додано: "

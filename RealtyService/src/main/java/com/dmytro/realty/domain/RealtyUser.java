@@ -22,19 +22,22 @@ public class RealtyUser implements Serializable {
 
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "phone")
 	private String phone;
-	
+
 	@Column(name = "enabled")
 	public boolean enabled = true;
-	
+
 	@Column(name = "payed")
 	public boolean payed = true;
 
+    @Column(name = "subscribed")
+    public boolean subscribed = true;
+
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "add_time")
-    private Date addTime;
+    @Column(name = "add_time", insertable = false, updatable = false, columnDefinition = "timestamp default now()")
+    private Date addTime = new Date();
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "billing_id")
@@ -74,7 +77,7 @@ public class RealtyUser implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}		
+	}
 
 	public String getPhone() {
 		return phone;
@@ -91,7 +94,7 @@ public class RealtyUser implements Serializable {
 	public void setCriteriaCollection(Set<RealtyCriteria> criteriaCollection) {
 		this.criteriaCollection = criteriaCollection;
 	}
-	
+
 	public Billing getBilling() {
 		return billing;
 	}
@@ -99,7 +102,7 @@ public class RealtyUser implements Serializable {
 	public void setBilling(Billing billing) {
 		this.billing = billing;
 	}
-	
+
 	@Override
 	public String toString() {
 		return login;
@@ -120,6 +123,14 @@ public class RealtyUser implements Serializable {
 	public void setPayed(boolean payed) {
 		this.payed = payed;
 	}
+
+    public boolean isSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(boolean subscribed) {
+        this.subscribed = subscribed;
+    }
 
     public Date getAddTime() {
         return addTime;

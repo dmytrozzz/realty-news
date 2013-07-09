@@ -45,7 +45,7 @@ public class SlandoRequestBuilder extends ARealtyRequestBuilder {
 
     @Override
     protected String location(Product.Location location) {
-        return "&search%5Bdistrict_id%5D%5B0%5D=" + location.getSlandoIndex();
+            return "&search%5Bdistrict_id%5D%5B0%5D=" + location.getSlandoIndex();
     }
 
     @Override

@@ -29,7 +29,7 @@ public class RealtyTeam {
 
         System.out.println(request);
 
-        return grabRealtyOffers(request, criteria.getId());
+        return grabRealtyOffers(request, criteria);
     }
 
     /**
@@ -40,11 +40,11 @@ public class RealtyTeam {
      * @return List of new realty offers from page
      */
     @SuppressWarnings("unchecked")
-    private List<RealtyOffer> grabRealtyOffers(String request, long criteriaId) throws RealtyUnparsebleException {
+    private List<RealtyOffer> grabRealtyOffers(String request, RealtyCriteria criteria) throws RealtyUnparsebleException {
 
         List<RealtyOffer> newOffers = new LinkedList<>();
 
-        List<String> oldLinks = criteriaMap.get(criteriaId);
+        List<String> oldLinks = criteriaMap.get(criteria.getId());
         List<String> parsedLinks = null;
         Collection<String> newLinks = null;
 
@@ -58,7 +58,9 @@ public class RealtyTeam {
             oldLinks.addAll(parsedLinks);
             for (String newOfferLink : newLinks) {
                 try {
-                    newOffers.add(realtyParser.parseOffer(newOfferLink));
+                    RealtyOffer offer = realtyParser.parseOffer(newOfferLink);
+                    offer.setRealtyCriteria(criteria);
+                    newOffers.add(offer);
                 } catch (RealtyUnparsebleException rue) {
                     rue.printStackTrace();
                 }

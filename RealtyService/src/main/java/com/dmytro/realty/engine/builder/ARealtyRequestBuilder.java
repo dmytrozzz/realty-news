@@ -15,7 +15,7 @@ public abstract class ARealtyRequestBuilder {
 
     public String buildRequest(RealtyCriteria criteria) {
         return host() + criteria(criteria) + parameters(criteria, criteria.getParameters())
-                + (criteria.getLocation() == null ? "" : location(criteria.getLocation())) + end();
+                + (criteria.getLocation() == Product.Location.ALL ? "" : location(criteria.getLocation())) + end();
     }
 
     private String parameters(RealtyCriteria criteria, RealtyParameters parameters) {

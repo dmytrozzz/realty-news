@@ -43,7 +43,7 @@ public abstract class AbstractJsoupProxyRealtyParser implements IRealtyParser {
             offer.setDate(parseDate(document));
             offer.setPhone(parsePhone(document));
             offer.setPrice(parsePrice(document));
-            offer.setOfferContent(parseContent(document));
+            offer.setContent(parseContent(document));
         } catch (Exception ex) {
             throw new RealtyUnparsebleException("Some parsing problem in " + offer.getLink(), ex);
         }

@@ -35,7 +35,7 @@
     </bean>
     <mvc:view-controller path="/login" /> -->
 
-    <bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver" id="localeResolver"/>
+    <bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver" id="localeResolver" p:defaultLocale="uk"/>
 
     <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" id="localeChangeInterceptor"
           p:paramName="lang"/>

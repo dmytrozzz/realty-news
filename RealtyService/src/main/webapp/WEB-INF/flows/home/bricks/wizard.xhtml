@@ -33,6 +33,9 @@
 					<h:outputText value="#{ui.EMAIL}: " />
 					<h:outputText styleClass="outputLabel" value="#{currentState.preferences.user.email}" />
 
+                    <h:outputText value="#{ui.ENABLE_EMAIL}: " />
+                    <p:selectBooleanCheckbox value="#{currentState.preferences.user.subscribed}" />
+
 					<h:outputText value="#{ui.TRIAL_MESSAGE}" />
 					<h:outputText />
 

@@ -14,28 +14,22 @@ public class RealtyCriteria implements Serializable {
     @SequenceGenerator(name = "criteria_seq", sequenceName = "search_criteria_id_seq", allocationSize = 1)
     @Column(name = "id")
     private long id;
-
     @ManyToMany(mappedBy = "criteriaCollection")
     private Collection<RealtyUser> userCollection;
-
     @Column(name = "product_type")
     @Enumerated(EnumType.STRING)
     private Product.Type productType;
-
     @Column(name = "operation_type")
     @Enumerated(EnumType.STRING)
     private Product.Operation operation;
-
     @Column(name = "location")
     @Enumerated(EnumType.STRING)
     private Product.Location location = Product.Location.ALL;
-
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "parameters_id")
     private RealtyParameters parameters = new RealtyParameters();
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "offers_relation", joinColumns = @JoinColumn(name = "criteria_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "offer_id", nullable = false))
+    @OneToMany(mappedBy = "realtyCriteria", fetch = FetchType.EAGER)
     private Set<RealtyOffer> offerSet = new HashSet<>();
 
     public Product.Type getProductType() {

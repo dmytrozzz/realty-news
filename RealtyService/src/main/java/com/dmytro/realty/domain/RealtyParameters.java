@@ -1,15 +1,7 @@
 package com.dmytro.realty.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "realty_parameters")
@@ -31,30 +23,30 @@ public class RealtyParameters implements Serializable {
 
     @Column(name = "rooms_to")
     private int toRooms = 3;
-    
+
     public long getId() {
-	return id;
+        return id;
     }
 
     public void setId(long id) {
-	this.id = id;
+        this.id = id;
     }
 
     public int getFromPrice() {
-	return fromPrice;
+        return fromPrice;
     }
 
     public void setFromPrice(int fromPrice) {
-	this.fromPrice = fromPrice;
+        this.fromPrice = fromPrice;
     }
 
     public int getToPrice() {
-	return toPrice;
+        return toPrice;
     }
 
     public void setToPrice(int toPrice) {
-	this.toPrice = toPrice;
-    }       
+        this.toPrice = toPrice;
+    }
 
     public int getFromRooms() {
         return fromRooms;

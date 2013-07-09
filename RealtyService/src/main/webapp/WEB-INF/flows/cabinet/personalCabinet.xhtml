@@ -65,7 +65,7 @@
 
                         <p:tab id="offerPanel" title="#{ui.OFFERS_PANEL}">
                             <ui:include src="bricks/offers.xhtml">
-                                <ui:param name="preferences" value="#{currentState.preferences}"/>
+                                <ui:param name="currentState" value="#{currentState}"/>
                             </ui:include>
                         </p:tab>
 
