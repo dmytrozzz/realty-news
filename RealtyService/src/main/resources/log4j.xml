@@ -14,6 +14,19 @@
 	<logger name="com.dmytro.realty">
 		<level value="info" />
 	</logger>
+
+    <!--Hibernate Loggers-->
+    <logger name="log4j.logger.org.hibernate">
+        <level value="debug" />
+    </logger>
+
+    <logger name="log4j.logger.org.hibernate.SQL">
+        <level value="debug" />
+    </logger>
+
+    <!--<logger name="log4j.logger.org.hibernate.type">
+        <level value="trace" />
+    </logger>-->
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">

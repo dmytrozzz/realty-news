@@ -15,19 +15,20 @@ public class RealtyOffer implements Serializable {
 
     private String link;
     private String price;
+    @Lob
     private String content;
     private String offender;
     private String phone;
     private boolean phoneLink;
     private String date;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "add_time")
+    private Date addTime;
+
     @ManyToOne
     @JoinColumn(name="criteria_id")
     private RealtyCriteria realtyCriteria;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "add_time", updatable = false, insertable = false)
-    private Date addTime;
 
     public RealtyOffer() {
     }

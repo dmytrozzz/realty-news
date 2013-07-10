@@ -12,17 +12,17 @@ import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
 import com.dmytro.realty.service.IRealtyService;
 import com.dmytro.realty.service.ISendManService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Repository
-@Transactional
 @Service("realtyService")
 public class RealtyService implements IRealtyService {
     public static Proxy proxy;
+    @PersistenceContext
+    private EntityManager entityManager;
     @Autowired
     private CriteriaRepository criteriaRepository;
     @Autowired
@@ -31,7 +31,6 @@ public class RealtyService implements IRealtyService {
     private RealtyOfferRepository offerRepository;
     @Autowired
     private UserRepository userService;
-
     @Autowired
     private ISendManService sendManService;
     private RealtyEngine realtyEngine = new RealtyEngine();
@@ -55,20 +54,21 @@ public class RealtyService implements IRealtyService {
         proxyRepository.save(proxy);
     }
 
-    public void searchByCriteria(RealtyCriteria criteria) {
+    public void searchByCriteria(final RealtyCriteria criteria) {
         try {
-            List<RealtyOffer> resultOffers = realtyEngine.searchByCriteria(criteria);
-            saveOffers(resultOffers);
-            sendManService.sendNews(resultOffers, userService.findSubscribers(criteria.getId()));
+            final List<RealtyOffer> resultOffers = realtyEngine.searchByCriteria(criteria);
+            offerRepository.save(resultOffers);
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    sendManService.sendNews(resultOffers, userService.findSubscribers(criteria.getId()));
+                }
+            }).start();
         } catch (RealtyUnparsebleException e) {
             System.out.println(e.getMessage());
             proxy.setFailures(proxy.getFailures() + 1);
         }
-    }
-
-    @Transactional
-    public void saveOffers(List<RealtyOffer> realtyOffers){
-        offerRepository.save(realtyOffers);
     }
 
 //    public static void main(String[] args) throws InterruptedException, RealtyUnparsebleException, IOException {

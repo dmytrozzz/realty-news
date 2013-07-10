@@ -19,7 +19,7 @@ public class SendManService implements ISendManService {
      * @param emails          list of users, subscribed for this criteria
      */
     public void sendNews(List<RealtyOffer> newRealtyOffers,
-                         String[] emails) {
+                         String... emails) {
         if (!newRealtyOffers.isEmpty() && emails.length > 0) {
             sendMan.createMessage(newRealtyOffers);
             sendMan.addRecipients(emails);

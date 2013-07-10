@@ -1,14 +1,11 @@
 package com.dmytro.realty.data.repository;
 
+import com.dmytro.realty.domain.RealtyCriteria;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.dmytro.realty.domain.RealtyCriteria;
-
-import java.util.Collection;
-
-public interface CriteriaRepository extends CrudRepository<RealtyCriteria, Long> {
+public interface CriteriaRepository extends JpaRepository<RealtyCriteria, Long> {
     @Query(value = "select id, operation_type, product_type,parameters_id, location from realty_search_criteria where id in (" +
             "select distinct criteria_id from news_feed where user_id in(" +
             "select id from realty_user where payed = true and enabled = true)" +

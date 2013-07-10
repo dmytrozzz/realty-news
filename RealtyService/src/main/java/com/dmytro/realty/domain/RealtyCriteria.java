@@ -3,8 +3,6 @@ package com.dmytro.realty.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "realty_search_criteria")
@@ -28,9 +26,6 @@ public class RealtyCriteria implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "parameters_id")
     private RealtyParameters parameters = new RealtyParameters();
-
-    @OneToMany(mappedBy = "realtyCriteria", fetch = FetchType.EAGER)
-    private Set<RealtyOffer> offerSet = new HashSet<>();
 
     public Product.Type getProductType() {
         return productType;
@@ -78,9 +73,5 @@ public class RealtyCriteria implements Serializable {
 
     public void setLocation(Product.Location location) {
         this.location = location;
-    }
-
-    public Set<RealtyOffer> getOfferSet() {
-        return offerSet;
     }
 }

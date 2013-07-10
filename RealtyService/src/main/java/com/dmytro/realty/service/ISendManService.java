@@ -8,7 +8,7 @@ import java.util.List;
 public interface ISendManService {
 
     public void sendNews(List<RealtyOffer> newRealtyOffers,
-                         String[] emails);
+                         String... emails);
 
     public void sendHTMLMessage(String html, RealtyUser user);
 }

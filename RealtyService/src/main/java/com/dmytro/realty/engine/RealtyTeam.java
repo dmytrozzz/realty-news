@@ -36,7 +36,6 @@ public class RealtyTeam {
      * Grabs list of offer links from site page
      *
      * @param request    request to site with criteria parameters
-     * @param criteriaId criteria id
      * @return List of new realty offers from page
      */
     @SuppressWarnings("unchecked")
@@ -59,7 +58,7 @@ public class RealtyTeam {
             for (String newOfferLink : newLinks) {
                 try {
                     RealtyOffer offer = realtyParser.parseOffer(newOfferLink);
-                    offer.setRealtyCriteria(criteria);
+                    //TODO offer.setRealtyCriteria(criteria);
                     newOffers.add(offer);
                 } catch (RealtyUnparsebleException rue) {
                     rue.printStackTrace();
