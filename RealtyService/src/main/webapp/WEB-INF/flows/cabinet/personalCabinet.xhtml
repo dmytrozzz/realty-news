@@ -66,6 +66,14 @@
                         <p:tab id="offerPanel" title="#{ui.OFFERS_PANEL}">
                             <ui:include src="bricks/offers.xhtml">
                                 <ui:param name="currentState" value="#{currentState}"/>
+                                <ui:param name="offerList" value="#{currentState.realtyOffers}"/>
+                            </ui:include>
+                        </p:tab>
+
+                        <p:tab id="favOfferPanel" title="#{ui.FAVORITE_OFFERS}">
+                            <ui:include src="bricks/offers.xhtml">
+                                <ui:param name="currentState" value="#{currentState}"/>
+                                <ui:param name="offerList" value="#{currentState.favouriteOffers}"/>
                             </ui:include>
                         </p:tab>
 

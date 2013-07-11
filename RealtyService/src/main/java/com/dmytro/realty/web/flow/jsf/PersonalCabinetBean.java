@@ -3,6 +3,7 @@ package com.dmytro.realty.web.flow.jsf;
 import com.dmytro.realty.domain.RealtyOffer;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonalCabinetBean implements Serializable {
@@ -28,5 +29,14 @@ public class PersonalCabinetBean implements Serializable {
 
     public void setRealtyOffers(List<RealtyOffer> realtyOffers) {
         this.realtyOffers = realtyOffers;
+    }
+
+    public List<RealtyOffer> getFavouriteOffers() {
+        return new ArrayList<>(preferences.getUser().getFavouriteOffers());
+    }
+
+    public void makeFavour(RealtyOffer offer) {
+        System.out.print("Thats cool job!!!");
+        preferences.getUser().getFavouriteOffers().add(offer);
     }
 }

@@ -21,8 +21,6 @@ import java.util.List;
 @Service("realtyService")
 public class RealtyService implements IRealtyService {
     public static Proxy proxy;
-    @PersistenceContext
-    private EntityManager entityManager;
     @Autowired
     private CriteriaRepository criteriaRepository;
     @Autowired
@@ -38,20 +36,20 @@ public class RealtyService implements IRealtyService {
     @Override
     public void searchRealty() {
         System.out.println("Starting searching realty!");
-        Iterable<RealtyCriteria> criterias = criteriaRepository.findAllPayedAndEnabled();
+        Iterable<RealtyCriteria> criteriaList = criteriaRepository.findAllPayedAndEnabled();
         //measure time for proxy job
-        RealtyService.proxy = proxyRepository.getRandom();
-        long start = System.currentTimeMillis();
-        proxy.setTries(proxy.getTries() + 1);
+        //RealtyService.proxy = proxyRepository.getRandom();
+        //long start = System.currentTimeMillis();
+        //proxy.setTries(proxy.getTries() + 1);
 
-        for (RealtyCriteria criteria : criterias) {
+        for (RealtyCriteria criteria : criteriaList) {
             searchByCriteria(criteria);
         }
         offerRepository.refresh();
 
-        long time = (System.currentTimeMillis() - start) / 1000;
-        proxy.setSeconds((proxy.getSeconds() + (int) time) / 2);
-        proxyRepository.save(proxy);
+        //long time = (System.currentTimeMillis() - start) / 1000;
+        //proxy.setSeconds((proxy.getSeconds() + (int) time) / 2);
+        //proxyRepository.save(proxy);
     }
 
     public void searchByCriteria(final RealtyCriteria criteria) {

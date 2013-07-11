@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface CriteriaRepository extends JpaRepository<RealtyCriteria, Long> {
-    @Query(value = "select id, operation_type, product_type,parameters_id, location from realty_search_criteria where id in (" +
+    @Query(value = "select * from realty_search_criteria where id in (" +
             "select distinct criteria_id from news_feed where user_id in(" +
             "select id from realty_user where payed = true and enabled = true)" +
             ")", nativeQuery = true)

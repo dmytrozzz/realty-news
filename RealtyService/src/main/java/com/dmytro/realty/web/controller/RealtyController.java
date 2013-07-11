@@ -53,6 +53,7 @@ public class RealtyController {
     }
 
     public PersonalCabinetBean getCabinet(UserPreferencesBean preferences) {
+        //TODO check
         if (preferences.getUser() != null && userRepository.exists(preferences.getUser().getId()))
             preferences.setUser(userRepository.findOne(preferences.getUser().getId()));
         return new PersonalCabinetBean(preferences);
@@ -88,6 +89,7 @@ public class RealtyController {
     }
 
     public List<RealtyOffer> getOffersByUser(RealtyUser user) {
+        System.out.println(offerRepository.getOffersByUser(user.getId()));
         return offerRepository.getOffersByUser(user.getId());
     }
 

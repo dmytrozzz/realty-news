@@ -37,7 +37,6 @@ public class RealtyEngine {
      */
     public List<RealtyOffer> searchByCriteria(RealtyCriteria criteria) throws RealtyUnparsebleException {
         List<RealtyOffer> resultOffers = new ArrayList<>();
-
         for (RealtyTeam team : realtyTeams) {
             try {
                 resultOffers.addAll(team.collectOffers(criteria));

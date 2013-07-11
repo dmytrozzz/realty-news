@@ -2,24 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a34abdf3-b190-4ece-9645-32a790cdc55f" name="Default" comment="Finally!!!&#10;Removed transactionality and repository so offers stores as it should be. Hibernate batch incremented to 100. Sending mail in separate process.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/ISendManService.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/ISendManService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/RealtyOfferRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/RealtyOfferRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/SendManService.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/SendManService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.xml" afterPath="$PROJECT_DIR$/src/main/resources/log4j.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-config.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373462539414" ignored="false" />
+    <file path="/Dummy.txt" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373555168273" ignored="false" />
     <file path="/fragment.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373284510796" ignored="false" />
     <file path="/criteriaList.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373041513711" ignored="false" />
     <file path="/ui_uk.properties" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373373292143" ignored="false" />
@@ -28,7 +27,7 @@
     <file path="/Product.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373024015402" ignored="false" />
     <file path="/RealtyCriteria.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373458266194" ignored="false" />
     <file path="/CriteriaBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371381261186" ignored="false" />
-    <file path="/RealtyEngine.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373287661487" ignored="false" />
+    <file path="/RealtyEngine.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373556906554" ignored="false" />
     <file path="/DefaultRealtyRequestBuilder.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371288290815" ignored="false" />
     <file path="/marketing.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370710582940" ignored="false" />
     <file path="/Location.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1370715160050" ignored="false" />
@@ -38,7 +37,7 @@
     <file path="/AbstractJsoupProxyRealtyParser.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371292663323" ignored="false" />
     <file path="/Proxy.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371908558358" ignored="false" />
     <file path="/ProxyRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371283079005" ignored="false" />
-    <file path="/RealtyService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373460940994" ignored="false" />
+    <file path="/RealtyService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373557542300" ignored="false" />
     <file path="/RealtyUnparsebleException.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371285478485" ignored="false" />
     <file path="/SlandoRequestBuilder.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373288155165" ignored="false" />
     <file path="/AbstractRequestRealtyBuilder.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371295071369" ignored="false" />
@@ -58,7 +57,7 @@
     <file path="/webflow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372769874593" ignored="false" />
     <file path="/PayService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371912515974" ignored="false" />
     <file path="/PayMaBillController.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371910525013" ignored="false" />
-    <file path="/RealtyUser.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373358992069" ignored="false" />
+    <file path="/RealtyUser.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373535640289" ignored="false" />
     <file path="/Billing.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371910592593" ignored="false" />
     <file path="/LogService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1371902639932" ignored="false" />
     <file path="/root-context.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373276278956" ignored="false" />
@@ -82,25 +81,25 @@
     <file path="/BlogRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372853120849" ignored="false" />
     <file path="/RealtyUserDetails.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372853226041" ignored="false" />
     <file path="/UserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373035549338" ignored="false" />
-    <file path="/RealtyController.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373383487781" ignored="false" />
+    <file path="/RealtyController.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373555708113" ignored="false" />
     <file path="/IUserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372859353466" ignored="false" />
     <file path="/CriteriaRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373458299645" ignored="false" />
     <file path="/home.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372937392552" ignored="false" />
     <file path="/cabinet-flow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373384951017" ignored="false" />
     <file path="/a.dummy" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373006489941" ignored="false" />
     <file path="/ParametersRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373014458841" ignored="false" />
-    <file path="/personalCabinet.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373384021816" ignored="false" />
+    <file path="/personalCabinet.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373536408252" ignored="false" />
     <file path="/wizard.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373373182481" ignored="false" />
     <file path="/userData.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373027464384" ignored="false" />
     <file path="/jpa-context.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373457937815" ignored="false" />
     <file path="/parameters.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373037056837" ignored="false" />
-    <file path="/offers.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373384005831" ignored="false" />
+    <file path="/offers.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373536093934" ignored="false" />
     <file path="/RealtyOfferRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373447675241" ignored="false" />
     <file path="/carousell.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373042069546" ignored="false" />
     <file path="/SendManService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373385645597" ignored="false" />
     <file path="/ISendManService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373385511254" ignored="false" />
     <file path="$PROJECT_DIR$/target/generated-sources/annotations/com/dmytro/realty/domain/RealtyParameters_.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373357748794" ignored="false" />
-    <file path="/PersonalCabinetBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373383565520" ignored="false" />
+    <file path="/PersonalCabinetBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373536485773" ignored="false" />
     <file path="$USER_HOME$/git/jamal/mrsadmin/src/main/java/com/samsung/mrsadmin/data/filtering/Filter.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373441227612" ignored="false" />
     <file path="/log4j.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373452596958" ignored="false" />
     <file path="/log4j.properties" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373452770739" ignored="false" />
@@ -170,28 +169,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RealtyTeam.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java">
+      <file leaf-file-name="offers.xhtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="65" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jpa-context.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml">
+      <file leaf-file-name="RealtyUser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="56" selection-start="1951" selection-end="1951" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="root-context.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="35" selection-start="1462" selection-end="1462" vertical-scroll-proportion="0.7867133">
+            <state line="9" column="13" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -220,22 +210,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/SendMan.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/RealtyOfferRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/ISendManService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/SendManService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/RealtyOfferRepository.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" />
       </list>
     </option>
   </component>
@@ -343,6 +333,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1013,8 +1005,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1046,7 +1036,7 @@
       <recent name="com.dmytro.realty.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RealtyEngine">
+  <component name="RunManager" selected="Maven.Run This Shit">
     <configuration default="false" name="RealtyEngine" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.dmytro.realty.engine.RealtyEngine" />
       <option name="VM_PARAMETERS" value="" />
@@ -1195,7 +1185,13 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -1244,28 +1240,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1926" height="1057" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6703645" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Chat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39846322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32601535" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24012807" sideWeight="0.67398465" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25080043" sideWeight="0.60153675" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.67398465" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.32491767" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1920" y="181" width="1600" height="899" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.60153675" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.32491767" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1920" y="181" width="1600" height="899" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="97" y="100" width="1086" height="577" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.6703645" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32601535" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1336,115 +1332,117 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-aop-3.2.1.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="62" selection-start="667" selection-end="667" vertical-scroll-proportion="-6.230769">
+        <state line="21" column="28" selection-start="1063" selection-end="1063" vertical-scroll-proportion="-10.36">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/PayService.java">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-context-3.2.1.RELEASE.jar!/org/springframework/scheduling/support/ScheduledMethodRunnable.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="13" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.020408163">
+        <state line="18" column="16" selection-start="757" selection-end="757" vertical-scroll-proportion="-12.24">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-core-3.2.1.RELEASE.jar!/org/springframework/util/ReflectionUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="37" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="74" selection-start="2019" selection-end="2019" vertical-scroll-proportion="0.76639813">
+        <state line="40" column="23" selection-start="2420" selection-end="2420" vertical-scroll-proportion="-5.76">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/slf4j-api-1.7.1.jar!/org/slf4j/helpers/NOPLogger.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="68" selection-start="1427" selection-end="1427" vertical-scroll-proportion="0.0">
+        <state line="62" column="25" selection-start="2766" selection-end="2766" vertical-scroll-proportion="-6.08">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/RealtyOfferRepository.java">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/jcl-over-slf4j-1.7.1.jar!/org/apache/commons/logging/impl/SLF4JLog.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="58" selection-start="1141" selection-end="1141" vertical-scroll-proportion="0.38343194">
+        <state line="23" column="19" selection-start="790" selection-end="790" vertical-scroll-proportion="-5.92">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java">
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-context-3.2.1.RELEASE.jar!/org/springframework/scheduling/support/TaskUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="57" selection-start="412" selection-end="412" vertical-scroll-proportion="0.08285385">
+        <state line="27" column="20" selection-start="1304" selection-end="1304" vertical-scroll-proportion="-11.56">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-context-3.2.1.RELEASE.jar!/org/springframework/scheduling/support/DelegatingErrorHandlingRunnable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="16" selection-start="528" selection-end="528" vertical-scroll-proportion="-7.92">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-context-3.2.1.RELEASE.jar!/org/springframework/scheduling/support/SimpleTriggerContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="26" selection-start="851" selection-end="851" vertical-scroll-proportion="-12.28">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-context-3.2.1.RELEASE.jar!/org/springframework/scheduling/support/CronTrigger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="26" selection-start="561" selection-end="561" vertical-scroll-proportion="0.4091904">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-context-3.2.1.RELEASE.jar!/org/springframework/scheduling/concurrent/ReschedulingRunnable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="16" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.31509846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ROOT/WEB-INF/lib/spring-context-3.2.1.RELEASE.jar!/org/springframework/scheduling/support/CronSequenceGenerator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="26" selection-start="710" selection-end="710" vertical-scroll-proportion="0.2993763">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="59" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.6421174">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="47" selection-start="2368" selection-end="2368" vertical-scroll-proportion="0.5510204">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyCriteria.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="5" selection-start="2167" selection-end="2167" vertical-scroll-proportion="0.0">
+        <state line="8" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="-1.7142857">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="41" selection-start="2461" selection-end="2461" vertical-scroll-proportion="0.0">
+        <state line="37" column="57" selection-start="1437" selection-end="1437" vertical-scroll-proportion="0.19217491">
           <folding>
-            <element signature="e#2341#2557#0" expanded="true" />
-            <element signature="e#2542#2543#0" expanded="true" />
+            <element signature="e#2294#2510#0" expanded="true" />
+            <element signature="e#2495#2496#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/ISendManService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="23" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
+        <state line="9" column="13" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/SendManService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.48979592">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="34" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="65" selection-start="1234" selection-end="1234" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="56" selection-start="1951" selection-end="1951" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="35" selection-start="1462" selection-end="1462" vertical-scroll-proportion="0.7867133">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

@@ -47,6 +47,10 @@ public class RealtyUser implements Serializable {
 	@JoinTable(name = "news_feed", joinColumns = @JoinColumn(name = "user_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "criteria_id", nullable = false))
 	private Set<RealtyCriteria> criteriaCollection = new HashSet<>();
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "favourite_offers", joinColumns = @JoinColumn(name = "user_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "offer_id", nullable = false))
+    private Set<RealtyOffer> favouriteOffers = new HashSet<>();
+
 	public long getId() {
 		return id;
 	}
@@ -95,7 +99,15 @@ public class RealtyUser implements Serializable {
 		this.criteriaCollection = criteriaCollection;
 	}
 
-	public Billing getBilling() {
+    public Set<RealtyOffer> getFavouriteOffers() {
+        return favouriteOffers;
+    }
+
+    public void setFavouriteOffers(Set<RealtyOffer> favouriteOffers) {
+        this.favouriteOffers = favouriteOffers;
+    }
+
+    public Billing getBilling() {
 		return billing;
 	}
 

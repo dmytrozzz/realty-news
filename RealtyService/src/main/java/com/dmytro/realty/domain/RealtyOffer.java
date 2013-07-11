@@ -15,7 +15,6 @@ public class RealtyOffer implements Serializable {
 
     private String link;
     private String price;
-    @Lob
     private String content;
     private String offender;
     private String phone;
