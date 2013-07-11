@@ -62,19 +62,24 @@
 				<hr class="featurette-divider" />
 				<p:panel>
 					<p:tabView id="tabView" effect="drop">
+                        <p:ajax event="tabChange" update="offers, favOffers"/>
 
                         <p:tab id="offerPanel" title="#{ui.OFFERS_PANEL}">
+                            <p:panel id="offers">
                             <ui:include src="bricks/offers.xhtml">
                                 <ui:param name="currentState" value="#{currentState}"/>
                                 <ui:param name="offerList" value="#{currentState.realtyOffers}"/>
                             </ui:include>
+                            </p:panel>
                         </p:tab>
 
                         <p:tab id="favOfferPanel" title="#{ui.FAVORITE_OFFERS}">
+                            <p:panel id="favOffers">
                             <ui:include src="bricks/offers.xhtml">
                                 <ui:param name="currentState" value="#{currentState}"/>
                                 <ui:param name="offerList" value="#{currentState.favouriteOffers}"/>
                             </ui:include>
+                            </p:panel>
                         </p:tab>
 
 						<p:tab id="controlPanel" title="#{ui.CONTROL_PANEL}">
