@@ -14,8 +14,6 @@ import com.dmytro.realty.service.ISendManService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service("realtyService")
@@ -52,17 +50,11 @@ public class RealtyService implements IRealtyService {
         //proxyRepository.save(proxy);
     }
 
-    public void searchByCriteria(final RealtyCriteria criteria) {
+    public void searchByCriteria(RealtyCriteria criteria) {
         try {
-            final List<RealtyOffer> resultOffers = realtyEngine.searchByCriteria(criteria);
+            List<RealtyOffer> resultOffers = realtyEngine.searchByCriteria(criteria);
             offerRepository.save(resultOffers);
-
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    sendManService.sendNews(resultOffers, userService.findSubscribers(criteria.getId()));
-                }
-            }).start();
+            sendManService.sendNews(resultOffers, userService.findSubscribers(criteria.getId()));
         } catch (RealtyUnparsebleException e) {
             System.out.println(e.getMessage());
             proxy.setFailures(proxy.getFailures() + 1);

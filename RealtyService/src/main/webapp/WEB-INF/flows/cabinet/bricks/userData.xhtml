@@ -7,5 +7,8 @@
 		<p:inplace id="emailInplace" editor="false">
 			<p:inputText value="#{preferences.user.email}" required="true" label="text" requiredMessage="#{ui.ERR_EMAIL_REQUIRED}" />
 		</p:inplace>
+
+        <h:outputText value="#{ui.ENABLE_EMAIL}: " />
+        <p:selectBooleanCheckbox value="#{preferences.user.subscribed}" />
 	</h:panelGrid>
 </ui:composition>

@@ -32,18 +32,18 @@ public class PersonalCabinetBean implements Serializable {
     }
 
     public List<RealtyOffer> getFavouriteOffers() {
-        System.out.println(preferences.getUser().getFavouriteOffers());
         return new ArrayList<>(preferences.getUser().getFavouriteOffers());
     }
 
     public void makeFavour(RealtyOffer offer) {
-        System.out.print("Thats cool job!!!");
         preferences.getUser().getFavouriteOffers().add(offer);
-        System.out.println(preferences.getUser().getFavouriteOffers());
     }
 
     public void unFavour(RealtyOffer offer) {
-        System.out.print("Thats cool job!!!");
         preferences.getUser().getFavouriteOffers().remove(offer);
+    }
+
+    public boolean isFavour(RealtyOffer offer) {
+        return preferences.getUser().getFavouriteOffers().contains(offer);
     }
 }

@@ -115,6 +115,26 @@ public class RealtyOffer implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RealtyOffer)) return false;
+
+        RealtyOffer offer = (RealtyOffer) o;
+
+        if (id != offer.id) return false;
+        if (link != null ? !link.equals(offer.link) : offer.link != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (link != null ? link.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "RealtyUnit{"
                 +

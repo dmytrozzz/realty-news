@@ -59,10 +59,6 @@ public class RealtyController {
         return new PersonalCabinetBean(preferences);
     }
 
-    public boolean isAuthorized() {
-        return SecurityContextHolder.getContext().getAuthentication().getAuthorities().containsAll(USER_AUTHORITY);
-    }
-
     public void registerUser(RealtyUser user) {
         authorizeUser(user);
         userService.saveUser(user);

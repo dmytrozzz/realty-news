@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a34abdf3-b190-4ece-9645-32a790cdc55f" name="Default" comment="Finally!!!&#10;Removed transactionality and repository so offers stores as it should be. Hibernate batch incremented to 100. Sending mail in separate process.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/icons/empty-star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/icons/full-star.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/kitchen1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/kitchen1.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/realty.iml" afterPath="$PROJECT_DIR$/realty.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/userData.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/userData.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373557909912" ignored="false" />
+    <file path="/Dummy.txt" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373987870925" ignored="false" />
     <file path="/fragment.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373284510796" ignored="false" />
     <file path="/criteriaList.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373041513711" ignored="false" />
     <file path="/ui_uk.properties" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373373292143" ignored="false" />
@@ -71,26 +79,26 @@
     <file path="/BlogService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372862678041" ignored="false" />
     <file path="/BlogRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372853120849" ignored="false" />
     <file path="/RealtyUserDetails.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372853226041" ignored="false" />
-    <file path="/UserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373035549338" ignored="false" />
+    <file path="/UserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373975534474" ignored="false" />
     <file path="/RealtyController.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373555708113" ignored="false" />
-    <file path="/IUserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372859353466" ignored="false" />
+    <file path="/IUserService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373975550228" ignored="false" />
     <file path="/CriteriaRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373458299645" ignored="false" />
     <file path="/home.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1372937392552" ignored="false" />
     <file path="/cabinet-flow.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373384951017" ignored="false" />
     <file path="/a.dummy" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373006489941" ignored="false" />
     <file path="/ParametersRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373014458841" ignored="false" />
-    <file path="/personalCabinet.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373558751008" ignored="false" />
+    <file path="/personalCabinet.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373987759449" ignored="false" />
     <file path="/wizard.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373373182481" ignored="false" />
     <file path="/userData.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373027464384" ignored="false" />
     <file path="/jpa-context.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373457937815" ignored="false" />
     <file path="/parameters.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373037056837" ignored="false" />
-    <file path="/offers.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373557969914" ignored="false" />
+    <file path="/offers.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373986571305" ignored="false" />
     <file path="/RealtyOfferRepository.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373447675241" ignored="false" />
     <file path="/carousell.xhtml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373042069546" ignored="false" />
     <file path="/SendManService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373385645597" ignored="false" />
     <file path="/ISendManService.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373385511254" ignored="false" />
     <file path="$PROJECT_DIR$/target/generated-sources/annotations/com/dmytro/realty/domain/RealtyParameters_.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373357748794" ignored="false" />
-    <file path="/PersonalCabinetBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373558207363" ignored="false" />
+    <file path="/PersonalCabinetBean.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373986137270" ignored="false" />
     <file path="$USER_HOME$/git/jamal/mrsadmin/src/main/java/com/samsung/mrsadmin/data/filtering/Filter.java" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373441227612" ignored="false" />
     <file path="/log4j.xml" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373452596958" ignored="false" />
     <file path="/log4j.properties" changelist="a34abdf3-b190-4ece-9645-32a790cdc55f" time="1373452770739" ignored="false" />
@@ -160,26 +168,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="offers.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="49" selection-start="657" selection-end="657" vertical-scroll-proportion="-9.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personalCabinet.xhtml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="personalCabinet.xhtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="75" selection-start="1733" selection-end="1733" vertical-scroll-proportion="-44.307693">
+            <state line="91" column="87" selection-start="3790" selection-end="3790" vertical-scroll-proportion="0.081850536">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cabinet-flow.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml">
+      <file leaf-file-name="paymoney.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/paymoney.xhtml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -187,19 +186,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RealtyUser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java">
+      <file leaf-file-name="userData.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/userData.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+            <state line="11" column="42" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonalCabinetBean.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java">
+      <file leaf-file-name="wizard.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/wizard.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="71" selection-start="952" selection-end="952" vertical-scroll-proportion="0.6122449">
+            <state line="36" column="99" selection-start="1809" selection-end="1954" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -228,21 +227,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/ISendManService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/SendManService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyTeam.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/cabinet-flow.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/RealtyOfferRepository.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/data/repository/CriteriaRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/IUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/wizard.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/userData.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml" />
       </list>
     </option>
@@ -351,7 +350,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -764,6 +762,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealtyService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1023,6 +1077,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1049,6 +1104,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/blog" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/icons" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.dmytro.realty.domain" />
@@ -1258,7 +1316,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1926" height="1057" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6703645" order="3" side_tool="false" content_ui="tabs" />
@@ -1270,10 +1328,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2534685" sideWeight="0.60153675" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26467448" sideWeight="0.67069155" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.60153675" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.32491767" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1920" y="181" width="1600" height="899" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.67069155" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.32491767" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1920" y="181" width="1600" height="899" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="97" y="100" width="1086" height="577" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1350,47 +1408,23 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="59" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.6421174">
+        <state line="9" column="46" selection-start="257" selection-end="257" vertical-scroll-proportion="0.18367347">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="-1.7142857">
+        <state line="76" column="5" selection-start="3201" selection-end="3201" vertical-scroll-proportion="0.5995397">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/controller/RealtyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="57" selection-start="1437" selection-end="1437" vertical-scroll-proportion="0.19217491">
-          <folding>
-            <element signature="e#2294#2510#0" expanded="true" />
-            <element signature="e#2495#2496#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="49" selection-start="657" selection-end="657" vertical-scroll-proportion="-9.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="75" selection-start="1733" selection-end="1733" vertical-scroll-proportion="-44.307693">
+        <state line="59" column="5" selection-start="2752" selection-end="2752" vertical-scroll-proportion="0.0057537397">
           <folding />
         </state>
       </provider>
@@ -1402,9 +1436,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/jpa-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/compress.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="216" selection-end="216" vertical-scroll-proportion="0.23076923" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/domain/RealtyOffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="37" selection-start="2569" selection-end="2569" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/offers.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="31" selection-start="824" selection-end="824" vertical-scroll-proportion="-10.384615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/web/flow/jsf/PersonalCabinetBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="71" selection-start="952" selection-end="952" vertical-scroll-proportion="0.6122449">
+        <state line="33" column="51" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/service/implementation/RealtyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="14" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dmytro/realty/engine/RealtyEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="59" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.6271576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/userData.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/bricks/paymoney.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/cabinet/personalCabinet.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="87" selection-start="3790" selection-end="3790" vertical-scroll-proportion="0.081850536">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/flows/home/bricks/wizard.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="99" selection-start="1809" selection-end="1954" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
