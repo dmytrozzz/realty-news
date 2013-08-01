@@ -38,6 +38,8 @@ public class MirKvartirRequestBuilder extends ARealtyRequestBuilder {
 
     @Override
     protected String location(Product.Location location) {
+        if(location == Product.Location.ALL)
+            return "";
         return "&slist=" + location.getMirKvartirIndex();
     }
 

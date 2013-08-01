@@ -24,7 +24,6 @@ public abstract class AbstractJsoupProxyRealtyParser implements IRealtyParser {
             throws RealtyUnparsebleException {
         List<String> links = new LinkedList<>();
         parseRequest(getSource(request), links);
-        System.out.println(links);
         return links;
     }
 
@@ -65,7 +64,7 @@ public abstract class AbstractJsoupProxyRealtyParser implements IRealtyParser {
     public Document getSource(String request) throws RealtyUnparsebleException {
         try {
             URI uri = new URI(request);
-            return Jsoup.parse(uri.toURL(), 20000);
+            return Jsoup.parse(uri.toURL(), 15000);
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
             throw new RealtyUnparsebleException("Can't parse the link: "

@@ -6,6 +6,7 @@ import com.dmytro.realty.engine.SendMan;
 import com.dmytro.realty.service.ISendManService;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service("sendManService")
@@ -20,6 +21,7 @@ public class SendManService implements ISendManService {
      */
     public void sendNews(List<RealtyOffer> newRealtyOffers,
                          String... emails) {
+        System.out.println("Sending " + newRealtyOffers.size() + " offers to: " + Arrays.deepToString(emails));
         if (!newRealtyOffers.isEmpty() && emails.length > 0) {
             sendMan.createMessage(newRealtyOffers);
             sendMan.addRecipients(emails);

@@ -46,5 +46,4 @@ public class RioRealtyParser extends AbstractJsoupProxyRealtyParser {
         return document.getElementsByAttributeValue("class",
                 "box-panel rocon description-view").text();
     }
-
 }

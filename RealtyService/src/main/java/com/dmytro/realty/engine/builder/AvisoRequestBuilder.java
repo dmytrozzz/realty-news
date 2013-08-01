@@ -32,6 +32,8 @@ public class AvisoRequestBuilder extends ARealtyRequestBuilder {
 
     @Override
     protected String location(Product.Location location) {
+        if (location == Product.Location.ALL)
+            return "";
         return "&distr=" + location.getAvisoIndex();
     }
 

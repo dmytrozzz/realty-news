@@ -15,7 +15,7 @@ public class RealtyTeam {
 
     private Map<Long, LinkedList<String>> criteriaMap = new HashMap<>();
 
-    private RealtyTeam(ARealtyRequestBuilder converter, IRealtyParser parser) {
+    public RealtyTeam(ARealtyRequestBuilder converter, IRealtyParser parser) {
         this.criteriaConverter = converter;
         this.realtyParser = parser;
         this.realtyParser.setRequestBuilder(converter);
@@ -27,7 +27,7 @@ public class RealtyTeam {
 
         String request = criteriaConverter.buildRequest(criteria);
 
-        System.out.println(request);
+        System.out.println("Criteria request: " + request);
 
         return grabRealtyOffers(request, criteria);
     }
@@ -40,25 +40,25 @@ public class RealtyTeam {
      */
     @SuppressWarnings("unchecked")
     private List<RealtyOffer> grabRealtyOffers(String request, RealtyCriteria criteria) throws RealtyUnparsebleException {
+        List<String> oldLinks = criteriaMap.get(criteria.getId());
+
+        List<String> parsedLinks = realtyParser.parseRequest(request);
+        System.out.println("=== Found " + parsedLinks.size() + " links! " + parsedLinks);
+
+        Collection<String> newLinks = CollectionUtils.disjunction(oldLinks, CollectionUtils.union(oldLinks, parsedLinks));
+        System.out.println("=== Found " + newLinks.size() + " new links! " + newLinks);
 
         List<RealtyOffer> newOffers = new LinkedList<>();
 
-        List<String> oldLinks = criteriaMap.get(criteria.getId());
-        List<String> parsedLinks = null;
-        Collection<String> newLinks = null;
-
-        parsedLinks = realtyParser.parseRequest(request);
-
-        newLinks = CollectionUtils.disjunction(oldLinks, CollectionUtils.union(oldLinks, parsedLinks));
-
-
-        if (parsedLinks != null && newLinks != null && newLinks.size() > 0) {
+        if (newLinks.size() > 0) {
             oldLinks.clear();
             oldLinks.addAll(parsedLinks);
+            System.out.print("Parsed ... ");
             for (String newOfferLink : newLinks) {
                 try {
                     RealtyOffer offer = realtyParser.parseOffer(newOfferLink);
-                    //TODO offer.setRealtyCriteria(criteria);
+                    System.out.print(offer.getLink() + " ... ");
+                    offer.setRealtyCriteria(criteria);
                     newOffers.add(offer);
                 } catch (RealtyUnparsebleException rue) {
                     rue.printStackTrace();
@@ -68,22 +68,8 @@ public class RealtyTeam {
         return newOffers;
     }
 
-    public static List<RealtyTeam> createTeams() {
-        List<RealtyTeam> realtyTeams = new LinkedList<>();
-        // Slando
-        realtyTeams.add(new RealtyTeam(new SlandoRequestBuilder(), new SlandoRealtyParser()));
-
-        // Aviso
-        realtyTeams.add(new RealtyTeam(new AvisoRequestBuilder(), new AvisoRealtyParser()));
-
-        // Rio
-        realtyTeams.add(new RealtyTeam(new RioRequestBuilder(), new RioRealtyParser()));
-
-        // Realtor
-        realtyTeams.add(new RealtyTeam(new RealtorRequestBuilder(), new RealtorRealtyParser()));
-
-        // MirKvartir
-        realtyTeams.add(new RealtyTeam(new MirKvartirRequestBuilder(), new MirKvartirRealtyParser()));
-        return realtyTeams;
+    @Override
+    public String toString() {
+        return realtyParser.getClass().getSimpleName();
     }
 }

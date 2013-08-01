@@ -1,5 +1,6 @@
 package com.dmytro.realty.engine.parser;
 
+import com.dmytro.realty.service.implementation.RealtyService;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.jsoup.nodes.Document;
@@ -75,4 +76,24 @@ public class SlandoRealtyParser extends AbstractJsoupProxyRealtyParser {
     protected String parseContent(Document document) {
         return document.getElementsByAttributeValue("class", OFFER_CONTENT_CLASS).text();
     }
+
+//    @Override
+//    public Document getSource(String request) throws RealtyUnparsebleException {
+//        Document document = null;
+//        System.setProperty("http.proxyHost", RealtyService.proxy.getAddress());
+//        System.setProperty("http.proxyPort", RealtyService.proxy.getPort() + "");
+//        for (int i = 0; i < 5; i++)
+//            try {
+//                document = super.getSource(request);
+//                break;
+//            } catch (RealtyUnparsebleException rue) {
+//                continue;
+//            }
+//        System.setProperty("http.proxyHost", "");
+//        System.setProperty("http.proxyPort", "");
+//        if (document == null)
+//            throw new RealtyUnparsebleException("Slando proxy error");
+//        else
+//            return document;
+//    }
 }

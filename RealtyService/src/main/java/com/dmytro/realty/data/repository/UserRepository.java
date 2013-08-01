@@ -25,6 +25,6 @@ public interface UserRepository extends CrudRepository<RealtyUser, Long> {
     RealtyUser findByLoginAndEmail(String login, String email);
 
     @Query(value = "select email from realty_user where payed = true and enabled = true and subscribed = true and id in (select distinct user_id from news_feed where criteria_id = :criteriaId)", nativeQuery = true)
-    String[] findSubscribers(@Param("criteriaId") long criteriaId);
+    List<String> findSubscribers(@Param("criteriaId") long criteriaId);
 
 }

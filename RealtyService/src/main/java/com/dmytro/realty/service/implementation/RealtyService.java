@@ -14,6 +14,7 @@ import com.dmytro.realty.service.ISendManService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service("realtyService")
@@ -54,7 +55,11 @@ public class RealtyService implements IRealtyService {
         try {
             List<RealtyOffer> resultOffers = realtyEngine.searchByCriteria(criteria);
             offerRepository.save(resultOffers);
-            sendManService.sendNews(resultOffers, userService.findSubscribers(criteria.getId()));
+            List<String> subscribersList = userService.findSubscribers(criteria.getId());
+            String[] subscribers = new String[subscribersList.size()];
+            subscribersList.toArray(subscribers);
+            System.out.println(Arrays.deepToString(subscribers));
+            sendManService.sendNews(resultOffers, subscribers);
         } catch (RealtyUnparsebleException e) {
             System.out.println(e.getMessage());
             proxy.setFailures(proxy.getFailures() + 1);
@@ -70,7 +75,7 @@ public class RealtyService implements IRealtyService {
 //        user.setEmail("d.zonov@ukr.net");
 //
 //        RealtyUser user2 = new RealtyUser();
-//        user2.setEmail("Vados77777@bigmir.net");
+//        user2.setEmail("domestic_demon@rambler.ru");
 //
 //        RealtyEngine engine = new RealtyEngine();
 //        while (true) {

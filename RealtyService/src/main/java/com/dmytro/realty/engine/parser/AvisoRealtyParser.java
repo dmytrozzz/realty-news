@@ -9,30 +9,6 @@ import java.util.List;
 
 public class AvisoRealtyParser extends AbstractJsoupProxyRealtyParser {
     public static String OFFER = "line_ads white";
-    public static String OFFER_LINK_CLASS = "link linkWithHash detailsLink {clickerID:'ads_title'}";
-    public static String OFFER_PRICE_CLASS = "xxxx-large lheight24 margintop7 block not-arranged";
-    public static String OFFER_CONTENT_CLASS = "margintop10 lheight20 large marginright40";
-    public static String OFFER_CONTACT_CLASS = "block brkword lheight16";
-
-    @Override
-    public Document getSource(String request) throws RealtyUnparsebleException {
-        Document document = null;
-        System.setProperty("http.proxyHost", RealtyService.proxy.getAddress());
-        System.setProperty("http.proxyPort", RealtyService.proxy.getPort() + "");
-        for (int i = 0; i < 5; i++)
-            try {
-                document = super.getSource(request);
-                break;
-            } catch (RealtyUnparsebleException rue) {
-                continue;
-            }
-        System.setProperty("http.proxyHost", "");
-        System.setProperty("http.proxyPort", "");
-        if (document == null)
-            throw new RealtyUnparsebleException("Slando proxy error");
-        else
-            return document;
-    }
 
     @Override
     public void parseRequest(Document document, List<String> links)

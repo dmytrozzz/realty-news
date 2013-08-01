@@ -1,9 +1,9 @@
 package com.dmytro.realty.engine;
 
-import com.dmytro.realty.domain.Product;
 import com.dmytro.realty.domain.RealtyCriteria;
 import com.dmytro.realty.domain.RealtyOffer;
-import com.dmytro.realty.engine.parser.RealtyUnparsebleException;
+import com.dmytro.realty.engine.builder.*;
+import com.dmytro.realty.engine.parser.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,21 +13,20 @@ public class RealtyEngine {
     private List<RealtyTeam> realtyTeams = new LinkedList<>();
 
     public RealtyEngine() {
-        realtyTeams.addAll(RealtyTeam.createTeams());
+        // Slando
+        realtyTeams.add(new RealtyTeam(new SlandoRequestBuilder(), new SlandoRealtyParser()));
 
-    }
+        // Aviso
+        realtyTeams.add(new RealtyTeam(new AvisoRequestBuilder(), new AvisoRealtyParser()));
 
-    private static RealtyCriteria criteria(Product.Type type, int fromP, int toP, int fromR, int toR, Product.Operation oper) {
-        RealtyCriteria realtyCriteria = new RealtyCriteria();
-        realtyCriteria.setProductType(type);
-        realtyCriteria.getParameters().setFromPrice(fromP);
-        realtyCriteria.getParameters().setToPrice(toP);
+        // Rio
+        realtyTeams.add(new RealtyTeam(new RioRequestBuilder(), new RioRealtyParser()));
 
-        realtyCriteria.getParameters().setFromRooms(fromR);
-        realtyCriteria.getParameters().setToRooms(toR);
+        // Realtor
+        realtyTeams.add(new RealtyTeam(new RealtorRequestBuilder(), new RealtorRealtyParser()));
 
-        realtyCriteria.setOperation(oper);
-        return realtyCriteria;
+        // MirKvartir
+        realtyTeams.add(new RealtyTeam(new MirKvartirRequestBuilder(), new MirKvartirRealtyParser()));
     }
 
     /**
@@ -38,8 +37,10 @@ public class RealtyEngine {
     public List<RealtyOffer> searchByCriteria(RealtyCriteria criteria) throws RealtyUnparsebleException {
         List<RealtyOffer> resultOffers = new ArrayList<>();
         for (RealtyTeam team : realtyTeams) {
+            System.out.println("\n\r============================================== Scanning by: " + team + " ==============================================\n\r");
             try {
-                resultOffers.addAll(team.collectOffers(criteria));
+                List<RealtyOffer> realtyOffers = team.collectOffers(criteria);
+                resultOffers.addAll(realtyOffers);
             } catch (RealtyUnparsebleException rue) {
                 rue.printStackTrace();
             }
